@@ -20,6 +20,8 @@ public class Dreieck extends Param
     this.col = col;
   }
   
+  //TODO Parametrisierung
+  
   @Override
   public float x(float u, float v)
   {
