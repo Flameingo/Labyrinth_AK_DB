@@ -3,7 +3,7 @@ abstract class Objekt
 {
   // Variablen
   
-  private float x, y, z, alpha, beta, gamma;
+  protected float x, y, z, alpha, beta, gamma;
   
   // Funktionen
   abstract void step();
@@ -15,6 +15,6 @@ abstract class Objekt
   void destroy()
   {
     /// Objekt wird nicht mehr gebraucht und aus dem Programm entfernt.
-    // TODO objekt aus array in Labyrinth löschen.
+    // TODO objekt aus array in Labyrinth lï¿½schen.
   }
 }

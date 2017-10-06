@@ -6,21 +6,20 @@ public class Dreieck extends Param
   private float[] p2;
   private float[] p3;
   
-  public Dreieck(float[] p1, float[] p2, float[] p3)
+  public Dreieck(float[] p1, float[] p2, float[] p3, float[] col)
   {
-    super(1, 1, 1, 0, 1, 0, 1);
+    super(1, 1, 1, 0, 1, 0, 1, col);
     this.p1 = p1;
     this.p2 = p2;
     this.p3 = p3;
   }
   
-  public Dreieck(float[] p1, float[] p2, float[] p3, float[] col)
+  public Dreieck(float[] p1, float[] p2, float[] p3)
   {
-    this(p1,p2,p3);
-    this.col = col;
+    this(p1, p2, p3, new float[] { 1, 1, 1 });
   }
   
-  //TODO Parametrisierung
+  // TODO Parametrisierung
   
   @Override
   public float x(float u, float v)

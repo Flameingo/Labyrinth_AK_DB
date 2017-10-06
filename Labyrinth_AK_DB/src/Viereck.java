@@ -19,7 +19,7 @@ public class Viereck extends Param
   public Viereck(float[] p1, float[] p2, float[] p3, float[] p4, float[] col)
   {
     this(p1, p2, p3, p4);
-    this.col = col;
+   //TODO col
   }
   
   @Override

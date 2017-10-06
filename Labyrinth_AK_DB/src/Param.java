@@ -12,13 +12,13 @@ abstract class Param
 {
   // private Variablen
   
-  float  xscl, yscl, zscl;
-  float  u_l, u_r, v_l, v_r;
-  float  u_i, v_j, u_i_1, v_j_1;
-  int    m, n;
-  float  delta_u, delta_v;
+  private float   xscl = 1, yscl = 1, zscl = 1;
+  private float   u_l, u_r, v_l, v_r;
+  private float   u_i, v_j, u_i_1, v_j_1;
+  private int     m, n;
+  private float   delta_u, delta_v;
   
-  float[] col = {1,1,1};
+  private float[] col  = { 1, 1, 1 };
   
   public Param(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2)
   {
@@ -33,6 +33,12 @@ abstract class Param
     n = 30;
     delta_u = (u_r - u_l) / m;
     delta_v = (v_r - v_l) / n;
+  }
+  
+  public Param(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2, float[] col)
+  {
+    this(xscl, yscl, zscl, u1, u2, v1, v2);
+    this.col = col;
   }
   
   public void draw()
@@ -56,10 +62,10 @@ abstract class Param
         v_j_1 = v_j + delta_v;
         
         glBegin(GL_TRIANGLE_FAN);
-        glVertex3f(x(u_i, v_j), y(u_i, v_j), z(u_i, v_j));
-        glVertex3f(x(u_i_1, v_j), y(u_i_1, v_j), z(u_i_1, v_j));
-        glVertex3f(x(u_i_1, v_j_1), y(u_i_1, v_j_1), z(u_i_1, v_j_1));
-        glVertex3f(x(u_i, v_j_1), y(u_i, v_j_1), z(u_i, v_j_1));
+        glVertex3f(xscl * x(u_i, v_j), yscl * y(u_i, v_j), zscl * z(u_i, v_j));
+        glVertex3f(xscl * x(u_i_1, v_j), yscl * y(u_i_1, v_j), zscl * z(u_i_1, v_j));
+        glVertex3f(xscl * x(u_i_1, v_j_1), yscl * y(u_i_1, v_j_1), zscl * z(u_i_1, v_j_1));
+        glVertex3f(xscl * x(u_i, v_j_1), yscl * y(u_i, v_j_1), zscl * z(u_i, v_j_1));
         glEnd();
       }
     }
