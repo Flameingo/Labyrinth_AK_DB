@@ -23,7 +23,7 @@ public class BacksteinWand extends Wand
     this.alpha=alpha;
     this.beta=beta;
     this.gamma=gamma;
-   
+    this.laenge=laenge;
     
   }
   
