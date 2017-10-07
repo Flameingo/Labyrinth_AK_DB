@@ -1,6 +1,6 @@
 
 //Imports
-import static org.lwjgl.glfw.GLFW.*; // für keyboard
+import static org.lwjgl.glfw.GLFW.*; // fï¿½r keyboard
 import java.nio.FloatBuffer;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
@@ -10,29 +10,46 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Labyrinth
 {
+  // Hauptklasse, initialisiert und steuert das Spiel
   // private Variablen
-  Objekt[]      objekte = {};
+  private Objekt[]      objekte = {};
   
-  FloatBuffer   fb      = BufferUtils.createFloatBuffer(16);
-  Matrix4f      m       = new Matrix4f();
+  private FloatBuffer   fb      = BufferUtils.createFloatBuffer(16);
+  private Matrix4f      m       = new Matrix4f();
   
-  float[]       eye     = { 5, 0, 0 };
-  final float[] up      = { 0, 1, 0 };
+  private float[]       eye     = { 5, 0, 0 };
+  private final float[] up      = { 0, 1, 0 };
   
-  public int[]  keys    = {};
+  public int[]          keys    = {};
   
   public Labyrinth()
   {
-    
+    addObject(new Spawner());
   }
   
-  private void addObject(Objekt objekt)
+  public void addObject(Objekt objekt)
   {
-    Objekt[] newBodys = new Objekt[objekte.length + 1];
+    Objekt[] newObjects = new Objekt[objekte.length + 1];
     for (int i = 0; i < objekte.length; i++)
-      newBodys[i] = objekte[i];
-    newBodys[objekte.length] = objekt;
-    objekte = newBodys;
+      newObjects[i] = objekte[i];
+    newObjects[objekte.length] = objekt;
+    objekte = newObjects;
+  }
+  
+  public void deleteObject(Object objekt)
+  {
+    Objekt[] newObjects = new Objekt[objekte.length - 1];
+    int j = 0;
+    for (int i = 0; i < objekte.length; i++)
+    {
+      if (objekte[i] != objekt)
+      {
+        newObjects[j] = objekte[i];
+        j++;
+        if (j >= objekte.length) return;
+      }
+    }
+    objekte = newObjects;
   }
   
   private boolean keyCheck(int key)
