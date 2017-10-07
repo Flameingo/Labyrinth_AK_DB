@@ -10,6 +10,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Labyrinth
 {
+  //Hauptklasse, initialisiert und steuert das Spiel
   // private Variablen
   Objekt[]      objekte = {};
   
