@@ -29,7 +29,7 @@ public class BacksteinWand extends Wand
     
       glTranslatef(this.x,this.y,this.z);
       glRotatef(1,alpha, beta, gamma);
-      
+      draw();
       
     glPopMatrix();
     
@@ -40,8 +40,49 @@ public class BacksteinWand extends Wand
   @Override
   void draw()
   {
-    // TODO Auto-generated method stub
+    glColor3f(0.5f,0.5f,0.5f);
     
+    glBegin(GL_POLYGON); //Die Vorderseite.
+      glVertex3f(0,0,0);
+      glVertex3f(this.x,0,0);
+      glVertex3f(this.x,this.y,0);
+      glVertex3f(0,this.y,0);
+    glEnd();
+     
+    glBegin(GL_POLYGON); //Die linke Seite.
+       glVertex3f(0,0,0);
+       glVertex3f(0,this.y,0);
+       glVertex3f(0,this.y,this.z);
+       glVertex3f(0,0,this.z);
+    glEnd();
+    
+    glBegin(GL_POLYGON); //Die untere Seite.
+      glVertex3f(0,0,0);
+      glVertex3f(0,0,this.z);
+      glVertex3f(this.x,0,this.z);
+      glVertex3f(this.x,0,0);
+    glEnd();
+    
+    glBegin(GL_POLYGON); //Die rechte Seite.
+      glVertex3f(this.x,0,0);
+      glVertex3f(this.x,0,this.z);
+      glVertex3f(this.x,this.y,this.z);
+      glVertex3f(this.x,this.y,0);
+    glEnd();
+     
+    glBegin(GL_POLYGON); //Die Hinterseite.
+      glVertex3f(0,0,this.z);
+      glVertex3f(0,this.y,this.z);
+      glVertex3f(this.x,this.y,this.z);
+      glVertex3f(this.x,0, this.z);
+    glEnd();
+    
+    glBegin(GL_POLYGON); //Die obere Seite.
+      glVertex3f(0,this.y,0);
+      glVertex3f(this.x,this.y,0);
+      glVertex3f(this.x,this.y,this.z);
+      glVertex3f(0,this.y,this.z);
+    glEnd();
   }
 
   @Override

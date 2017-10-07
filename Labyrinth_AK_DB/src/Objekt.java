@@ -1,9 +1,11 @@
+import static org.lwjgl.opengl.GL11.*;
+
 
 abstract class Objekt
 {
   // Variablen
   
-  private float x, y, z, alpha, beta, gamma;
+  protected float x, y, z, alpha, beta, gamma;
   
   // Funktionen
   abstract void step();
