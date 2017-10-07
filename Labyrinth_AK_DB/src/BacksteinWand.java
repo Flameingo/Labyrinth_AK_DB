@@ -13,6 +13,8 @@ public class BacksteinWand extends Wand
   private static float dicke = 0.2f;
   private static float hoehe = 0.5f;
   
+  
+  
   BacksteinWand(float x, float y, float z, float alpha, float beta, float gamma, float laenge)
   {
     this.x=x;
