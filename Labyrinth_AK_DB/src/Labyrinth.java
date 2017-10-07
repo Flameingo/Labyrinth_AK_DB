@@ -10,6 +10,9 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Labyrinth
 {
+  
+  
+  
   // Hauptklasse, initialisiert und steuert das Spiel
   // private Variablen
   private Objekt[]      objekte = {};
@@ -79,6 +82,7 @@ public class Labyrinth
   
   public void renderLoop()
   {
+    
     float eing = (float) (Math.PI / 180);
     float temp = (float) (eye[0] * Math.cos(eing) + eye[2] * Math.sin(eing));
     eye[2] = (float) (eye[0] * -Math.sin(eing) + eye[2] * Math.cos(eing));
