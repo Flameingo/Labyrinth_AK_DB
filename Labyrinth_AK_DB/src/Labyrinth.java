@@ -1,6 +1,6 @@
 
 //Imports
-import static org.lwjgl.glfw.GLFW.*; // für keyboard
+import static org.lwjgl.glfw.GLFW.*; // fï¿½r keyboard
 import java.nio.FloatBuffer;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
