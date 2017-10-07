@@ -16,7 +16,7 @@ public class Main
   // The window handle
   private long    window;
   
-  private Labyrinth scene       = new Labyrinth();
+  public static Labyrinth labyrinth       = new Labyrinth();
   private int     WIDTH       = (int) (600f * 16f / 9f), HEIGHT = 600;
   
   public void run()
@@ -74,7 +74,7 @@ public class Main
     {
       // We will detect this in our rendering loop
       if (key == GLFW_KEY_ESCAPE && action == GLFW_RELEASE) glfwSetWindowShouldClose(window, true);
-      scene.keyboard(key, action); // weitere Auswertung erfolgt in MyScene
+      labyrinth.keyboard(key, action); // weitere Auswertung erfolgt in MyScene
     });
     
     // Get the resolution of the primary monitor
@@ -126,7 +126,7 @@ public class Main
     // creates the GLCapabilities instance and makes the OpenGL
     // bindings available for use.
     
-    scene.initGLState();
+    labyrinth.initGLState();
     
     // Run the rendering loop until the user has attempted to close
     // the window or has pressed the ESCAPE key.
@@ -137,14 +137,14 @@ public class Main
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       
       // Refresh pressed keys for the scene
-      scene.keys = keyCheck();
+      labyrinth.keys = keyCheck();
       
       double elapsed = System.nanoTime() - currenttime;
       currenttime = System.nanoTime();
       double fps = 1000000000 / elapsed;
       System.out.println(fps);
       
-      scene.renderLoop();
+      labyrinth.renderLoop();
       
       // Swap the color buffers
       glfwSwapBuffers(window);
