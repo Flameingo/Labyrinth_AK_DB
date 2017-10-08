@@ -4,7 +4,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class BacksteinWand extends Wand
 {
-//Dies wird die karge BacksteinWand, es gibt einen Konstruktor ohne Biegung fï¿½r eine gerade Wand
+//Dies wird die karge BacksteinWand, es gibt einen Konstruktor ohne Biegung fuer eine gerade Wand
 //und einen Konstruktor mit Biegung fï¿½r eine gebogene Wand. 
 // Ferner enthï¿½lt jeder Konstruktor Laenge sowie
 //Koordinaten und Rotationswerte.
@@ -46,8 +46,8 @@ public class BacksteinWand extends Wand
   {
     glPushMatrix();
     
-      glTranslatef(this.x,this.y,this.z);
-      glRotatef(1,alpha, beta, gamma);
+      glTranslatef(this.x,this.y,this.z); //Verschiebung auf die übergebene Position
+      glRotatef(1,alpha, beta, gamma); //Drehung mit den übergebenen Winkeln
       this.draw();
       
     glPopMatrix();
@@ -59,7 +59,9 @@ public class BacksteinWand extends Wand
   @Override
   void draw()
   {
-    glColor3f(0.5f,0.5f,0.5f);
+    //Erschafft ein Wandstück mit den Werten 1, 0.5, 0.2.
+    
+    glColor3f(0.5f,0.5f,0.5f); //aktuelle Farbe: grau, noch zu überarbeiten
     
     glBegin(GL_POLYGON); //Die Vorderseite.
       glVertex3f(-this.laenge/2,-hoehe/2,-dicke/2);
