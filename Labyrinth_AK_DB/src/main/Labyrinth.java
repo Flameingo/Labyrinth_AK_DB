@@ -1,3 +1,4 @@
+package main;
 
 //Imports
 import static org.lwjgl.glfw.GLFW.*; // f�r keyboard

@@ -1,3 +1,4 @@
+package params;
 
 public class Dreieck extends Param
 {

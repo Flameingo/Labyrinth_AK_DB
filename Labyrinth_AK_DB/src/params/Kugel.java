@@ -1,3 +1,4 @@
+package params;
 
 public class Kugel extends Param
 {

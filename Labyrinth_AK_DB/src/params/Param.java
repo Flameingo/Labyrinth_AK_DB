@@ -1,3 +1,8 @@
+/* 
+ * Die verschiedenen Parametrisierung im Paket "params" erhalten hier ihre draw()-Funktion.
+*/
+
+package params;
 
 //Imports
 import static org.lwjgl.opengl.GL11.*;
@@ -8,7 +13,7 @@ import java.security.SecureRandom;
 
 import org.lwjgl.BufferUtils; // to create a float buffer in place of the glfloat array
 
-abstract class Param
+public abstract class Param
 {
   // private Variablen
   
