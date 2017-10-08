@@ -1,11 +1,12 @@
+package main;
 import static org.lwjgl.opengl.GL11.*;
 
 
 public class BacksteinWand extends Wand
 {
-//Dies wird die karge BacksteinWand, es gibt einen Konstruktor ohne Biegung für eine gerade Wand
-//und einen Konstruktor mit Biegung für eine gebogene Wand. 
-// Ferner enthält jeder Konstruktor Laenge sowie
+//Dies wird die karge BacksteinWand, es gibt einen Konstruktor ohne Biegung fï¿½r eine gerade Wand
+//und einen Konstruktor mit Biegung fï¿½r eine gebogene Wand. 
+// Ferner enthï¿½lt jeder Konstruktor Laenge sowie
 //Koordinaten und Rotationswerte.
  
   
