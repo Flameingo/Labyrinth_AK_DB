@@ -27,6 +27,18 @@ public class BacksteinWand extends Wand
     this.biegung=0;
   }
   
+  BacksteinWand(float x, float y, float z, float alpha, float beta, float gamma, float laenge, float biegung)
+  {
+    this.x=x;
+    this.y=y;
+    this.z=z;
+    this.alpha=alpha;
+    this.beta=beta;
+    this.gamma=gamma;
+    this.laenge=laenge;
+    this.biegung=biegung;
+  }
+  
   
   @Override
   void step()
@@ -49,46 +61,56 @@ public class BacksteinWand extends Wand
     glColor3f(0.5f,0.5f,0.5f);
     
     glBegin(GL_POLYGON); //Die Vorderseite.
-      glVertex3f(0,0,0);
-      glVertex3f(this.laenge,0,0);
-      glVertex3f(this.laenge,hoehe,0);
-      glVertex3f(0,hoehe,0);
+      glVertex3f(-this.laenge/2,-hoehe/2,-dicke/2);
+      glVertex3f(this.laenge/2,-hoehe/2,-dicke/2);
+      glVertex3f(this.laenge/2,hoehe/2,-dicke/2);
+      glVertex3f(-this.laenge/2,hoehe/2,-dicke/2);
     glEnd();
      
     glBegin(GL_POLYGON); //Die linke Seite.
-       glVertex3f(0,0,0);
-       glVertex3f(0,hoehe,0);
-       glVertex3f(0,hoehe,dicke);
-       glVertex3f(0,0,dicke);
+       glVertex3f(-this.laenge/2,-hoehe/2,-dicke/2);
+       glVertex3f(-this.laenge/2,hoehe/2,-dicke/2);
+       glVertex3f(-this.laenge/2,hoehe/2,dicke/2);
+       glVertex3f(-this.laenge/2,-hoehe/2,dicke/2);
     glEnd();
     
     glBegin(GL_POLYGON); //Die untere Seite.
-      glVertex3f(0,0,0);
-      glVertex3f(0,0,dicke);
-      glVertex3f(this.laenge,0,dicke);
-      glVertex3f(this.laenge,0,0);
+      glVertex3f(-this.laenge/2,-hoehe/2,-dicke/2);
+      glVertex3f(-this.laenge/2,-hoehe/2,dicke/2);
+      glVertex3f(this.laenge/2,-hoehe/2,dicke/2);
+      glVertex3f(this.laenge/2,-hoehe/2,-dicke/2);
     glEnd();
     
     glBegin(GL_POLYGON); //Die rechte Seite.
-      glVertex3f(this.laenge,0,0);
-      glVertex3f(this.laenge,0,dicke);
-      glVertex3f(this.laenge,hoehe,dicke);
-      glVertex3f(this.laenge,hoehe,0);
+      glVertex3f(this.laenge/2,-hoehe/2,-dicke/2);
+      glVertex3f(this.laenge/2,-hoehe/2,dicke/2);
+      glVertex3f(this.laenge/2,hoehe/2,dicke/2);
+      glVertex3f(this.laenge/2,hoehe/2,-dicke/2);
     glEnd();
      
     glBegin(GL_POLYGON); //Die Hinterseite.
-      glVertex3f(0,0,dicke);
-      glVertex3f(0,hoehe,dicke);
-      glVertex3f(this.laenge,hoehe,dicke);
-      glVertex3f(this.laenge,0, dicke);
+      glVertex3f(-this.laenge/2,-hoehe/2,dicke/2);
+      glVertex3f(-this.laenge/2,hoehe/2,dicke/2);
+      glVertex3f(this.laenge/2,hoehe/2,dicke/2);
+      glVertex3f(this.laenge/2,-hoehe/2, dicke/2);
     glEnd();
     
     glBegin(GL_POLYGON); //Die obere Seite.
-      glVertex3f(0,hoehe,0);
-      glVertex3f(this.laenge,hoehe,0);
-      glVertex3f(this.laenge,hoehe,dicke);
-      glVertex3f(0,hoehe,dicke);
+      glVertex3f(-this.laenge/2,hoehe/2,-dicke/2);
+      glVertex3f(this.laenge/2,hoehe/2,-dicke/2);
+      glVertex3f(this.laenge/2,hoehe/2,dicke/2);
+      glVertex3f(-this.laenge/2,hoehe/2,dicke/2);
     glEnd();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   }
 
   @Override
