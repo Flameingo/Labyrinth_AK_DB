@@ -14,7 +14,7 @@ public class Kugel extends Param
   public Kugel(float[] p1, float r, float[] col)
   {
     this(p1, r);
-    //TODO col
+    this.col = col;
   }
   
   @Override

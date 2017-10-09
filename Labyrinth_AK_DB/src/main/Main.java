@@ -1,4 +1,5 @@
 package main;
+
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
@@ -13,12 +14,14 @@ import java.nio.IntBuffer;
 
 public class Main
 {
-  double          currenttime = System.nanoTime();
+  // time is kept track for calculating the framerate
+  double                  currenttime = System.nanoTime();
   // The window handle
-  private long    window;
-  
-  public static Labyrinth labyrinth       = new Labyrinth();
-  private int     WIDTH       = (int) (600f * 16f / 9f), HEIGHT = 600;
+  private long            window;
+  // The Class Labyrinth controls the game
+  public static Labyrinth labyrinth   = new Labyrinth();
+  // setting the window size
+  private int             WIDTH       = (int) (600f * 16f / 9f), HEIGHT = 600;
   
   public void run()
   {
@@ -27,8 +30,7 @@ public class Main
       init();
       loop();
       
-      // Reset all callbacks for the specified GLFW window to NULL and free all
-      // previously set callbacks.
+      // Reset all callbacks for the specified GLFW window to NULL and free all previously set callbacks.
       glfwFreeCallbacks(window);
       
       // Destroy the specified window and its context.
@@ -36,11 +38,9 @@ public class Main
     } finally
     {
       
-      // Destroy all remaining windows, free any allocated resources and set the
-      // library to an uninitialized state.
-      // Once this is called, you must again call glfwInit successfully before
-      // you will be able to use
-      // most GLFW functions.
+      // Destroy all remaining windows, free any allocated resources and set the library to an uninitialized state.
+      // Once this is called, you must again call glfwInit successfully before you will be able to use most GLFW
+      // functions.
       glfwTerminate();
       
       // Free the error callback
@@ -51,26 +51,22 @@ public class Main
   private void init()
   {
     
-    // Setup an error callback. The default implementation will print the error
-    // message in System.err.
+    // Setup an error callback. The default implementation will print the error message in System.err.
     GLFWErrorCallback.createPrint(System.err).set();
     
     // Initialize GLFW. Most GLFW functions will not work before doing this.
     if (!glfwInit()) throw new IllegalStateException("Unable to initialize GLFW");
     
     // Configure our window
-    glfwDefaultWindowHints(); // optional, the current window hints are already
-                              // the default
-    glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden
-                                              // after creation
+    glfwDefaultWindowHints(); // optional, the current window hints are already the default
+    glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // the window will stay hidden after creation
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
     
     // Create the window
     window = glfwCreateWindow(WIDTH, HEIGHT, "Beispiel 1", NULL, NULL);
     if (window == NULL) throw new RuntimeException("Failed to create the GLFW window");
     
-    // Setup a key callback. It will be called every time a key is pressed,
-    // repeated or released.
+    // Setup a key callback. It will be called every time a key is pressed, repeated or released.
     glfwSetKeyCallback(window, (window, key, scancode, action, mods) ->
     {
       // We will detect this in our rendering loop
@@ -84,26 +80,23 @@ public class Main
     // Center our window
     glfwSetWindowPos(window, (vidmode.width() - WIDTH) / 2, (vidmode.height() - HEIGHT) / 2);
     
-    // Make the OpenGL context of the specified window current on the calling
-    // thread.
+    // Make the OpenGL context of the specified window current on the calling thread.
     glfwMakeContextCurrent(window);
     
-    // Set the swap interval for the current OpenGL, i.e. the number of screen
-    // updates
-    // to wait from the time glfwSwapBuffers was called before swapping the
-    // buffers and returning
+    // Set the swap interval for the current OpenGL, i.e. the number of screen updates to wait from the time
+    // glfwSwapBuffers was called before swapping the buffers and returning
     glfwSwapInterval(1);
     
     // Make the window visible
     glfwShowWindow(window);
     
-    // Create a new GLCapabilities instance for the OpenGL context that is
-    // current in the current thread
+    // Create a new GLCapabilities instance for the OpenGL context that is current in the current thread
     GL.createCapabilities();
   }
   
   private int[] keyCheck()
   {
+    /// this function returns an array with all pressed key in the current frame
     int[] key = {};
     for (int i = 32; i <= GLFW_KEY_LAST; i++)
     {
@@ -121,16 +114,14 @@ public class Main
   
   private void loop()
   {
-    // This line is critical for LWJGL's interoperation with GLFW's
-    // OpenGL context, or any context that is managed externally.
-    // LWJGL detects the context that is current in the current thread,
-    // creates the GLCapabilities instance and makes the OpenGL
-    // bindings available for use.
+    // This line is critical for LWJGL's interoperation with GLFW's OpenGL context, or any context that is managed
+    // externally.
+    // LWJGL detects the context that is current in the current thread, creates the GLCapabilities instance and makes
+    // the OpenGL bindings available for use.
     
     labyrinth.initGLState();
     
-    // Run the rendering loop until the user has attempted to close
-    // the window or has pressed the ESCAPE key.
+    // Run the rendering loop until the user has attempted to close the window or has pressed the ESCAPE key.
     while (!glfwWindowShouldClose(window))
     {
       
@@ -140,6 +131,7 @@ public class Main
       // Refresh pressed keys for the scene
       labyrinth.keys = keyCheck();
       
+      // Calculating the framerate
       double elapsed = System.nanoTime() - currenttime;
       currenttime = System.nanoTime();
       double fps = 1000000000 / elapsed;
@@ -150,8 +142,7 @@ public class Main
       // Swap the color buffers
       glfwSwapBuffers(window);
       
-      // Poll for window events. The key callback above will only be
-      // invoked during this call.
+      // Poll for window events. The key callback above will only be invoked during this call.
       glfwPollEvents();
       IntBuffer IntWindowWidth = BufferUtils.createIntBuffer(1);
       IntBuffer IntWindowHeight = BufferUtils.createIntBuffer(1);

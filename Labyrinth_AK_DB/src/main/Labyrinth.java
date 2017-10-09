@@ -11,17 +11,18 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Labyrinth
 {
-  // Hauptklasse, initialisiert und steuert das Spiel
-  // private Variablen
-  private Objekt[]      objekte = {};
+  /// Hauptklasse, initialisiert und steuert das Spiel
+  
+  // Variablen:
+  private Objekt[]      objekte = {};                               // contains all objects that are currently in the game
   
   private FloatBuffer   fb      = BufferUtils.createFloatBuffer(16);
   private Matrix4f      m       = new Matrix4f();
   
-  private float[]       eye     = { 5, 0, 0 };
-  private final float[] up      = { 0, 1, 0 };
+  private float[]       eye     = { 5, 0, 0 };                      // camera origin
+  private final float[] up      = { 0, 1, 0 };                      // defining the camera to be upright
   
-  public int[]          keys    = {};
+  public int[]          keys    = {};                               // every frame, this array is refreshed with all pressed keys at that moment in time
   
   public Labyrinth()
   {

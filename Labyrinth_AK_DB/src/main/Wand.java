@@ -9,5 +9,7 @@ public abstract class Wand extends Objekt
   
   abstract void draw();
   
+  abstract void collision();
+  
   abstract void drawGUI();
 }

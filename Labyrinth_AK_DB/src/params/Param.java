@@ -23,7 +23,7 @@ public abstract class Param
   private int     m, n;
   private float   delta_u, delta_v;
   
-  private float[] col  = { 1, 1, 1 };
+  protected float[] col  = { 1, 1, 1 };
   
   public Param(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2)
   {
