@@ -2,9 +2,12 @@ package main;
 
 import static org.lwjgl.opengl.GL11.*;
 
+import basics.*;
+
 public class BacksteinWand extends Wand
 {
-  // Dies wird die karge BacksteinWand, es gibt einen Konstruktor ohne Biegung f�r eine gerade Wand
+  // Dies wird die karge BacksteinWand, es gibt einen Konstruktor ohne Biegung
+  // f�r eine gerade Wand
   // und einen Konstruktor mit Biegung f�r eine gebogene Wand.
   // Ferner enth�lt jeder Konstruktor Laenge sowie
   // Koordinaten und Rotationswerte.
@@ -13,11 +16,9 @@ public class BacksteinWand extends Wand
   private static float dicke = 0.2f;
   private static float hoehe = 0.5f;
   
-  BacksteinWand(float x, float y, float z, float alpha, float beta, float gamma, float laenge)
+  BacksteinWand(Point pos, float alpha, float beta, float gamma, float laenge)
   {
-    this.x = x;
-    this.y = y;
-    this.z = z;
+    this.pos = pos;
     this.alpha = alpha;
     this.beta = beta;
     this.gamma = gamma;
@@ -25,31 +26,31 @@ public class BacksteinWand extends Wand
     this.biegung = 0;
   }
   
-  BacksteinWand(float x, float y, float z, float alpha, float beta, float gamma, float laenge, float biegung)
+  BacksteinWand(Point pos, float alpha, float beta, float gamma, float laenge, float biegung)
   {
-    this(x, y, z, alpha, beta, gamma, laenge);
+    this(pos, alpha, beta, gamma, laenge);
     this.biegung = biegung;
   }
   
   @Override
-  void step()
+  public void step()
   {
     // TODO Auto-generated method stub
   }
   
   @Override
-  void collision()
+  public void collision()
   {
     // TODO Auto-generated method stub
     
   }
   
   @Override
-  void draw()
+  public void draw()
   {
     glPushMatrix();
     {
-      glTranslatef(this.x, this.y, this.z);
+      glTranslatef(pos.x, pos.y, pos.z);
       // TODO drehen mit alpha, beta, gamma
       glColor3f(0.5f, 0.5f, 0.5f);
       
@@ -100,7 +101,7 @@ public class BacksteinWand extends Wand
   }
   
   @Override
-  void drawGUI()
+  public void drawGUI()
   {
     // TODO Auto-generated method stub
     

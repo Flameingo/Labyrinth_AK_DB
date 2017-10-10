@@ -7,6 +7,8 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
 
+import basics.Point;
+
 import static org.lwjgl.opengl.GL11.*;
 
 public class Labyrinth
@@ -14,22 +16,51 @@ public class Labyrinth
   /// Hauptklasse, initialisiert und steuert das Spiel
   
   // Variablen:
-  private Objekt[]      objekte = {};                               // contains all objects that are currently in the game
+  private static Objekt[]    objekte = {};                               // contains
+                                                                         // all
+                                                                         // objects
+                                                                         // that
+                                                                         // are
+                                                                         // currently
+                                                                         // in
+                                                                         // the
+                                                                         // game
   
-  private FloatBuffer   fb      = BufferUtils.createFloatBuffer(16);
-  private Matrix4f      m       = new Matrix4f();
+  private static FloatBuffer fb      = BufferUtils.createFloatBuffer(16);
+  private static Matrix4f    m       = new Matrix4f();
   
-  private float[]       eye     = { 5, 0, 0 };                      // camera origin
-  private final float[] up      = { 0, 1, 0 };                      // defining the camera to be upright
+  private static Point       eye     = new Point(-5, 0, 0);              // camera
+                                                                         // origin
+  private static final Point up      = new Point(0, 0, 1);               // defining
+  // the
+  // camera
+  // to
+  // be
+  // upright
+  private static Point       lookat  = new Point(0, 0, 0);
   
-  public int[]          keys    = {};                               // every frame, this array is refreshed with all pressed keys at that moment in time
+  public static int[]        keys    = {};                               // every
+                                                                         // frame,
+                                                                         // this
+                                                                         // array
+                                                                         // is
+                                                                         // refreshed
+                                                                         // with
+                                                                         // all
+                                                                         // pressed
+                                                                         // keys
+                                                                         // at
+                                                                         // that
+                                                                         // moment
+                                                                         // in
+                                                                         // time
   
-  public Labyrinth()
+  public static void beginGame()
   {
     addObject(new Spawner());
   }
   
-  public void addObject(Objekt objekt)
+  public static void addObject(Objekt objekt)
   {
     Objekt[] newObjects = new Objekt[objekte.length + 1];
     for (int i = 0; i < objekte.length; i++)
@@ -38,7 +69,7 @@ public class Labyrinth
     objekte = newObjects;
   }
   
-  public void deleteObject(Object objekt)
+  public static void deleteObject(Object objekt)
   {
     Objekt[] newObjects = new Objekt[objekte.length - 1];
     int j = 0;
@@ -54,7 +85,7 @@ public class Labyrinth
     objekte = newObjects;
   }
   
-  private boolean keyCheck(int key)
+  private static boolean keyCheck(int key)
   {
     for (int i = 0; i < keys.length; i++)
     {
@@ -63,7 +94,7 @@ public class Labyrinth
     return false;
   }
   
-  public void initGLState()
+  public static void initGLState()
   {
     glEnable(GL_DEPTH_TEST);
     
@@ -79,13 +110,20 @@ public class Labyrinth
     glClearColor(0, 0, 0, 0); // Set the clear color
   }
   
-  public void renderLoop()
+  public static void setView(Point eye, Point lookat)
   {
-    float eing = (float) (Math.PI / 180);
-    float temp = (float) (eye[0] * Math.cos(eing) + eye[2] * Math.sin(eing));
-    eye[2] = (float) (eye[0] * -Math.sin(eing) + eye[2] * Math.cos(eing));
-    eye[0] = temp;
-    m.setLookAt(eye[0], eye[1], eye[2], 0, 0, 0, up[0], up[1], up[2]);
+    // standard setter
+    Labyrinth.eye = eye;
+    Labyrinth.lookat = lookat;
+  }
+  
+  public static void renderLoop()
+  {
+    // float eing = (float) (Math.PI / 180);
+    // float temp = (float) (eye[0] * Math.cos(eing) + eye[1] * Math.sin(eing));
+    // eye[1] = (float) (eye[0] * -Math.sin(eing) + eye[1] * Math.cos(eing));
+    // eye[0] = temp;
+    m.setLookAt(eye.x, eye.y, eye.z, lookat.x, lookat.y, lookat.z, up.x, up.y, up.z);
     m.get(fb);
     
     glPushMatrix();
@@ -95,7 +133,7 @@ public class Labyrinth
     glPopMatrix();
   }
   
-  public void keyboard(int key, int action)
+  public static void keyboard(int key, int action)
   {
     
   }
