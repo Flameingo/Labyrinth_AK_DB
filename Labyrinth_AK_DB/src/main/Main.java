@@ -147,11 +147,7 @@ public class Main
       // Refresh pressed keys for the scene
       Labyrinth.keys = keyCheck();
       
-      // Calculating the framerate
-      double elapsed = System.nanoTime() - currenttime;
-      currenttime = System.nanoTime();
-      double fps = 1000000000 / elapsed;
-      System.out.println(fps);
+      if (Settings.FPS_ON) framerate();
       
       Labyrinth.renderLoop();
       
@@ -173,6 +169,15 @@ public class Main
       IntWindowWidth.clear();
       IntWindowHeight.clear();
     }
+  }
+  
+  /** Calculates the framerate */
+  private void framerate()
+  {
+    double elapsed = System.nanoTime() - currenttime;
+    currenttime = System.nanoTime();
+    double fps = 1000000000 / elapsed;
+    System.out.println(fps);
   }
   
   private boolean windowSizeChanged(IntBuffer w, IntBuffer h)

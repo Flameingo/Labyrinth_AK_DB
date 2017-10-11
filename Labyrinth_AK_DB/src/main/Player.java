@@ -5,9 +5,11 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Player extends Objekt
 {
+  // This is the player object that controls movement
+  
   // get settings
   private final float spdLR   = Settings.PlayerRotationLeftRight;
-  private final float spdUD   = Settings.PlayerRotationLeftRight;
+  private final float spdUD   = Settings.PlayerRotationUpDown;
   private final float spdMOV  = Settings.PlayerMovementSpeed;
   private final float spdSIDE = Settings.PlayerSideStepSpeed;
   
@@ -35,16 +37,16 @@ public class Player extends Objekt
       case GLFW_KEY_D:
         break;
       case GLFW_KEY_LEFT:
-        camRotate(1, 0);
+        camRotate(spdLR, 0);
         break;
       case GLFW_KEY_RIGHT:
-        camRotate(-1, 0);
+        camRotate(-spdLR, 0);
         break;
       case GLFW_KEY_UP:
-        camRotate(0, 1);
+        if (cam.z < .8) camRotate(0, spdUD);
         break;
       case GLFW_KEY_DOWN:
-        camRotate(0, -1);
+        if (cam.z > -.8) camRotate(0, -spdUD);
         break;
       default:
         break;
@@ -55,27 +57,25 @@ public class Player extends Objekt
     Labyrinth.setView(pos, lookat);
   }
   
-  private void camRotate(int leftright, int updown)
+  private void camRotate(float leftright, float updown)
   {
     // rotates the Point "cam" with the given angles
     // Left - Right:
-    float arc = spdLR * leftright;
-    float temp = (float) (cam.y * Math.cos(arc) + cam.x * Math.sin(arc));
-    cam.x = (float) (cam.y * -Math.sin(arc) + cam.x * Math.cos(arc));
+    float temp = (float) (cam.y * Math.cos(leftright) + cam.x * Math.sin(leftright));
+    cam.x = (float) (cam.y * -Math.sin(leftright) + cam.x * Math.cos(leftright));
     cam.y = temp;
     // Up - Down:
-    arc = spdUD * updown;
-    float xyLength = (float) Math.sqrt(cam.x * cam.x + cam.y * cam.y);
-    temp = (float) (cam.z * Math.cos(arc) + xyLength * Math.sin(arc));
-    float ratio = cam.x / cam.y;
-    // TODO false berechnung
-    cam.x = (float) (cam.x * Math.cos(arc) - cam.z * Math.sin(arc) * ratio);
-    cam.y = (float) (cam.y * Math.cos(arc) - cam.z * Math.sin(arc) / ratio);
+    float xyLength = Math.abs(cam.length("xy"));
+    temp = (float) (cam.z * Math.cos(updown) + xyLength * Math.sin(updown));
+    float arc = (float) Math.atan(cam.x / cam.y);
+    cam.x = (float) (cam.x * Math.cos(updown) - cam.z * Math.sin(updown) * Math.sin(arc));
+    cam.y = (float) (cam.y * Math.cos(updown) - cam.z * Math.sin(updown) * Math.cos(arc));
     cam.z = temp;
     
-    cam.refresh2();
+    // fix rounding errors
+    cam.normalize();
     
-    System.out.println("Laenge: " + Math.sqrt(cam.x * cam.x + cam.y * cam.y + cam.z * cam.z));
+    System.out.println("Vert: " + cam.z);
   }
   
   @Override
