@@ -106,4 +106,12 @@ public class Point
     // negiert den Punkt "a" koordinatenweise
     return mult(a, -1);
   }
+  
+  public void add(float x, float y, int z)
+  {
+    // addiert das gegebene Koordinatentripel zu sich selbst
+    this.x += x;
+    this.y += y;
+    this.z += z;
+  }
 }

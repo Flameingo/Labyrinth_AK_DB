@@ -33,8 +33,10 @@ public class Player extends Objekt
         pos.add(Point.mult(cam, -spdMOV));
         break;
       case GLFW_KEY_A:
+        sidestep(spdSIDE);
         break;
       case GLFW_KEY_D:
+        sidestep(-spdSIDE);
         break;
       case GLFW_KEY_LEFT:
         camRotate(spdLR, 0);
@@ -57,25 +59,42 @@ public class Player extends Objekt
     Labyrinth.setView(pos, lookat);
   }
   
+  /** moves the Player to the side */
+  private void sidestep(float spd)
+  {
+    float dirY = (float) (cam.x * Math.PI);
+    float dirX = (float) (cam.y * -Math.PI);
+    Point dir = new Point(dirX, dirY, 0);
+    dir.normalize();
+    dir.mult(spd);
+    pos.add(dir);
+  }
+  
+  /** rotates the Point "cam" with the given angles */
   private void camRotate(float leftright, float updown)
   {
-    // rotates the Point "cam" with the given angles
     // Left - Right:
-    float temp = (float) (cam.y * Math.cos(leftright) + cam.x * Math.sin(leftright));
-    cam.x = (float) (cam.y * -Math.sin(leftright) + cam.x * Math.cos(leftright));
-    cam.y = temp;
+    if (leftright != 0)
+    {
+      float tempY = (float) (cam.y * Math.cos(leftright) + cam.x * Math.sin(leftright));
+      cam.x = (float) (cam.y * -Math.sin(leftright) + cam.x * Math.cos(leftright));
+      cam.y = tempY;
+    }
     // Up - Down:
-    float xyLength = Math.abs(cam.length("xy"));
-    temp = (float) (cam.z * Math.cos(updown) + xyLength * Math.sin(updown));
-    float arc = (float) Math.atan(cam.x / cam.y);
-    cam.x = (float) (cam.x * Math.cos(updown) - cam.z * Math.sin(updown) * Math.sin(arc));
-    cam.y = (float) (cam.y * Math.cos(updown) - cam.z * Math.sin(updown) * Math.cos(arc));
-    cam.z = temp;
-    
+    if (updown != 0)
+    {
+      float xyLength = cam.length("xy");
+      float tempZ = (float) (cam.z * Math.cos(updown) + xyLength * Math.sin(updown));
+      float arc = (float) Math.atan(cam.x / cam.y);
+      float tempXY = (float) (Math.signum(cam.y) * (xyLength * Math.cos(updown) - cam.z * Math.sin(updown)));
+      cam.x = (float) (tempXY * Math.sin(arc));
+      cam.y = (float) (tempXY * Math.cos(arc));
+      cam.z = tempZ;
+    }
     // fix rounding errors
     cam.normalize();
     
-    System.out.println("Vert: " + cam.z);
+    System.out.println("x: " + cam.x + "\ny: " + cam.y + "\nz: " + cam.z);
   }
   
   @Override
