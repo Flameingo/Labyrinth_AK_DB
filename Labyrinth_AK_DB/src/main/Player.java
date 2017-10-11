@@ -21,6 +21,7 @@ public class Player extends Objekt
   {
     for (int i = 0; i < Labyrinth.keys.length; i++)
     {
+      // bewegungen anhand WASD und arrow-keys einleiten.
       switch (Labyrinth.keys[i])
       {
       case GLFW_KEY_W:
@@ -49,13 +50,14 @@ public class Player extends Objekt
         break;
       }
     }
+    // Kameraposition in Klasse "Labyrinth" aktualisieren.
     Point lookat = Point.add(pos, cam);
     Labyrinth.setView(pos, lookat);
   }
   
   private void camRotate(int leftright, int updown)
   {
-    // rotates the Point cam with the given angles
+    // rotates the Point "cam" with the given angles
     // Left - Right:
     float arc = spdLR * leftright;
     float temp = (float) (cam.y * Math.cos(arc) + cam.x * Math.sin(arc));
@@ -66,11 +68,14 @@ public class Player extends Objekt
     float xyLength = (float) Math.sqrt(cam.x * cam.x + cam.y * cam.y);
     temp = (float) (cam.z * Math.cos(arc) + xyLength * Math.sin(arc));
     float ratio = cam.x / cam.y;
+    // TODO false berechnung
     cam.x = (float) (cam.x * Math.cos(arc) - cam.z * Math.sin(arc) * ratio);
     cam.y = (float) (cam.y * Math.cos(arc) - cam.z * Math.sin(arc) / ratio);
     cam.z = temp;
     
     cam.refresh2();
+    
+    System.out.println("Laenge: " + Math.sqrt(cam.x * cam.x + cam.y * cam.y + cam.z * cam.z));
   }
   
   @Override
