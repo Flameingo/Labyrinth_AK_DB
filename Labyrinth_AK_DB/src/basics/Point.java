@@ -18,12 +18,20 @@ public class Point
     return koords[i];
   }
   
-  private void refresh()
+  public void refresh()
   {
     // aktualisiert die Werte x,y,z aus dem Array koords
     x = koords[0];
     y = koords[1];
     z = koords[2];
+  }
+  
+  public void refresh2()
+  {
+    // aktualisiert die Werte x,y,z aus dem Array koords
+    koords[0] = x;
+    koords[1] = y;
+    koords[2] = z;
   }
   
   public static Point add(Point a, Point b)
@@ -42,6 +50,11 @@ public class Point
     koords[1] += a.y;
     koords[2] += a.z;
     refresh();
+  }
+  
+  public static Point mult(Point a, float mult)
+  {
+    return new Point(mult * a.x, mult * a.y, mult * a.z);
   }
   
   public static Point neg(Point a)

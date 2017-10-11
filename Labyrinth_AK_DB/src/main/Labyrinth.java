@@ -29,7 +29,7 @@ public class Labyrinth
   private static FloatBuffer fb      = BufferUtils.createFloatBuffer(16);
   private static Matrix4f    m       = new Matrix4f();
   
-  private static Point       eye     = new Point(-5, 0, 0);              // camera
+  private static Point       eye     = new Point(5, 0, 0);               // camera
                                                                          // origin
   private static final Point up      = new Point(0, 0, 1);               // defining
   // the
@@ -119,10 +119,11 @@ public class Labyrinth
   
   public static void renderLoop()
   {
-    // float eing = (float) (Math.PI / 180);
-    // float temp = (float) (eye[0] * Math.cos(eing) + eye[1] * Math.sin(eing));
-    // eye[1] = (float) (eye[0] * -Math.sin(eing) + eye[1] * Math.cos(eing));
-    // eye[0] = temp;
+    for (int i = 0; i < objekte.length; i++)
+      objekte[i].step();
+    for (int i = 0; i < objekte.length; i++)
+      objekte[i].collision();
+    
     m.setLookAt(eye.x, eye.y, eye.z, lookat.x, lookat.y, lookat.z, up.x, up.y, up.z);
     m.get(fb);
     
@@ -131,6 +132,9 @@ public class Labyrinth
     for (int i = 0; i < objekte.length; i++)
       objekte[i].draw();
     glPopMatrix();
+    
+    for (int i = 0; i < objekte.length; i++)
+      objekte[i].drawGUI();
   }
   
   public static void keyboard(int key, int action)
