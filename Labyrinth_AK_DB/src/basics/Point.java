@@ -114,4 +114,11 @@ public class Point
     this.y += y;
     this.z += z;
   }
+  
+  @Override
+  public String toString()
+  {
+    return String.format("Point [x= %+.2f , y= %+.2f , z= %+.2f ]", x, y, z);
+  }
+  
 }

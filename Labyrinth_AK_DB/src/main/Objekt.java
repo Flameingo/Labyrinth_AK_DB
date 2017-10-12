@@ -20,7 +20,7 @@ public abstract class Objekt
   public abstract void drawGUI(); // outputs to the (G)raphic (U)ser (I)nterface
                                   // in 2D
   
-  void destroy()
+  public void destroy()
   {
     /// Objekt wird nicht mehr gebraucht und aus dem Programm entfernt.
     Labyrinth.deleteObject(this);

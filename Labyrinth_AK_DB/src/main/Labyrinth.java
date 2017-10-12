@@ -141,4 +141,16 @@ public class Labyrinth
   {
     
   }
+  
+  public static Objekt findInstance(Objekt identifier)
+  {
+    for (int i = 0; i < objekte.length; i++)
+    {
+      if (objekte[i].getClass() == identifier.getClass())
+      {
+        return objekte[i];
+      }
+    }
+    return null;
+  }
 }

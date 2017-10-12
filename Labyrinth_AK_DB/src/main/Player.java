@@ -57,6 +57,8 @@ public class Player extends Objekt
     // Kameraposition in Klasse "Labyrinth" aktualisieren.
     Point lookat = Point.add(pos, cam);
     Labyrinth.setView(pos, lookat);
+    
+    System.out.println(Labyrinth.findInstance(new Player()));
   }
   
   /** moves the Player to the side */
@@ -93,8 +95,6 @@ public class Player extends Objekt
     }
     // fix rounding errors
     cam.normalize();
-    
-    System.out.println("x: " + cam.x + "\ny: " + cam.y + "\nz: " + cam.z);
   }
   
   @Override
@@ -117,5 +117,10 @@ public class Player extends Objekt
     // TODO Auto-generated method stub
     
   }
-  
+
+  @Override
+  public String toString()
+  {
+    return "Player [pos=" + pos + ", cam=" + cam + "]";
+  }
 }
