@@ -95,13 +95,16 @@ public class Player extends Objekt
       float xyLength = cam.length("xy");
       float tempZ = (float) (cam.z * Math.cos(updown) + xyLength * Math.sin(updown));
       float arc = (float) Math.atan(cam.x / cam.y);
-      float tempXY = (float) (Math.signum(cam.y) * (xyLength * Math.cos(updown) - cam.z * Math.sin(updown)));
+      float tempXY = (float) (xyLength * Math.cos(updown) - cam.z * Math.sin(updown));
+      if (cam.y < 0) tempXY *= -1;
       cam.x = (float) (tempXY * Math.sin(arc));
       cam.y = (float) (tempXY * Math.cos(arc));
       cam.z = tempZ;
+      System.out.println(xyLength + " " + arc + " " + tempXY);
     }
     // fix rounding errors
     cam.normalize();
+    System.out.println(this);
   }
   
   @Override
