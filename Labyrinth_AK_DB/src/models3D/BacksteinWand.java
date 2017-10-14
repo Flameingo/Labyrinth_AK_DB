@@ -1,4 +1,4 @@
-package main;
+package models3D;
 
 import static org.lwjgl.opengl.GL11.*;
 

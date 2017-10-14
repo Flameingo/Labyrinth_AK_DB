@@ -1,4 +1,6 @@
-package main;
+package models3D;
+
+import main.Objekt;
 
 public abstract class Wand extends Objekt
 {
