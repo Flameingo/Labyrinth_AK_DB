@@ -5,7 +5,7 @@ import basics.Point;
 public class ZylinderFlaeche extends Param
 {
   
-  public ZylinderFlaeche(float height, float breite1, float breite2, Point pos, float[] rot)
+  public ZylinderFlaeche(float height, float breite1, float breite2)
   {
     super(breite1, breite2, height, 0, (float) (2 * Math.PI), 0, 1);
   }
