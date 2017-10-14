@@ -17,14 +17,32 @@ public abstract class Param
 {
   // private Variablen
   
-  private float   xscl = 1, yscl = 1, zscl = 1;
-  private float   u_l, u_r, v_l, v_r;
-  private float   u_i, v_j, u_i_1, v_j_1;
-  private int     m, n;
-  private float   delta_u, delta_v;
+  private float     xscl = 1, yscl = 1, zscl = 1;
+  private float     u_l, u_r, v_l, v_r;
+  private float     u_i, v_j, u_i_1, v_j_1;
+  private int       m, n;
+  private float     delta_u, delta_v;
   
   protected float[] col  = { 1, 1, 1 };
   
+  /**
+   * Konstruktor ohne Farbe
+   * 
+   * @param xscl
+   *          Skalierung in x-Richtung
+   * @param yscl
+   *          Skalierung in y-Richtung
+   * @param zscl
+   *          Skalierung in z-Richtung
+   * @param u1
+   *          Untere Schranke fuer u
+   * @param u2
+   *          Obere Schranke fuer u
+   * @param v1
+   *          Untere Schranke fuer v
+   * @param v2
+   *          Obere Schranke fuer v
+   */
   public Param(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2)
   {
     this.xscl = xscl;
