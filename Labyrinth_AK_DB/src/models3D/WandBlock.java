@@ -46,6 +46,7 @@ public class WandBlock extends Objekt
    * */
   public WandBlock(float x, float y, float z,float w1, float w2, float w3)
   {
+    
     this.x = x;
     this.y = y;
     this.z = z;

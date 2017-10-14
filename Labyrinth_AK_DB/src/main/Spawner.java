@@ -1,25 +1,31 @@
 package main;
 
 import models3D.BeschaedigteWand;
+import models3D.NeueWand;
 import models3D.Testfigur;
 import models3D.WandBlock;
 import params.*;
 
 public class Spawner extends Objekt
 {
+  
+  public float wandFeld = 5.72f;
+  
+  
   // created once at the start of the game and places all objects that should be
   // in the game at the start.
   /** Alle aufgeführten Objekte werden momentan zu Beginn des Programms aufgerufen und erstellt */
   public Spawner()
   {
-    Labyrinth.addObject(new Testfigur());
+//    Labyrinth.addObject(new Testfigur());
     Labyrinth.addObject(new Player());
-<<<<<<< HEAD
+//<<<<<<< HEAD
     Labyrinth.addObject(new WandBlock(0.1f));
-    Labyrinth.addObject(new BeschaedigteWand(-2.86f,0,0,0,0,0));
-=======
+    Labyrinth.addObject(new BeschaedigteWand(-wandFeld/2,0,0,0,0,0));
+    Labyrinth.addObject(new NeueWand(-wandFeld,0,0,0,0,0));
+//=======
     //Labyrinth.addObject(new WandBlock());
->>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB
+//>>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB
   }
   
   @Override
