@@ -12,7 +12,7 @@ public class Testfigur extends Objekt
   public Testfigur()
   {
     myShape.addParam(new Kugel(1), new Point(0, 0, 3));
-    myShape.addParam(new Quader("Mitte", 5, 2, 2));
+    myShape.addParam(new Quader("Mitte", 5, 2, 2), new Point(0, 0, 0), new float[] { 0, 90, 45 });
   }
   
   @Override

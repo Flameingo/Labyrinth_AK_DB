@@ -11,7 +11,7 @@ public class Spawner extends Objekt
   
   public Spawner()
   {
-    //Labyrinth.addObject(new Testfigur());
+    // Labyrinth.addObject(new Testfigur());
     Labyrinth.addObject(new Player());
     Labyrinth.addObject(new WandBlock());
   }

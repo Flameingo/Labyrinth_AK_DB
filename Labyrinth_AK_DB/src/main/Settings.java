@@ -6,6 +6,7 @@ public final class Settings
   
   // dev settings
   public final static boolean FPS_ON                  = false;
+  public final static boolean DrawPlayerPOS           = false;
   
   /** controls the resolution of all drawn Objects */
   public final static int     RenderSolution          = 5;
@@ -13,6 +14,6 @@ public final class Settings
   public final static float   PlayerRotationLeftRight = (float) (Math.PI / 60);
   public final static float   PlayerRotationUpDown    = (float) (Math.PI / 180);
   
-  public final static float   PlayerMovementSpeed     = .1f;
+  public final static float   PlayerMovementSpeed     = .07f;
   public final static float   PlayerSideStepSpeed     = .05f;
 }

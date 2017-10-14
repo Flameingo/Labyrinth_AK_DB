@@ -58,7 +58,7 @@ public class Player extends Objekt
     Point lookat = Point.add(pos, cam);
     Labyrinth.setView(pos, lookat);
     
-    System.out.println(Labyrinth.findInstance(new Player()));
+    if (Settings.DrawPlayerPOS) System.out.println(Labyrinth.findInstance(new Player()));
   }
   
   /** moves the Player to the side */
@@ -77,6 +77,8 @@ public class Player extends Objekt
    * 
    * @param leftright
    *          dreht die Sicht nach Links / Rechts. Positive Werte drehen nach links.
+   * @param updown
+   *          dreht die Sicht nach Oben / Unten. Positive Werte drehen nach oben.
    */
   private void camRotate(float leftright, float updown)
   {
