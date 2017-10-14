@@ -27,6 +27,12 @@ public abstract class Param
   
   protected float[] col  = { 1, 1, 1 };
   
+  /** placeholder Param for connecting multiple Params into one */
+  public Param()
+  {
+    
+  }
+  
   /**
    * Konstruktor ohne Farbe
    * 
