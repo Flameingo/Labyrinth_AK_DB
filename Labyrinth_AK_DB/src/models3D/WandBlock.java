@@ -26,7 +26,7 @@ public class WandBlock extends Objekt
       for (int i = 0; i<wdlaenge; i++)
       {
          
-            myShape.addParam(new Quader("Ecke", 0.25f, wdbreite, 0.05f), new Point(i*0.26f,0,k*0.06f));
+            myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(i*0.26f,0,k*0.06f));
             
          }
       }
@@ -34,9 +34,9 @@ public class WandBlock extends Objekt
          {
            for (int i = 0; i<wdlaenge-1;i++)
            {
-             myShape.addParam(new Quader("Ecke", 0.125f,wdbreite, 0.05f), new Point(0,0,k*0.06f));
-             myShape.addParam(new Quader("Ecke", 0.125f,wdbreite,0.05f), new Point((wdlaenge-1)*0.26f+0.13f,0,k*0.06f));
-             myShape.addParam(new Quader("Ecke", 0.25f,wdbreite,0.05f), new Point (i*0.26f+0.13f,0,k*0.06f));
+             myShape.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f,0,k*0.06f));
+             myShape.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((wdlaenge-1)*0.26f+0.065f,0,k*0.06f));
+             myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (i*0.26f+0.13f,0,k*0.06f));
            }
       
          }
