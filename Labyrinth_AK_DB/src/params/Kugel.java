@@ -3,18 +3,15 @@ package params;
 public class Kugel extends Param
 {
   
-  private float[] p1;
-  
-  public Kugel(float[] p1, float r)
+  public Kugel(float r)
   {
     super(r, r, r, (float) -Math.PI / 2, (float) Math.PI / 2, (float) -Math.PI, (float) Math.PI);
-    this.p1 = p1;
   }
   
-  public Kugel(float[] p1, float r, float[] col)
+  public Kugel(float r, float[] col)
   {
-    this(p1, r);
-    //TODO col
+    this(r);
+    this.col = col;
   }
   
   @Override

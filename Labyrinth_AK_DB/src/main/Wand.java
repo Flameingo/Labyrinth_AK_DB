@@ -5,9 +5,11 @@ public abstract class Wand extends Objekt
   protected float laenge;
   protected float biegung;
   
-  abstract void step();
+  public abstract void step();
   
-  abstract void draw();
+  public abstract void draw();
   
-  abstract void drawGUI();
+  public abstract void collision();
+  
+  public abstract void drawGUI();
 }
