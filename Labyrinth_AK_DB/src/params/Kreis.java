@@ -1,13 +1,11 @@
 package params;
 
-import basics.Point;
-
-public class ZylinderFlaeche extends Param
+public class Kreis extends Param
 {
   
-  public ZylinderFlaeche(float height, float breite1, float breite2, Point pos, float[] rot)
+  public Kreis(float xscl, float yscl)
   {
-    super(breite1, breite2, height, 0, (float) (2 * Math.PI), 0, 1);
+    super(xscl, yscl, 1, 0, (float) Math.PI * 2, 0, 1);
   }
   
   @Override
@@ -30,7 +28,7 @@ public class ZylinderFlaeche extends Param
   public float z(float u, float v)
   {
     float alpha = 0;
-    float beta = 1;
+    float beta = 0;
     return alpha + v * (beta - alpha);
   }
   

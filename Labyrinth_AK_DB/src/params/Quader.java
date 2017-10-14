@@ -22,7 +22,7 @@ public class Quader extends Param
    */
   public Quader(String kind, float length, float width, float height)
   {
-    super(length, width, height, 0, 1, 0, 1);
+    super();
     Point p1 = new Point(0, 0, 0);
     switch (kind)
     {

@@ -12,10 +12,14 @@ public class Spawner extends Objekt
   /** Alle aufgeführten Objekte werden momentan zu Beginn des Programms aufgerufen und erstellt */
   public Spawner()
   {
-    // Labyrinth.addObject(new Testfigur());
+    Labyrinth.addObject(new Testfigur());
     Labyrinth.addObject(new Player());
+<<<<<<< HEAD
     Labyrinth.addObject(new WandBlock(0.1f));
     Labyrinth.addObject(new BeschaedigteWand(-2.86f,0,0,0,0,0));
+=======
+    //Labyrinth.addObject(new WandBlock());
+>>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB
   }
   
   @Override
