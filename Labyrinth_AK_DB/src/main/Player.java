@@ -5,9 +5,11 @@ import static org.lwjgl.glfw.GLFW.*;
 
 public class Player extends Objekt
 {
+  // This is the player object that controls movement
+  
   // get settings
   private final float spdLR   = Settings.PlayerRotationLeftRight;
-  private final float spdUD   = Settings.PlayerRotationLeftRight;
+  private final float spdUD   = Settings.PlayerRotationUpDown;
   private final float spdMOV  = Settings.PlayerMovementSpeed;
   private final float spdSIDE = Settings.PlayerSideStepSpeed;
   
@@ -31,20 +33,22 @@ public class Player extends Objekt
         pos.add(Point.mult(cam, -spdMOV));
         break;
       case GLFW_KEY_A:
+        sidestep(spdSIDE);
         break;
       case GLFW_KEY_D:
+        sidestep(-spdSIDE);
         break;
       case GLFW_KEY_LEFT:
-        camRotate(1, 0);
+        camRotate(spdLR, 0);
         break;
       case GLFW_KEY_RIGHT:
-        camRotate(-1, 0);
+        camRotate(-spdLR, 0);
         break;
       case GLFW_KEY_UP:
-        camRotate(0, 1);
+        if (cam.z < .8) camRotate(0, spdUD);
         break;
       case GLFW_KEY_DOWN:
-        camRotate(0, -1);
+        if (cam.z > -.8) camRotate(0, -spdUD);
         break;
       default:
         break;
@@ -53,29 +57,44 @@ public class Player extends Objekt
     // Kameraposition in Klasse "Labyrinth" aktualisieren.
     Point lookat = Point.add(pos, cam);
     Labyrinth.setView(pos, lookat);
+    
+    System.out.println(Labyrinth.findInstance(new Player()));
   }
   
-  private void camRotate(int leftright, int updown)
+  /** moves the Player to the side */
+  private void sidestep(float spd)
   {
-    // rotates the Point "cam" with the given angles
+    float dirY = (float) (cam.x * Math.PI);
+    float dirX = (float) (cam.y * -Math.PI);
+    Point dir = new Point(dirX, dirY, 0);
+    dir.normalize();
+    dir.mult(spd);
+    pos.add(dir);
+  }
+  
+  /** rotates the Point "cam" with the given angles */
+  private void camRotate(float leftright, float updown)
+  {
     // Left - Right:
-    float arc = spdLR * leftright;
-    float temp = (float) (cam.y * Math.cos(arc) + cam.x * Math.sin(arc));
-    cam.x = (float) (cam.y * -Math.sin(arc) + cam.x * Math.cos(arc));
-    cam.y = temp;
+    if (leftright != 0)
+    {
+      float tempY = (float) (cam.y * Math.cos(leftright) + cam.x * Math.sin(leftright));
+      cam.x = (float) (cam.y * -Math.sin(leftright) + cam.x * Math.cos(leftright));
+      cam.y = tempY;
+    }
     // Up - Down:
-    arc = spdUD * updown;
-    float xyLength = (float) Math.sqrt(cam.x * cam.x + cam.y * cam.y);
-    temp = (float) (cam.z * Math.cos(arc) + xyLength * Math.sin(arc));
-    float ratio = cam.x / cam.y;
-    // TODO false berechnung
-    cam.x = (float) (cam.x * Math.cos(arc) - cam.z * Math.sin(arc) * ratio);
-    cam.y = (float) (cam.y * Math.cos(arc) - cam.z * Math.sin(arc) / ratio);
-    cam.z = temp;
-    
-    cam.refresh2();
-    
-    System.out.println("Laenge: " + Math.sqrt(cam.x * cam.x + cam.y * cam.y + cam.z * cam.z));
+    if (updown != 0)
+    {
+      float xyLength = cam.length("xy");
+      float tempZ = (float) (cam.z * Math.cos(updown) + xyLength * Math.sin(updown));
+      float arc = (float) Math.atan(cam.x / cam.y);
+      float tempXY = (float) (Math.signum(cam.y) * (xyLength * Math.cos(updown) - cam.z * Math.sin(updown)));
+      cam.x = (float) (tempXY * Math.sin(arc));
+      cam.y = (float) (tempXY * Math.cos(arc));
+      cam.z = tempZ;
+    }
+    // fix rounding errors
+    cam.normalize();
   }
   
   @Override
@@ -98,5 +117,10 @@ public class Player extends Objekt
     // TODO Auto-generated method stub
     
   }
-  
+
+  @Override
+  public String toString()
+  {
+    return "Player [pos=" + pos + ", cam=" + cam + "]";
+  }
 }

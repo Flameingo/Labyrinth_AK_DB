@@ -11,55 +11,37 @@ import basics.Point;
 
 import static org.lwjgl.opengl.GL11.*;
 
+/** Hauptklasse, initialisiert und steuert das Spiel */
 public class Labyrinth
 {
-  /// Hauptklasse, initialisiert und steuert das Spiel
-  
   // Variablen:
-  private static Objekt[]    objekte = {};                               // contains
-                                                                         // all
-                                                                         // objects
-                                                                         // that
-                                                                         // are
-                                                                         // currently
-                                                                         // in
-                                                                         // the
-                                                                         // game
+  /** contains all objects that are currently in the game */
+  private static Objekt[]    objekte = {};
   
   private static FloatBuffer fb      = BufferUtils.createFloatBuffer(16);
   private static Matrix4f    m       = new Matrix4f();
   
-  private static Point       eye     = new Point(5, 0, 0);               // camera
-                                                                         // origin
-  private static final Point up      = new Point(0, 0, 1);               // defining
-  // the
-  // camera
-  // to
-  // be
-  // upright
+  /** camera origin */
+  private static Point       eye     = new Point(5, 0, 0);
+  /** defining the camera to be upright */
+  private static final Point up      = new Point(0, 0, 1);
+  /** center point of the view */
   private static Point       lookat  = new Point(0, 0, 0);
   
-  public static int[]        keys    = {};                               // every
-                                                                         // frame,
-                                                                         // this
-                                                                         // array
-                                                                         // is
-                                                                         // refreshed
-                                                                         // with
-                                                                         // all
-                                                                         // pressed
-                                                                         // keys
-                                                                         // at
-                                                                         // that
-                                                                         // moment
-                                                                         // in
-                                                                         // time
+  /** every frame, this array is refreshed with all pressed keys at that moment in time */
+  public static int[]        keys    = {};
   
   public static void beginGame()
   {
     addObject(new Spawner());
   }
   
+  /**
+   * fuegt ein Objekt in das Array "objekte" ein
+   * 
+   * @param objekt
+   *          Das Objekt, das hinzugefuegt wird
+   */
   public static void addObject(Objekt objekt)
   {
     Objekt[] newObjects = new Objekt[objekte.length + 1];
@@ -69,6 +51,12 @@ public class Labyrinth
     objekte = newObjects;
   }
   
+  /**
+   * entfernt ein Objekt aus dem Array "objekte"
+   * 
+   * @param objekt
+   *          Das Objekt, das entfernt wird
+   */
   public static void deleteObject(Object objekt)
   {
     Objekt[] newObjects = new Objekt[objekte.length - 1];
@@ -85,6 +73,13 @@ public class Labyrinth
     objekte = newObjects;
   }
   
+  /**
+   * ueberprueft, ob eine gegebene Taste gedrueckt ist
+   * 
+   * @param key
+   *          Die Taste, die geprueft wird. Anzugeben als Integer mithilfe der GLFW-Tasten-enums.
+   * @return Ein boolscher Wert, der angibt, ob die Taste gedrueckt ist.
+   */
   private static boolean keyCheck(int key)
   {
     for (int i = 0; i < keys.length; i++)
@@ -94,6 +89,7 @@ public class Labyrinth
     return false;
   }
   
+  /** Initialisiert die Statusmaschine von Open_GL */
   public static void initGLState()
   {
     glEnable(GL_DEPTH_TEST);
@@ -110,13 +106,37 @@ public class Labyrinth
     glClearColor(0, 0, 0, 0); // Set the clear color
   }
   
+  /**
+   * standard setter fuer die Variablen "eye" und "lookat"
+   * 
+   * @param eye
+   *          Kamera-Ursprungspunkt
+   * @param lookat
+   *          Mittelpunkt der Perspektive
+   */
   public static void setView(Point eye, Point lookat)
   {
-    // standard setter
     Labyrinth.eye = eye;
     Labyrinth.lookat = lookat;
   }
   
+  /**
+   * Bringt die Objekte zum Leben.
+   * <p>
+   * Fuer alle Objekte im Array "objekte" werden die Funktionen
+   * <p>
+   * step()
+   * <p>
+   * collision()
+   * <p>
+   * draw()
+   * <p>
+   * drawGUI()
+   * <p>
+   * ausgefuehrt.
+   * <p>
+   * Ausserdem wird die Kameraperspektive aktualisiert.
+   */
   public static void renderLoop()
   {
     for (int i = 0; i < objekte.length; i++)
@@ -137,8 +157,40 @@ public class Labyrinth
       objekte[i].drawGUI();
   }
   
+  /**
+   * Behandelt Tastenanschlaege.
+   * <p>
+   * Wird nur fuer Tastenanschlaege verwendet, nicht fuer das Halten einer Taste. Das Halten wird in der Funktion
+   * keyCheck() behandelt.
+   * 
+   * @param key
+   *          Taste, die gedrueckt wurde.
+   * @param action
+   *          Art des Tastendrucks
+   * @see Labyrinth#keyCheck(int)
+   */
   public static void keyboard(int key, int action)
   {
     
+  }
+  
+  /**
+   * Sucht ein Objekt einer bestimmten Klasse im Array "objekte"
+   * <p>
+   * Damit kann ein Objekt, fuer das man keine Referenz hat, trotzdem referenziert werden. Allerdings sollte nur eine
+   * Instanz des Objekt vorhanden sein, da nur das zuerst gefundene zurueckgegeben wird.
+   * 
+   * @param identifier
+   *          Platzhalter fuer die Klasse, die gesucht wird. Einfach eine leere Instanz der gesuchten Klasse uebergeben,
+   *          zB: findInstance(new GesuchteKlasse());
+   * @return Die Referenz des gesuchten Objekts
+   */
+  public static Objekt findInstance(Objekt identifier)
+  {
+    for (int i = 0; i < objekte.length; i++)
+    {
+      if (objekte[i].getClass() == identifier.getClass()) { return objekte[i]; }
+    }
+    return null;
   }
 }

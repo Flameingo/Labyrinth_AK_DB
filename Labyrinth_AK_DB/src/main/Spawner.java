@@ -12,6 +12,7 @@ public class Spawner extends Objekt
   {
     Labyrinth.addObject(new Testfigur());
     Labyrinth.addObject(new Player());
+    
   }
   
   @Override
