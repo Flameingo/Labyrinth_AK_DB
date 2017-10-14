@@ -9,15 +9,41 @@ import basics.Point;
 
 public class WandBlock extends Objekt
 {
-  
+  /** Anzahl der nebeneinanderliegenden Steine minus 1*/
   protected int wdlaenge = 11;
+  /** Anzahl der übereinanderliegenden Steine minus 1*/
   protected int wdhoehe = 25;
+  /** Definiert die Breite jedes Backsteins der Wand */
   protected float wdbreite = 0.1f;
+  
+  /** Die x,y und z - Koordinaten bestimmen den Standort des Objekts */
   protected float x,y,z;
-  protected float w1,w2,w3;
+  /** w1 beschreibt die Drehung um die z-Achse */
+  protected float w1;
+  /** w2 beschreibt die Drehung um die y-Achse */
+  protected float w2;
+  /** w3 beschreibt die Drehung um die x-Achse */
+  protected float w3;
+  
   protected Shape myShape = new Shape();
   
-  
+  /** 
+   * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
+   * Wird eine der Unterklassen mit 6 Float-Werten aufgerufen, wird eine gerade Wand 
+   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstück um diesen Wert gebogen.
+   * 
+   * @param x x-Koordinate
+   * 
+   * @param y y-Koordinate
+   * 
+   * @param z z-Koordinate
+   * 
+   * @param w1 Winkel für die Drehung um die z-Achse
+   * 
+   * @param w2 Winkel für die Drehung um die y-Achse
+   * 
+   * @param w3 Winkel für die Drehung um die x-Achse
+   * */
   public WandBlock(float x, float y, float z,float w1, float w2, float w3)
   {
     this.x=x;

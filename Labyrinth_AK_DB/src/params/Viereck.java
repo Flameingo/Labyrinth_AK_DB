@@ -10,6 +10,16 @@ public class Viereck extends Param
   private Point p3;
   private Point p4;
   
+  /**
+   * 
+   * @param p1 
+   * 
+   * @param p2
+   * 
+   * @param p3
+   * 
+   * @param p4
+   */
   public Viereck(Point p1, Point p2, Point p3, Point p4)
   {
     super(1, 1, 1, 0, 1, 0, 1);

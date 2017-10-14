@@ -7,6 +7,19 @@ public class Quader extends Param
   
   Param[] seiten = { null, null, null, null, null, null };
   
+  
+  /**
+   * 
+   * 
+   * @param kind String "Mitte" erstellt das Objekt so, dass der Ursprung Mittelpunkt des Objektes ist.
+   *             String "Ecke" erstellt das Objekt so, dass der Ursprung in der ersten Ecke liegt.
+   * 
+   * @param length Länge des Quaders
+   * 
+   * @param width Breite des Quaders
+   * 
+   * @param height Höhe des Quaders
+   */
   public Quader(String kind, float length, float width, float height)
   {
     super(length, width, height, 0, 1, 0, 1);
