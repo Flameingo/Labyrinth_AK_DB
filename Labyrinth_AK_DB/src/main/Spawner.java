@@ -1,6 +1,7 @@
 package main;
 
 import models3D.Testfigur;
+import models3D.WandBlock;
 import params.*;
 
 public class Spawner extends Objekt
@@ -10,9 +11,9 @@ public class Spawner extends Objekt
   
   public Spawner()
   {
-    Labyrinth.addObject(new Testfigur());
+    //Labyrinth.addObject(new Testfigur());
     Labyrinth.addObject(new Player());
-    
+    Labyrinth.addObject(new WandBlock());
   }
   
   @Override
