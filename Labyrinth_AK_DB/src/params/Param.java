@@ -13,6 +13,8 @@ import java.security.SecureRandom;
 
 import org.lwjgl.BufferUtils; // to create a float buffer in place of the glfloat array
 
+import main.Settings;
+
 public abstract class Param
 {
   // private Variablen
@@ -52,8 +54,8 @@ public abstract class Param
     u_r = u2;
     v_l = v1;
     v_r = v2;
-    m = 30;
-    n = 30;
+    m = Settings.RenderSolution;
+    n = Settings.RenderSolution;
     delta_u = (u_r - u_l) / m;
     delta_v = (v_r - v_l) / n;
   }
