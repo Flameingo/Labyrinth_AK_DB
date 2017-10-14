@@ -13,6 +13,7 @@ public class WandBlock extends Objekt
   private int wdlaenge = 11;
   private int wdhoehe = 25;
   private float wdbreite = 0.1f;
+  private float biege = 0.10f;
   
   private Shape myShape = new Shape();
   
@@ -20,23 +21,25 @@ public class WandBlock extends Objekt
   {
     for (int k = 0; k<wdhoehe; k++)
     {
+      myShape.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f,0,k*0.06f));
+      myShape.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((wdlaenge-1)*0.26f+0.065f,biege*biege*100,k*0.06f), new float[] {45*100*biege*biege,0,0});
+      
       if (k%2 == 0)
       {
        
       for (int i = 0; i<wdlaenge; i++)
       {
          
-            myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(i*0.26f,0,k*0.06f));
+            myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(i*0.26f,(i*biege)*(i*biege),k*0.06f), new float[] {i*i*biege*biege*45,0,0});
             
          }
       }
          else
          {
            for (int i = 0; i<wdlaenge-1;i++)
-           {
-             myShape.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f,0,k*0.06f));
-             myShape.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((wdlaenge-1)*0.26f+0.065f,0,k*0.06f));
-             myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (i*0.26f+0.13f,0,k*0.06f));
+           {           
+             
+             myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (i*0.26f+0.13f,(i*biege)*(i*biege),k*0.06f), new float[]{i*i*biege*biege*45,0,0});
            }
       
          }
