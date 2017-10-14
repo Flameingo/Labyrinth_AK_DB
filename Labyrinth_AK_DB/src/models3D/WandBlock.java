@@ -46,12 +46,12 @@ public class WandBlock extends Objekt
    * */
   public WandBlock(float x, float y, float z,float w1, float w2, float w3)
   {
-    this.x=x;
-    this.y=y;
-    this.z=z;
-    this.w1=w1;
-    this.w2=w2;
-    this.w3=w3;
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    this.w1 = w1;
+    this.w2 = w2;
+    this.w3 = w3;
    
   }
   
@@ -62,7 +62,7 @@ public class WandBlock extends Objekt
     {
       
       
-      if (k%2 == 0)
+      if (k % 2 == 0)
       {
        
           for (int i = 0; i<wdlaenge; i++)
