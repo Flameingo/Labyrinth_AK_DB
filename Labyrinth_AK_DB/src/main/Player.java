@@ -72,7 +72,12 @@ public class Player extends Objekt
     pos.add(dir);
   }
   
-  /** rotates the Point "cam" with the given angles */
+  /**
+   * rotates the Point "cam" with the given angles
+   * 
+   * @param leftright
+   *          dreht die Sicht nach Links / Rechts. Positive Werte drehen nach links.
+   */
   private void camRotate(float leftright, float updown)
   {
     // Left - Right:
@@ -117,7 +122,7 @@ public class Player extends Objekt
     // TODO Auto-generated method stub
     
   }
-
+  
   @Override
   public String toString()
   {
