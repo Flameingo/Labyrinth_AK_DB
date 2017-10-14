@@ -22,7 +22,7 @@ public class WandBlock extends Objekt
     {
       if (k%2 == 0)
       {
-        
+       //hi
       for (int i = 0; i<wdlaenge; i++)
       {
          
