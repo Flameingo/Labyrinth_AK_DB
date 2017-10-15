@@ -6,6 +6,7 @@ import models3D.TuerWand;
 import models3D.Testfigur;
 import models3D.WandBlock;
 import models3D.WandMitTuer;
+import models3D.Tuer;
 import params.*;
 
 public class Spawner extends Objekt
@@ -19,12 +20,13 @@ public class Spawner extends Objekt
   /** Alle aufgeführten Objekte werden momentan zu Beginn des Programms aufgerufen und erstellt */
   public Spawner()
   {
-//    Labyrinth.addObject(new Testfigur());
+//      Labyrinth.addObject(new Testfigur());
     Labyrinth.addObject(new Player());
-//<<<<<<< HEAD
+////<<<<<<< HEAD
     Labyrinth.addObject(new PrototypWand(wandFeld/2,0,0,0,0,0,90));
     Labyrinth.addObject(new BeschaedigteWand(-wandFeld/2,0,0,0,0,0));
-    Labyrinth.addObject(new WandMitTuer(0,0,0,0,0,0));
+      Labyrinth.addObject(new TuerWand(0,0,0,0,0,0));
+      Labyrinth.addObject(new Tuer(0,0,0,0,0,0,true));
 //=======
     //Labyrinth.addObject(new WandBlock());
 //>>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB

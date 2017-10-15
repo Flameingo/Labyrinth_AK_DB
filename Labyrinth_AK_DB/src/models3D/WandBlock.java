@@ -10,11 +10,11 @@ import basics.Point;
 public class WandBlock extends Objekt
 {
   /** Anzahl der nebeneinanderliegenden Steine minus 1*/
-  protected int wdlaenge = 11;
+  protected static int wdlaenge = 11;
   /** Anzahl der übereinanderliegenden Steine minus 1*/
-  protected int wdhoehe = 25;
+  protected static int wdhoehe = 25;
   /** Definiert die Breite jedes Backsteins der Wand */
-  protected float wdbreite = 0.1f;
+  protected static float wdbreite = 0.1f;
   
   /** Die x,y und z - Koordinaten bestimmen den Standort des Objekts */
   protected float x,y,z;
