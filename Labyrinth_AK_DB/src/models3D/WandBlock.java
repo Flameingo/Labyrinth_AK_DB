@@ -24,6 +24,10 @@ public class WandBlock extends Objekt
   protected float w2;
   /** w3 beschreibt die Drehung um die x-Achse */
   protected float w3;
+  /** biege beschreibt die eventuelle Biegung des Objekts,
+   * ein positiver Wert enspricht einer Biegung nach links
+   */
+  protected float biege;
   
   protected Shape myShape = new Shape();
   
@@ -55,7 +59,17 @@ public class WandBlock extends Objekt
     this.w3 = w3;
    
   }
-  
+  public WandBlock(float x, float y, float z, float w1, float w2, float w3, float biege)
+  {
+  this.x = x;
+  this.y = y;
+  this.z = z;
+  this.w1 = w1;
+  this.w2 = w2;
+  this.w3 = w3;
+  this.biege = biege;
+    
+  }
   
   public WandBlock(float biege)
   {

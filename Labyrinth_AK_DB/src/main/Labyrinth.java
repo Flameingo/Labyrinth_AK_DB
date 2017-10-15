@@ -1,7 +1,7 @@
 package main;
 
 //Imports
-import static org.lwjgl.glfw.GLFW.*; // f�r keyboard
+import static org.lwjgl.glfw.GLFW.*; // fuer keyboard
 import java.nio.FloatBuffer;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;

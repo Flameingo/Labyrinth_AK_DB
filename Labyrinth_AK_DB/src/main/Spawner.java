@@ -1,6 +1,7 @@
 package main;
 
 import models3D.BeschaedigteWand;
+import models3D.PrototypWand;
 import models3D.TuerWand;
 import models3D.Testfigur;
 import models3D.WandBlock;
@@ -21,7 +22,7 @@ public class Spawner extends Objekt
 //    Labyrinth.addObject(new Testfigur());
     Labyrinth.addObject(new Player());
 //<<<<<<< HEAD
-    Labyrinth.addObject(new WandBlock(0.1f));
+    Labyrinth.addObject(new PrototypWand(0,0,0,0,0,0,90));
     Labyrinth.addObject(new BeschaedigteWand(-wandFeld/2,0,0,0,0,0));
     Labyrinth.addObject(new WandMitTuer(-wandFeld,0,0,0,0,0));
 //=======
