@@ -11,7 +11,7 @@ import params.*;
 public class Spawner extends Objekt
 {
   
-  public float wandFeld = 5.72f;
+  public static float wandFeld = 5.70f;
   
   
   // created once at the start of the game and places all objects that should be
@@ -22,9 +22,9 @@ public class Spawner extends Objekt
 //    Labyrinth.addObject(new Testfigur());
     Labyrinth.addObject(new Player());
 //<<<<<<< HEAD
-    Labyrinth.addObject(new PrototypWand(0,0,0,0,0,0,90));
+    Labyrinth.addObject(new PrototypWand(wandFeld/2,0,0,0,0,0,90));
     Labyrinth.addObject(new BeschaedigteWand(-wandFeld/2,0,0,0,0,0));
-    Labyrinth.addObject(new WandMitTuer(-wandFeld,0,0,0,0,0));
+    Labyrinth.addObject(new WandMitTuer(0,0,0,0,0,0));
 //=======
     //Labyrinth.addObject(new WandBlock());
 //>>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB

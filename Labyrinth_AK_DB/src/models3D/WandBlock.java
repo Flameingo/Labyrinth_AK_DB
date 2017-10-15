@@ -18,12 +18,16 @@ public class WandBlock extends Objekt
   
   /** Die x,y und z - Koordinaten bestimmen den Standort des Objekts */
   protected float x,y,z;
-  /** w1 beschreibt die Drehung um die z-Achse */
-  protected float w1;
-  /** w2 beschreibt die Drehung um die y-Achse */
-  protected float w2;
-  /** w3 beschreibt die Drehung um die x-Achse */
-  protected float w3;
+  
+  
+//  /** w1 beschreibt die Drehung um die z-Achse */
+//  protected float w1;
+//  /** w2 beschreibt die Drehung um die y-Achse */
+//  protected float w2;
+//  /** w3 beschreibt die Drehung um die x-Achse */
+//  protected float w3;
+  
+  
   /** biege beschreibt die eventuelle Biegung des Objekts,
    * ein positiver Wert enspricht einer Biegung nach links
    */
@@ -48,15 +52,35 @@ public class WandBlock extends Objekt
    * 
    * @param w3 Winkel für die Drehung um die x-Achse
    * */
+  
+  
+  /**
+   * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
+   * Wird eine der Unterklassen mit 6 Float-Werten aufgerufen, wird eine gerade Wand 
+   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstück um diesen Wert gebogen.
+   * 
+   * @param x x-Koordinate
+   * 
+   * @param y y-Koordinate
+   * 
+   * @param z z-Koordinate, die 3 Koordinaten geben eine untere Ecke der Wand an.
+   * 
+   * @param w1 Winkel für die Drehung um die z-Achse
+   * 
+   * @param w2 Winkel für die Drehung um die y-Achse
+   * 
+   * @param w3 Winkel für die Drehung um die x-Achse
+   * 
+   */
   public WandBlock(float x, float y, float z,float w1, float w2, float w3)
   {
     
     this.x = x;
     this.y = y;
     this.z = z;
-    this.w1 = w1;
-    this.w2 = w2;
-    this.w3 = w3;
+    this.alpha = w1;
+    this.beta = w2;
+    this.gamma = w3;
    
   }
   public WandBlock(float x, float y, float z, float w1, float w2, float w3, float biege)
@@ -64,9 +88,9 @@ public class WandBlock extends Objekt
   this.x = x;
   this.y = y;
   this.z = z;
-  this.w1 = w1;
-  this.w2 = w2;
-  this.w3 = w3;
+  this.alpha = w1;
+  this.beta = w2;
+  this.gamma = w3;
   this.biege = biege;
     
   }
