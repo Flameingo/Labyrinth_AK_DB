@@ -4,6 +4,7 @@ import models3D.BeschaedigteWand;
 import models3D.TuerWand;
 import models3D.Testfigur;
 import models3D.WandBlock;
+import models3D.WandMitTuer;
 import params.*;
 
 public class Spawner extends Objekt
@@ -22,7 +23,7 @@ public class Spawner extends Objekt
 //<<<<<<< HEAD
     Labyrinth.addObject(new WandBlock(0.1f));
     Labyrinth.addObject(new BeschaedigteWand(-wandFeld/2,0,0,0,0,0));
-    Labyrinth.addObject(new TuerWand(-wandFeld,0,0,0,0,0));
+    Labyrinth.addObject(new WandMitTuer(-wandFeld,0,0,0,0,0));
 //=======
     //Labyrinth.addObject(new WandBlock());
 //>>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB
