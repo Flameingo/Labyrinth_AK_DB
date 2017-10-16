@@ -15,7 +15,7 @@ public class ZylinderTest extends Param
   public float x(float u, float v)
   {
     float alpha = (float) Math.cos(u);
-    float beta = (float) (Math.cos(u)-Math.cos(u/2));
+    float beta = (float) Math.cos(u);
     return alpha + v * (beta - alpha);
   }
   
@@ -23,7 +23,7 @@ public class ZylinderTest extends Param
   public float y(float u, float v)
   {
     float alpha = (float) Math.sin(u);
-    float beta = (float) (Math.sin(u)-Math.cos(u/2));
+    float beta = (float) (Math.sin(u)+1/2*Math.cos(u));
     return alpha + v * (beta - alpha);
   }
   
@@ -31,7 +31,7 @@ public class ZylinderTest extends Param
   public float z(float u, float v)
   {
     float alpha = 0;
-    float beta = 1-(float)Math.cos(u/2);
+    float beta = (1+(float)(Math.sin(u)))/5;
     return alpha + v * (beta - alpha);
   }
   

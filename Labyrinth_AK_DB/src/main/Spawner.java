@@ -2,9 +2,12 @@ package main;
 
 import models3D.BeschaedigteWand;
 import models3D.PrototypWand;
+import models3D.RundeTreppe;
+import models3D.RundeTreppe2;
 import models3D.TuerWand;
 import models3D.Testfigur;
 import models3D.TestfigurAlex;
+import models3D.Treppe;
 import models3D.WandBlock;
 import models3D.WandMitTuer;
 import models3D.Tuer;
@@ -26,7 +29,7 @@ public class Spawner extends Objekt
     Labyrinth.addObject(new Player()); //Wird benoetigt, um die Kamera innerhalb des Spiels zu steuern
     
     
-    Labyrinth.addObject(new TestfigurAlex());
+    Labyrinth.addObject(new RundeTreppe2(1,0,1,0,0,0,180,10));
     
 ////<<<<<<< HEAD
 //    Labyrinth.addObject(new PrototypWand(wandFeld/2,0,0,0,0,0,90));
