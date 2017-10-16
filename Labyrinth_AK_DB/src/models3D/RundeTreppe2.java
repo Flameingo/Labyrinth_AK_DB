@@ -6,6 +6,17 @@ import params.Zylinder;
 
 public class RundeTreppe2 extends Treppe
 {
+  /**
+   * 
+   * @param x
+   * @param y
+   * @param z
+   * @param w1
+   * @param w2
+   * @param w3
+   * @param bogen
+   * @param treppenlaenge
+   */
   public RundeTreppe2(float x, float y, float z, float w1, float w2, float w3, float bogen, float treppenlaenge)
   {
     super(x,y,z,w1,w2,w3);
