@@ -26,7 +26,7 @@ public class RundeTreppe2 extends Treppe
     
     for (int q = 0; q < this.treppenlaenge+1; q++)
     {
-      myShape.addParam(new Quader ("Mitte",stufenlaenge*4,stufenbreite,stufenhoehe2),
+      myShape.addParam(new Quader ("Mitte",stufenlaenge*2.2f,stufenbreite,stufenhoehe2),
           new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800)*2, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800)*2, this.y+stufenhoehe*q), 
           new float []{(float) (bogen*q/10+90),0,0});
     }
@@ -36,7 +36,7 @@ public class RundeTreppe2 extends Treppe
           new Point(this.x+(float)Math.cos(p*bogen*(float)Math.PI/1800)*1.5f, this.z+(float)Math.sin(p*bogen*(float)Math.PI/1800)*1.5f, this.y+stufenhoehe*p+0.05f));
     
       myShape.addParam(new Zylinder(0.1f,0.1f,0.4f), 
-          new Point(this.x+(float)Math.cos(p*bogen*(float)Math.PI/1800)*2.7f, this.z+(float)Math.sin(p*bogen*(float)Math.PI/1800)*2.7f, this.y+stufenhoehe*p+0.05f));
+          new Point(this.x+(float)Math.cos(p*bogen*(float)Math.PI/1800+Math.PI/18)*2.7f, this.z+(float)Math.sin(p*bogen*(float)Math.PI/1800+Math.PI/18)*2.7f, this.y+stufenhoehe*p+0.05f));
     
     }
   }

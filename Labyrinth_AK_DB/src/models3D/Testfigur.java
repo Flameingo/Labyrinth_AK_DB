@@ -11,8 +11,8 @@ public class Testfigur extends Objekt
   
   public Testfigur()
   {
-    myShape.addParam(new Kegel(1, 2, 2), new Point(0, 0, 1.5f));
-    myShape.addParam(new Zylinder(1, 2, 1.5f));
+    myShape.addParam(new Kegel(1, 1, 2), new Point(0, 0, 0));
+//    myShape.addParam(new Zylinder(1, 2, 1.5f));
   }
   
   @Override

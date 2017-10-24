@@ -9,17 +9,20 @@ import params.Shape;
 
 public class Tuer extends Objekt
 {
-  protected float x,y,z; 
-  float winkel; 
+  protected float   x, y, z;
+  float             winkel;
   protected boolean oeffner;
-  protected Shape myShape = new Shape();
+  protected Shape   myShape = new Shape();
   
-  /** Tuer ist an die Klasse TuerWand angepasst, übergeben werden
-   * die gleiche x,y und z-Koordinate wie für das entsprechende
-   * Objekt der Klasse TuerWand, für die Winkel gilt dasselbe.
+  /**
+   * Tuer ist an die Klasse TuerWand angepasst, übergeben werden die gleiche x,y
+   * und z-Koordinate wie für das entsprechende Objekt der Klasse TuerWand, für
+   * die Winkel gilt dasselbe.
    * 
-   * @param Hier wird -1 bzw 1 für das direkte Öffnen in die eine, bzw andere richtung übergeben.
-   *        Die dritte Moeglichkeit 0 bewirkt dass die Tuer vorerst geschlossen bleibt.
+   * @param Hier
+   *          wird -1 bzw 1 für das direkte Öffnen in die eine, bzw andere
+   *          richtung übergeben. Die dritte Moeglichkeit 0 bewirkt dass die
+   *          Tuer vorerst geschlossen bleibt.
    */
   public Tuer(float x, float y, float z, float w1, float w2, float w3, boolean offen)
   {
@@ -32,66 +35,47 @@ public class Tuer extends Objekt
     this.gamma = w3;
     
     this.oeffner = offen;
-     
     
-    myShape.addParam(new Quader("Ecke", 0.65f,0.05f,1.30f), new Point(0,-0.05f+this.z,-0.02f+this.y));
-    
-    
+    myShape.addParam(new Quader("Ecke", 0.65f, 0.05f, 1.30f), new Point(0, -0.05f, -0.02f));
+    float qX = -Spawner.wandFeld / 2;
+    myShape.translate(new Point(1.3f + qX + this.x, this.y, this.z));
   }
   
   public void step()
   {
-  
-  
     
+    if (oeffner == true && winkel < 100)
+    {
+      winkel = winkel + 3f;
+    } else if (oeffner == false && winkel > 0)
+    {
+      winkel = winkel - 3f;
+    }
+    if (winkel >= 100)
+    {
+      oeffner = false;
+    }
+    if (winkel <= 0)
+    {
+      oeffner = true;
+    }
     
-  
+    myShape.rotate(new float[] { winkel + alpha, beta, gamma });
   }
-
- 
+  
   public void collision()
   {
-
     
   }
-
-
+  
   public void draw()
   {
-    float qX = this.x - Spawner.wandFeld/2; 
     
-    glPushMatrix();
-    
-      glTranslatef(1.3f+qX,0,0);
-    
-        if (oeffner == true && winkel < 100)
-        {
-          winkel = winkel + 3f;
-        }
-        if (oeffner == false && winkel > 0)
-        {
-          winkel=winkel-3f;
-        }
-//        if (winkel >= 100)
-//        {
-//          oeffner = false;
-//        }
-//        if (winkel <= 0)
-//        {
-//          oeffner = true;
-//        }
-        
-      glPushMatrix();
-        glRotatef(winkel,0,0,1);
-        myShape.draw();
-      glPopMatrix();
-    glPopMatrix();
+    myShape.draw();
   }
-
-
+  
   public void drawGUI()
   {
- 
     
   }
   

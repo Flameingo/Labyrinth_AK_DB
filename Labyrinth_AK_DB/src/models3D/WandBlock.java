@@ -59,6 +59,9 @@ public class WandBlock extends Objekt
     this.beta = w2;
     this.gamma = w3;
     this.biege = biege;
+    
+    myShape.translate(new Point(x, y, z));
+    myShape.rotate(new float[] { alpha, beta, gamma });
   }
   /**
    * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
@@ -87,17 +90,22 @@ public class WandBlock extends Objekt
     this.alpha = w1;
     this.beta = w2;
     this.gamma = w3;
+    
+    myShape.translate(new Point(x, y, z));
+    myShape.rotate(new float[] { alpha, beta, gamma });
    
   }
   
   public void draw()
   {
-    myShape.draw();
+
+        myShape.draw();
+ 
   }
   @Override
   public void step()
   {
-    // TODO Auto-generated method stub
+   
     
   }
   @Override
