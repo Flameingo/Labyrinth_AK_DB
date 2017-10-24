@@ -1,16 +1,19 @@
 package main;
 
 import models3D.BeschaedigteWand;
+import models3D.BeschaedigteWandRANDOM;
 import models3D.PrototypWand;
 import models3D.RundeTreppe;
 import models3D.RundeTreppe2;
 import models3D.RundeTreppe3;
 import models3D.TuerWand;
+import models3D.Turm;
 import models3D.Testfigur;
 import models3D.TestfigurAlex;
 import models3D.Treppe;
 import models3D.WandBlock;
 import models3D.WandMitTuer;
+import models3D.WandTest;
 import models3D.Tuer;
 import params.*;
 
@@ -30,11 +33,17 @@ public class Spawner extends Objekt
     Labyrinth.addObject(new Player()); //Wird benoetigt, um die Kamera innerhalb des Spiels zu steuern
     
     
-    Labyrinth.addObject(new RundeTreppe3(1,0,1,0,0,0,90,10));
-    
+//    Labyrinth.addObject(new RundeTreppe3(0,0,0,0,0,0,180,10));
+//    
+//    Labyrinth.addObject(new Testfigur());
 ////<<<<<<< HEAD
+    
+ 
 //    Labyrinth.addObject(new PrototypWand(wandFeld/2,0,0,0,0,0,90));
-//    Labyrinth.addObject(new BeschaedigteWand(-wandFeld/2,0,0,0,0,0));
+      Labyrinth.addObject (new Turm(0, 0, 0));
+      Labyrinth.addObject(new TuerWand(3f,0f,0f,0f,0f,0f,90f));
+//    Labyrinth.addObject(new BeschaedigteWandRANDOM(-wandFeld/2,0,0,0,0,0));
+//    Labyrinth.addObject(new BeschaedigteWand(-wandFeld,0,0,0,0,0));
 //      Labyrinth.addObject(new TuerWand(0,0,0,0,0,0));
 //      Labyrinth.addObject(new Tuer(0,0,0,0,0,0,true));
 //=======
