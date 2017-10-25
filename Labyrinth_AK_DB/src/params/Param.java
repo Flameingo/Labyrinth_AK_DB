@@ -129,7 +129,9 @@ public abstract class Param
     if (material != null) material.use();
     drawParametrisierung();
   }
-  
+  /**
+   * 
+   */
   protected void drawParametrisierung()
   {
     glPolygonMode(GL_FRONT, GL_LINE);
