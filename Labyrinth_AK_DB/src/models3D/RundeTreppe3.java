@@ -1,11 +1,9 @@
 package models3D;
 
 import basics.Point;
-import params.Quader;
-import params.Unregelm;
-import params.Zylinder;
+import params.*;
 
-public class RundeTreppe3  extends Treppe
+public class RundeTreppe3  extends Treppe //KACKFUNKTION
 {
   public RundeTreppe3(float x, float y, float z, float alpha, float beta, float gamma,float bogen, float treppenlaenge)
   {
@@ -17,43 +15,23 @@ public class RundeTreppe3  extends Treppe
     
     for (int q = 0; q < this.treppenlaenge+1; q++)
     {
-      Point p1 = new Point(0,0, this.y+stufenhoehe*q);
       
-      Point p2 = new Point(0,0, this.y+stufenhoehe*q+0.1f);
       
-      Point p3 = new Point(0,0, this.y+stufenhoehe*q);
-      
-      Point p4 = new Point(0,0, this.y+stufenhoehe*q+0.1f);
-      
-      Point p5 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800+1.5f)*2, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800-0.25f)*2, this.y+stufenhoehe*q);
-      Point p6 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800+1.5f)*2, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800-0.25f)*2, this.y+stufenhoehe*q+0.5f);
-      Point p7 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800+1.5f)*2, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800+1.25f)*2, this.y+stufenhoehe*q);
-      Point p8 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800+1.5f)*2, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800+1.25f)*2, this.y+stufenhoehe*q+0.5f);
-      
-//      Point p1 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800)*2, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800)*2, this.y+stufenhoehe*q);
-//      Point p2 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800)*2, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800)*2, this.y+stufenhoehe*q+0.5f);
-//      Point p3 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800)*2+1, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800)*2, this.y+stufenhoehe*q);
-//      Point p4 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800)*2+1, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800)*2, this.y+stufenhoehe*q+0.5f);
-//      Point p5 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800)*2-0.25f, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800)*2+1.5f, this.y+stufenhoehe*q);
-//      Point p6 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800)*2-0.25f, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800)*2+1.5f, this.y+stufenhoehe*q+0.5f);
-//      Point p7 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800)*2+1.25f, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800)*2+1.5f, this.y+stufenhoehe*q);
-//      Point p8 = new Point(this.x+(float)Math.cos(q*bogen*(float)Math.PI/1800)*2+1.25f, this.z+(float)Math.sin(q*bogen*(float)Math.PI/1800)*2+1.5f, this.y+stufenhoehe*q+0.5f);
-      
-      myShape.addParam(new Unregelm (p1, p2, p3, p4, p5, p6, p7, p8));
+      myShape.addParam(new Kreisabschnitt(1,1,90), new Point(0,0,stufenhoehe*q*0.8f), new float[]{q*36,0,0}); //Programmiert die einzelnen Scheiben um einen Mittelpunkt herum zu einer Treppe
     }
-    for (int p = 0; p < this.treppenlaenge; p++)
-    {
-      myShape.addParam(new Zylinder(0.1f,0.1f,0.4f), 
-          new Point(this.x+(float)Math.cos(p*bogen*(float)Math.PI/1800)*2f+1, this.z+(float)Math.sin(p*bogen*(float)Math.PI/1800)*2f+1.5f, this.y+stufenhoehe*p+0.05f));
-    
+//    for (int p = 0; p < this.treppenlaenge; p++)
+//    {
 //      myShape.addParam(new Zylinder(0.1f,0.1f,0.4f), 
-//          new Point(this.x+(float)Math.cos(p*bogen*(float)Math.PI/1800)*2.7f, this.z+(float)Math.sin(p*bogen*(float)Math.PI/1800)*2.7f, this.y+stufenhoehe*p+0.05f));
+//          new Point(this.x+(float)Math.cos(p*bogen*(float)Math.PI/1800)*2f+1, this.z+(float)Math.sin(p*bogen*(float)Math.PI/1800)*2f+1.5f, this.y+stufenhoehe*p+0.05f));
+//    
+////      myShape.addParam(new Zylinder(0.1f,0.1f,0.4f), 
+////          new Point(this.x+(float)Math.cos(p*bogen*(float)Math.PI/1800)*2.7f, this.z+(float)Math.sin(p*bogen*(float)Math.PI/1800)*2.7f, this.y+stufenhoehe*p+0.05f));
     
-    }
+//    }  //Aktuell nicht genutzter Abschnitt, der ursprünglich Stützpfeiler zwischen die Stufen stellen sollte.
   }
-  
+}  
 
   
   
   
-}
+

@@ -60,8 +60,8 @@ public class WandBlock extends Objekt
     this.gamma = w3;
     this.biege = biege;
     
-    myShape.translate(new Point(x, y, z));
-    myShape.rotate(new float[] { alpha, beta, gamma });
+    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
   }
   /**
    * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
@@ -91,8 +91,8 @@ public class WandBlock extends Objekt
     this.beta = w2;
     this.gamma = w3;
     
-    myShape.translate(new Point(x, y, z));
-    myShape.rotate(new float[] { alpha, beta, gamma });
+    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
    
   }
   

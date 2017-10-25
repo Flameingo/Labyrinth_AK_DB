@@ -27,7 +27,8 @@ public class Treppe extends Objekt
     this.beta = w2;
     this.gamma = w3;
     
-    
+    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
     
   }
   
@@ -43,6 +44,8 @@ public class Treppe extends Objekt
     this.beta = w2;
     this.gamma = w3;
     
+    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
     
     for (int q = 0; q < 10; q++)
     {

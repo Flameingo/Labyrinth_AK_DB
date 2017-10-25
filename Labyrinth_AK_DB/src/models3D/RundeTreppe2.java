@@ -39,5 +39,6 @@ public class RundeTreppe2 extends Treppe
           new Point(this.x+(float)Math.cos(p*bogen*(float)Math.PI/1800+Math.PI/18)*2.7f, this.z+(float)Math.sin(p*bogen*(float)Math.PI/1800+Math.PI/18)*2.7f, this.y+stufenhoehe*p+0.05f));
     
     }
+    
   }
 }

@@ -15,13 +15,20 @@ public class Turm extends Objekt
     this.y = y;
     this.z = z;
     
-    for (int r = 0; r< 4; r++)
+    Labyrinth.addObject (new WandTest(0,1.7f,0,0,0,0,90));
+    Labyrinth.addObject (new WandTest(0,1.7f,0,90,0,0,90));
+    Labyrinth.addObject (new WandTest(0,1.7f,0,180,0,0,90));
+    Labyrinth.addObject (new TuerWand(0,1.7f,0,270,0,0,90));
+    
+    for (int r = 1; r< 4; r++)
     {
       Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,0,0,0,90));
       Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,90,0,0,90));
       Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,180,0,0,90));
       Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,270,0,0,90));
     }
+    
+    Labyrinth.addObject(new RundeTreppe3(0,1.7f,0,0,0,0,360 ,10));
   }
   
   @Override
