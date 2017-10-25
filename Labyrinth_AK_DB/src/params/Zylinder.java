@@ -17,8 +17,14 @@ public class Zylinder extends Param
     this.zscl = zscl;
   }
   
+  public Zylinder(float xscl, float yscl, float zscl, Material mat)
+  {
+    this(xscl, yscl, zscl);
+    setMaterial(mat);
+  }
+  
   @Override
-  public void draw()
+  protected void drawParametrisierung()
   {
     glFrontFace(GL_CW);
     deckel.draw();

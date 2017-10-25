@@ -18,15 +18,15 @@ public abstract class Param
 {
   // private Variablen
   
-  protected float   xscl = 1, yscl = 1, zscl = 1;
-  private float     u_l, u_r, v_l, v_r;
-  private float     u_i, v_j, u_i_1, v_j_1;
-  protected int     m    = 0, n = 0;
-  protected int     minN = 1, minM = 1;
-  protected float   mfact, nfact;
-  private float     delta_u, delta_v;
+  protected float  xscl     = 1, yscl = 1, zscl = 1;
+  private float    u_l, u_r, v_l, v_r;
+  private float    u_i, v_j, u_i_1, v_j_1;
+  private int      m        = 0, n = 0;
+  protected int    minN     = 1, minM = 1;
+  protected float  mfact, nfact;
+  private float    delta_u, delta_v;
   
-  protected float[] col  = { 1, 1, 1 };
+  private Material material = null;
   
   /** placeholder Param for connecting multiple Params into one or if the standard constructor can't be used */
   public Param()
@@ -35,7 +35,7 @@ public abstract class Param
   }
   
   /**
-   * Konstruktor ohne Farbe
+   * Konstruktor ohne Material
    * 
    * @param xscl
    *          Skalierung in x-Richtung
@@ -84,7 +84,7 @@ public abstract class Param
   abstract void setResolution();
   
   /**
-   * Konstruktor mit Farbe
+   * Konstruktor mit Material
    * 
    * @param xscl
    *          Skalierung in x-Richtung
@@ -100,34 +100,38 @@ public abstract class Param
    *          Untere Schranke fuer v
    * @param v2
    *          Obere Schranke fuer v
-   * @param col
-   *          Farbe des Params, angegeben in RGB
+   * @param mat
+   *          Material des Params, one of enum Material
    */
-  public Param(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2, float[] col)
+  public Param(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2, Material mat)
   {
     this(xscl, yscl, zscl, u1, u2, v1, v2);
-    this.col = col;
+    material = mat;
   }
   
   /**
    * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem Fall muss mit dieser Funktion
    * nach-initialisiert werden.
    */
-  protected void init(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2, float[] col)
+  protected void init(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2, Material mat)
   {
     init(xscl, yscl, zscl, u1, u2, v1, v2);
-    this.col = col;
+    material = mat;
+  }
+  
+  protected void setMaterial(Material mat)
+  {
+    material = mat;
   }
   
   public void draw()
   {
-    glColor3fv(col);
+    if (material != null) material.use();
     drawParametrisierung();
   }
   
-  private void drawParametrisierung()
+  protected void drawParametrisierung()
   {
-    glPolygonMode(GL_FRONT, GL_LINE);
     glPolygonMode(GL_BACK, GL_POINT); // Rueckseite der Objekte werden als Punkte gezeichnet. Sind Punkte zu sehen, muss
                                       // also das Objekt korrigiert werden.
     

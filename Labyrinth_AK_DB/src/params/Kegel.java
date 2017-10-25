@@ -15,8 +15,16 @@ public class Kegel extends Param
     mantel = new KegelMantel(xscl, yscl, zscl);
   }
   
+  public Kegel(float xscl, float yscl, float zscl, Material mat)
+  {
+    super();
+    boden = new Kreis(xscl, yscl);
+    mantel = new KegelMantel(xscl, yscl, zscl);
+    setMaterial(mat);
+  }
+  
   @Override
-  public void draw()
+  protected void drawParametrisierung()
   {
     glFrontFace(GL_CW);
     boden.draw();

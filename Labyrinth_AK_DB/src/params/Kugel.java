@@ -9,7 +9,7 @@ public class Kugel extends Param
    */
   public Kugel(float r)
   {
-    super(r, r, r, -(float) Math.PI / 2, (float) Math.PI / 2, 0, (float) Math.PI*2);
+    super(r, r, r, -(float) Math.PI / 2, (float) Math.PI / 2, 0, (float) Math.PI * 2);
   }
   
   /**
@@ -20,10 +20,10 @@ public class Kugel extends Param
    * @param col
    *          Farbe der Kugel
    */
-  public Kugel(float r, float[] col)
+  public Kugel(float r, Material mat)
   {
     this(r);
-    this.col = col;
+    setMaterial(mat);
   }
   
   @Override

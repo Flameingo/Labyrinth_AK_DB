@@ -11,6 +11,11 @@ public class KegelMantel extends Param
     super(xscl, yscl, zscl, 0, (float) (2 * Math.PI), 0, 1);
   }
   
+  public KegelMantel(float xscl, float yscl, float zscl, Material mat)
+  {
+    super(xscl, yscl, zscl, 0, (float) (2 * Math.PI), 0, 1, mat);
+  }
+  
   @Override
   public float x(float u, float v)
   {

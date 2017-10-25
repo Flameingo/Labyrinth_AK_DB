@@ -8,6 +8,11 @@ public class Kreis extends Param
     super(xscl, yscl, 1, 0, (float) Math.PI * 2, 0, 1);
   }
   
+  public Kreis(float xscl, float yscl, Material mat)
+  {
+    super(xscl, yscl, 1, 0, (float) Math.PI * 2, 0, 1, mat);
+  }
+  
   @Override
   public float x(float u, float v)
   {

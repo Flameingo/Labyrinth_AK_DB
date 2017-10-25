@@ -8,6 +8,12 @@ public class ZylinderMantel extends Param
     super(xscl, yscl, zscl, 0, (float) Math.PI * 2, 0, 1);
   }
   
+  public ZylinderMantel(float xscl, float yscl, float zscl, Material mat)
+  {
+    this(xscl, yscl, zscl);
+    setMaterial(mat);
+  }
+  
   @Override
   public float x(float u, float v)
   {

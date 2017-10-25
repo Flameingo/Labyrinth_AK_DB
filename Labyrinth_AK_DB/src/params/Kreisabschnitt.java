@@ -11,6 +11,12 @@ public class Kreisabschnitt extends Param
     this.q = q;
   }
   
+  public Kreisabschnitt(float xscl, float yscl, float q, Material mat)
+  {
+    this(xscl, yscl, q);
+    setMaterial(mat);
+  }
+  
   @Override
   public float x(float u, float v)
   {

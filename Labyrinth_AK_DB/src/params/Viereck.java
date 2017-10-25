@@ -30,10 +30,10 @@ public class Viereck extends Param
     init(1, 1, 1, 0, 1, 0, 1);
   }
   
-  public Viereck(Point p1, Point p2, Point p3, Point p4, float[] col)
+  public Viereck(Point p1, Point p2, Point p3, Point p4, Material mat)
   {
     this(p1, p2, p3, p4);
-    this.col = col;
+    setMaterial(mat);
   }
   
   @Override

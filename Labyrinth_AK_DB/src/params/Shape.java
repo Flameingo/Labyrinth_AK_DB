@@ -9,6 +9,7 @@ public class Shape
   // Koordinaten des Ursprungs und Drehung des kompletten Shapes.
   Point     origin       = new Point(0, 0, 0);
   float[]   rotateAll    = { 0, 0, 0 };
+  Material  materialAll  = null;
   
   // Koordinaten der Parametrisierungen relativ zum Ursprung und Rotationen der
   // Parametrisierungen innerhalb des Shapes
@@ -24,8 +25,7 @@ public class Shape
    * @param pos
    *          Position to place the Param at.
    * @param rotate
-   *          Rotation the Param is Placed in: Rotated in this Plane: { X-Y ,
-   *          X-Z , Y-Z } specified in degree
+   *          Rotation the Param is Placed in: Rotated in this Plane: { X-Y , X-Z , Y-Z } specified in degree
    */
   public void addParam(Param param, Point pos, float[] rotate)
   {
@@ -65,8 +65,7 @@ public class Shape
    * @param param
    *          The Param to be added
    * @param rotation
-   *          Rotation the Param is Placed in: Rotated in this Plane: { X-Y ,
-   *          X-Z , Y-Z } specified in degree
+   *          Rotation the Param is Placed in: Rotated in this Plane: { X-Y , X-Z , Y-Z } specified in degree
    */
   public void addParam(Param param, float[] rotation)
   {
@@ -85,8 +84,7 @@ public class Shape
   }
   
   /**
-   * searches a Param in the Shape and returns the int value for the field
-   * "params".
+   * searches a Param in the Shape and returns the int value for the field "params".
    * 
    * @param param
    *          the Param to be searched for
@@ -121,8 +119,7 @@ public class Shape
    * @param param
    *          the param that will be rotated
    * @param rotate
-   *          Rotation the Param is set to: Rotated in this Plane: { X-Y , X-Z ,
-   *          Y-Z } specified in degree
+   *          Rotation the Param is set to: Rotated in this Plane: { X-Y , X-Z , Y-Z } specified in degree
    */
   public void rotateParam(Param param, float[] rotate)
   {
@@ -146,8 +143,7 @@ public class Shape
    * set rotation of the whole Shape with the given arcs.
    * 
    * @param newRotate
-   *          Rotation the Shape is set to: Rotated in this Plane: { X-Y , X-Z ,
-   *          Y-Z } specified in degree
+   *          Rotation the Shape is set to: Rotated in this Plane: { X-Y , X-Z , Y-Z } specified in degree
    */
   public void rotate(float[] newRotate)
   {
@@ -157,6 +153,8 @@ public class Shape
   /** draws all included Params at their pos and Rotation */
   public void draw()
   {
+    // Set Material to be used if specified
+    if (materialAll != null) materialAll.use();
     // Place the whole Shape according to "origin" and "RotateAll"
     glPushMatrix();
     {
