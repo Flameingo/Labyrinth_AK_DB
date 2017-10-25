@@ -20,7 +20,9 @@ public class Zylinder extends Param
   @Override
   public void draw()
   {
+    glFrontFace(GL_CW);
     deckel.draw();
+    glFrontFace(GL_CCW);
     mantel.draw();
     glPushMatrix();
     {

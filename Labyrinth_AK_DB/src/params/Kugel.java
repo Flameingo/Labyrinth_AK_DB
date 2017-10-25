@@ -9,7 +9,7 @@ public class Kugel extends Param
    */
   public Kugel(float r)
   {
-    super(r, r, r, (float) -Math.PI / 2, (float) Math.PI / 2, (float) -Math.PI, (float) Math.PI);
+    super(r, r, r, -(float) Math.PI / 2, (float) Math.PI / 2, 0, (float) Math.PI*2);
   }
   
   /**
@@ -29,19 +29,19 @@ public class Kugel extends Param
   @Override
   public float x(float u, float v)
   {
-    return (float) (Math.cos(v) * Math.sin(u));
+    return (float) (Math.cos(u) * Math.sin(v));
   }
   
   @Override
   public float y(float u, float v)
   {
-    return (float) (Math.cos(v) * Math.cos(u));
+    return (float) (Math.cos(u) * Math.cos(v));
   }
   
   @Override
   public float z(float u, float v)
   {
-    return (float) Math.sin(v);
+    return (float) Math.sin(u);
   }
   
   @Override
@@ -49,6 +49,8 @@ public class Kugel extends Param
   {
     nfact = (float) Math.PI * xscl;
     mfact = nfact * 2;
+    minN = 3;
+    minM = 2;
   }
   
 }

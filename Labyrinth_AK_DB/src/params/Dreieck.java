@@ -12,18 +12,17 @@ public class Dreieck extends Param
   
   public Dreieck(Point p1, Point p2, Point p3, float[] col)
   {
-    super(1, 1, 1, 0, 1, 0, 1, col);
+    super();
     this.p1 = p1;
     this.p2 = p2;
     this.p3 = p3;
+    init(1, 1, 1, 0, 1, 0, 1, col);
   }
   
   public Dreieck(Point p1, Point p2, Point p3)
   {
     this(p1, p2, p3, new float[] { 1, 1, 1 });
   }
-  
-  // TODO Parametrisierung
   
   @Override
   public float x(float u, float v)

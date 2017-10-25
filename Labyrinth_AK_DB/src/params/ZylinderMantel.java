@@ -29,9 +29,10 @@ public class ZylinderMantel extends Param
   @Override
   public float z(float u, float v)
   {
-    float alpha = 0;
-    float beta = 1;
-    return alpha + v * (beta - alpha);
+    return v; // same as:
+    // float alpha = 0;
+    // float beta = 1;
+    // return alpha + v * (beta - alpha);
   }
   
   @Override
@@ -39,6 +40,7 @@ public class ZylinderMantel extends Param
   {
     nfact = zscl;
     mfact = (float) (Math.PI * (xscl + yscl));
+    minM = 3;
   }
   
 }

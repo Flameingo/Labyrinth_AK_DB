@@ -1,7 +1,3 @@
-/* 
- * Die verschiedenen Parametrisierung im Paket "params" erhalten hier ihre draw()-Funktion.
-*/
-
 package params;
 
 //Imports
@@ -15,6 +11,9 @@ import org.lwjgl.BufferUtils; // to create a float buffer in place of the glfloa
 
 import main.Settings;
 
+/**
+ * Die verschiedenen Parametrisierungen im Paket "params" erhalten hier ihre draw()-Funktion.
+ */
 public abstract class Param
 {
   // private Variablen
@@ -23,12 +22,13 @@ public abstract class Param
   private float     u_l, u_r, v_l, v_r;
   private float     u_i, v_j, u_i_1, v_j_1;
   protected int     m    = 0, n = 0;
+  protected int     minN = 1, minM = 1;
   protected float   mfact, nfact;
   private float     delta_u, delta_v;
   
   protected float[] col  = { 1, 1, 1 };
   
-  /** placeholder Param for connecting multiple Params into one */
+  /** placeholder Param for connecting multiple Params into one or if the standard constructor can't be used */
   public Param()
   {
     
@@ -54,6 +54,15 @@ public abstract class Param
    */
   public Param(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2)
   {
+    init(xscl, yscl, zscl, u1, u2, v1, v2);
+  }
+  
+  /**
+   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem Fall muss mit dieser Funktion
+   * nach-initialisiert werden.
+   */
+  protected void init(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2)
+  {
     this.xscl = xscl;
     this.yscl = yscl;
     this.zscl = zscl;
@@ -61,22 +70,52 @@ public abstract class Param
     u_r = u2;
     v_l = v1;
     v_r = v2;
+    // Berechnung der notwendigen Aufloesung fuer die Variablen m und n:
     setResolution();
     m = (int) Math.ceil(mfact * Settings.RenderSolution);
     n = (int) Math.ceil(nfact * Settings.RenderSolution);
+    m = Math.max(minM, m);
+    n = Math.max(minN, n);
     delta_u = (u_r - u_l) / m;
     delta_v = (v_r - v_l) / n;
   }
   
-  /**
-   * sets mfact and nfact as factors that control the resolution of the params
-   * polygon-net
-   */
+  /** sets mfact and nfact as factors that control the resolution of the params polygon-net */
   abstract void setResolution();
   
+  /**
+   * Konstruktor mit Farbe
+   * 
+   * @param xscl
+   *          Skalierung in x-Richtung
+   * @param yscl
+   *          Skalierung in y-Richtung
+   * @param zscl
+   *          Skalierung in z-Richtung
+   * @param u1
+   *          Untere Schranke fuer u
+   * @param u2
+   *          Obere Schranke fuer u
+   * @param v1
+   *          Untere Schranke fuer v
+   * @param v2
+   *          Obere Schranke fuer v
+   * @param col
+   *          Farbe des Params, angegeben in RGB
+   */
   public Param(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2, float[] col)
   {
     this(xscl, yscl, zscl, u1, u2, v1, v2);
+    this.col = col;
+  }
+  
+  /**
+   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem Fall muss mit dieser Funktion
+   * nach-initialisiert werden.
+   */
+  protected void init(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2, float[] col)
+  {
+    init(xscl, yscl, zscl, u1, u2, v1, v2);
     this.col = col;
   }
   
@@ -88,7 +127,9 @@ public abstract class Param
   
   private void drawParametrisierung()
   {
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glPolygonMode(GL_FRONT, GL_LINE);
+    glPolygonMode(GL_BACK, GL_POINT); // Rueckseite der Objekte werden als Punkte gezeichnet. Sind Punkte zu sehen, muss
+                                      // also das Objekt korrigiert werden.
     
     for (int i = 0; i < m; i++)
     {

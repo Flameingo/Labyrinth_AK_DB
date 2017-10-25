@@ -40,6 +40,7 @@ public class KegelMantel extends Param
   {
     nfact = zscl;
     mfact = (float) (Math.PI * (xscl + yscl));
+    minM = 3;
   }
   
 }

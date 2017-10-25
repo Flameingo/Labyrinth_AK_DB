@@ -3,9 +3,12 @@ package params;
 public class Kreisabschnitt extends Param
 {
   
+  float q;
+  
   public Kreisabschnitt(float xscl, float yscl, float q)
   {
-    super(xscl, yscl, 1, 0, (float) Math.PI * 2* q/360, 0, 1);
+    super(xscl, yscl, 1, 0, (float) Math.PI * 2 * q / 360, 0, 1);
+    this.q = q;
   }
   
   @Override
@@ -30,6 +33,14 @@ public class Kreisabschnitt extends Param
     float alpha = 0;
     float beta = 0;
     return alpha + v * (beta - alpha);
+  }
+  
+  @Override
+  void setResolution()
+  {
+    mfact = (float) (Math.PI * (xscl + yscl) * q / 360);
+    minM = 3;
+    nfact = (xscl + yscl) / 2;
   }
   
 }

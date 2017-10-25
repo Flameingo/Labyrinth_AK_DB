@@ -11,18 +11,17 @@ public class Quader extends Param
    * 
    * 
    * @param kind
-   *          String "Mitte" erstellt das Objekt so, dass der Ursprung
-   *          Mittelpunkt des Objektes ist. String "Ecke" erstellt das Objekt
-   *          so, dass der Ursprung in der ersten Ecke liegt.
+   *          String "Mitte" erstellt das Objekt so, dass der Ursprung Mittelpunkt des Objektes ist. String "Ecke"
+   *          erstellt das Objekt so, dass der Ursprung in der ersten Ecke liegt.
    * 
    * @param length
-   *          L�nge des Quaders
+   *          Laenge des Quaders
    * 
    * @param width
    *          Breite des Quaders
    * 
    * @param height
-   *          H�he des Quaders
+   *          Hoehe des Quaders
    */
   public Quader(String kind, float length, float width, float height)
   {
@@ -47,11 +46,11 @@ public class Quader extends Param
     p7 = Point.add(p3, 0, 0, height);
     p8 = Point.add(p4, 0, 0, height);
     
-    seiten[0] = new Viereck(p1, p2, p3, p4);
+    seiten[0] = new Viereck(p1, p3, p2, p4);
     seiten[1] = new Viereck(p1, p2, p5, p6);
-    seiten[2] = new Viereck(p1, p3, p5, p7);
+    seiten[2] = new Viereck(p1, p5, p3, p7);
     seiten[3] = new Viereck(p2, p4, p6, p8);
-    seiten[4] = new Viereck(p3, p4, p7, p8);
+    seiten[4] = new Viereck(p3, p7, p4, p8);
     seiten[5] = new Viereck(p5, p6, p7, p8);
     
   }
@@ -71,12 +70,26 @@ public class Quader extends Param
   
   // @formatter:off
   @Override
-  protected float x(float u, float v) {return 0;}
+  protected float x(float u, float v)
+  {
+    return 0;
+  }
+  
   @Override
-  protected float y(float u, float v) {return 0;}
+  protected float y(float u, float v)
+  {
+    return 0;
+  }
+  
   @Override
-  protected float z(float u, float v){return 0;}
+  protected float z(float u, float v)
+  {
+    return 0;
+  }
+  
   @Override
-  void setResolution(){}
+  void setResolution()
+  {
+  }
   // formatter:on
 }

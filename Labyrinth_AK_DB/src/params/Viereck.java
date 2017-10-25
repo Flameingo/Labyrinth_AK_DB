@@ -22,17 +22,18 @@ public class Viereck extends Param
    */
   public Viereck(Point p1, Point p2, Point p3, Point p4)
   {
-    super(1, 1, 1, 0, 1, 0, 1);
+    super();
     this.p1 = p1;
     this.p2 = p2;
     this.p3 = p3;
     this.p4 = p4;
+    init(1, 1, 1, 0, 1, 0, 1);
   }
   
   public Viereck(Point p1, Point p2, Point p3, Point p4, float[] col)
   {
     this(p1, p2, p3, p4);
-    // TODO col
+    this.col = col;
   }
   
   @Override

@@ -1,5 +1,7 @@
 package params;
 
+import static org.lwjgl.opengl.GL11.*;
+
 public class Kegel extends Param
 {
   
@@ -16,7 +18,9 @@ public class Kegel extends Param
   @Override
   public void draw()
   {
+    glFrontFace(GL_CW);
     boden.draw();
+    glFrontFace(GL_CCW);
     mantel.draw();
   }
   
@@ -40,7 +44,7 @@ public class Kegel extends Param
     // TODO Auto-generated method stub
     return 0;
   }
-
+  
   @Override
   void setResolution()
   {

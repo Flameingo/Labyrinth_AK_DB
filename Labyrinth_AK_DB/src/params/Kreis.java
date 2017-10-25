@@ -38,6 +38,6 @@ public class Kreis extends Param
   {
     mfact = (float) (Math.PI * (xscl + yscl));
     nfact = (xscl + yscl) / 2;
+    minM = 3;
   }
-  
 }
