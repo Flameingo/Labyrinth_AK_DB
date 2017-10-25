@@ -11,6 +11,8 @@ import org.lwjgl.BufferUtils; // to create a float buffer in place of the glfloa
 
 import main.Settings;
 
+import basics.*;
+
 /**
  * Die verschiedenen Parametrisierungen im Paket "params" erhalten hier ihre draw()-Funktion.
  */
@@ -132,7 +134,7 @@ public abstract class Param
   
   protected void drawParametrisierung()
   {
-    glPolygonMode(GL_FRONT, GL_LINE);
+    if (Settings.POLYMODE_ON) glPolygonMode(GL_FRONT, GL_LINE);
     glPolygonMode(GL_BACK, GL_POINT); // Rueckseite der Objekte werden als Punkte gezeichnet. Sind Punkte zu sehen, muss
                                       // also das Objekt korrigiert werden.
     
@@ -146,11 +148,21 @@ public abstract class Param
         v_j = v_l + delta_v * j;
         v_j_1 = v_j + delta_v;
         
+        Point p1 = new Point(xscl * x(u_i, v_j), yscl * y(u_i, v_j), zscl * z(u_i, v_j));
+        Point p2 = new Point(xscl * x(u_i_1, v_j), yscl * y(u_i_1, v_j), zscl * z(u_i_1, v_j));
+        Point p3 = new Point(xscl * x(u_i_1, v_j_1), yscl * y(u_i_1, v_j_1), zscl * z(u_i_1, v_j_1));
+        Point p4 = new Point(xscl * x(u_i, v_j_1), yscl * y(u_i, v_j_1), zscl * z(u_i, v_j_1));
+        
+        Point norm1 = Point.normalVector(p1, p2, p3);
+        Point norm2 = Point.normalVector(p1, p3, p4);
+        
         glBegin(GL_TRIANGLE_FAN);
-        glVertex3f(xscl * x(u_i, v_j), yscl * y(u_i, v_j), zscl * z(u_i, v_j));
-        glVertex3f(xscl * x(u_i_1, v_j), yscl * y(u_i_1, v_j), zscl * z(u_i_1, v_j));
-        glVertex3f(xscl * x(u_i_1, v_j_1), yscl * y(u_i_1, v_j_1), zscl * z(u_i_1, v_j_1));
-        glVertex3f(xscl * x(u_i, v_j_1), yscl * y(u_i, v_j_1), zscl * z(u_i, v_j_1));
+        glNormal3f(norm1.x, norm1.y, norm1.z);
+        glVertex3f(p1.x, p1.y, p1.z);
+        glVertex3f(p2.x, p2.y, p2.z);
+        glVertex3f(p3.x, p3.y, p3.z);
+        glNormal3f(norm2.x, norm2.y, norm2.z);
+        glVertex3f(p4.x, p4.y, p4.z);
         glEnd();
       }
     }

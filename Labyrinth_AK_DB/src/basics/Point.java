@@ -6,20 +6,31 @@ public class Point
   public float x;
   public float y;
   public float z;
+  
   /**
    * Ein dreidimensionaler Vektor
    * 
-   * @param x x - Koordinate
+   * @param x
+   *          x - Koordinate
    * 
-   * @param y y - Koordinate
+   * @param y
+   *          y - Koordinate
    * 
-   * @param z z - Koordinate
+   * @param z
+   *          z - Koordinate
    */
   public Point(float x, float y, float z)
   {
     this.x = x;
     this.y = y;
     this.z = z;
+  }
+  
+  public Point(Point a)
+  {
+    x = a.x;
+    y = a.y;
+    z = a.z;
   }
   
   /**
@@ -134,6 +145,33 @@ public class Point
     this.x += x;
     this.y += y;
     this.z += z;
+  }
+  
+  /** Berechnet den Normalenvektor einer Ebene durch 3 Punkte */
+  public static Point normalVector(Point p1, Point p2, Point p3)
+  {
+    // make hardcopys
+    p1 = new Point(p1);
+    p2 = new Point(p2);
+    p3 = new Point(p3);
+    // turn into vectors
+    p1.mult(-1);
+    p2.add(p1);
+    p3.add(p1);
+    // crossproduct
+    Point erg = kreuz(p2, p3);
+    // norm
+    erg.normalize();
+    return erg;
+  }
+  
+  private static Point kreuz(Point p1, Point p2)
+  {
+    Point erg = new Point(0, 0, 0);
+    erg.x = p1.y * p2.z - p1.z * p2.y;
+    erg.y = p1.z * p2.x - p1.x * p2.z;
+    erg.z = p1.x * p2.y - p1.y * p2.x;
+    return erg;
   }
   
   @Override

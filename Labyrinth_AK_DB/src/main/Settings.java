@@ -17,4 +17,5 @@ public final class Settings
   
   public final static float   PlayerMovementSpeed     = .07f;
   public final static float   PlayerSideStepSpeed     = .05f;
+  public static final boolean POLYMODE_ON             = false;
 }
