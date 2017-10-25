@@ -6,18 +6,14 @@ public class Point
   public float x;
   public float y;
   public float z;
-  
   /**
    * Ein dreidimensionaler Vektor
    * 
-   * @param x
-   *          x - Koordinate
+   * @param x x - Koordinate
    * 
-   * @param y
-   *          y - Koordinate
+   * @param y y - Koordinate
    * 
-   * @param z
-   *          z - Koordinate
+   * @param z z - Koordinate
    */
   public Point(float x, float y, float z)
   {
