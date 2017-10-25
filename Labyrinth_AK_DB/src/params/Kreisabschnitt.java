@@ -44,7 +44,7 @@ public class Kreisabschnitt extends Param
   @Override
   void setResolution()
   {
-    mfact = (float) (Math.PI * (xscl + yscl) * q / 360);
+    mfact = (float) (Math.PI * (xscl + yscl));
     minM = 3;
     nfact = (xscl + yscl) / 2;
   }
