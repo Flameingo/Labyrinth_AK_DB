@@ -41,6 +41,7 @@ public class ZylinderAbschnitt extends Param
     glPushMatrix();
     {
       glTranslatef(0, 0, zscl);
+      glFrontFace(GL_CCW);
       deckel.draw();
     }
     glPopMatrix();
