@@ -10,7 +10,17 @@ public class ZylinderAbschnitt extends Param
   private Param schnittseite1;
   private Param schnittseite2;
   private float zscl;
-  
+  /**
+   * Erschafft ein Objekt in der Form eines schweizer Kaeses
+   * 
+   * @param xscl x-Koordinate des Kreises
+   * 
+   * @param yscl y-Koordinate des Kreises, muss dem x-Wert entsprechen für einen Kreis mit dem Radius x.
+   * 
+   * @param zscl Höhe des Zylinderabschnitts
+   * 
+   * @param winkel In Gradmass anzugeben
+   */
   public ZylinderAbschnitt(float xscl, float yscl, float zscl, float winkel)
   {
     super();
