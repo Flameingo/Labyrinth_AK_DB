@@ -1,6 +1,7 @@
 package params;
 
 import basics.*;
+import main.Settings;
 
 public class Dreieck extends Param
 {
@@ -46,6 +47,13 @@ public class Dreieck extends Param
     float alpha = p1.z + u * (p2.z - p1.z);
     float beta = p3.z;
     return alpha + v * (beta - alpha);
+  }
+  
+  @Override
+  void setResolution()
+  {
+    mfact = Point.add(p2, Point.neg(p1)).length();
+    nfact = Point.add(p3, Point.neg(p1)).length();
   }
   
 }

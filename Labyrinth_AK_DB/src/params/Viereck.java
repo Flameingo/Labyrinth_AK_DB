@@ -12,7 +12,7 @@ public class Viereck extends Param
   
   /**
    * 
-   * @param p1 
+   * @param p1
    * 
    * @param p2
    * 
@@ -57,6 +57,13 @@ public class Viereck extends Param
     float alpha = p1.z + u * (p2.z - p1.z);
     float beta = p3.z + u * (p4.z - p3.z);
     return alpha + v * (beta - alpha);
+  }
+  
+  @Override
+  void setResolution()
+  {
+    mfact = (Point.add(p2, Point.neg(p1)).length() + Point.add(p4, Point.neg(p3)).length()) / 2;
+    nfact = (Point.add(p3, Point.neg(p1)).length() + Point.add(p4, Point.neg(p2)).length()) / 2;
   }
   
 }

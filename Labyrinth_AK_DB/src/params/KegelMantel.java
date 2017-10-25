@@ -1,6 +1,7 @@
 package params;
 
 import basics.Point;
+import main.Settings;
 
 public class KegelMantel extends Param
 {
@@ -32,6 +33,13 @@ public class KegelMantel extends Param
     float alpha = 0;
     float beta = 1;
     return alpha + v * (beta - alpha);
+  }
+  
+  @Override
+  void setResolution()
+  {
+    nfact = zscl;
+    mfact = (float) (Math.PI * (xscl + yscl));
   }
   
 }

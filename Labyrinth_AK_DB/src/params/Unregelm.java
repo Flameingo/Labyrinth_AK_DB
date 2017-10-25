@@ -7,12 +7,9 @@ public class Unregelm extends Param
   
   Param[] seiten = { null, null, null, null, null, null };
   
-  
-
   public Unregelm(Point p1, Point p2, Point p3, Point p4, Point p5, Point p6, Point p7, Point p8)
   {
     super();
-
     
     seiten[0] = new Viereck(p1, p2, p3, p4);
     seiten[1] = new Viereck(p1, p2, p5, p6);
@@ -23,7 +20,6 @@ public class Unregelm extends Param
     
   }
   
-
   public void draw()
   {
     for (int i = 0; i < seiten.length; i++)
@@ -51,6 +47,12 @@ public class Unregelm extends Param
   {
     // unused
     return 0;
+  }
+  
+  @Override
+  void setResolution()
+  {
+    // unused
   }
   
 }

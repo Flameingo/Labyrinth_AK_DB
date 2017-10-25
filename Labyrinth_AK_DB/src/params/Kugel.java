@@ -4,17 +4,21 @@ public class Kugel extends Param
 {
   /**
    * 
-   * @param r Radius der Kugel
+   * @param r
+   *          Radius der Kugel
    */
   public Kugel(float r)
   {
     super(r, r, r, (float) -Math.PI / 2, (float) Math.PI / 2, (float) -Math.PI, (float) Math.PI);
   }
+  
   /**
    * 
-   * @param r Radius der Kugel
+   * @param r
+   *          Radius der Kugel
    * 
-   * @param col Farbe der Kugel
+   * @param col
+   *          Farbe der Kugel
    */
   public Kugel(float r, float[] col)
   {
@@ -38,6 +42,13 @@ public class Kugel extends Param
   public float z(float u, float v)
   {
     return (float) Math.sin(v);
+  }
+  
+  @Override
+  void setResolution()
+  {
+    nfact = (float) Math.PI * xscl;
+    mfact = nfact * 2;
   }
   
 }

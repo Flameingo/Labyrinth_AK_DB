@@ -51,4 +51,11 @@ public class Zylinder extends Param
     return 0;
   }
   
+  @Override
+  void setResolution()
+  {
+    // unused
+    
+  }
+  
 }

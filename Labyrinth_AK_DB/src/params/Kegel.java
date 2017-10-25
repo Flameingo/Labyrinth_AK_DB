@@ -40,5 +40,11 @@ public class Kegel extends Param
     // TODO Auto-generated method stub
     return 0;
   }
+
+  @Override
+  void setResolution()
+  {
+    
+  }
   
 }
