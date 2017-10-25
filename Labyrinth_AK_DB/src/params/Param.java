@@ -132,6 +132,7 @@ public abstract class Param
   
   protected void drawParametrisierung()
   {
+    glPolygonMode(GL_FRONT, GL_LINE);
     glPolygonMode(GL_BACK, GL_POINT); // Rueckseite der Objekte werden als Punkte gezeichnet. Sind Punkte zu sehen, muss
                                       // also das Objekt korrigiert werden.
     
