@@ -33,19 +33,15 @@ public class Spawner extends Objekt
     Labyrinth.addObject(new Player()); //Wird benoetigt, um die Kamera innerhalb des Spiels zu steuern
     
     
-//    Labyrinth.addObject(new RundeTreppe3(0,0,0,0,0,0,180,10));
+    Labyrinth.addObject(new RundeTreppe3(0,0,0,0,0,0,180,10));
 //    
 //    Labyrinth.addObject(new Testfigur());
 ////<<<<<<< HEAD
     
  
-//    Labyrinth.addObject(new PrototypWand(wandFeld/2,0,0,0,0,0,90));
-      Labyrinth.addObject (new Turm(0, 0, 0));
-      Labyrinth.addObject(new TuerWand(3f,0f,0f,0f,0f,0f,90f));
-//    Labyrinth.addObject(new BeschaedigteWandRANDOM(-wandFeld/2,0,0,0,0,0));
-//    Labyrinth.addObject(new BeschaedigteWand(-wandFeld,0,0,0,0,0));
-//      Labyrinth.addObject(new TuerWand(0,0,0,0,0,0));
-//      Labyrinth.addObject(new Tuer(0,0,0,0,0,0,true));
+
+//      Labyrinth.addObject (new Turm(0, 0, 0));
+
 //=======
     //Labyrinth.addObject(new WandBlock());
 //>>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB

@@ -10,7 +10,7 @@ public final class Settings
   public final static boolean DrawPlayerPOS           = false;
   
   /** controls the resolution of all drawn Objects */
-  public final static int     RenderSolution          = 3;
+  public final static float   RenderSolution          = 1 / .1f;
   // Player rotation speeds:
   public final static float   PlayerRotationLeftRight = (float) (Math.PI / 60);
   public final static float   PlayerRotationUpDown    = (float) (Math.PI / 180);
