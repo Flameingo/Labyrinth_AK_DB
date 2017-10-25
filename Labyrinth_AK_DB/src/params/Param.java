@@ -130,6 +130,7 @@ public abstract class Param
     drawParametrisierung();
   }
   /**
+   * Zeichnet das Objekt
    * 
    */
   protected void drawParametrisierung()
