@@ -7,7 +7,7 @@ public class Kreisabschnitt extends Param
   
   public Kreisabschnitt(float xscl, float yscl, float q)
   {
-    super(xscl, yscl, 1, 0, (float) Math.PI * 2 * q / 360, 0, 1);
+    super(xscl, yscl, 1, 0, (float) Math.PI * q / 180, 0, 1);
     this.q = q;
   }
   
