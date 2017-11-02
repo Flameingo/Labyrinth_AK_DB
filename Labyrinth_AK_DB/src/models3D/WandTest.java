@@ -104,4 +104,5 @@ public class WandTest extends WandBlock
     }
    
   }
+    
 }

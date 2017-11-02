@@ -18,21 +18,22 @@ public class Turm extends Objekt
     
     
     
-    Labyrinth.addObject (new WandTest(0,1.7f,0,0,0,0,90));
+    Labyrinth.addObject (new WandTest(0,1.7f,0,0,0,0,90));  // Die unterste Etage, 3 normale Wände und eine mit Tuer.
     Labyrinth.addObject (new WandTest(0,1.7f,0,90,0,0,90));
     Labyrinth.addObject (new WandTest(0,1.7f,0,180,0,0,90));
     Labyrinth.addObject (new TuerWand(0,1.7f,0,270,0,0,90));
     
-    for (int r = 1; r< 4; r++)
+    for (int r = 1; r< 4; r++) //r Setzt mehrere Wandelemente übereinander
     {
-      Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,0,0,0,90));
-      Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,90,0,0,90));
-      Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,180,0,0,90));
-      Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,270,0,0,90));
+      for (int rota = 0; rota < 4; rota++)    //Setzt 4 Wandelemente zu einem Kreis zusammen
+        {
+        Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,rota*90,0,0,90)); 
+        }
     }
     
-    Labyrinth.addObject(new RundeTreppe3(0,1.7f,0,0,0,0,360 ,30));
+    Labyrinth.addObject(new RundeTreppe("S",0,1.7f,0,0,0,0,360 ,30)); //Erstellt die sich im Turminneren befindende Wendelteppe sowie eine Saule in deren Mitte.
     
+    Labyrinth.addObject(new Steinflaeche(0,6,0,0,0,0));
   
   }
   
@@ -54,7 +55,7 @@ public class Turm extends Objekt
   public void draw()
   {
     // TODO Auto-generated method stub
-    myShape.draw();
+//    myShape.draw();                                      //Eventuelle Verlagerung der Erzeugung aller Objekte in diese Klasse.
   }
 
   @Override
