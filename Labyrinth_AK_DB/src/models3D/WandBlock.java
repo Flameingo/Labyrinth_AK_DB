@@ -16,7 +16,9 @@ public class WandBlock extends Objekt
   /** Definiert die Breite jedes Backsteins der Wand */
   protected static float wdbreite = 0.1f;
   
-  /** Die x,y und z - Koordinaten bestimmen den Standort des Objekts */
+  /** Die x,y und z - Koordinaten bestimmen den Standort des Objekts 
+   * Hierbei beeinflusst die z-Achse die Hoehe.
+   * */
   protected float x,y,z;
   
   
