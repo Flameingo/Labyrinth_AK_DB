@@ -17,7 +17,7 @@ public class Spawner extends Objekt
     Labyrinth.addObject(new Player()); // Wird benoetigt, um die Kamera innerhalb des Spiels zu steuern
     
     // Hier werden die Objekte ins Spiel gesetzt:
-    Labyrinth.addObject(new Turm(0, 0, 0,0,20,0));
+    Labyrinth.addObject(new Turm(0, 0, 0,0,0,0));
     
     
     // Definition der Lichtquellen:
