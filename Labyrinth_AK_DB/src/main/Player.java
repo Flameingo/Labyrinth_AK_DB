@@ -58,7 +58,7 @@ public class Player extends Objekt
     Point lookat = Point.add(pos, cam);
     Labyrinth.setView(pos, lookat);
     
-    if (Settings.DrawPlayerPOS) System.out.println(Labyrinth.findInstance(new Player()));
+    if (Settings.DrawPlayerPOS) System.out.println(this);
   }
   
   /** moves the Player to the side */
@@ -100,32 +100,24 @@ public class Player extends Objekt
       cam.x = (float) (tempXY * Math.sin(arc));
       cam.y = (float) (tempXY * Math.cos(arc));
       cam.z = tempZ;
-      System.out.println(xyLength + " " + arc + " " + tempXY);
     }
     // fix rounding errors
     cam.normalize();
-    System.out.println(this);
   }
   
   @Override
   public void collision()
   {
-    // TODO Auto-generated method stub
-    
   }
   
   @Override
   public void draw()
   {
-    // TODO Auto-generated method stub
-    
   }
   
   @Override
   public void drawGUI()
   {
-    // TODO Auto-generated method stub
-    
   }
   
   @Override

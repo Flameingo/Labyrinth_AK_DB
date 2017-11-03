@@ -1,40 +1,39 @@
 package models3D;
 
 import basics.Point;
-import main.Labyrinth;
-import main.Objekt;
-import params.Shape;
+import main.*;
+import params.*;
 
 public class Turm extends Objekt
 {
-
-  protected Shape myShape = new Shape();
-  protected float x,y,z;
+  private final int  hoehe  = 4;
   
-  public Turm(float x, float y, float z, float alpha, float beta, float gamma){
-    this.x = x;
-    this.y = y;
-    this.z = z;
+  protected Objekt[] waende = new Objekt[hoehe * 4];
+  Objekt             treppe;
+//  Objekt             stein;
+  protected float    x, y, z;
+  
+  public Turm(float x, float y, float z, float alpha, float beta, float gamma)
+  {
+    pos = new Point(x, y, z);
+    this.alpha = alpha;
+    this.beta = beta;
+    this.gamma = gamma;
     
-    
-    
-    Labyrinth.addObject (new WandTest(0,1.7f,0,0,0,0,90));  // Die unterste Etage, 3 normale Wände und eine mit Tuer.
-    Labyrinth.addObject (new WandTest(0,1.7f,0,90,0,0,90));
-    Labyrinth.addObject (new WandTest(0,1.7f,0,180,0,0,90));
-    Labyrinth.addObject (new TuerWand(0,1.7f,0,270,0,0,90));
-    
-    for (int r = 1; r< 4; r++) //r Setzt mehrere Wandelemente übereinander
+    for (int r = 0; r < hoehe; r++) // r Setzt mehrere Wandelemente uebereinander
     {
-      for (int rota = 0; rota < 4; rota++)    //Setzt 4 Wandelemente zu einem Kreis zusammen
-        {
-        Labyrinth.addObject(new WandTest(0,1.7f,r*1.5f,rota*90,0,0,90)); 
-        }
+      for (int rota = 0; rota < 4; rota++) // Setzt 4 Wandelemente zu einem Kreis zusammen
+      {
+        waende[r * 4 + rota] = new WandTest(0, 1.7f, r * 1.5f, rota * 90, 0, 0, 90);
+      }
     }
     
-    Labyrinth.addObject(new RundeTreppe("S",0,1.7f,0,0,0,0,360 ,30)); //Erstellt die sich im Turminneren befindende Wendelteppe sowie eine Saule in deren Mitte.
+    treppe = new RundeTreppe("S", 0, 1.7f, 0, 0, 0, 0, 360, 30); // Erstellt die sich im Turminneren
+    // befindende Wendelteppe sowie eine Saule
+    // in deren Mitte.
     
-    Labyrinth.addObject(new Steinflaeche(0,6,0,0,0,0));
-  
+//    stein = new Steinflaeche(0, 6, 0, 0, 0, 0);
+    
   }
   
   @Override
@@ -43,21 +42,26 @@ public class Turm extends Objekt
     // TODO Auto-generated method stub
     
   }
-
+  
   @Override
   public void collision()
   {
     // TODO Auto-generated method stub
     
   }
-
+  
   @Override
   public void draw()
   {
-    // TODO Auto-generated method stub
-//    myShape.draw();                                      //Eventuelle Verlagerung der Erzeugung aller Objekte in diese Klasse.
+    Material.RED_PLASTIC.use();
+    for (Objekt wand : waende)
+    {
+      wand.draw();
+    }
+    treppe.draw();
+//    stein.draw();
   }
-
+  
   @Override
   public void drawGUI()
   {

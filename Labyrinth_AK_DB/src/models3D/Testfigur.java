@@ -36,7 +36,7 @@ public class Testfigur extends Objekt
   @Override
   public void draw()
   {
-    Material.RUBIN.use();
+    Material.RUBY.use();
     myShape.draw();
     
   }
