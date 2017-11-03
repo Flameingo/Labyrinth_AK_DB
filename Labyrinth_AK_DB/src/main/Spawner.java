@@ -20,6 +20,12 @@ public class Spawner extends Objekt
     Labyrinth.addObject(new Turm(0, 0, 0,0,0,0));
     
     
+    Labyrinth.addObject(new PrototypWand(0,0,0,0,0,0));
+    Labyrinth.addObject(new PrototypWand(0,3.4f,0,0,0,0));
+    Labyrinth.addObject(new PrototypWand(0,0,1.5f,0,0,0));
+    Labyrinth.addObject(new PrototypWand(0,3.4f,1.5f,0,0,0));
+    
+    
     // Definition der Lichtquellen:
     glEnable(GL_LIGHT0);
     glLightfv(GL_LIGHT0, GL_AMBIENT, new float[] { .2f, .2f, .2f, 1 });
