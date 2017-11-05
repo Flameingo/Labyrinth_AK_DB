@@ -9,6 +9,8 @@ public class Turm extends Objekt
   private final int  hoehe  = 4;
   
   protected Objekt[] waende = new Objekt[hoehe * 4];
+  protected Objekt[] bonus = new Objekt [1];
+  protected Objekt[] zinnen = new Objekt [4];
   Objekt             treppe;
 //  Objekt             stein;
   protected float    x, y, z;
@@ -20,9 +22,6 @@ public class Turm extends Objekt
     this.alpha = alpha;
     this.beta = beta;
     this.gamma = gamma;
-    
-    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
-    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
     
     myShape.addParam(new ZylinderAbschnitt(1.7f,1.7f,0.3f,210), new Point (0,1.7f,5.7f), new float[] {180,0,0});
     
@@ -41,7 +40,7 @@ public class Turm extends Objekt
       }
     }
     
-    treppe = new RundeTreppe("S", 0, 1.7f, 0, 0, 0, 0, 360, 30); // Erstellt die sich im Turminneren
+    bonus[0] = new RundeTreppe("S", 0, 1.7f, 0, 0, 0, 0, 360, 30); // Erstellt die sich im Turminneren
     // befindende Wendelteppe sowie eine Saule
     // in deren Mitte.
     
@@ -49,7 +48,7 @@ public class Turm extends Objekt
     
     for (int q = 0; q < 4; q++)
     {
-      Labyrinth.addObject(new Zinne(0,1.7f,4*1.5f,90*q,0,0,90));
+      zinnen[q] = new Zinne(0,1.7f,4*1.5f,90*q,0,0,90);
     }
     
   }
@@ -76,7 +75,14 @@ public class Turm extends Objekt
     {
       wand.draw();
     }
-    treppe.draw();
+    for (Objekt bon : bonus)
+    {
+      bon.draw();
+    }
+    for (Objekt zinne : zinnen)
+    {
+      zinne.draw();
+    }
 //    stein.draw();
     
     myShape.draw();
