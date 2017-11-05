@@ -26,18 +26,13 @@ public class Steinflaeche extends Objekt
     myShape.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung des gesamtes Objektes
     
     
-    float winkel = 0;
-    double sz=  Math.PI/12;
-    Point p1 = new Point ((float)Math.cos(winkel),(float)Math.sin(winkel),0);
-    Point p3 = new Point ((float)Math.cos(winkel+sz),(float)Math.sin(winkel),0);
-    Point p2 = new Point ((float)Math.cos(winkel+sz),(float)Math.sin(winkel+sz),0);
-    Point p4 = new Point ((float)Math.cos(winkel),(float)Math.sin(winkel+sz),0);
-    Point p5 = new Point ((float)Math.cos(winkel),(float)Math.sin(winkel),0.3f);
-    Point p7 = new Point ((float)Math.cos(winkel+sz),(float)Math.sin(winkel+sz),0.3f);
-    Point p6 = new Point ((float)Math.cos(winkel+sz),(float)Math.sin(winkel+sz),0.3f);
-    Point p8 = new Point ((float)Math.cos(winkel),(float)Math.sin(winkel),0.3f);
-    
-    myShape.addParam(new Unregelm(p1,p2,p3,p4,p5,p6,p7,p8)); //genaue Codierung der Schleife für die Steine muss noch festgelegt werden
+  
+//    Point [] P = new Point[0] ;
+//    P[0]= new Point(0,0,0);
+//    P[1]= new Point(1,1,0);
+//    P[2]= new Point (2,3,1);
+//    P[3]= new Point (1,2,3);
+//    myShape.addParam(new Prisma(null, 3f)); //genaue Codierung der Schleife für die Steine muss noch festgelegt werden
     
     
     

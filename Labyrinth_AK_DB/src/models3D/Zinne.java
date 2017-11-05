@@ -148,7 +148,7 @@ public class Zinne extends WandBlock
             {
             
          
-                                                                                //Erschafft die 
+                                                                                //Erschafft die kurzen Steine in jeder zweiten Reihe
             myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),                
                 new Point((float) Math.cos(biegend3) * abstand, (float) Math.sin(biegend3) *abstand, oben * 0.06f), new float []{(float) (biegend33 + 90),0,0});
             }
@@ -160,7 +160,7 @@ public class Zinne extends WandBlock
           if( i == 0|| i == 7 || i == 10 || i == 17 || i == 20)
           {
             
-            
+                                                                                //Erschafft die kurzen Steine in der jeweils anderen Reihe
             myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), 
                 new Point((float) Math.cos(biegend3) * abstand, (float) Math.sin(biegend3) *abstand, oben * 0.06f), new float []{(float) (biegend33 + 90),0,0});
           }
