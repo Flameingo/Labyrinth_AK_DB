@@ -94,7 +94,8 @@ public class Labyrinth
   {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_LIGHTING);
-//    glShadeModel(GL_FLAT);
+    Lights.init();
+    // glShadeModel(GL_FLAT);
     
     m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.1f, 15f);
     glMatrixMode(GL_PROJECTION);
@@ -151,6 +152,7 @@ public class Labyrinth
     
     glPushMatrix();
     glLoadMatrixf(fb);
+    Lights.setLights();
     for (int i = 0; i < objekte.length; i++)
     {
       objekte[i].translate_rotate();

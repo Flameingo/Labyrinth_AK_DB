@@ -20,13 +20,6 @@ public class Spawner extends Objekt
     
     Labyrinth.addObject(new Turm(3,2,1,-2,3,4));
     
-    
-    // Definition der Lichtquellen:
-    glEnable(GL_LIGHT0);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, new float[] { .2f, .2f, .2f, 1 });
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, new float[] { 1, 1, 1, 1 });
-    glLightfv(GL_LIGHT0, GL_SPECULAR, new float[] { 1, 1, 1, 1 });
-    glLightfv(GL_LIGHT0, GL_POSITION, new float[] { 1, 1, 1, 0 });
   }
   
   @Override
