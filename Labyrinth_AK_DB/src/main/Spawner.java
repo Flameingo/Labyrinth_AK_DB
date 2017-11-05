@@ -18,7 +18,7 @@ public class Spawner extends Objekt
     
     // Hier werden die Objekte ins Spiel gesetzt:
     
-    Labyrinth.addObject(new Buch(0,0,0,0,0,0));
+    Labyrinth.addObject(new Turm(3,2,1,-2,3,4));
     
     
     // Definition der Lichtquellen:

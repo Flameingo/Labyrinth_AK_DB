@@ -21,6 +21,8 @@ public class Turm extends Objekt
     this.beta = beta;
     this.gamma = gamma;
     
+    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
     
     myShape.addParam(new ZylinderAbschnitt(1.7f,1.7f,0.3f,210), new Point (0,1.7f,5.7f), new float[] {180,0,0});
     

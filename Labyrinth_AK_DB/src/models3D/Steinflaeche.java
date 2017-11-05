@@ -27,12 +27,12 @@ public class Steinflaeche extends Objekt
     
     
   
-//    Point [] P = new Point[0] ;
-//    P[0]= new Point(0,0,0);
-//    P[1]= new Point(1,1,0);
-//    P[2]= new Point (2,3,1);
-//    P[3]= new Point (1,2,3);
-//    myShape.addParam(new Prisma(null, 3f)); //genaue Codierung der Schleife für die Steine muss noch festgelegt werden
+    Point [] P = new Point[4] ;
+    P[0]= new Point(0,0,0);
+    P[1]= new Point(0.2f,1,0);
+    P[2]= new Point (2,3,0);
+    P[3]= new Point (1,2,0);
+    myShape.addParam(new Prisma(P, 1f)); //genaue Codierung der Schleife für die Steine muss noch festgelegt werden
     
     
     
