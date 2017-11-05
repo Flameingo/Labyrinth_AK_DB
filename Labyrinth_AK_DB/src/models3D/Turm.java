@@ -70,7 +70,7 @@ public class Turm extends Objekt
   @Override
   public void draw()
   {
-    Material.RED_PLASTIC.use();
+    Material.BACKSTEIN.use();
     for (Objekt wand : waende)
     {
       wand.draw();
