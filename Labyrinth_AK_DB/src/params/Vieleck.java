@@ -11,7 +11,8 @@ public class Vieleck extends Param
     if (punkte.length < 3) return;
     dreiecke = new Param[punkte.length - 2];
     for (int i = 1; i < punkte.length - 1; i++)
-      dreiecke[punkte.length - 1] = new Dreieck(punkte[0], punkte[i], punkte[i + 1]);
+      dreiecke[i - 1] = new Dreieck(punkte[0], punkte[i], punkte[i + 1]);
+    System.out.println();
   }
   
   public Vieleck(Point[] punkte, Material mat)

@@ -8,13 +8,13 @@ public class Prisma extends Param
 {
   Param   deckel;
   Param[] mantel;
-  float hoehe;
+  float   hoehe;
   
   public Prisma(Point[] punkte, float hoehe)
   {
     deckel = new Vieleck(punkte);
     mantel = new Param[punkte.length - 1];
-    for (int i = 0; i < mantel.length - 1; i++)
+    for (int i = 0; i < mantel.length; i++)
       mantel[i] = new Viereck(punkte[i], punkte[i + 1], Point.add(punkte[i], 0, 0, hoehe),
           Point.add(punkte[i + 1], 0, 0, hoehe));
     this.hoehe = hoehe;
@@ -32,7 +32,7 @@ public class Prisma extends Param
     }
     glPushMatrix();
     {
-      glTranslatef(0,0,hoehe);
+      glTranslatef(0, 0, hoehe);
       deckel.draw();
     }
     glPopMatrix();
