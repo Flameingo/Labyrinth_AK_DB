@@ -15,7 +15,19 @@ public class Turm extends Objekt
    
   protected Shape myShape = new Shape();
   
-
+/**
+ * 
+ * @param T Der Aufruf "T" fuer diesen String erschafft eine zweite Tuer. Wird ein anderer Aufruf fuer diesen String getaetigt,
+ *          wird ein isolierter Turm erschaffen.
+ *  Koordinaten:
+ * @param x
+ * @param y
+ * @param z
+ *  
+ * @param alpha Drehung z - Achse
+ * @param beta Drehung y - Achse
+ * @param gamma Drehung x - Achse
+ */
   public Turm(String T, float x, float y, float z, float alpha, float beta, float gamma)
   {
     pos = new Point(x, y, z);
@@ -23,7 +35,8 @@ public class Turm extends Objekt
     this.beta = beta;
     this.gamma = gamma;
     
-    if (T != "T") {
+    if (T != "T") //Die obere Ebene im Falle des isolierten Turms.
+    {
       myShape.addParam(new params.ZylinderAbschnitt(1.7F, 1.7F, 0.3F, 210.0F), new Point(0.0F, 1.7F, 5.7F), new float[] { 180.0F, 0.0F, 0.0F });
     }
     
@@ -34,7 +47,9 @@ public class Turm extends Objekt
       waende = new Objekt[20];
       
       myShape.addParam(new params.ZylinderAbschnitt(1.7F, 1.7F, 0.35F, 160.0F), new Point(0.0F, 1.7F, 3.225F), new float[] { 70.0F, 0.0F, 0.0F });
-      
+      /* Die Ebene nach dem ersten Treppenabschnitt ist durch den obenstehenden Befehl definiert,
+       * die untere definiert die obere Ebene des Turms.
+       */
       myShape.addParam(new params.ZylinderAbschnitt(1.7F, 1.7F, 0.3F, 210.0F), new Point(0.0F, 1.7F, 5.55F), new float[] { 30.0F, 0.0F, 0.0F });
     }
     

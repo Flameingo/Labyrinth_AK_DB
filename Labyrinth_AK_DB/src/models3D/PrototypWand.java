@@ -10,8 +10,7 @@ public class PrototypWand extends WandBlock
   public PrototypWand(float x, float y, float z, float w1, float w2, float w3)
   {
     super(x, y, z, w1, w2, w3);
-    
-    float qX = -Spawner.wandFeld / 2;
+   
     
     for (int k = 0; k < wdhoehe; k++)
     {

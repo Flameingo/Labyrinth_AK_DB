@@ -10,7 +10,7 @@ public class BeschaedigteWand extends WandBlock
   {
   super(x,y,z,w1,w2,w3);
   
-  float qX = -Spawner.wandFeld/2;
+
   
   for (int k = 0; k<wdhoehe; k++)
   {

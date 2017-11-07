@@ -8,7 +8,7 @@ import params.Material;
 public class TurmExtra
   extends Objekt
 {
-  public Objekt[] items = new Objekt[18];
+  public Objekt[] items = new Objekt[18]; //Aktuell bestehend aus ProtoT
   public Objekt[] zinnen = new Objekt[6];
   
 

@@ -11,7 +11,7 @@ import basics.Point;
 public class Steinflaeche extends Objekt
 {
   protected Shape myShape = new Shape();
-  protected float x, y, z;
+  
   
   public Steinflaeche(float x, float y, float z, float alpha, float beta, float gamma)
   {

@@ -17,7 +17,15 @@ public class Treppe extends Objekt
   protected float treppenlaenge;
   
   protected Shape myShape = new Shape();
-  
+  /**
+   * 
+   * @param x
+   * @param y
+   * @param z
+   * @param w1
+   * @param w2
+   * @param w3
+   */
   public Treppe(float x, float y, float z, float w1, float w2, float w3)
   {
     this.x = x;
@@ -33,7 +41,18 @@ public class Treppe extends Objekt
   }
   
   
-  
+  /**
+   * 
+   * @param x
+   * @param y
+   * @param z
+   * @param w1
+   * @param w2
+   * @param w3
+   * @param stflaenge
+   * @param stfbreite
+   * @param stfhoehe
+   */
   public Treppe(float x, float y, float z, float w1, float w2, float w3, float stflaenge, float stfbreite, float stfhoehe)
   {
     this.x = x;

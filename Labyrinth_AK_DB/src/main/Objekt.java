@@ -9,9 +9,19 @@ public abstract class Objekt
 {
   // Variablen
   // pos for position, angles for rotation
+  
+  /**
+   * alpha ist z - Achse (senkrechte Achse)
+   * beta ist y - Achse
+   * gamma ist x - Achse
+   */
   protected float alpha = 0, beta = 0, gamma = 0;
   
+  /**
+   * x und y bilden die waagrechte Ebene. z bestimmt die Hoehe.
+   */
   protected float x,y,z;
+  
   protected Point pos   = new Point(0, 0, 0);
   
   // Funktionen

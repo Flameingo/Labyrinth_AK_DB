@@ -2,6 +2,7 @@ package models3D;
 
 import params.Quader;
 import main.Objekt;
+import main.Spawner;
 import params.Shape;
 import static org.lwjgl.opengl.GL11.*;
 
@@ -15,6 +16,11 @@ public class WandBlock extends Objekt
   protected static int wdhoehe = 25;
   /** Definiert die Breite jedes Backsteins der Wand */
   protected static float wdbreite = 0.1f;
+  
+  /**
+   * Diese Verschiebung jedes Objekts um die x - Achse sorgt dafuer, dass der Ursprung in der Mitte der Wand liegt.
+   */
+  protected float qX = - Spawner.wandFeld/2;
   
   /** Die x,y und z - Koordinaten bestimmen den Standort des Objekts 
    * Hierbei beeinflusst die z-Achse die Hoehe.
