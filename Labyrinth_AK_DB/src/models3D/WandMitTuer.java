@@ -17,7 +17,7 @@ public class WandMitTuer extends TuerWand
     
     
     
-    myShape.addParam(new Quader("Ecke", 0.65f,0.05f,1.30f), new Point(1.3f+qX,-0.05f+this.z,-0.02f+this.y));
+    myShape.addParam(new Quader("Ecke", 0.65f,0.05f,1.30f), new Point(1.3f+qX,-0.05f,-0.02f));
     
   }
   
