@@ -19,7 +19,7 @@ public class WandBlock extends Objekt
   /** Die x,y und z - Koordinaten bestimmen den Standort des Objekts 
    * Hierbei beeinflusst die z-Achse die Hoehe.
    * */
-  protected float x,y,z;
+ 
   
   
   /** biege beschreibt die eventuelle Biegung des Objekts,

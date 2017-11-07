@@ -12,19 +12,9 @@ public class Turm extends Objekt
   protected Objekt[] bonus = new Objekt[1];
   protected Objekt[] zinnen = new Objekt[4];
   Objekt treppe;
-  protected float x;
-  protected float y;
-  protected float z; protected Shape myShape = new Shape();
+   
+  protected Shape myShape = new Shape();
   
-
-
-
-
-
-
-
-
-
 
   public Turm(String T, float x, float y, float z, float alpha, float beta, float gamma)
   {

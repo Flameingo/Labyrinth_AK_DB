@@ -8,7 +8,7 @@ import params.Zylinder;
 public class Gitter extends Objekt
 {
   protected Shape myShape = new Shape();
-  protected float x, y, z;
+  
  
   
   public Gitter(String B,float x, float y, float z, float alpha, float beta, float gamma, float stgbreite, float stghoehe)

@@ -12,7 +12,7 @@ public class Treppe extends Objekt
   protected static float stufenbreite = 2;
   protected static float stufenhoehe2 = 0.1f;
   protected float stflaenge, stfbreite, stfhoehe;
-  protected float x,y,z;
+  
   protected float bogen;
   protected float treppenlaenge;
   

@@ -11,7 +11,7 @@ public final class Settings
   public static final boolean POLYMODE_ON             = false;
   
   /** controls the resolution of all drawn Objects */
-  public final static float   RenderSolution          = 3;  //ursprünglich 5
+  public final static float   RenderSolution          = 0;  //ursprünglich 5
   // Player rotation speeds:
   public final static float   PlayerRotationLeftRight = (float) (Math.PI / 60);
   public final static float   PlayerRotationUpDown    = (float) (Math.PI / 180);

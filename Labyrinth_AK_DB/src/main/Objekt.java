@@ -10,6 +10,8 @@ public abstract class Objekt
   // Variablen
   // pos for position, angles for rotation
   protected float alpha = 0, beta = 0, gamma = 0;
+  
+  protected float x,y,z;
   protected Point pos   = new Point(0, 0, 0);
   
   // Funktionen
