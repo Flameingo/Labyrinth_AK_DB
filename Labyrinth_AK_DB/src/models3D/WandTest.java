@@ -43,7 +43,7 @@ public class WandTest extends WandBlock
     }
   }
   
-  /**
+  /** Aktuell nur fuer 90 grad (biege = 90) geeignet, fuer unregelmaessige Gradzahlen empfiehlt sich PrototypWand
    * 
    * @param x
    * @param y

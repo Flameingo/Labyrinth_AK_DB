@@ -25,15 +25,15 @@ public class Steinflaeche extends Objekt
     myShape.translate(new Point(x, y, z)); // Verantwortlich fuer die Verschiebung des gesamtes Objektes
     myShape.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung des gesamtes Objektes
     
-    
+    myShape.addParam(new ZAKompliment(1,1,1));
   
-    Point [] P = new Point[4] ;
-    P[0]= new Point(0,0,0);
-    P[1]= new Point(0.2f,1,0);
-    P[2]= new Point (2,3,0);
-    P[3]= new Point (1,2,0);
-    myShape.addParam(new Prisma(P, 1f)); //genaue Codierung der Schleife für die Steine muss noch festgelegt werden
-    
+//    Point [] P = new Point[4] ;
+//    P[0]= new Point(0,0,0);
+//    P[1]= new Point(0.2f,1,0);
+//    P[2]= new Point (2,3,0);
+//    P[3]= new Point (1,2,0);
+//    myShape.addParam(new Prisma(P, 1f)); //genaue Codierung der Schleife für die Steine muss noch festgelegt werden
+//    
     
     
     

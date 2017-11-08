@@ -4,6 +4,7 @@ import main.Labyrinth;
 import main.Objekt;
 import main.Spawner;
 import params.Material;
+import params.ZAKompliment;
 
 public class TurmExtra
   extends Objekt
@@ -46,6 +47,7 @@ public class TurmExtra
         items[(12 + 3 * i + j)] = new WandHalbeH(-Spawner.wandFeld / 2.0F * j, i * 3.4F, 3.0F, 0.0F, 0.0F, 0.0F);
       }
     }
+    Labyrinth.addObject(new Flaeche());
   }
   
 
@@ -77,6 +79,7 @@ public class TurmExtra
     {
       zin.draw();
     }
+    
   }
   
   public void drawGUI() {}

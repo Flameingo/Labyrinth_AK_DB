@@ -32,7 +32,9 @@ public class WandBlock extends Objekt
    * ein positiver Wert enspricht einer Biegung nach links
    */
   protected float biege;
-  
+  /**
+   * Diese Objekte werden in entsprechenden Klassen von der Methode myShape.draw(); im Spiel platziert.
+   */
   protected Shape myShape = new Shape();
   
  /**

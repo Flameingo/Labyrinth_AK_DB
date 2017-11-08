@@ -6,7 +6,9 @@ import params.*;
 
 public class Spawner extends Objekt
 {
-  
+  /**
+   * 5.7f, entspricht der Laenge von zwei WandBloecken
+   */
   public static float wandFeld = 5.70f;
   
   /**
