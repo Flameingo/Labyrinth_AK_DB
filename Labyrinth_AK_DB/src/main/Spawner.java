@@ -6,9 +6,13 @@ import params.*;
 
 public class Spawner extends Objekt
 {
+  public static boolean makeStatic = false;
+  
   /**
    * 5.7f, entspricht der Laenge von zwei WandBloecken
    */
+
+  public static float   wandFeld   = 5.70f;
 
   
   /**
@@ -20,7 +24,9 @@ public class Spawner extends Objekt
     
     // Hier werden die Objekte ins Spiel gesetzt:
     
-    
+
+    makeStatic = true;
+
     Labyrinth.addObject(new TurmExtra());
   }
   

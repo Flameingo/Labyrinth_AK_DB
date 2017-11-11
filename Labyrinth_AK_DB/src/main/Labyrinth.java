@@ -92,10 +92,16 @@ public class Labyrinth
   /** Initialisiert die Statusmaschine von Open_GL */
   public static void initGLState()
   {
+    if (Settings.POLYMODE_ON) glPolygonMode(GL_FRONT, GL_LINE);
+    glPolygonMode(GL_BACK, GL_NONE);
+    if (Settings.DRAW_BACK_POINTS) glPolygonMode(GL_BACK, GL_POINT);// Rueckseite der Objekte werden als Punkte
+                                                                    // gezeichnet. Sind Punkte zu sehen, muss also das
+                                                                    // Objekt korrigiert werden.
+    
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_LIGHTING);
     Lights.init();
-    // glShadeModel(GL_FLAT);
+    if (Settings.FLAT_SHADING) glShadeModel(GL_FLAT);
     
     m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.1f, 15f);
     glMatrixMode(GL_PROJECTION);
