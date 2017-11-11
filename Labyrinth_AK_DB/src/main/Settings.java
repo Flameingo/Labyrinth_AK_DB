@@ -16,7 +16,7 @@ public final class Settings
 
   public final static float   RenderSolution          = 5;  //ursprünglich 5
 
-//  public final static float   RenderSolution          = 5;                      // ursprï¿½nglich 5
+//  public final static float   RenderSolution          = 5;                      
 
   public final static float   PlayerRotationLeftRight = (float) (Math.PI / 60);
   public final static float   PlayerRotationUpDown    = (float) (Math.PI / 180);
