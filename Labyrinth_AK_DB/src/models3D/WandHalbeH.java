@@ -11,7 +11,7 @@ public class WandHalbeH extends WandBlock
   {
     super(x, y, z, w1, w2, w3);
     
-    float qX = -Spawner.wandFeld / 2.0F;
+
     
     for (int k = 0; k < wdhoehe / 2 + 1; k++)
     {

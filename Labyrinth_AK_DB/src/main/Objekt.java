@@ -9,7 +9,7 @@ public abstract class Objekt
 {
   // Variablen
   // pos for position, angles for rotation
-  
+  public static float wandFeld = 5.70f;
   /**
    * alpha ist z - Achse (senkrechte Achse)
    * beta ist y - Achse

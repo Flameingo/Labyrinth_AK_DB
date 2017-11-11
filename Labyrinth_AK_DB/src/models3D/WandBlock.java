@@ -20,7 +20,7 @@ public class WandBlock extends Objekt
   /**
    * Diese Verschiebung jedes Objekts um die x - Achse sorgt dafuer, dass der Ursprung in der Mitte der Wand liegt.
    */
-  protected float qX = - Spawner.wandFeld/2;
+  protected float qX = - wandFeld/2;
   
   /** Die x,y und z - Koordinaten bestimmen den Standort des Objekts 
    * Hierbei beeinflusst die z-Achse die Hoehe.

@@ -13,31 +13,30 @@ public class WandTest extends WandBlock
   {
     super(x, y, z, w1, w2, w3);
     
-    float qX = -Spawner.wandFeld / 2;
-    
-    for (int k = 0; k < wdhoehe; k++)
+
+    for (int hoch = 0; hoch < wdhoehe; hoch++)
     {
       
-      if (k % 2 == 0)
+      if (hoch % 2 == 0)
       {
         
-        for (int i = 0; i < wdlaenge; i++)
+        for (int rechts = 0; rechts < wdlaenge; rechts++)
         {
           
-          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(i * 0.26f + qX, 0, k * 0.06f));
+          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts * 0.26f + qX, 0, hoch * 0.06f));
           
         }
       } else
       {
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(-0.065f + qX, 0, k * 0.06f));
+        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(-0.065f + qX, 0, hoch * 0.06f));
         myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
-            new Point((wdlaenge - 1) * 0.26f + 0.065f + qX, 0, k * 0.06f));
+            new Point((wdlaenge - 1) * 0.26f + 0.065f + qX, 0, hoch * 0.06f));
         
         for (int i = 0; i < wdlaenge - 1; i++)
         {
           
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),
-              new Point(i * 0.26f + 0.13f + qX, 0, k * 0.06f));
+              new Point(i * 0.26f + 0.13f + qX, 0, hoch * 0.06f));
         }
       }
     }
@@ -66,28 +65,28 @@ public class WandTest extends WandBlock
     float abstand = 1.7f;
     
     
-    for (int k = 0; k < wdhoehe; k++)
+    for (int hoch = 0; hoch < wdhoehe; hoch++)
     {
       
-      if (k % 2 == 0)
+      if (hoch % 2 == 0)
       {
         
-        for (int i = 0; i < wdlaenge; i++)
+        for (int rechts = 0; rechts < wdlaenge; rechts++)
         {
-          double biegend1 = (i * biege * Math.PI) / 1800;
-          double biegend11 = (i * biege) / 10;
+          double biegend1 = (rechts * biege * Math.PI) / 1800;
+          double biegend11 = (rechts * biege) / 10;
           
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),
-              new Point((float) Math.cos(biegend1) * abstand, (float) Math.sin(biegend1) *abstand, k * 0.06f),
+              new Point((float) Math.cos(biegend1) * abstand, (float) Math.sin(biegend1) *abstand, hoch * 0.06f),
               new float[] { (float) biegend11+90, 0, 0 });
           
         }
       } else
       {
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(1.7f, -0.06f, k * 0.06f), new float []{90,0,0});
+        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(1.7f, -0.06f, hoch * 0.06f), new float []{90,0,0});
         
         myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
-            new Point( -0.06f,1.7f, k * 0.06f),
+            new Point( -0.06f,1.7f, hoch * 0.06f),
             new float[] { biege+90, 0, 0 });
         
         for (int i = 0; i < wdlaenge - 1; i++)
@@ -97,7 +96,7 @@ public class WandTest extends WandBlock
           
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),
               new Point((float) Math.cos(biegend2) * abstand , (float) Math.sin(biegend2) * abstand ,
-                  k * 0.06f),
+                  hoch * 0.06f),
               new float[] { (float) biegend22+90, 0, 0 });
         }
       }

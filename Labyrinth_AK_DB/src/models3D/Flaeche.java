@@ -3,6 +3,7 @@ package models3D;
 import basics.Point;
 import main.Objekt;
 import main.Spawner;
+import params.Material;
 import params.Quader;
 import params.Shape;
 import params.ZAKompliment;
@@ -40,6 +41,7 @@ public class Flaeche extends Objekt
   @Override
   public void draw()
   {
+    Material.BACKSTEIN.use();
     myShape.draw();
     // TODO Auto-generated method stub
     
