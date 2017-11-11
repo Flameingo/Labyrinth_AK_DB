@@ -9,18 +9,18 @@ public class WandTest extends WandBlock
   
   
   
-  public WandTest(float x, float y, float z, float w1, float w2, float w3)
+  public WandTest(float x, float y, float z, float w1, float w2, float w3, float laenge, float hoehe)
   {
     super(x, y, z, w1, w2, w3);
     
 
-    for (int hoch = 0; hoch < wdhoehe; hoch++)
+    for (int hoch = 0; hoch < hoehe*100/6; hoch++)
     {
       
       if (hoch % 2 == 0)
       {
         
-        for (int rechts = 0; rechts < wdlaenge; rechts++)
+        for (int rechts = 0; rechts < laenge*11/2.6 - 1; rechts++)
         {
           
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts * 0.26f + qX, 0, hoch * 0.06f));
@@ -30,9 +30,9 @@ public class WandTest extends WandBlock
       {
         myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(-0.065f + qX, 0, hoch * 0.06f));
         myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
-            new Point((wdlaenge - 1) * 0.26f + 0.065f + qX, 0, hoch * 0.06f));
+            new Point((float) ((laenge*10/2.6 ) * 0.26f + qX), 0, hoch * 0.06f));
         
-        for (int i = 0; i < wdlaenge - 1; i++)
+        for (int i = 0; i < laenge*11/2.6 - 2; i++)
         {
           
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),

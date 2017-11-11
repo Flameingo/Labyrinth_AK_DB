@@ -21,13 +21,13 @@ public class Spawner extends Objekt
   public Spawner()
   {
     Labyrinth.addObject(new Player()); // Wird benoetigt, um die Kamera innerhalb des Spiels zu steuern
-    
+    Labyrinth.addObject(new Boden());
     // Hier werden die Objekte ins Spiel gesetzt:
     
 
     makeStatic = true;
-
-    Labyrinth.addObject(new TurmExtra());
+    Labyrinth.addObject(new AbschnittB());
+ //   Labyrinth.addObject(new TurmExtra());
   }
   
   @Override
