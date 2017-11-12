@@ -99,7 +99,6 @@ public class Labyrinth
                                                                     // Objekt korrigiert werden.
     
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_LIGHTING);
     Lights.init();
     if (Settings.FLAT_SHADING) glShadeModel(GL_FLAT);
     
@@ -148,26 +147,35 @@ public class Labyrinth
    */
   public static void renderLoop()
   {
-    for (int i = 0; i < objekte.length; i++)
-      objekte[i].step();
-    for (int i = 0; i < objekte.length; i++)
-      objekte[i].collision();
+    for (Objekt o : objekte)
+      o.step();
+    for (Objekt o : objekte)
+      o.collision();
     
+    glMatrixMode(GL_MODELVIEW);
     m.setLookAt(eye.x, eye.y, eye.z, lookat.x, lookat.y, lookat.z, up.x, up.y, up.z);
     m.get(fb);
-    
-    glPushMatrix();
     glLoadMatrixf(fb);
-    Lights.setLights();
-    for (int i = 0; i < objekte.length; i++)
-    {
-      objekte[i].translate_rotate();
-      objekte[i].draw();
-    }
-    glPopMatrix();
     
-    for (int i = 0; i < objekte.length; i++)
-      objekte[i].drawGUI();
+    glEnable(GL_LIGHTING);
+    Lights.setLights();
+    for (Objekt o : objekte)
+    {
+      o.translate_rotate();
+      o.draw();
+    }
+    
+    glDisable(GL_LIGHTING);
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+    glLoadIdentity();
+    glOrtho(0, 800, 0, 600, 0, 10);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    for (Objekt o : objekte)
+      o.drawGUI();
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
   }
   
   /**

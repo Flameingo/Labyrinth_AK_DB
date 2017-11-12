@@ -1,5 +1,6 @@
 package main;
 
+import basics.GUI_Text;
 import basics.Point;
 import static org.lwjgl.glfw.GLFW.*;
 
@@ -118,6 +119,7 @@ public class Player extends Objekt
   @Override
   public void drawGUI()
   {
+    GUI_Text.draw_test();
   }
   
   @Override
