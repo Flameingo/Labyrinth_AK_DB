@@ -20,7 +20,7 @@ public class AbschnittB extends Objekt
 //      waende [q+6] = new PrototypWand ((q+1)*wandFeld/2-1.35f,-1.5f,0,0,0,0);
 //      waende [q+8] = new PrototypWand (-wandFeld/2+1.4f,q*-wandFeld/2-1.4f,0,90,0,0);
 //    }
-    waende[0] = new WandTest(0,0,0,0,0,0,4,4f);
+    waende[0] = new WandTest(0,0,boden,0,0,0,4,4f);
   }
 
   @Override

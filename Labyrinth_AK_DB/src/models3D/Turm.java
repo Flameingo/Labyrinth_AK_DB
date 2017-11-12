@@ -40,7 +40,7 @@ public class Turm extends Objekt
     
     if (T != "T") // Die obere Ebene im Falle des isolierten Turms.
     {
-      myShape.addParam(new params.ZylinderAbschnitt(1.7F, 1.7F, 0.3F, 210.0F), new Point(0.0F, 1.7F, 5.7F),
+      myShape.addParam(new params.ZylinderAbschnitt(1.7F, 1.7F, 0.3F, 210.0F), new Point(0.0F, 1.7F, 5.726F),
           new float[] { 180.0F, 0.0F, 0.0F });
     }
     
@@ -48,13 +48,13 @@ public class Turm extends Objekt
     {
       waende = new Objekt[20];
       
-      myShape.addParam(new params.ZylinderAbschnitt(1.7F, 1.7F, 0.35F, 160.0F), new Point(0.0F, 1.7F, 3.225F),
+      myShape.addParam(new params.ZylinderAbschnitt(1.7F, 1.7F, 0.35F, 160.0F), new Point(0.0F, 1.7F, 3.251F),
           new float[] { 70.0F, 0.0F, 0.0F });
       /*
        * Die Ebene nach dem ersten Treppenabschnitt ist durch den obenstehenden Befehl definiert, die untere definiert
        * die obere Ebene des Turms.
        */
-      myShape.addParam(new params.ZylinderAbschnitt(1.7F, 1.7F, 0.3F, 210.0F), new Point(0.0F, 1.7F, 5.55F),
+      myShape.addParam(new params.ZylinderAbschnitt(1.7F, 1.7F, 0.3F, 210.0F), new Point(0.0F, 1.7F, 5.81F),
           new float[] { 30.0F, 0.0F, 0.0F });
     }
     
@@ -93,14 +93,14 @@ public class Turm extends Objekt
     
     if (T != "T")
     {
-      bonus[0] = new RundeTreppe("S", 0.0F, 1.7F, 0.0F, 120.0F, 0.0F, 0.0F, 360.0F, 30);
+      bonus[0] = new RundeTreppe("S", 0.0F, 1.7F, 0.026F, 120.0F, 0.0F, 0.0F, 360.0F, 30);
     }
     
     if (T == "T")
     {
       bonus = new Objekt[2];
-      bonus[0] = new RundeTreppe("S", 0.0F, 1.7F, 0.0F, 120.0F, 0.0F, 0.0F, 360.0F, 18);
-      bonus[1] = new RundeTreppe(0.0F, 1.7F, 3.275F, 160.0F, 0.0F, 0.0F, 360.0F, 13);
+      bonus[0] = new RundeTreppe("S", 0.0F, 1.7F, 0.026F, 120.0F, 0.0F, 0.0F, 360.0F, 18);
+      bonus[1] = new RundeTreppe(0.0F, 1.7F, 3.301F, 160.0F, 0.0F, 0.0F, 360.0F, 13);
     }
     
     for (int rota = 0; rota < 4; rota++)

@@ -13,7 +13,7 @@ public class Zinne extends WandBlock
   {
     super(x, y, z, w1, w2, w3);
     
-    float qX = -Spawner.wandFeld / 2;
+    
     
     for (int oben = 0; oben < 10; oben++)
     {
@@ -24,20 +24,20 @@ public class Zinne extends WandBlock
         for (int rechtsA = 0; rechtsA < wdlaenge; rechtsA++)
         {
           if(oben<6||rechtsA == 0||rechtsA == 3 || rechtsA == 5 || rechtsA == 8 || rechtsA == 10)  //Erschafft alle langen Steine jeder zweiten Reihe
-          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechtsA * 0.26f + qX, 0, oben * 0.06f));
+          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechtsA * 0.26f + qX, 0, oben * 0.06f+boden));
           
         }
       } else
       {
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(-0.065f + qX, 0, oben * 0.06f)); //Erschafft die kurzen Stein am rechten und linken Rand des Stücks
+        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(-0.065f + qX, 0, oben * 0.06f+boden)); //Erschafft die kurzen Stein am rechten und linken Rand des Stücks
         myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
-            new Point((wdlaenge - 1) * 0.26f + 0.065f + qX, 0, oben * 0.06f));
+            new Point((wdlaenge - 1) * 0.26f + 0.065f + qX, 0, oben * 0.06f+boden));
         
         for (int rechtsB = 0; rechtsB < wdlaenge - 1; rechtsB++)
         {
           if(oben < 6 || rechtsB == 0 || rechtsB == 2 || rechtsB == 5 || rechtsB == 7 || rechtsB == 10)
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),                               //Erschafft alle langen Steine der jeweils anderen Reihe
-              new Point(rechtsB * 0.26f + 0.13f + qX, 0, oben * 0.06f));
+              new Point(rechtsB * 0.26f + 0.13f + qX, 0, oben * 0.06f+boden));
         }
       }
       
@@ -53,7 +53,7 @@ public class Zinne extends WandBlock
           
        
           
-          myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(i * 0.13f + qX-0.065f, 0, oben * 0.06f)); //Erschafft die kurzen Steine jeder zweiten Reihe
+          myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(i * 0.13f + qX-0.065f, 0, oben * 0.06f+boden)); //Erschafft die kurzen Steine jeder zweiten Reihe
           }
         
        
@@ -64,7 +64,7 @@ public class Zinne extends WandBlock
         {
           
           
-          myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(i * 0.13f + qX-0.065f, 0, oben * 0.06f)); //Erschafft die kurzen Steine der jeweils anderen Reihe
+          myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(i * 0.13f + qX-0.065f, 0, oben * 0.06f+boden)); //Erschafft die kurzen Steine der jeweils anderen Reihe
         }
       }
       
@@ -112,16 +112,16 @@ public class Zinne extends WandBlock
           if(oben<6||rechtsA == 0||rechtsA == 3 || rechtsA == 5 || rechtsA == 8 || rechtsA == 10)
           
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),                                         //Erschafft die langen Steine jeder zweiten Reihe
-              new Point((float) Math.cos(biegend1) * abstand, (float) Math.sin(biegend1) *abstand, oben * 0.06f),
+              new Point((float) Math.cos(biegend1) * abstand, (float) Math.sin(biegend1) *abstand, oben * 0.06f+boden),
               new float[] { (float) biegend11+90, 0, 0 });
           
         }
       } else
       {
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(1.7f, -0.06f, oben * 0.06f), new float []{90,0,0});        //Erschafft die kurzen Steine der ersten Reihe
+        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(1.7f, -0.06f, oben * 0.06f+boden), new float []{90,0,0});        //Erschafft die kurzen Steine der ersten Reihe
         
         myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), //Erschafft die kurzen Steine der letzten Reihe
-            new Point( -0.06f,1.7f, oben * 0.06f),
+            new Point( -0.06f,1.7f, oben * 0.06f+boden),
             new float[] { biege+90, 0, 0 });
         
         for (int rechtsB = 0; rechtsB < wdlaenge - 1; rechtsB++)
@@ -132,7 +132,7 @@ public class Zinne extends WandBlock
           if(oben < 6 || rechtsB == 0 || rechtsB == 2 || rechtsB == 5 || rechtsB == 7 || rechtsB == 10)        //Erschafft die langen Stein der jeweils anderen Reihe
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),
               new Point((float) Math.cos(biegend2) * abstand , (float) Math.sin(biegend2) * abstand ,
-                  oben * 0.06f),
+                  oben * 0.06f + boden),
               new float[] { (float) biegend22+90, 0, 0 });
         }
       }
@@ -150,7 +150,8 @@ public class Zinne extends WandBlock
          
                                                                                 //Erschafft die kurzen Steine in jeder zweiten Reihe
             myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),                
-                new Point((float) Math.cos(biegend3) * abstand, (float) Math.sin(biegend3) *abstand, oben * 0.06f), new float []{(float) (biegend33 + 90),0,0});
+                new Point((float) Math.cos(biegend3) * abstand, (float) Math.sin(biegend3) *abstand, oben * 0.06f +boden), 
+                new float []{(float) (biegend33 + 90),0,0});
             }
           
          
@@ -162,7 +163,8 @@ public class Zinne extends WandBlock
             
                                                                                 //Erschafft die kurzen Steine in der jeweils anderen Reihe
             myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), 
-                new Point((float) Math.cos(biegend3) * abstand, (float) Math.sin(biegend3) *abstand, oben * 0.06f), new float []{(float) (biegend33 + 90),0,0});
+                new Point((float) Math.cos(biegend3) * abstand, (float) Math.sin(biegend3) *abstand, oben * 0.06f+boden),
+                new float []{(float) (biegend33 + 90),0,0});
           }
         }
         

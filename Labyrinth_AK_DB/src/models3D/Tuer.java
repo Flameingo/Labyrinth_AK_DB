@@ -36,8 +36,9 @@ public class Tuer extends Objekt
     
     this.oeffner = offen;
     
+    float qX = - wandFeld/2;
     myShape.addParam(new Quader("Ecke", 0.65f, 0.05f, 1.30f), new Point(0, -0.05f, -0.02f));
-    float qX = -Spawner.wandFeld / 2;
+   
     myShape.translate(new Point(1.3f + qX + this.x, this.y, this.z));
   }
   

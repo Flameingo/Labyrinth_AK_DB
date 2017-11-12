@@ -26,7 +26,7 @@ public class TurmExtra
       {
         for (int links = 0; links < 3; links++)
         {
-          items[(6 * hoch + hinten * 3 + links)] = new PrototypWand(links * (-Spawner.wandFeld / 2.0F), 3.4F * hinten, 1.5F * hoch, 0.0F, 0.0F, 0.0F);
+          items[(6 * hoch + hinten * 3 + links)] = new PrototypWand(links * (-wandFeld / 2.0F), 3.4F * hinten, 1.5F * hoch, 0.0F, 0.0F, 0.0F);
         }
       }
     }
@@ -36,7 +36,7 @@ public class TurmExtra
     {
       for (int links = 0; links < 3; links++)
       {
-        zinnen[(3 * hinten + links)] = new Zinne(-Spawner.wandFeld / 2.0F * links, hinten * 3.4F, 3.72F, 0.0F, 0.0F, 0.0F);
+        zinnen[(3 * hinten + links)] = new Zinne(-wandFeld / 2.0F * links, hinten * 3.4F, 3.72F, 0.0F, 0.0F, 0.0F);
       }
     }
     
@@ -44,7 +44,7 @@ public class TurmExtra
     {
       for (int j = 0; j < 3; j++)
       {
-        items[(12 + 3 * i + j)] = new WandHalbeH(-Spawner.wandFeld / 2.0F * j, i * 3.4F, 3.0F, 0.0F, 0.0F, 0.0F);
+        items[(12 + 3 * i + j)] = new WandHalbeH(-wandFeld / 2.0F * j, i * 3.4F, 3.0F, 0.0F, 0.0F, 0.0F);
       }
     }
     Labyrinth.addObject(new Flaeche());

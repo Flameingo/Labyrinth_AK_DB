@@ -9,7 +9,11 @@ public abstract class Objekt
 {
   // Variablen
   // pos for position, angles for rotation
-  public static float wandFeld = 5.70f;
+  /**
+   * 1/2 * wandFeld entspricht der Laenge einer Backsteinwand.
+   */
+  public final float wandFeld = 5.70f;
+  public final float boden = 0.026f;
   /**
    * alpha ist z - Achse (senkrechte Achse)
    * beta ist y - Achse
