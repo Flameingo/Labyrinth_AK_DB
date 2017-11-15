@@ -53,7 +53,7 @@ public class ZAKompliment extends Param
   @Override
   protected void drawParametrisierung()
   {
-    glFrontFace(GL_CCW);
+    
     deckel.draw();
     glFrontFace(GL_CW);
     schnittseite1.draw();
@@ -62,6 +62,8 @@ public class ZAKompliment extends Param
     glPushMatrix();
     {
       glTranslatef(0, 0, zscl);
+
+      glFrontFace(GL_CW);
       deckel.draw();
     }
     glPopMatrix();

@@ -8,9 +8,7 @@ public class Spawner extends Objekt
 {
   public static boolean makeStatic = false;
   
-  /**
-   * 5.7f, entspricht der Laenge von zwei WandBloecken
-   */
+
 
   
 
