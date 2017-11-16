@@ -10,18 +10,85 @@ import main.Settings;
 
 public class GUI_Text
 {
-  static float[] col  = { 1, 1, 1 };
-  static int     size = 100;
+  static float[]          col     = { 1, 1, 1 };
+  static int              size    = 100;
+  
+  private static Letter[] letters = {};
+  private static char[]   chars   = {};
+  
+  public static void init()
+  {
+    Path file_path = Paths.get("src/basics/Schrift_POLY_PARTY.txt");
+    List<String> lines;
+    try
+    {
+      lines = Files.readAllLines(file_path);
+    } catch (IOException e)
+    {
+      e.printStackTrace();
+      return;
+    }
+    
+    ArrayList<Character> chars = new ArrayList<Character>();
+    for (String string : lines)
+    {
+      if (string.isEmpty()) break;
+      chars.add(string.charAt(0));
+    }
+    GUI_Text.chars = new char[chars.size()];
+    letters = new Letter[chars.size()];
+    for (int i = 0; i < chars.size(); i++)
+    {
+      char c = chars.get(i);
+      GUI_Text.chars[i] = c;
+      letters[i] = new Letter(c);
+    }
+  }
+  
+  public static void draw_test()
+  {
+    draw_text("AbBb AbbBbAbA", new Point(10, 10), 50);
+  }
+  
+  public static void draw_text(String string, Point pos, int size)
+  {
+    GUI_Text.size = size;
+    glPushMatrix();
+    glTranslatef(pos.x, pos.y, pos.z);
+    for (int i = 0; i < string.length(); i++)
+    {
+      float charwidth = draw_char(string.charAt(i));
+      glTranslatef(size * charwidth + .1f * size, 0, 0);
+    }
+    glPopMatrix();
+  }
+  
+  private static float draw_char(char c)
+  {
+    for (int i = 0; i < chars.length; i++)
+    {
+      if (chars[i] == c)
+      {
+        letters[i].draw();
+        return letters[i].width;
+      }
+    }
+    return SPACE_WIDTH;
+  }
+  
+  private static final float SPACE_WIDTH = .5f;
   
   private static class Letter
   {
-    Point[] points;
-    int[][] paths;
+    public float width = 0;
+    Point[]      points;
+    int[][]      paths;
     
     public Letter(Point[] points, int[][] paths)
     {
       this.points = points;
       this.paths = paths;
+      calc_width();
     }
     
     private static enum States
@@ -104,6 +171,13 @@ public class GUI_Text
       paths = new int[paths_list.size()][];
       for (int i = 0; i < paths.length; i++)
         paths[i] = paths_list.get(i);
+      calc_width();
+    }
+    
+    private void calc_width()
+    {
+      for (Point p : points)
+        width = Math.max(width, p.x);
     }
     
     @SuppressWarnings("unused")
@@ -125,68 +199,6 @@ public class GUI_Text
         for (int j = 0; j < paths[i].length; j++)
           glVertex3f(points[paths[i][j] - 1].x * GUI_Text.size, points[paths[i][j] - 1].y * GUI_Text.size, 0);
         glEnd();
-      }
-    }
-  }
-  
-  private static Letter[] letters = {};
-  private static char[]   chars   = {};
-  
-  public static void init()
-  {
-    Path file_path = Paths.get("src/basics/Schrift_POLY_PARTY.txt");
-    List<String> lines;
-    try
-    {
-      lines = Files.readAllLines(file_path);
-    } catch (IOException e)
-    {
-      e.printStackTrace();
-      return;
-    }
-    
-    ArrayList<Character> chars = new ArrayList<Character>();
-    for (String string : lines)
-    {
-      if (string.isEmpty()) break;
-      chars.add(string.charAt(0));
-    }
-    GUI_Text.chars = new char[chars.size()];
-    letters = new Letter[chars.size()];
-    for (int i = 0; i < chars.size(); i++)
-    {
-      char c = chars.get(i);
-      GUI_Text.chars[i] = c;
-      letters[i] = new Letter(c);
-    }
-  }
-  
-  public static void draw_test()
-  {
-    draw_text("AbBb AbbBbAbA", new Point(10, 10), 100);
-  }
-  
-  public static void draw_text(String string, Point pos, int size)
-  {
-    GUI_Text.size = size;
-    glPushMatrix();
-    glTranslatef(pos.x, pos.y, pos.z);
-    for (int i = 0; i < string.length(); i++)
-    {
-      draw_char(string.charAt(i));
-      glTranslatef(110, 0, 0);
-    }
-    glPopMatrix();
-  }
-  
-  private static void draw_char(char c)
-  {
-    for (int i = 0; i < chars.length; i++)
-    {
-      if (chars[i] == c)
-      {
-        letters[i].draw();
-        break;
       }
     }
   }
