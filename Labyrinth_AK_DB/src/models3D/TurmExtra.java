@@ -2,14 +2,13 @@ package models3D;
 
 import main.Labyrinth;
 import main.Objekt;
-import main.Spawner;
 import params.Material;
-import params.ZAKompliment;
+
 
 public class TurmExtra
   extends Objekt
 {
-  public Objekt[] items = new Objekt[18]; //Aktuell bestehend aus ProtoT
+  public Objekt[] items = new Objekt[18]; //Waende und Waende halber Hoehe enthalten
   public Objekt[] zinnen = new Objekt[6];
   
 
@@ -26,7 +25,7 @@ public class TurmExtra
       {
         for (int links = 0; links < 3; links++)
         {
-          items[(6 * hoch + hinten * 3 + links)] = new PrototypWand(links * (-wandFeld / 2.0F), 3.4F * hinten, 1.5F * hoch, 0.0F, 0.0F, 0.0F);
+          items[(6 * hoch + hinten * 3 + links)] = new Wand(links * (-wandFeld / 2.0F), 3.4F * hinten, 1.5F * hoch, 0.0F, 0.0F, 0.0F);
         }
       }
     }

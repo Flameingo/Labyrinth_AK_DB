@@ -7,35 +7,45 @@ import params.Shape;
 
 public class WandHalbeH extends WandBlock
 {
+  /**
+   * Speziell fuer den Bau des Turms genutzt aber kann durch die Klasse WandTest mit den passenden Parametern fuer Laenge und Hoehe ersetzt werden.
+   * @param x
+   * @param y
+   * @param z
+   * @param w1
+   * @param w2
+   * @param w3
+   */
   public WandHalbeH(float x, float y, float z, float w1, float w2, float w3)
   {
     super(x, y, z, w1, w2, w3);
     
 
     
-    for (int k = 0; k < wdhoehe / 2 + 1; k++)
+    for (int hoch = 0; hoch < wdhoehe / 2 + 1; hoch++)
     {
 
-      if (k % 2 == 0)
+      if (hoch % 2 == 0)
       {
 
-        for (int i = 0; i < wdlaenge; i++)
+        for (int rechts = 0; rechts < wdlaenge; rechts++)
         {
 
-          myShape.addParam(new Quader("Mitte", 0.25F, wdbreite, 0.05F), new Point(i * 0.26F + qX, 0.0F, k * 0.0575F));
+          myShape.addParam(new Quader("Mitte", 0.25F, wdbreite, 0.05F), new Point(rechts * 0.26F + qX, 0.0F, hoch * 0.0575F));
         }
       }
       else
       {
-        myShape.addParam(new Quader("Mitte", 0.125F, wdbreite, 0.05F), new Point(-0.065F + qX, 0.0F, k * 0.0575F));
-        myShape.addParam(new Quader("Mitte", 0.125F, wdbreite, 0.05F), 
-          new Point((wdlaenge - 1) * 0.26F + 0.065F + qX, 0.0F, k * 0.0575F));
+        myShape.addParam(new Quader("Mitte", 0.125F, wdbreite, 0.05F), new Point(-0.065F + qX, 0.0F, hoch * 0.0575F)); //rechter Rand
+                                                                                              //halber Stein fuer jede zweite Reihe
+        myShape.addParam(new Quader("Mitte", 0.125F, wdbreite, 0.05F),                                                 //linker Rand
+          new Point((wdlaenge - 1) * 0.26F + 0.065F + qX, 0.0F, hoch * 0.0575F));
         
         for (int i = 0; i < wdlaenge - 1; i++)
         {
 
           myShape.addParam(new Quader("Mitte", 0.25F, wdbreite, 0.05F), 
-            new Point(i * 0.26F + 0.13F + qX, 0.0F, k * 0.0575F));
+            new Point(i * 0.26F + 0.13F + qX, 0.0F, hoch * 0.0575F));
         }
       }
     }

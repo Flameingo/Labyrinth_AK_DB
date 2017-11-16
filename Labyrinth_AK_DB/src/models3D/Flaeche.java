@@ -6,7 +6,7 @@ import main.Spawner;
 import params.Material;
 import params.Quader;
 import params.Shape;
-import params.ZAKompliment;
+import params.ZAKomplement;
 
 public class Flaeche extends Objekt
 {
@@ -20,8 +20,8 @@ public class Flaeche extends Objekt
   myShape.addParam(new Quader("Ecke",(1 + 9/40f)*wandFeld,3.4f,0.3f), new Point (-1.7f,3.4f,3.45f), new float[]{180,0,0});
      
     
-  myShape.addParam(new ZAKompliment(1.7f,1.7f,0.3f), new Point(0,1.7f,3.45f), new float[]{90,0,0});
-  myShape.addParam(new ZAKompliment(1.7f,1.7f,0.3f), new Point(0,1.7f,3.45f), new float[]{180,0,0});
+  myShape.addParam(new ZAKomplement(1.7f,1.7f,0.3f), new Point(0,1.7f,3.45f), new float[]{90,0,0});
+  myShape.addParam(new ZAKomplement(1.7f,1.7f,0.3f), new Point(0,1.7f,3.45f), new float[]{180,0,0});
   
     
   }

@@ -4,7 +4,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 import basics.Point;
 
-public class ZAKompliment extends Param
+public class ZAKomplement extends Param
 {
   
   private Param deckel;
@@ -27,11 +27,11 @@ public class ZAKompliment extends Param
    * @param winkel
    *          In Gradmass anzugeben
    */
-  public ZAKompliment(float xscl, float yscl, float zscl)
+  public ZAKomplement(float xscl, float yscl, float zscl)
   {
     super();
     this.zscl = zscl;
-    deckel = new KAKompliment(xscl, yscl, 90);
+    deckel = new KAKomplement(xscl, yscl, 90);
     mantel = new ZylinderMantelAbschnitt(xscl, yscl, zscl, 90);
     Point p1 = new Point(xscl, yscl, 0);
     Point p2 = new Point(xscl, yscl, zscl);
@@ -44,7 +44,7 @@ public class ZAKompliment extends Param
     schnittseite2 = new Viereck(p1, p2, p5, p6);
   }
   
-  public ZAKompliment(float xscl, float yscl, float zscl, Material mat)
+  public ZAKomplement(float xscl, float yscl, float zscl, Material mat)
   {
     this(xscl, yscl, zscl);
     setMaterial(mat);

@@ -60,7 +60,7 @@ public class Turm extends Objekt
     
     for (int d = 0; d < 3; d++)
     {
-      waende[d] = new WandTest(0.0F, 1.7F, 0.0F, d * 90, 0.0F, 0.0F, 90.0F);
+      waende[d] = new Wand(0.0F, 1.7F, 0.0F, d * 90, 0.0F, 0.0F, 90.0F);
     }
     waende[3] = new TuerWand(0.0F, 1.7F, 0.0F, 270.0F, 0.0F, 0.0F, 90.0F);
     
@@ -71,7 +71,7 @@ public class Turm extends Objekt
         for (int rota = 0; rota < 4; rota++)
         {
           
-          waende[(r * 4 + rota)] = new WandTest(0.0F, 1.7F, r * 1.5F, rota * 90, 0.0F, 0.0F, 90.0F);
+          waende[(r * 4 + rota)] = new Wand(0.0F, 1.7F, r * 1.5F, rota * 90, 0.0F, 0.0F, 90.0F);
         }
       }
     }
@@ -80,13 +80,13 @@ public class Turm extends Objekt
     {
       for (int rota = 0; rota < 4; rota++)
       {
-        waende[(4 + rota)] = new WandTest(0.0F, 1.7F, 1.5F, rota * 90, 0.0F, 0.0F, 90.0F);
+        waende[(4 + rota)] = new Wand(0.0F, 1.7F, 1.5F, rota * 90, 0.0F, 0.0F, 90.0F);
         waende[(8 + rota)] = new WandHalbeH(0.0F, 1.7F, 3.0F, rota * 90, 0.0F, 0.0F, 90.0F);
         waende[(16 + rota)] = new WandHalbeH(0.0F, 1.7F, 5.25F, rota * 90, 0.0F, 0.0F, 90.0F);
       }
       for (int rota = 2; rota < 5; rota++)
       {
-        waende[(10 + rota)] = new WandTest(0.0F, 1.7F, 3.75F, rota * 90, 0.0F, 0.0F, 90.0F);
+        waende[(10 + rota)] = new Wand(0.0F, 1.7F, 3.75F, rota * 90, 0.0F, 0.0F, 90.0F);
       }
       waende[15] = new TuerWand(0.0F, 1.7F, 3.75F, 90.0F, 0.0F, 0.0F, 90.0F);
     }

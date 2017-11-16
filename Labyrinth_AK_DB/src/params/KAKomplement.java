@@ -1,17 +1,17 @@
 package params;
 
-public class KAKompliment extends Param
+public class KAKomplement extends Param
 {
   
   float q;
   
-  public KAKompliment(float xscl, float yscl, float q)
+  public KAKomplement(float xscl, float yscl, float q)
   {
     super(xscl, yscl, 1, 0, (float) Math.PI * q / 180, 0, 1);
     this.q = q;
   }
   
-  public KAKompliment(float xscl, float yscl, float q, Material mat)
+  public KAKomplement(float xscl, float yscl, float q, Material mat)
   {
     this(xscl, yscl, q);
     setMaterial(mat);
