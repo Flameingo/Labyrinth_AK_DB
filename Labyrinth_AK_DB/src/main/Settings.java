@@ -6,21 +6,25 @@ public final class Settings
   // changed easily.
   
   // dev settings
-  public final static boolean FPS_ON                  = true;
-  public final static boolean DrawPlayerPOS           = false;
+  public static final boolean FPS_ON                  = false;
+  public static final boolean DrawPlayerPOS           = false;
   public static final boolean POLYMODE_ON             = false;
   public static final boolean FLAT_SHADING            = true;
   public static final boolean DRAW_BACK_POINTS        = false;
+  public static final int     DRAW_FONT_POINTS        = 0;
   
   /** controls the resolution of all drawn Objects */
-
-  public final static float   RenderSolution          = 5;  //ursprünglich 5
-
-//  public final static float   RenderSolution          = 5;                      
-
+  
+  public final static float   RenderSolution          = 5;                      // ursprï¿½nglich
+                                                                                // 5
+  
+  // public final static float RenderSolution = 5;
+  
   public final static float   PlayerRotationLeftRight = (float) (Math.PI / 60);
   public final static float   PlayerRotationUpDown    = (float) (Math.PI / 180);
   // Player movement speeds:
-  public final static float   PlayerMovementSpeed     = 0.07f;                  // ursprï¿½nglich 0.07f
-  public final static float   PlayerSideStepSpeed     = .05f;                   // ursprï¿½nglich 0.05f
+  public final static float   PlayerMovementSpeed     = 0.07f;                  // ursprï¿½nglich
+                                                                                // 0.07f
+  public final static float   PlayerSideStepSpeed     = .05f;                   // ursprï¿½nglich
+                                                                                // 0.05f
 }

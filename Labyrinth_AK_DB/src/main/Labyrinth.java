@@ -7,6 +7,7 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
 
+import basics.GUI_Text;
 import basics.Point;
 
 import static org.lwjgl.opengl.GL11.*;
@@ -28,11 +29,15 @@ public class Labyrinth
   /** center point of the view */
   private static Point       lookat  = new Point(0, 0, 0);
   
-  /** every frame, this array is refreshed with all pressed keys at that moment in time */
+  /**
+   * every frame, this array is refreshed with all pressed keys at that moment
+   * in time
+   */
   public static int[]        keys    = {};
   
   public static void beginGame()
   {
+    GUI_Text.init();
     addObject(new Spawner());
   }
   
@@ -77,7 +82,8 @@ public class Labyrinth
    * ueberprueft, ob eine gegebene Taste gedrueckt ist
    * 
    * @param key
-   *          Die Taste, die geprueft wird. Anzugeben als Integer mithilfe der GLFW-Tasten-enums.
+   *          Die Taste, die geprueft wird. Anzugeben als Integer mithilfe der
+   *          GLFW-Tasten-enums.
    * @return Ein boolscher Wert, der angibt, ob die Taste gedrueckt ist.
    */
   private static boolean keyCheck(int key)
@@ -92,18 +98,10 @@ public class Labyrinth
   /** Initialisiert die Statusmaschine von Open_GL */
   public static void initGLState()
   {
-    if (Settings.POLYMODE_ON) glPolygonMode(GL_FRONT, GL_LINE);
-    glPolygonMode(GL_BACK, GL_NONE);
-    if (Settings.DRAW_BACK_POINTS) glPolygonMode(GL_BACK, GL_POINT);// Rueckseite der Objekte werden als Punkte
-                                                                    // gezeichnet. Sind Punkte zu sehen, muss also das
-                                                                    // Objekt korrigiert werden.
-    
-    glEnable(GL_DEPTH_TEST);
     Lights.init();
-    if (Settings.FLAT_SHADING) glShadeModel(GL_FLAT);
     
-    m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.1f, 15f);
     glMatrixMode(GL_PROJECTION);
+    m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.1f, 15f);
     glLoadIdentity();
     m.get(fb);
     glLoadMatrixf(fb);
@@ -152,13 +150,36 @@ public class Labyrinth
     for (Objekt o : objekte)
       o.collision();
     
+    if (Settings.POLYMODE_ON) glPolygonMode(GL_FRONT, GL_LINE);
+    glPolygonMode(GL_BACK, GL_NONE);
+    if (Settings.DRAW_BACK_POINTS) glPolygonMode(GL_BACK, GL_POINT);// Rueckseite
+                                                                    // der
+                                                                    // Objekte
+                                                                    // werden
+                                                                    // als
+                                                                    // Punkte
+                                                                    // gezeichnet.
+                                                                    // Sind
+                                                                    // Punkte zu
+                                                                    // sehen,
+                                                                    // muss also
+                                                                    // das
+                                                                    // Objekt
+                                                                    // korrigiert
+                                                                    // werden.
+    
+    if (Settings.FLAT_SHADING) glShadeModel(GL_FLAT);
+    
     glMatrixMode(GL_MODELVIEW);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);
+    
     m.setLookAt(eye.x, eye.y, eye.z, lookat.x, lookat.y, lookat.z, up.x, up.y, up.z);
     m.get(fb);
     glLoadMatrixf(fb);
     
-    glEnable(GL_LIGHTING);
     Lights.setLights();
+    
     for (Objekt o : objekte)
     {
       o.translate_rotate();
@@ -181,8 +202,8 @@ public class Labyrinth
   /**
    * Behandelt Tastenanschlaege.
    * <p>
-   * Wird nur fuer Tastenanschlaege verwendet, nicht fuer das Halten einer Taste. Das Halten wird in der Funktion
-   * keyCheck() behandelt.
+   * Wird nur fuer Tastenanschlaege verwendet, nicht fuer das Halten einer
+   * Taste. Das Halten wird in der Funktion keyCheck() behandelt.
    * 
    * @param key
    *          Taste, die gedrueckt wurde.
@@ -198,12 +219,14 @@ public class Labyrinth
   /**
    * Sucht ein Objekt einer bestimmten Klasse im Array "objekte"
    * <p>
-   * Damit kann ein Objekt, fuer das man keine Referenz hat, trotzdem referenziert werden. Allerdings sollte nur eine
-   * Instanz des Objekt vorhanden sein, da nur das zuerst gefundene zurueckgegeben wird.
+   * Damit kann ein Objekt, fuer das man keine Referenz hat, trotzdem
+   * referenziert werden. Allerdings sollte nur eine Instanz des Objekt
+   * vorhanden sein, da nur das zuerst gefundene zurueckgegeben wird.
    * 
    * @param identifier
-   *          Platzhalter fuer die Klasse, die gesucht wird. Einfach eine leere Instanz der gesuchten Klasse uebergeben,
-   *          zB: findInstance(new GesuchteKlasse());
+   *          Platzhalter fuer die Klasse, die gesucht wird. Einfach eine leere
+   *          Instanz der gesuchten Klasse uebergeben, zB: findInstance(new
+   *          GesuchteKlasse());
    * @return Die Referenz des gesuchten Objekts
    */
   public static Objekt findInstance(Objekt identifier)
