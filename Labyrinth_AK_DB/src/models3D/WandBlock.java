@@ -1,5 +1,6 @@
 package models3D;
 
+import params.Material;
 import params.Quader;
 import main.Objekt;
 import main.Spawner;
@@ -10,12 +11,15 @@ import basics.Point;
 
 public class WandBlock extends Objekt
 {
-  /** Anzahl der nebeneinanderliegenden Steine minus 1*/
+  /** Anzahl der nebeneinanderliegenden Steine minus 1*
+   aktuell 11 * */
   protected static int wdlaenge = 11;
-  /** Anzahl der übereinanderliegenden Steine minus 1*/
+  /** Anzahl der übereinanderliegenden Steine minus 1
+   * aktuell 25*/
   protected static int wdhoehe = 25;
-  /** Definiert die Breite jedes Backsteins der Wand */
-  protected static float wdbreite = 0.1f;
+  /** Definiert die Breite jedes Backsteins der Wand 
+   * aktuell 0.1f*/
+  public static float wdbreite = 0.1f;
   
   /**
    * Diese Verschiebung jedes Objekts um die x - Achse sorgt dafuer, dass der Ursprung in der Mitte der Wand liegt.
@@ -37,6 +41,7 @@ public class WandBlock extends Objekt
    */
   protected Shape myShape = new Shape();
   
+  protected Shape putz = new Shape();
  /**
    * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
    * Wird eine der Unterklassen mit 6 Float-Werten aufgerufen, wird eine gerade Wand 
@@ -103,14 +108,18 @@ public class WandBlock extends Objekt
     
     myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
     myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
+    
+    putz.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
+    putz.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
    
   }
   
   public void draw()
   {
-
-        myShape.draw();
- 
+    Material.BACKSTEIN.use();
+    myShape.draw();
+    Material.COPPER.use();
+    putz.draw();
   }
   @Override
   public void step()

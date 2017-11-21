@@ -3,10 +3,10 @@ package models3D;
 import basics.Point;
 import params.Quader;
 
-public class Wand extends WandBlock
+public class Test extends WandBlock
 {
   
-  public Wand(float x, float y, float z, float alpha, float beta, float gamma)
+  public Test(float x, float y, float z, float alpha, float beta, float gamma)
   {
     super(x, y, z, alpha, beta, gamma);
    
@@ -41,7 +41,7 @@ public class Wand extends WandBlock
     }
   }
   
-  public Wand(float x, float y, float z, float alpha, float beta, float gamma, float laenge, float hoehe)
+  public Test(float x, float y, float z, float alpha, float beta, float gamma, float laenge, float hoehe)
   {
     super(x, y, z, alpha, beta, gamma);
     /** 
@@ -101,7 +101,7 @@ public class Wand extends WandBlock
    * @param biege
    *          Biegung des Objekts in Bogenmaﬂ, positive Werte biegen nach links
    */
-  public Wand(float x, float y, float z, float alpha, float beta, float gamma, float biege)
+  public Test(float x, float y, float z, float alpha, float beta, float gamma, float biege)
   {
     
     super(x, y, z, alpha, beta, gamma, biege);

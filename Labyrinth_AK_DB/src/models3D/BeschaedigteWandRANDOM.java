@@ -41,6 +41,41 @@ public class BeschaedigteWandRANDOM extends WandBlock
     }
   }
   
+  public BeschaedigteWandRANDOM(float x, float y, float z, float alpha, float beta, float gamma, float laenge, float hoehe)
+  {
+  super(x,y,z,alpha, beta, gamma);
+  
+  float vX = - laenge/2;
+  float qX = wandFeld/2;
+  
+  for (int hoch = 0; hoch < hoehe*100/6; hoch++)
+  {
+    
+    
+    if (hoch%2 == 0)
+    {
+     
+        for (int rechts = 0; rechts < (laenge)*10/2.6; rechts++)
+        {
+          if (Math.random()>0.2f)
+          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden));
+          
+       }
+    }
+       else
+       {
+         myShape.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f+vX,0,hoch*0.06f+boden));
+         myShape.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((int)(laenge*10/2.6f)*0.26f+0.0625f+vX, 0, hoch * 0.06f+boden));
+         
+         for (int rechts2 = 0; rechts2 < (laenge)*10/2.6 - 1;rechts2++)
+         {           
+           if (Math.random()>0.2f)
+           myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (rechts2*0.26f+0.13f+vX,0,hoch*0.06f+boden));
+         }
+       }
+    }
+  }
+  
   public BeschaedigteWandRANDOM(float x, float y, float z, float w1, float w2, float w3, float biege)
   {
     
