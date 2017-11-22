@@ -14,7 +14,8 @@ import main.Spawner;
 import basics.*;
 
 /**
- * Die verschiedenen Parametrisierungen im Paket "params" erhalten hier ihre draw()-Funktion.
+ * Die verschiedenen Parametrisierungen im Paket "params" erhalten hier ihre
+ * draw()-Funktion.
  */
 public abstract class Param
 {
@@ -33,8 +34,12 @@ public abstract class Param
   private boolean   isStatic = false;
   private Point[][] points;
   private Point[][] normals;
+  private int       f;
   
-  /** placeholder Param for connecting multiple Params into one or if the standard constructor can't be used */
+  /**
+   * placeholder Param for connecting multiple Params into one or if the
+   * standard constructor can't be used
+   */
   public Param()
   {
     
@@ -64,8 +69,8 @@ public abstract class Param
   }
   
   /**
-   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem Fall muss mit dieser Funktion
-   * nach-initialisiert werden.
+   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem
+   * Fall muss mit dieser Funktion nach-initialisiert werden.
    */
   protected void init(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2)
   {
@@ -87,7 +92,10 @@ public abstract class Param
     if (Spawner.makeStatic) makeStatic();
   }
   
-  /** sets mfact and nfact as factors that control the resolution of the params polygon-net */
+  /**
+   * sets mfact and nfact as factors that control the resolution of the params
+   * polygon-net
+   */
   abstract void setResolution();
   
   /**
@@ -117,8 +125,8 @@ public abstract class Param
   }
   
   /**
-   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem Fall muss mit dieser Funktion
-   * nach-initialisiert werden.
+   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem
+   * Fall muss mit dieser Funktion nach-initialisiert werden.
    */
   protected void init(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2, Material mat)
   {
@@ -132,7 +140,8 @@ public abstract class Param
   }
   
   /**
-   * used on Params that aren't moving to save the Points in Memory. This makes drawing faster at the cost of memory
+   * used on Params that aren't moving to save the Points in Memory. This makes
+   * drawing faster at the cost of memory
    */
   protected void makeStatic()
   {
@@ -170,6 +179,7 @@ public abstract class Param
   public void draw()
   {
     if (material != null) material.use();
+    
     if (isStatic)
       drawStatic();
     else drawParametrisierung();
@@ -177,6 +187,8 @@ public abstract class Param
   
   private void drawStatic()
   {
+    f = 1;
+    if (glGetInteger(GL_FRONT_FACE) == GL_CW) f = -1;
     // Param is drawn in m strips.
     for (int i = 0; i < m; i++)
     {
@@ -187,9 +199,10 @@ public abstract class Param
       for (int j = 1; j < n + 1; j++)
       {
         // draw other points of the strip with the correct normal
-        glNormal3f(normals[i][(j - 1) * 2 + 1].x, normals[i][(j - 1) * 2 + 1].y, normals[i][(j - 1) * 2 + 1].z);
+        glNormal3f(f * normals[i][(j - 1) * 2 + 1].x, f * normals[i][(j - 1) * 2 + 1].y,
+            f * normals[i][(j - 1) * 2 + 1].z);
         glVertex3f(points[i][j].x, points[i][j].y, points[i][j].z);
-        glNormal3f(normals[i][(j - 1) * 2].x, normals[i][(j - 1) * 2].y, normals[i][(j - 1) * 2].z);
+        glNormal3f(f * normals[i][(j - 1) * 2].x, f * normals[i][(j - 1) * 2].y, f * normals[i][(j - 1) * 2].z);
         glVertex3f(points[i + 1][j].x, points[i + 1][j].y, points[i + 1][j].z);
       }
       glEnd();
@@ -202,6 +215,8 @@ public abstract class Param
    */
   protected void drawParametrisierung()
   {
+    f = 1;
+    if (glGetInteger(GL_FRONT_FACE) == GL_CW) f = -1;
     for (int i = 0; i < m; i++)
     {
       u_i = u_l + delta_u * i;
@@ -221,11 +236,11 @@ public abstract class Param
         Point norm2 = Point.normalVector(p1, p3, p4);
         
         glBegin(GL_TRIANGLE_FAN);
-        glNormal3f(norm1.x, norm1.y, norm1.z);
+        glNormal3f(f * norm1.x, f * norm1.y, f * norm1.z);
         glVertex3f(p1.x, p1.y, p1.z);
         glVertex3f(p2.x, p2.y, p2.z);
         glVertex3f(p3.x, p3.y, p3.z);
-        glNormal3f(norm2.x, norm2.y, norm2.z);
+        glNormal3f(f * norm2.x, f * norm2.y, f * norm2.z);
         glVertex3f(p4.x, p4.y, p4.z);
         glEnd();
       }
