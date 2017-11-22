@@ -15,21 +15,25 @@ public class Zinne extends WandBlock
     
     
     
-    for (int oben = 0; oben < 10; oben++)
-    {
-      
+    for (int oben = 0; oben < 10; oben++)//Die Schlaufe erschafft mit jeder Iteration eine Reihe der Wand, dabei gibt es
+    {                                    //ein Fallunterscheidung, die dafuer sorgt, dass jede zweite Reihe um eine halbe 
+                                         //Backsteinlaenge versetzt ist.
+   
       if (oben % 2 == 0)
       {
         
-        for (int rechtsA = 0; rechtsA < wdlaenge; rechtsA++)
+        for (int rechtsA = 0; rechtsA < wdlaenge; rechtsA++) //Jede Iteration erschafft einen langen Stein.
         {
           if(oben<6||rechtsA == 0||rechtsA == 3 || rechtsA == 5 || rechtsA == 8 || rechtsA == 10)  //Erschafft alle langen Steine jeder zweiten Reihe
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechtsA * 0.26f + qX, 0, oben * 0.06f+boden));
           
-        }
-      } else
+        }       //Dabei werden aufgrund der Beschaffenheit (Zacken) der Zinne ab einer gewissen Hoehe einige Steine ausgelassen.
+      }
+      else
       {
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(-0.065f + qX, 0, oben * 0.06f+boden)); //Erschafft die kurzen Stein am rechten und linken Rand des Stücks
+        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), 
+            new Point(-0.065f + qX, 0, oben * 0.06f+boden)); //Erschafft die kurzen Stein am rechten und linken Rand des Stücks
+        
         myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
             new Point((wdlaenge - 1) * 0.26f + 0.065f + qX, 0, oben * 0.06f+boden));
         
@@ -42,37 +46,27 @@ public class Zinne extends WandBlock
       }
       
       
-      for (int i = 0; i < wdlaenge*2; i++)
+      for (int i = 0; i < wdlaenge*2; i++) //Jede Iteration erschafft einen langen Stein.
       {
-      
-      
-      if(oben % 2 == 0 && oben > 5)
+           
+        if(oben % 2 == 0 && oben > 5)
         {
-        if( i == 2|| i == 5 || i == 12 || i == 15)
+          if( i == 2|| i == 5 || i == 12 || i == 15)
           {
-          
-       
-          
-          myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(i * 0.13f + qX-0.065f, 0, oben * 0.06f+boden)); //Erschafft die kurzen Steine jeder zweiten Reihe
-          }
-        
-       
+         
+            myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), 
+                new Point(i * 0.13f + qX-0.065f, 0, oben * 0.06f+boden)); //Erschafft die kurzen Steine jeder zweiten Reihe
+          }              
         }
-      else
-      {
-        if( i == 0|| i == 7 || i == 10 || i == 17 || i == 20)
+        else
         {
-          
-          
-          myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(i * 0.13f + qX-0.065f, 0, oben * 0.06f+boden)); //Erschafft die kurzen Steine der jeweils anderen Reihe
-        }
+          if( i == 0|| i == 7 || i == 10 || i == 17 || i == 20)
+          {                    
+            myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(i * 0.13f + qX-0.065f, 0, oben * 0.06f+boden)); //Erschafft die kurzen Steine der jeweils anderen Reihe
+          }
+        }      
       }
-      
-    }
-  }
-    
-    
-    
+    }   
   }
   
   /**

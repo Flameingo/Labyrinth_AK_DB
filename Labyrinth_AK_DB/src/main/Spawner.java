@@ -3,6 +3,8 @@ package main;
 import static org.lwjgl.opengl.GL11.*;
 import models3D.*;
 import params.*;
+import path.LabWeg_r;
+import path.LabWeg_r_l;
 
 public class Spawner extends Objekt
 {
@@ -19,7 +21,8 @@ public class Spawner extends Objekt
     
     makeStatic = true;
     Labyrinth.addObject(new Boden());
-    Labyrinth.addObject(new Wand(0,0,0,0,0,0,90));
+    Labyrinth.addObject(new AbschnittB());
+   
     // Labyrinth.addObject(new TurmExtra());
     
   }
