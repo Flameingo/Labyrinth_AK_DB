@@ -177,13 +177,15 @@ public class Labyrinth
     m.setLookAt(eye.x, eye.y, eye.z, lookat.x, lookat.y, lookat.z, up.x, up.y, up.z);
     m.get(fb);
     glLoadMatrixf(fb);
-    
+
     Lights.setLights();
     
     for (Objekt o : objekte)
     {
+      glPushMatrix();
       o.translate_rotate();
       o.draw();
+      glPopMatrix();
     }
     
     glDisable(GL_LIGHTING);
