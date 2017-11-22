@@ -8,7 +8,7 @@ import path.LabWeg_r_l;
 
 public class AbschnittB extends Objekt
 {
-  protected Objekt [] waende = new Objekt[15];
+  protected Objekt [] waende = new Objekt[16];
   
   public AbschnittB()
   {
@@ -31,6 +31,7 @@ public class AbschnittB extends Objekt
     waende[8] = new LabWeg_l(4.5f,-4,6,-1.5f,2,true);
    
     waende[10] = new LabWeg_r(4.5f,1.5f,6,3,2,true);
+    waende[15] = new Wand("egal",3,3,0,0,0,0,90,2);
     
     
   }

@@ -101,7 +101,7 @@ public class Test extends WandBlock
    * @param biege
    *          Biegung des Objekts in Bogenmaﬂ, positive Werte biegen nach links
    */
-  public Test(float x, float y, float z, float alpha, float beta, float gamma, float biege)
+  public Test(float x, float y, float z, float alpha, float beta, float gamma, float biege, float laenge, float hoehe)
   {
     
     super(x, y, z, alpha, beta, gamma, biege);
@@ -112,7 +112,10 @@ public class Test extends WandBlock
     
     for (int hoch = 0; hoch < wdhoehe; hoch++) //Die Schlaufe erschafft mit jeder Iteration eine Reihe der Wand, dabei gibt es
     {                                          //eine Fallunterscheidung, die dafuer sorgt, dass jede zweite Reihe um eine halbe 
-                                               //Backsteinlaenge versetzt ist.
+    												//Backsteinlaenge versetzt ist.
+    	float a =3f;
+        float b = 1.5f;
+    	
       if (hoch % 2 == 0)
       {
         
@@ -121,10 +124,11 @@ public class Test extends WandBlock
           double biegend1 = (rechts * biege * Math.PI) / 1800;
           double biegend11 = (rechts * biege) / 10;
           
+          
           if(biege != 45 || rechts %2 != 1)                //Einfache Fallunterscheidung, da nur zwischen 45 und 90 unterschieden werden muss.
                                                            //Tatsaechlich braucht die 45grad Wand nur halb so viele Steine wie die 90grad Wand
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),
-              new Point((float) Math.cos(biegend1) * abstand, (float) Math.sin(biegend1) *abstand, hoch * 0.06f+boden),
+              new Point((float) Math.cos(biegend1) * a, (float) Math.sin(biegend1) *b, hoch * 0.06f+boden),
               new float[] { (float) biegend11+90, 0, 0 });   //Unterste Steinreihe und jede zweite darueber        
         }
       }
@@ -148,7 +152,7 @@ public class Test extends WandBlock
                                            //Tatsaechlich braucht die 45grad Wand nur halb so viele Steine wie die 90grad Wand
             
           myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), //Die zweite Steinreihe von unten und jede zweite.
-              new Point((float) Math.cos(biegend2) * abstand , (float) Math.sin(biegend2) * abstand ,
+              new Point((float) Math.cos(biegend2) * a , (float) Math.sin(biegend2) * b ,
                   hoch * 0.06f+boden),
               new float[] { (float) biegend22+90, 0, 0 });
         }
