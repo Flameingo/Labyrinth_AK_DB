@@ -1,7 +1,11 @@
-package models3D;
+package section;
 
 import main.Labyrinth;
 import main.Objekt;
+import models3D.Flaeche;
+import models3D.Wand;
+import models3D.WandHalbeH;
+import models3D.Zinne;
 import params.Material;
 
 
