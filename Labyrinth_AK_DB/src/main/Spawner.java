@@ -3,8 +3,16 @@ package main;
 import static org.lwjgl.opengl.GL11.*;
 import models3D.*;
 import params.*;
-import path.LabWeg_r;
+import path.LabEck_lo;
+import path.LabEck_lu;
+import path.LabEck_ro;
+import path.LabEck_ru;
+import path.LabWeg_O;
+import path.LabWeg_R;
+import path.LabWeg_U;
+import path.LabWeg_L;
 import path.LabWeg_r_l;
+import path.Sackgasse;
 
 public class Spawner extends Objekt
 {
@@ -21,7 +29,12 @@ public class Spawner extends Objekt
     
     makeStatic = true;
     Labyrinth.addObject(new Boden());
-    Labyrinth.addObject(new AbschnittB());
+//    Labyrinth.addObject(new LabEck_ru(0,0,3,3,2,true));
+//    Labyrinth.addObject(new LabEck_lu(3,0,6,3,2,true));
+//    Labyrinth.addObject(new LabEck_ro(0,-3,3,0,2,true));
+//    Labyrinth.addObject(new LabEck_lo(3,-3,6,0,2, true));
+    Labyrinth.addObject(new LabWeg_R(0,0,3,3,2));
+    Labyrinth.addObject(new LabWeg_U(0,0,3,3,2));
 
   }
   

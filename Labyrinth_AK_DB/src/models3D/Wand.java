@@ -185,7 +185,7 @@ public class Wand extends WandBlock
       }
       else
       {
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(1.7f, -0.06f, hoch * 0.06f), new float []{90,0,0});
+        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(1.7f, -0.06f, hoch * 0.06f+boden), new float []{90,0,0});
         double schieb = biege*Math.PI/180; //Kurze Randsteine fuer jede zweite Reihe
         if (biege == 45)
         {

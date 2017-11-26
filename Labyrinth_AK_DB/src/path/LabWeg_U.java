@@ -6,7 +6,7 @@ import models3D.Wand;
 import models3D.WandBlock;
 import params.Material;
 
-public class LabWeg_l extends Objekt
+public class LabWeg_U extends Objekt
 {
   protected Objekt [] waende = new Objekt[1];
   
@@ -19,22 +19,14 @@ public class LabWeg_l extends Objekt
    * @param y2
    * @param z2
    */
-  public LabWeg_l(float x, float y, float x2, float y2, float hoehe,boolean gedreht)
+  public LabWeg_U(float x, float y, float x2, float y2, float hoehe)
   {
     
    
-    if(!gedreht)
-    {
+   
       float yy = y + WandBlock.wdbreite/2;//Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
       waende [0] = new Wand((x+x2)/2+0.13f, yy, boden, 0,0,0, Math.abs(x2-x), hoehe);
-    }
-      
-   
-    if(gedreht)
-    {
-      float xx = x + WandBlock.wdbreite/2;
-      waende[0] = new Wand(xx, (y+y2)/2+0.13f, boden, 90,0,0, Math.abs(y2-y), hoehe);
-    }
+    
      
     
    

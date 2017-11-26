@@ -61,7 +61,7 @@ public class PrototypWand extends WandBlock
     
     
     
-    for (int k = 0; k < wdhoehe; k++)
+    for (int k = 0; k < 34; k++)
     {
       
       if (k % 2 == 0)
