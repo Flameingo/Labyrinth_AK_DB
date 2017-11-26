@@ -1,5 +1,6 @@
 package path;
 
+import basics.Level;
 import basics.Point;
 import main.Objekt;
 import models3D.Wand;
@@ -30,7 +31,14 @@ public class LabWeg_r_l extends Objekt
 	    waende [1] = new Wand((x+x2)/2+0.13f, yy2, boden, 0,0,0, Math.abs(x2-x), hoehe);
 	    
   }
-  
+  public LabWeg_r_l(Level lev, float hoehe)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe);
+  }
+  public LabWeg_r_l(Level lev)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2);
+  }
   
   @Override
   public void step()

@@ -1,5 +1,6 @@
 package path;
 
+import basics.Level;
 import basics.Point;
 import main.Objekt;
 import models3D.Wand;
@@ -45,6 +46,14 @@ public class LabEck_lu extends Objekt
    
   }
   
+  public LabEck_lu(Level lev, float hoehe, boolean bogen)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe, bogen);
+  }
+  public LabEck_lu(Level lev, boolean bogen)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2, bogen);
+  }
   
   @Override
   public void step()

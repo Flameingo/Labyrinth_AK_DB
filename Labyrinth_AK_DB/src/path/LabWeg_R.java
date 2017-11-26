@@ -1,5 +1,6 @@
 package path;
 
+import basics.Level;
 import basics.Point;
 import main.Objekt;
 import models3D.Wand;
@@ -31,6 +32,15 @@ public class LabWeg_R extends Objekt
      
     
    
+  }
+  
+  public LabWeg_R(Level lev, float hoehe)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe);
+  }
+  public LabWeg_R(Level lev)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2);
   }
   
   

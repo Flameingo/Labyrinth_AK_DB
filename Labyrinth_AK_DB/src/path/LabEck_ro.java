@@ -1,5 +1,6 @@
 package path;
 
+import basics.Level;
 import basics.Point;
 import main.Objekt;
 import models3D.Wand;
@@ -39,8 +40,16 @@ public class LabEck_ro extends Objekt
      float xx2 = x2 - WandBlock.wdbreite/2;
      
      waende[1] = new Wand(xx, (y+y2)/2+0.13f, boden, 90,0,0,Math.abs(y2-y), hoehe);
-
    
+  }
+  
+  public LabEck_ro(Level lev, float hoehe, boolean bogen)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe, bogen);
+  }
+  public LabEck_ro(Level lev, boolean bogen)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2, bogen);
   }
   
   

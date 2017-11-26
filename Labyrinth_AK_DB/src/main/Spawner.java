@@ -30,12 +30,10 @@ public class Spawner extends Objekt
     
     makeStatic = true;
     Labyrinth.addObject(new Boden());
-    Labyrinth.addObject(new LabEck_ru(0,0,3,3,2,true));
-    Labyrinth.addObject(new LabEck_ro(3,0,6,3,2,true));
+    Labyrinth.addObject(new AbschnittB());
 
    
-    Labyrinth.addObject(new Eckstein(3,3));
-
+  
   }
   
   @Override

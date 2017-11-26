@@ -1,5 +1,6 @@
 package path;
 
+import basics.Level;
 import basics.Point;
 import main.Objekt;
 import models3D.Wand;
@@ -33,6 +34,14 @@ public class LabWeg_o_u extends Objekt
    
   }
   
+  public LabWeg_o_u(Level lev, float hoehe)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe);
+  }
+  public LabWeg_o_u(Level lev)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2);
+  }
   
   @Override
   public void step()

@@ -1,5 +1,6 @@
 package path;
 
+import basics.Level;
 import basics.Point;
 import main.Objekt;
 import params.Material;
@@ -35,10 +36,22 @@ public class Eckstein extends Objekt{
 		  }
 		}
 		
-		 myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
-		 myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
+		 myShape.translate(new Point(x, y, z));   //Verantwortlich zsm mit untenstehender Funktion für die Verschiebung des gesamtes Objektes.
+		 myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich zsm mit hier darunter stehender Funktion für die Drehung des gesamtes Objektes.
 		
+		 putz.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des Putz.
+		 putz.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des Putz.
 	}
+	
+	 public Eckstein(Level lev, int hoehe)
+	  {
+		  this(lev.x1,lev.y1, hoehe);
+	  }
+	  public Eckstein(Level lev)
+	  {
+		  this(lev.x1,lev.y1);
+	  }
+	
 	public Eckstein(float x, float y)
 	{
 		this(x,y,0,0,0,11);
