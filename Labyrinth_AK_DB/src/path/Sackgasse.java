@@ -1,5 +1,6 @@
 package path;
 
+import basics.Level;
 import basics.Point;
 import main.Objekt;
 import models3D.Wand;
@@ -56,6 +57,14 @@ public class Sackgasse extends Objekt
    }
   }
   
+  public Sackgasse(Level lev, float hoehe,String stase)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe,stase);
+  }
+  public Sackgasse(Level lev,String stase)
+  {
+	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2,stase);
+  }
   
   @Override
   public void step()

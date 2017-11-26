@@ -3,17 +3,9 @@ package main;
 import static org.lwjgl.opengl.GL11.*;
 import models3D.*;
 import params.*;
-import path.Eckstein;
-import path.LabEck_lo;
-import path.LabEck_lu;
-import path.LabEck_ro;
-import path.LabEck_ru;
-import path.LabWeg_O;
-import path.LabWeg_R;
-import path.LabWeg_U;
-import path.LabWeg_L;
-import path.LabWeg_r_l;
-import path.Sackgasse;
+import path.*;
+
+
 
 public class Spawner extends Objekt
 {

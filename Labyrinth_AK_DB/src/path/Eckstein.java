@@ -45,11 +45,11 @@ public class Eckstein extends Objekt{
 	
 	 public Eckstein(Level lev, int hoehe)
 	  {
-		  this(lev.x1,lev.y1, hoehe);
+		  this(lev.x1,lev.y2, hoehe);
 	  }
 	  public Eckstein(Level lev)
 	  {
-		  this(lev.x1,lev.y1);
+		  this(lev.x1,lev.y2);
 	  }
 	
 	public Eckstein(float x, float y)
