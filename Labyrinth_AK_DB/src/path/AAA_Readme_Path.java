@@ -25,8 +25,12 @@ public class AAA_Readme_Path {
 	Dies wird verwendet, wenn es drei Seiten ohne Wandstueck und nur eine Seite mit Wandstueck gibt.
 	Sprich LabWeg_O zB erschafft nur ein Wandstueck, naemlich an der oberen Kante des Quadrates.
 	
+	Sackgasse wird ueber einen String bedient, der mit "oben","links","rechts","unten" oder den jeweiligen Kuerzeln eine Sackgasse erschafft, die in Richtung der
+	im String benannten Seite geoeffnet.
 	
-	
+	LabEck-Klassen besitzen einen Boolean
+	Bei false werden nur zwei Waende erschaffen, die Eck an Eck liegen.
+	Bei true wird zusaetzlich eine gebogene Wand erschaffen, die an der jeweils anderen Ecke beider Wandstuecke anliegt.
 	
 	
 	*/
