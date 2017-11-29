@@ -77,25 +77,25 @@ public class LabEck_lu extends Objekt
    
   }
   
-  public LabEck_lu(Level lev, Etage e,boolean bogen)
+  public LabEck_lu(Level lev, Etage e,boolean bogen,float hoehe)
   {
-	  this(e,lev.x1,lev.y1,lev.x2,lev.y2,bogen);
+	  this(e,lev.x1,lev.y1,lev.x2,lev.y2,bogen,hoehe);
   }
   
-  public LabEck_lu(Etage e, float x, float y, float x2, float y2, boolean bogen)
+  public LabEck_lu(Etage e, float x, float y, float x2, float y2, boolean bogen,float hoehe)
   {
 	  waende = new Objekt[3];
   	  
 	  if(bogen == true)	
-			waende [2] = new Wand ("E",x2-1.75f,y2-1.75f,boden+2.1f*e.wert(),0,0,0,90,2);
+			waende [2] = new Wand ("E",x2-1.75f,y2-1.75f,boden+2.1f*e.wert(),0,0,0,90,hoehe);
 	  if(bogen == false)
-		  	waende [2] = new Wand("E",x2,y2,boden+2.1f*e.wert(),180,0,0,90,2);
+		  	waende [2] = new Wand("E",x2,y2,boden+2.1f*e.wert(),180,0,0,90,hoehe);
     
     float yy = y + WandBlock.wdbreite/2; //Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
     float yy2 = y2 - WandBlock.wdbreite/2; //Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
     
    
-    waende [0] = new Wand((x+x2)/2+0.13f, yy2, boden+2.1f*e.wert(), 0,0,0, Math.abs(x2-x), 2);
+    waende [0] = new Wand((x+x2)/2+0.13f, yy2, boden+2.1f*e.wert(), 0,0,0, Math.abs(x2-x), hoehe);
    
 
   
@@ -103,7 +103,7 @@ public class LabEck_lu extends Objekt
      float xx2 = x2 - WandBlock.wdbreite/2;
      
     
-     waende[1] = new Wand(xx2, (y+y2)/2+0.13f, boden+2.1f*e.wert() ,90,0,0,Math.abs(y2-y), 2);
+     waende[1] = new Wand(xx2, (y+y2)/2+0.13f, boden+2.1f*e.wert() ,90,0,0,Math.abs(y2-y), hoehe);
    
   }
   
