@@ -13,7 +13,7 @@ public abstract class Objekt
    * 1/2 * wandFeld entspricht der Laenge einer Backsteinwand.
    */
   public final float wandFeld = 5.70f;
-  public final float boden = 0.026f;
+  public final float boden = 0.016f;
   /**
    * alpha ist z - Achse (senkrechte Achse)
    * beta ist y - Achse

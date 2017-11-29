@@ -40,7 +40,18 @@ public class LabWeg_R extends Objekt
 	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2);
   }
   
+  public LabWeg_R(Etage e, Level lev)
+  {
+    this(e, lev.x1, lev.y1, lev.x2, lev.y2);
+    
+  }
   
+  public LabWeg_R(Etage e,float x, float y, float x2, float y2)
+  {
+	  float xx2 = x2 - WandBlock.wdbreite/2;
+  
+    waende[0] = new Wand(xx2,(y+y2)/2+0.13f,boden+2.1f*e.wert(),90,0,0,Math.abs(y2-y), 2);
+  }
   
 //  public LabWeg_L(String kind,float x, float y, float x2, float y2, float hoehe, boolean gedreht) //funktioniert noch nicht richtig !!
 //  {

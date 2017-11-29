@@ -5,12 +5,15 @@ public class AAA_Readme_Path {
 	
 	/**
 	Dieses Package wurde dafuer geschaffen, den Umgang mit den Wandklassen beim Erschaffen eines Labyrinthes zu erleichtern.
-	Dabei muss die x,y - Ebene betrachtet werden.
-	Die Koordinaten zweier Eckpunkte, die ein Quadrat aufspannen wird einer Klasse uebergeben (optional noch die Hoehe).
+	Dabei wird die x,y - Ebene betrachtet.
+	Die Koordinaten zweier Eckpunkte, die ein Quadrat aufspannen wird einer Klasse uebergeben (optional noch die Hoehe) - (1,1 und 2,2 spannen das Quadrat
+	(1,1) (1,2) (2,2) (2,1) auf).
 	Auf diesem quadratischen Feld wird dann der gewuenschte Abschnitt platziert.
 	 
 	Alternativ kann die Hilfsmethode Level ("Ebene", steht fuer die x,y-Ebene) benutzt werden, dabei wird die x,y-Ebene als ein Feld aus Quadraten
-	mit 1.5f*1.5f Flaecheninhalt. Hier werden die Parameter a und b uebergeben. Damit wird der gewuenschte Abschnitt in einem Quadrat positioniert,
+	mit 1.5f*1.5f Flaecheninhalt veranschaulicht. Hier werden die Parameter a und b uebergeben, die etwa mit den Koordinaten eines
+	Schachbretts zu vergleichen sind.
+	Damit wird der gewuenschte Abschnitt in einem Quadrat positioniert,
 	dessen linke obere Ecke die Koordinaten von a * 1.5f und die von b * -1.5f entspricht.
 	
 	a wird groesser fuer groessere x, b wird groesser fuer KLEINERE y.
@@ -32,6 +35,7 @@ public class AAA_Readme_Path {
 	Bei false werden nur zwei Waende erschaffen, die Eck an Eck liegen.
 	Bei true wird zusaetzlich eine gebogene Wand erschaffen, die an der jeweils anderen Ecke beider Wandstuecke anliegt.
 	
+	Ecksteine werden auch einem diskreten Feld zugeordnet. Dabei wird dieser im linken oberen Eck des Quadrats platziert.
 	
 	*/
 }

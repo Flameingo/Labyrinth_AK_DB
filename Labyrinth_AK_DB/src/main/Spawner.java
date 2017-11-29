@@ -1,6 +1,8 @@
 package main;
 
 import static org.lwjgl.opengl.GL11.*;
+
+import basics.Level;
 import models3D.*;
 import params.*;
 import path.*;
@@ -23,6 +25,7 @@ public class Spawner extends Objekt
     
     makeStatic = true;
     Labyrinth.addObject(new Boden());
+   
     Labyrinth.addObject(new AbschnittB());
 
    

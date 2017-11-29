@@ -2,6 +2,7 @@ package models3D;
 
 import basics.Point;
 import main.Objekt;
+import params.Material;
 import params.Quader;
 import params.Shape;
 
@@ -89,6 +90,7 @@ public class Treppe extends Objekt
   @Override
   public void draw()
   {
+	Material.BACKSTEIN.use();
     myShape.draw();
     // TODO Auto-generated method stub
     
