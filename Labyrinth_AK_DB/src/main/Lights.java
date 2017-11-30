@@ -17,6 +17,6 @@ public class Lights
     glLightfv(GL_LIGHT0, GL_AMBIENT, new float[] { 1, 1, 1, 1 });
     glLightfv(GL_LIGHT0, GL_DIFFUSE, new float[] { 1, 1, 1, 1 });
     glLightfv(GL_LIGHT0, GL_SPECULAR, new float[] { 1, 1, 1, 1 });
-    glLightModelfv(GL_LIGHT_MODEL_LOCAL_VIEWER, new float[] { 1, 1, 1, 1 });
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_TRUE);
   }
 }

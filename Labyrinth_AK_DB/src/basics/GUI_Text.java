@@ -15,10 +15,11 @@ public class GUI_Text
   
   private static Letter[] letters = {};
   private static char[]   chars   = {};
+  private static String[] strings = {};
   
   public static void init()
   {
-    Path file_path = Paths.get("src/basics/Schrift_POLY_PARTY.txt");
+    Path file_path = Paths.get("src/basics/Textdata.txt");
     List<String> lines;
     try
     {
@@ -30,49 +31,122 @@ public class GUI_Text
     }
     
     ArrayList<Character> chars = new ArrayList<Character>();
+    ArrayList<String> strings = new ArrayList<String>();
     for (String string : lines)
     {
-      if (string.isEmpty()) break;
-      chars.add(string.charAt(0));
+      if (string.startsWith("l"))
+      {
+        String temp = string.substring(1);
+        if (temp.length() == 1)
+          chars.add(temp.charAt(0));
+        else strings.add(temp);
+      }
     }
     GUI_Text.chars = new char[chars.size()];
-    letters = new Letter[chars.size()];
+    letters = new Letter[chars.size() + strings.size()];
     for (int i = 0; i < chars.size(); i++)
     {
       char c = chars.get(i);
       GUI_Text.chars[i] = c;
-      letters[i] = new Letter(c);
+      letters[i] = new Letter(c + "");
+    }
+    GUI_Text.strings = new String[strings.size()];
+    int ioff = chars.size();
+    for (int i = 0; i < strings.size(); i++)
+    {
+      String s = strings.get(i);
+      GUI_Text.strings[i] = s;
+      letters[i + ioff] = new Letter(s);
     }
   }
   
   public static void draw_test()
   {
-    draw_text("AbBb AbbBbAbA", new Point(10, 10), 50);
+    draw_text("A/ABCDEFGHIJKLMN/nO/OPQRSTU/UVWXYZ/na/abcdefghijklmn/no/opqrstu/uvwxyz", new Point(10, 200), 50);
   }
   
   public static void draw_text(String string, Point pos, int size)
   {
     GUI_Text.size = size;
+    int line = 0;
     glPushMatrix();
     glTranslatef(pos.x, pos.y, pos.z);
     for (int i = 0; i < string.length(); i++)
     {
-      float charwidth = draw_char(string.charAt(i));
+      float charwidth = -.1f; // to cancel the offset when drawing the newline
+                              // character /n, this value is set to negative
+                              // that offset
+      if (string.charAt(i) != '/')
+      {
+        // handle standard chars
+        charwidth = draw_char(string.charAt(i));
+      } else if (string.charAt(i + 1) == 'n')
+      {
+        // handle newline
+        glPopMatrix();
+        glPushMatrix();
+        line++;
+        glTranslatef(pos.x, pos.y - size * line * 1.2f, pos.z);
+        i++;
+      } else
+      {
+        // handle special chars
+        float[] ret = draw_char_ext(string.charAt(i + 1), string.charAt(i + 2));
+        charwidth = ret[0];
+        i += ret[1];
+      }
       glTranslatef(size * charwidth + .1f * size, 0, 0);
     }
     glPopMatrix();
   }
   
+  private static float[] draw_char_ext(char c1, char c2)
+  {
+    int usedchars = 2;
+    String searchstring = "";
+    switch ("" + c1 + c2)
+    {
+    default:
+      usedchars = 1;
+      switch (c1)
+      {
+      case 'A':
+        searchstring = "Ae";
+        break;
+      case 'O':
+        searchstring = "Oe";
+        break;
+      case 'U':
+        searchstring = "Ue";
+        break;
+      case 'a':
+        searchstring = "ae";
+        break;
+      case 'o':
+        searchstring = "oe";
+        break;
+      case 'u':
+        searchstring = "ue";
+        break;
+      }
+    }
+    for (int i = 0; i < strings.length; i++)
+      if (strings[i].equals(searchstring))
+      {
+        letters[i + chars.length].draw();
+        return new float[] { letters[i + chars.length].width, usedchars };
+      }
+    return new float[] { SPACE_WIDTH, 0 };
+  }
+  
   private static float draw_char(char c)
   {
     for (int i = 0; i < chars.length; i++)
-    {
       if (chars[i] == c)
       {
         letters[i].draw();
         return letters[i].width;
       }
-    }
     return SPACE_WIDTH;
   }
   
@@ -109,9 +183,9 @@ public class GUI_Text
       }
     }
     
-    public Letter(char c)
+    public Letter(String s)
     {
-      Path file_path = Paths.get("src/basics/Schrift_POLY_PARTY.txt");
+      Path file_path = Paths.get("src/basics/Textdata.txt");
       List<String> lines;
       try
       {
@@ -132,7 +206,7 @@ public class GUI_Text
         switch (state)
         {
         case SEARCH_START:
-          if (string.equals("l" + c)) state = state.next();
+          if (string.equals("l" + s)) state = state.next();
           break;
         case BUILD_POINTS:
           if (string.isEmpty())
@@ -193,11 +267,11 @@ public class GUI_Text
         glEnd();
       }
       glColor3fv(GUI_Text.col);
-      for (int i = paths.length - 1; i >= 0; i--)
+      for (int i = 0; i < paths.length; i++)
       {
         glBegin(GL_TRIANGLE_STRIP);
         for (int j = 0; j < paths[i].length; j++)
-          glVertex3f(points[paths[i][j] - 1].x * GUI_Text.size, points[paths[i][j] - 1].y * GUI_Text.size, 0);
+          glVertex3f(points[paths[i][j]].x * GUI_Text.size, points[paths[i][j]].y * GUI_Text.size, 0);
         glEnd();
       }
     }
