@@ -62,7 +62,8 @@ public class GUI_Text
   
   public static void draw_test()
   {
-    draw_text("A/ABCDEFGHIJKLMN/nO/OPQRSTU/UVWXYZ/na/abcdefghijklmn/no/opqrstu/uvwxyz", new Point(10, 200), 50);
+    // draw_text("A/ABCDEFGHIJKLMN/nO/OPQRSTU/UVWXYZ/na/abcdefghijklmn/no/opqrstu/uvwxyz", new Point(10, 200), 50);
+    draw_text("Hallo I bims", new Point(10, 30), 30);
   }
   
   public static void draw_text(String string, Point pos, int size)
