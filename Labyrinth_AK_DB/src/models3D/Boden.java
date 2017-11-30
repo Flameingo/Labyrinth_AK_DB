@@ -51,7 +51,7 @@ public class Boden extends Objekt
   @Override
   public void draw()
   {
-    Material.CHROME.use();
+    Material.GREEN_RUBBER.use();
     myShape.draw();
     
   }

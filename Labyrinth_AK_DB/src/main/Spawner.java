@@ -7,6 +7,7 @@ import models3D.*;
 import params.*;
 import path.*;
 import section.AbschnittB;
+import section.TurmExtra;
 
 
 
@@ -26,7 +27,7 @@ public class Spawner extends Objekt
     makeStatic = true;
     Labyrinth.addObject(new Boden());
    
-    Labyrinth.addObject(new AbschnittB());
+    Labyrinth.addObject(new SchalterFeld(0,0,0,0));
 
    
   
