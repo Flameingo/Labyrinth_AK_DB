@@ -6,7 +6,7 @@ public final class Settings
   // changed easily.
   
   // dev settings
-  public static final boolean FPS_ON                  = false;
+  public static final boolean FPS_ON                  = true;
   public static final boolean DrawPlayerPOS           = false;
   public static final boolean POLYMODE_ON             = false;
   public static final boolean FLAT_SHADING            = true;

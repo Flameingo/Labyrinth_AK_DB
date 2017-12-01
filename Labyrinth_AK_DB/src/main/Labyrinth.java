@@ -7,7 +7,7 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
 
-import basics.GUI_Text;
+import basics.Text;
 import basics.Point;
 
 import static org.lwjgl.opengl.GL11.*;
@@ -37,7 +37,7 @@ public class Labyrinth
   
   public static void beginGame()
   {
-    GUI_Text.init();
+    Text.init();
     addObject(new Spawner());
   }
   

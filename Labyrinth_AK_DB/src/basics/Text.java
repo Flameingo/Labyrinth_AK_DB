@@ -8,7 +8,7 @@ import java.util.*;
 
 import main.Settings;
 
-public class GUI_Text
+public class Text
 {
   static float[]          col     = { 1, 1, 1 };
   static int              size    = 100;
@@ -42,20 +42,20 @@ public class GUI_Text
         else strings.add(temp);
       }
     }
-    GUI_Text.chars = new char[chars.size()];
+    Text.chars = new char[chars.size()];
     letters = new Letter[chars.size() + strings.size()];
     for (int i = 0; i < chars.size(); i++)
     {
       char c = chars.get(i);
-      GUI_Text.chars[i] = c;
+      Text.chars[i] = c;
       letters[i] = new Letter(c + "");
     }
-    GUI_Text.strings = new String[strings.size()];
+    Text.strings = new String[strings.size()];
     int ioff = chars.size();
     for (int i = 0; i < strings.size(); i++)
     {
       String s = strings.get(i);
-      GUI_Text.strings[i] = s;
+      Text.strings[i] = s;
       letters[i + ioff] = new Letter(s);
     }
   }
@@ -63,12 +63,12 @@ public class GUI_Text
   public static void draw_test()
   {
     // draw_text("A/ABCDEFGHIJKLMN/nO/OPQRSTU/UVWXYZ/na/abcdefghijklmn/no/opqrstu/uvwxyz", new Point(10, 200), 50);
-    draw_text("Hallo I bims", new Point(10, 30), 30);
+    draw_text("FPS angucken", new Point(10, 30), 30);
   }
   
   public static void draw_text(String string, Point pos, int size)
   {
-    GUI_Text.size = size;
+    Text.size = size;
     int line = 0;
     glPushMatrix();
     glTranslatef(pos.x, pos.y, pos.z);
@@ -264,15 +264,15 @@ public class GUI_Text
         glPointSize(Settings.DRAW_FONT_POINTS);
         glBegin(GL_POINTS);
         for (Point p : points)
-          glVertex3f(p.x * GUI_Text.size, p.y * GUI_Text.size, 0);
+          glVertex3f(p.x * Text.size, p.y * Text.size, 0);
         glEnd();
       }
-      glColor3fv(GUI_Text.col);
+      glColor3fv(Text.col);
       for (int i = 0; i < paths.length; i++)
       {
         glBegin(GL_TRIANGLE_STRIP);
         for (int j = 0; j < paths[i].length; j++)
-          glVertex3f(points[paths[i][j]].x * GUI_Text.size, points[paths[i][j]].y * GUI_Text.size, 0);
+          glVertex3f(points[paths[i][j]].x * Text.size, points[paths[i][j]].y * Text.size, 0);
         glEnd();
       }
     }
