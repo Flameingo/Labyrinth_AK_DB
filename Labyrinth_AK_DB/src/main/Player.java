@@ -2,6 +2,9 @@ package main;
 
 import basics.GUI_Text;
 import basics.Point;
+import models3D.Schalter;
+import path.SchalterFeld;
+
 import static org.lwjgl.glfw.GLFW.*;
 
 public class Player extends Objekt
@@ -15,18 +18,29 @@ public class Player extends Objekt
   private final float spdSIDE = Settings.PlayerSideStepSpeed;
   
   // Position im Spiel
-  Point               pos     = new Point(5, 0, 0);
+  public Point               pos     = new Point(5, 0, 0); //pos von Alex auf public geaendert!
   // Kameraausrichtung
   Point               cam     = new Point(-1, 0, 0);
   
   @Override
   public void step()
   {
+	 Schalter.schaldr[0].position = pos;
     for (int i = 0; i < Labyrinth.keys.length; i++)
     {
       // bewegungen anhand WASD und arrow-keys einleiten.
       switch (Labyrinth.keys[i])
       {
+      
+      /**
+       * @author: Alex
+       */
+      case GLFW_KEY_G:      			
+    	  SchalterFeld.schaldr[0].schalten();
+    	  break;
+      
+//      Zum Testen der Interaktion mit dem Schalter
+      
       case GLFW_KEY_W:
         pos.add(Point.mult(cam, spdMOV));
         break;
@@ -114,6 +128,7 @@ public class Player extends Objekt
   @Override
   public void draw()
   {
+	  
   }
   
   @Override

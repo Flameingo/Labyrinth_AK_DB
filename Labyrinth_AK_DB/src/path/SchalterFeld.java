@@ -5,7 +5,7 @@ import models3D.Schalter;
 
 public class SchalterFeld extends Objekt{
 
-	protected Schalter [] schaldr = new Schalter[1];
+	public static Schalter [] schaldr = new Schalter[1];
 	
 	public SchalterFeld(float x, float y, float x2, float y2)
 	{
@@ -13,8 +13,7 @@ public class SchalterFeld extends Objekt{
 	}
 	public void step() {
 		// TODO Auto-generated method stub
-		schaldr[0].step();
-		schaldr[0].setSchalter(true);
+	schaldr[0].step();
 	}
 
 	@Override
@@ -26,7 +25,7 @@ public class SchalterFeld extends Objekt{
 	@Override
 	public void draw() {
 		// TODO Auto-generated method stub
-		schaldr[0].setSchalter(true);
+		
 		for(Objekt sch : schaldr)
 		{
 			sch.draw();

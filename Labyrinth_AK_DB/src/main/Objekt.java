@@ -26,7 +26,7 @@ public abstract class Objekt
    */
   protected float x,y,z;
   
-  protected Point pos   = new Point(0, 0, 0);
+  public Point pos   = new Point(0, 0, 0);
   
   // Funktionen
   public abstract void step(); // handles movement, behaviour and interaction
