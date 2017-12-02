@@ -1,6 +1,6 @@
 package main;
 
-import basics.GUI_Text;
+import basics.Text;
 import basics.Point;
 import models3D.Schalter;
 import path.SchalterFeld;
@@ -139,7 +139,7 @@ public class Player extends Objekt
   @Override
   public void drawGUI()
   {
-    GUI_Text.draw_test();
+    Text.draw_test();
   }
   
   @Override
