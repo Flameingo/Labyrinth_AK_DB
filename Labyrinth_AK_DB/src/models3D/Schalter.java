@@ -17,11 +17,11 @@ public class Schalter extends Objekt{
 	protected Shape block = new Shape();
 	protected Shape hebel = new Shape();
 	boolean stop;
-	public Point position = new Point(0,0,0);
+	
 	private float winkel = 0f;
 	public Schalter(float x, float y, float z, float alpha, float beta, float gamma)
 	{
-		this.position = new Point(0,0,0);
+		
 		this.x = x;
 		this.y = y;
 		this.z = z;
@@ -35,7 +35,7 @@ public class Schalter extends Objekt{
 	public void schalten()
 	{	
 		
-		if(position.get(0) > this.x-1 && position.get(0) < this.x+1 &&
+		if(Labyrinth.player.pos.x > this.x-1 && position.get(0) < this.x+1 &&
 				position.get(1) > this.y-1 && position.get(1) < this.y+1 
 				&& position.get(2) > this.z-1 && position.get(2) < this.z+1)
 		this.stop = false;

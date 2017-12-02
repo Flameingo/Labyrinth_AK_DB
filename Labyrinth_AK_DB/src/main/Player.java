@@ -25,7 +25,7 @@ public class Player extends Objekt
   @Override
   public void step()
   {
-	 Schalter.schaldr[0].position = pos;
+	 ;
     for (int i = 0; i < Labyrinth.keys.length; i++)
     {
       // bewegungen anhand WASD und arrow-keys einleiten.
