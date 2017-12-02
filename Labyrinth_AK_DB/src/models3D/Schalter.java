@@ -35,9 +35,9 @@ public class Schalter extends Objekt{
 	public void schalten()
 	{	
 		
-		if(Labyrinth.player.pos.x > this.x-1 && position.get(0) < this.x+1 &&
-				position.get(1) > this.y-1 && position.get(1) < this.y+1 
-				&& position.get(2) > this.z-1 && position.get(2) < this.z+1)
+//		if(Labyrinth.player.pos.x > this.x-1 && position.get(0) < this.x+1 &&
+//				position.get(1) > this.y-1 && position.get(1) < this.y+1 
+//				&& position.get(2) > this.z-1 && position.get(2) < this.z+1)
 		this.stop = false;
 	}
 	public void setSchalter(boolean modus) //nochmal überarbeiten
