@@ -154,7 +154,7 @@ public class Point
   }
   
   /** addiert das gegebene Koordinatentripel zu sich selbst */
-  public void add(float x, float y, int z)
+  public void add(float x, float y, float z)
   {
     this.x += x;
     this.y += y;

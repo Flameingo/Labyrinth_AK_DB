@@ -29,9 +29,10 @@ public class Labyrinth
   /** center point of the view */
   private static Point       lookat  = new Point(0, 0, 0);
   
+  public static Player       player  = new Player();
+  
   /**
-   * every frame, this array is refreshed with all pressed keys at that moment
-   * in time
+   * every frame, this array is refreshed with all pressed keys at that moment in time
    */
   public static int[]        keys    = {};
   
@@ -39,6 +40,7 @@ public class Labyrinth
   {
     Text.init();
     addObject(new Spawner());
+    addObject(player);
   }
   
   /**
@@ -82,8 +84,7 @@ public class Labyrinth
    * ueberprueft, ob eine gegebene Taste gedrueckt ist
    * 
    * @param key
-   *          Die Taste, die geprueft wird. Anzugeben als Integer mithilfe der
-   *          GLFW-Tasten-enums.
+   *          Die Taste, die geprueft wird. Anzugeben als Integer mithilfe der GLFW-Tasten-enums.
    * @return Ein boolscher Wert, der angibt, ob die Taste gedrueckt ist.
    */
   private static boolean keyCheck(int key)
@@ -149,6 +150,7 @@ public class Labyrinth
       o.step();
     for (Objekt o : objekte)
       o.collision();
+    player.updatecam();
     
     if (Settings.POLYMODE_ON) glPolygonMode(GL_FRONT, GL_LINE);
     glPolygonMode(GL_BACK, GL_NONE);
@@ -177,7 +179,7 @@ public class Labyrinth
     m.setLookAt(eye.x, eye.y, eye.z, lookat.x, lookat.y, lookat.z, up.x, up.y, up.z);
     m.get(fb);
     glLoadMatrixf(fb);
-
+    
     Lights.setLights();
     
     for (Objekt o : objekte)
@@ -204,8 +206,8 @@ public class Labyrinth
   /**
    * Behandelt Tastenanschlaege.
    * <p>
-   * Wird nur fuer Tastenanschlaege verwendet, nicht fuer das Halten einer
-   * Taste. Das Halten wird in der Funktion keyCheck() behandelt.
+   * Wird nur fuer Tastenanschlaege verwendet, nicht fuer das Halten einer Taste. Das Halten wird in der Funktion
+   * keyCheck() behandelt.
    * 
    * @param key
    *          Taste, die gedrueckt wurde.
@@ -221,14 +223,12 @@ public class Labyrinth
   /**
    * Sucht ein Objekt einer bestimmten Klasse im Array "objekte"
    * <p>
-   * Damit kann ein Objekt, fuer das man keine Referenz hat, trotzdem
-   * referenziert werden. Allerdings sollte nur eine Instanz des Objekt
-   * vorhanden sein, da nur das zuerst gefundene zurueckgegeben wird.
+   * Damit kann ein Objekt, fuer das man keine Referenz hat, trotzdem referenziert werden. Allerdings sollte nur eine
+   * Instanz des Objekt vorhanden sein, da nur das zuerst gefundene zurueckgegeben wird.
    * 
    * @param identifier
-   *          Platzhalter fuer die Klasse, die gesucht wird. Einfach eine leere
-   *          Instanz der gesuchten Klasse uebergeben, zB: findInstance(new
-   *          GesuchteKlasse());
+   *          Platzhalter fuer die Klasse, die gesucht wird. Einfach eine leere Instanz der gesuchten Klasse uebergeben,
+   *          zB: findInstance(new GesuchteKlasse());
    * @return Die Referenz des gesuchten Objekts
    */
   public static Objekt findInstance(Objekt identifier)
