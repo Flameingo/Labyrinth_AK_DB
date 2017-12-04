@@ -18,13 +18,9 @@ public class DisplayList extends Objekt
     glNewList(myList, GL_COMPILE_AND_EXECUTE);
     
     for (Objekt o : myObjekts)
-    {
       o.draw();
-    }
     
     glEndList();
-    
-    myObjekts.clear();
   }
   
   public void addObjekt(Objekt o)
@@ -35,15 +31,15 @@ public class DisplayList extends Objekt
   @Override
   public void step()
   {
-    // TODO Auto-generated method stub
-    
+    for (Objekt o : myObjekts)
+      o.step();
   }
   
   @Override
   public void collision()
   {
-    // TODO Auto-generated method stub
-    
+    for (Objekt o : myObjekts)
+      o.collision();
   }
   
   @Override
@@ -57,8 +53,8 @@ public class DisplayList extends Objekt
   @Override
   public void drawGUI()
   {
-    // TODO Auto-generated method stub
-    
+    for (Objekt o : myObjekts)
+      o.drawGUI();
   }
   
 }

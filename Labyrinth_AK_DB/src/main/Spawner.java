@@ -7,6 +7,7 @@ import models3D.*;
 import params.*;
 import path.*;
 import section.AbschnittB;
+import section.TurmExtra;
 
 public class Spawner extends Objekt
 {
@@ -17,12 +18,11 @@ public class Spawner extends Objekt
    */
   public Spawner()
   {
-    Labyrinth.addObject(new Player()); // Wird benoetigt, um die Kamera innerhalb des Spiels zu steuern
     // Hier werden die Objekte ins Spiel gesetzt:
     
     DisplayList displayList = new DisplayList();
     displayList.addObjekt(new Boden());
-    displayList.addObjekt(new AbschnittB());
+    displayList.addObjekt(new SchalterFeld(0, 0, 5, 5));
     Labyrinth.addObject(displayList);
     
   }

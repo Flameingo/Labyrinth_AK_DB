@@ -2,6 +2,9 @@ package main;
 
 import basics.Text;
 import basics.Point;
+import models3D.Schalter;
+import path.SchalterFeld;
+
 import static org.lwjgl.glfw.GLFW.*;
 
 public class Player extends Objekt
@@ -9,15 +12,23 @@ public class Player extends Objekt
   // This is the player object that controls movement
   
   // get settings
-  private final float spdLR   = Settings.PlayerRotationLeftRight;
-  private final float spdUD   = Settings.PlayerRotationUpDown;
-  private final float spdMOV  = Settings.PlayerMovementSpeed;
-  private final float spdSIDE = Settings.PlayerSideStepSpeed;
+  private final float        spdLR   = Settings.PlayerRotationLeftRight;
+  private final float        spdUD   = Settings.PlayerRotationUpDown;
+  private final float        spdMOV  = Settings.PlayerMovementSpeed;
+  private final float        spdSIDE = Settings.PlayerSideStepSpeed;
   
   // Position im Spiel
-  Point               pos     = new Point(5, 0, 0);
+  public Point               pos     = new Point(0, -1, 3);
   // Kameraausrichtung
-  Point               cam     = new Point(-1, 0, 0);
+  Point                      cam     = new Point(1, 0, 0);
+  
+  // hitbox:
+  // Zylinder mit Hoehe h_h, Radius h_r
+  // Kamera sitzt auf Hoehe k_h und um k_off nach vorne versetzt
+  private final static float h_h     = 1.7f;
+  private final static float h_r     = .15f;
+  private final static float k_h     = 1.2f;
+  // private final static float k_off = 0;
   
   @Override
   public void step()
@@ -25,13 +36,33 @@ public class Player extends Objekt
     for (int i = 0; i < Labyrinth.keys.length; i++)
     {
       // bewegungen anhand WASD und arrow-keys einleiten.
+      Point p;
       switch (Labyrinth.keys[i])
       {
+      
+      /**
+       * @author: Alex
+       */
+      
+      case GLFW_KEY_G:
+    	  if(pos.x > SchalterFeld.schaldr[0].x - 3 && pos.x < SchalterFeld.schaldr[0].x+3 && pos.y > SchalterFeld.schaldr[0].y-3 && pos.y < SchalterFeld.schaldr[0].y+3
+    			  && pos.z > SchalterFeld.schaldr[0].z-3 && pos.z < SchalterFeld.schaldr[0].z+3)
+    	  {      			
+    		  SchalterFeld.schaldr[0].schalten();
+    	  }
+    	  break;
+      
+//      Zum Testen der Interaktion mit dem Schalter
+      
       case GLFW_KEY_W:
-        pos.add(Point.mult(cam, spdMOV));
+        p = new Point(cam.x, cam.y, 0);
+        p.normalize();
+        pos.add(Point.mult(p, spdMOV));
         break;
       case GLFW_KEY_S:
-        pos.add(Point.mult(cam, -spdMOV));
+        p = new Point(cam.x, cam.y, 0);
+        p.normalize();
+        pos.add(Point.mult(p, -spdMOV));
         break;
       case GLFW_KEY_A:
         sidestep(spdSIDE);
@@ -55,11 +86,7 @@ public class Player extends Objekt
         break;
       }
     }
-    // Kameraposition in Klasse "Labyrinth" aktualisieren.
-    Point lookat = Point.add(pos, cam);
-    Labyrinth.setView(pos, lookat);
-    
-    if (Settings.DrawPlayerPOS) System.out.println(this);
+    pos.add(0, 0, -.1f);
   }
   
   /** moves the Player to the side */
@@ -104,6 +131,32 @@ public class Player extends Objekt
     }
     // fix rounding errors
     cam.normalize();
+  }
+  
+  /**
+   * returns true if the Point p is in the hitbox of the player
+   * 
+   * @param p
+   *          Point that is tested
+   * @return boolean value wether the Point is in the hitbox
+   */
+  public boolean hitbox(Point p)
+  {
+    if (p.z < pos.z) return false;
+    if (p.z > pos.z + h_h) return false;
+    Point dist = Point.add(pos, Point.neg(p));
+    if (dist.length("xy") > h_r) return false;
+    return true;
+  }
+  
+  public void updatecam()
+  {
+    // Kameraposition in Klasse "Labyrinth" aktualisieren.
+    Point campos = Point.add(pos, 0, 0, k_h);
+    Point lookat = Point.add(campos, cam);
+    Labyrinth.setView(campos, lookat);
+    
+    if (Settings.DrawPlayerPOS) System.out.println(this);
   }
   
   @Override
