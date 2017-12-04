@@ -37,11 +37,10 @@ public class Player extends Objekt
        */
       
       case GLFW_KEY_G:
-    	  if(pos.x > SchalterFeld.schaldr[0].x - 3 && pos.x < SchalterFeld.schaldr[0].x+3 && pos.y > SchalterFeld.schaldr[0].y-3 && pos.y < SchalterFeld.schaldr[0].y+3
-    			  && pos.z > SchalterFeld.schaldr[0].z-3 && pos.z < SchalterFeld.schaldr[0].z+3)
-    	  {      			
+//    	  if(pos.x > SchalterFeld.schaldr[0].x - 3 && pos.x < SchalterFeld.schaldr[0].x+3 && pos.y > SchalterFeld.schaldr[0].y-3 && pos.y < SchalterFeld.schaldr[0].y+3)
+//    	  {      			
     		  SchalterFeld.schaldr[0].schalten();
-    	  }
+//    	  }
     	  break;
       
 //      Zum Testen der Interaktion mit dem Schalter

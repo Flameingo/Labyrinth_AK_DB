@@ -15,6 +15,8 @@ public class AbschnittB extends Objekt
   
   public AbschnittB()
   {
+	
+	
 	  waende[0] = new LabWeg_r_l(new Level(1,1));
 	  waende[1] = new LabWeg_L(new Level(1,2));
 	  waende[2] = new LabWeg_o_u(new Level (2,3));
@@ -61,7 +63,7 @@ public class AbschnittB extends Objekt
 	  waende[43] = new LabEck_lo(new Level(10,5),true);
 	  waende[44] = new RundeTreppe(13.5f,-6,-2.1f,180,0,0,360,10);
 	  waende[45] = new LabWeg_L(new Level (9,4));
-	  
+	 
 	//Underground
 	  
 	  waende[46] = new LabEck_lo(new Level(10,5),Etage.KELLER , true,2.1f);
@@ -98,6 +100,7 @@ public class AbschnittB extends Objekt
 	  
   }
  
+ 
   @Override
   public void step()
   {
@@ -125,6 +128,7 @@ public class AbschnittB extends Objekt
     {
       stein.draw();
     }
+    
   }
 
   @Override

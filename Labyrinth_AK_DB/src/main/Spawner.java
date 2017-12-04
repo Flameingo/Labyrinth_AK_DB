@@ -9,13 +9,10 @@ import path.*;
 import section.AbschnittB;
 import section.TurmExtra;
 
-
-
 public class Spawner extends Objekt
 {
   public static boolean makeStatic = false;
-  
-  
+
   /**
    * created once at the start of the game and places all objects that should be in the game at the start.
    */
@@ -26,14 +23,19 @@ public class Spawner extends Objekt
    Labyrinth.addObject(new Player()); // Wird benoetigt, um die Kamera innerhalb des Spiels zu steuern
     
     // Hier werden die Objekte ins Spiel gesetzt:
-    
+
     makeStatic = true;
     Labyrinth.addObject(new Boden());
    
-    Labyrinth.addObject(new SchalterFeld(0,0,5,5));
-
+ 
    
-  
+    Labyrinth.addObject (new SchalterFeld(new Level(1,1)));
+
+    DisplayList displayList = new DisplayList();
+    displayList.addObjekt(new Boden());
+    displayList.addObjekt(new AbschnittB());
+    Labyrinth.addObject(displayList);
+
   }
   
   @Override
