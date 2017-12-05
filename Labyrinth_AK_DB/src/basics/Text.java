@@ -11,11 +11,12 @@ import main.Settings;
 public class Text
 {
   static float[]          col     = { 1, 1, 1 };
-  static int              size    = 100;
   
   private static Letter[] letters = {};
   private static char[]   chars   = {};
   private static String[] strings = {};
+  
+  private static int      size;
   
   public static void init()
   {
@@ -62,7 +63,8 @@ public class Text
   
   public static void draw_test()
   {
-    // draw_text("A/ABCDEFGHIJKLMN/nO/OPQRSTU/UVWXYZ/na/abcdefghijklmn/no/opqrstu/uvwxyz", new Point(10, 200), 50);
+    // draw_text("A/ABCDEFGHIJKLMN/nO/OPQRSTU/UVWXYZ/na/abcdefghijklmn/no/opqrstu/uvwxyz",
+    // new Point(10, 200), 50);
     draw_text("FPS angucken", new Point(10, 30), 30);
   }
   
@@ -155,16 +157,9 @@ public class Text
   
   private static class Letter
   {
-    public float width = 0;
-    Point[]      points;
-    int[][]      paths;
+    public float width       = 0;
     
-    public Letter(Point[] points, int[][] paths)
-    {
-      this.points = points;
-      this.paths = paths;
-      calc_width();
-    }
+    int          displaylist = -1;
     
     private static enum States
     {
@@ -240,23 +235,27 @@ public class Text
           break;
         }
       }
-      points = new Point[points_list.size()];
+      Point[] points = new Point[points_list.size()];
       for (int i = 0; i < points.length; i++)
         points[i] = points_list.get(i);
-      paths = new int[paths_list.size()][];
+      int[][] paths = new int[paths_list.size()][];
       for (int i = 0; i < paths.length; i++)
         paths[i] = paths_list.get(i);
-      calc_width();
+      calc_width(points);
+      displaylist = glGenLists(1);
+      glNewList(displaylist, GL_COMPILE);
+      drawfirst(points, paths);
+      glEndList();
     }
     
-    private void calc_width()
+    private void calc_width(Point[] points)
     {
       for (Point p : points)
         width = Math.max(width, p.x);
     }
     
     @SuppressWarnings("unused")
-    public void draw()
+    public void drawfirst(Point[] points, int[][] paths)
     {
       if (Settings.DRAW_FONT_POINTS > 0)
       {
@@ -264,17 +263,27 @@ public class Text
         glPointSize(Settings.DRAW_FONT_POINTS);
         glBegin(GL_POINTS);
         for (Point p : points)
-          glVertex3f(p.x * Text.size, p.y * Text.size, 0);
+          glVertex3f(p.x, p.y, 0);
         glEnd();
       }
-      glColor3fv(Text.col);
       for (int i = 0; i < paths.length; i++)
       {
         glBegin(GL_TRIANGLE_STRIP);
         for (int j = 0; j < paths[i].length; j++)
-          glVertex3f(points[paths[i][j]].x * Text.size, points[paths[i][j]].y * Text.size, 0);
+          glVertex3f(points[paths[i][j]].x, points[paths[i][j]].y, 0);
         glEnd();
       }
+    }
+    
+    public void draw()
+    {
+      glColor3fv(Text.col);
+      glPushMatrix();
+      {
+        glScalef(size, size, size);
+        glCallList(displaylist);
+      }
+      glPopMatrix();
     }
   }
 }

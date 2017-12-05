@@ -1,8 +1,5 @@
 package params;
 
-import basics.Point;
-import main.Settings;
-
 public class KegelMantel extends Param
 {
   

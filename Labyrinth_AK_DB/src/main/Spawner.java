@@ -11,14 +11,21 @@ import section.TurmExtra;
 
 public class Spawner extends Objekt
 {
+<<<<<<< HEAD
   public static boolean makeStatic = false;
 
+=======
+  public static DisplayList abschnittB;
+  
+>>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB
   /**
-   * created once at the start of the game and places all objects that should be in the game at the start.
+   * created once at the start of the game and places all objects that should be
+   * in the game at the start.
    */
   public Spawner()
   {
     // Hier werden die Objekte ins Spiel gesetzt:
+<<<<<<< HEAD
 
     makeStatic = true;
     Labyrinth.addObject(new Boden());
@@ -40,14 +47,26 @@ public class Spawner extends Objekt
 //    Labyrinth.addObject(displayList);
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB
     
     Labyrinth.addObject(new SchalterFeld(new Level(1, 1)));
     
+<<<<<<< HEAD
 //    DisplayList displayList = new DisplayList();
 //    displayList.addObjekt(new Boden());
 //    displayList.addObjekt(new SchalterFeld(0, 0, 5, 5));
 //    Labyrinth.addObject(displayList);
 
+=======
+    DisplayList displayList = new DisplayList();
+    displayList.addObjekt(new Boden());
+    Labyrinth.addObject(displayList);
+    
+    abschnittB = new DisplayList();
+    abschnittB.addObjekt(new AbschnittB());
+    Labyrinth.addObject(abschnittB);
+>>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB
   }
   
   @Override

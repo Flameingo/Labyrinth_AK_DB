@@ -3,7 +3,6 @@ package models3D;
 import basics.Point;
 import main.Labyrinth;
 import main.Objekt;
-import main.Player;
 import params.Material;
 import params.Shape;
 import params.Viereck;

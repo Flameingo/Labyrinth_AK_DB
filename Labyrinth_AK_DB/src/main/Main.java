@@ -15,11 +15,12 @@ import java.nio.IntBuffer;
 public class Main
 {
   // time is kept track for calculating the framerate
-  double       currenttime = System.nanoTime();
+  double               currenttime = System.nanoTime();
   // The window handle
-  private long window;
+  private long         window;
   // setting the window size
-  private int  WIDTH       = (int) (600f * 16f / 9f), HEIGHT = 600;
+  private int          WIDTH       = (int) (600f * 16f / 9f), HEIGHT = 600;
+  public static double fps;
   
   public void run()
   {
@@ -176,8 +177,7 @@ public class Main
   {
     double elapsed = System.nanoTime() - currenttime;
     currenttime = System.nanoTime();
-    double fps = 1000000000 / elapsed;
-    System.out.println(fps);
+    fps = 1000000000 / elapsed;
   }
   
   private boolean windowSizeChanged(IntBuffer w, IntBuffer h)

@@ -8,25 +8,25 @@ import basics.*;
 public abstract class Objekt
 {
   // Variablen
+  public boolean     hidden   = false;
   // pos for position, angles for rotation
   /**
    * 1/2 * wandFeld entspricht der Laenge einer Backsteinwand.
    */
   public final float wandFeld = 5.70f;
-  public final float boden = 0.016f;
+  public final float boden    = 0.016f;
   /**
-   * alpha ist z - Achse (senkrechte Achse)
-   * beta ist y - Achse
-   * gamma ist x - Achse
+   * alpha ist z - Achse (senkrechte Achse) beta ist y - Achse gamma ist x -
+   * Achse
    */
-  protected float alpha = 0, beta = 0, gamma = 0;
+  protected float    alpha    = 0, beta = 0, gamma = 0;
   
   /**
    * x und y bilden die waagrechte Ebene. z bestimmt die Hoehe.
    */
-  protected float x,y,z;
+  protected float    x, y, z;
   
-  public Point pos   = new Point(0, 0, 0);
+  public Point       pos      = new Point(0, 0, 0);
   
   // Funktionen
   public abstract void step(); // handles movement, behaviour and interaction

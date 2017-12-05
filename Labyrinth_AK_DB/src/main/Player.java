@@ -33,26 +33,12 @@ public class Player extends Objekt
   @Override
   public void step()
   {
-    for (int i = 0; i < Labyrinth.keys.length; i++)
+    for (int key : Labyrinth.keys)
     {
       // bewegungen anhand WASD und arrow-keys einleiten.
       Point p;
-      switch (Labyrinth.keys[i])
+      switch (key)
       {
-      
-      /**
-       * @author: Alex
-       */
-      
-      case GLFW_KEY_G:
-//    	  if(pos.x > SchalterFeld.schaldr[0].x - 3 && pos.x < SchalterFeld.schaldr[0].x+3 && pos.y > SchalterFeld.schaldr[0].y-3 && pos.y < SchalterFeld.schaldr[0].y+3)
-//    	  {      			
-    		  SchalterFeld.schaldr[0].schalten();
-//    	  }
-    	  break;
-      
-//      Zum Testen der Interaktion mit dem Schalter
-      
       case GLFW_KEY_W:
         p = new Point(cam.x, cam.y, 0);
         p.normalize();
@@ -103,9 +89,11 @@ public class Player extends Objekt
    * rotates the Point "cam" with the given angles
    * 
    * @param leftright
-   *          dreht die Sicht nach Links / Rechts. Positive Werte drehen nach links.
+   *          dreht die Sicht nach Links / Rechts. Positive Werte drehen nach
+   *          links.
    * @param updown
-   *          dreht die Sicht nach Oben / Unten. Positive Werte drehen nach oben.
+   *          dreht die Sicht nach Oben / Unten. Positive Werte drehen nach
+   *          oben.
    */
   private void camRotate(float leftright, float updown)
   {
@@ -172,6 +160,7 @@ public class Player extends Objekt
   public void drawGUI()
   {
     Text.draw_test();
+    if (Settings.FPS_ON) Text.draw_text("" + (int) Main.fps, new Point(700, 540), 50);
   }
   
   @Override

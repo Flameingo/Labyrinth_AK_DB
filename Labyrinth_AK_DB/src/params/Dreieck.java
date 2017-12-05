@@ -1,7 +1,6 @@
 package params;
 
 import basics.*;
-import main.Settings;
 
 public class Dreieck extends Param
 {
