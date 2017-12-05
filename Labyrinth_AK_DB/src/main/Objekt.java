@@ -9,6 +9,7 @@ public abstract class Objekt
 {
   // Variablen
   public boolean     hidden   = false;
+
   // pos for position, angles for rotation
   /**
    * 1/2 * wandFeld entspricht der Laenge einer Backsteinwand.

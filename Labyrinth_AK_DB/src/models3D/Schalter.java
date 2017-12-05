@@ -1,6 +1,7 @@
 package models3D;
 
 import basics.Point;
+import main.Funktionen;
 import main.Labyrinth;
 import main.Objekt;
 import main.Player;
@@ -16,7 +17,7 @@ import static org.lwjgl.glfw.GLFW.*;
 import javax.sound.sampled.*;
 import java.io.*;
 
-public class Schalter extends Objekt
+public class Schalter extends Funktionen
 {
   
   boolean         schalt;
@@ -27,9 +28,9 @@ public class Schalter extends Objekt
   
   private float   winkel = 0f;
   
-  public Schalter(float x, float y, float z, float alpha, float beta, float gamma)
+  public Schalter(String befehl,float x, float y, float z, float alpha, float beta, float gamma)
   {
-    
+    this.befehl = befehl;
     this.x = x;
     this.y = y;
     this.z = z;
@@ -50,7 +51,7 @@ public class Schalter extends Objekt
     
     block.translate(new Point(x, y, z));
     hebel.translate(new Point(x, y, z));
-    
+    block.addParam(new Kugel(4f));
   }
   
   public void schalten()
@@ -61,11 +62,12 @@ public class Schalter extends Objekt
       if (status == false)
       {
         status = true;
-        Spawner.abschnittB.hidden = true;
+        Funktionen.plusschalten(this.befehl);
         return;
       }
       status = false;
-      Spawner.abschnittB.hidden = false;
+      Funktionen.minusschalten(this.befehl);
+     
     }
   }
   

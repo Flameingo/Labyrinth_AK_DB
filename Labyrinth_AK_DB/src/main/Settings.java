@@ -15,7 +15,7 @@ public final class Settings
   
   /** controls the resolution of all drawn Objects */
   
-  public final static float   RenderSolution          = 5;                      // urspr�nglich
+  public final static float   RenderSolution          = 0;                      // urspr�nglich
                                                                                 // 5
   
   // public final static float RenderSolution = 5;

@@ -6,8 +6,7 @@ import basics.Level;
 import models3D.*;
 import params.*;
 import path.*;
-import section.AbschnittB;
-import section.TurmExtra;
+import section.*;
 
 public class Spawner extends Objekt
 {
@@ -16,8 +15,8 @@ public class Spawner extends Objekt
 
 
   public static DisplayList abschnittB;
-  
-
+  public static DisplayList abschnittBC;
+  public static DisplayList abschnittC;
   /**
    * created once at the start of the game and places all objects that should be
    * in the game at the start.
@@ -26,31 +25,36 @@ public class Spawner extends Objekt
   {
     // Hier werden die Objekte ins Spiel gesetzt:
 
-    makeStatic = true;
-    Labyrinth.addObject(new Boden());
+//    makeStatic = true;
+//    DisplayList boden = new DisplayList(); //Vollstaendiger Boden mit 40 x 40 und Ursprung als Mittelpunkt.
+//    boden.addObjekt(new Boden());
+//    Labyrinth.addObject(boden);
+    
+    DisplayList bodenBC = new DisplayList(); //Boden fuer Abschnitt B, Abschnitt C und Abschnitt BC.
+    bodenBC.addObjekt(new BodenBC());
+    Labyrinth.addObject(bodenBC);    
+    
+    DisplayList abschnittB = new DisplayList(); //Aufruf von AbschnittB, AbschnittB benoetigt "BodenBC"
+    abschnittB.addObjekt(new AbschnittB());
+    Labyrinth.addObject(abschnittB);
+    abschnittB.hidden = true;
 
-   
- 
-   
-    Labyrinth.addObject (new SchalterFeld(new Level(1,1)));
+    DisplayList abschnittBC = new DisplayList(); //Aufruf von Abschnitt BC, AbschnittBC benoetigt "Boden" oder "BodenBC"
+    abschnittBC.addObjekt(new AbschnittBC());
+    Labyrinth.addObject(abschnittBC);
+    abschnittBC.hidden = true;
 
-    DisplayList displayList = new DisplayList();
-    displayList.addObjekt(new Boden());
-    displayList.addObjekt(new AbschnittB());
-    Labyrinth.addObject(displayList);
-
-
-
-
-    Labyrinth.addObject(new SchalterFeld(new Level(1, 1)));
+    DisplayList abschnittC = new DisplayList(); //Aufruf von AbschnittC, AbschnittB benoetigt "BodenBC"
+    abschnittC.addObjekt(new AbschnittC());
+    Labyrinth.addObject(abschnittC);
+    abschnittC.hidden = true;
+    //Schalter
+    
+    Labyrinth.addObject (new SchalterFeld("B_BC", new Level(0,13))); //Existiert in Abschnitt B und Abschnitt BC.
+    Labyrinth.addObject (new SchalterFeld("BC_C", new Level(0,-8))); //Existiert in Abschnitt BC und Abschnitt C.
     
 
-;
 
-
-//    abschnittB = new DisplayList();
-//    abschnittB.addObjekt(new AbschnittB());
-//    Labyrinth.addObject(abschnittB);
 
   }
   

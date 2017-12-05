@@ -9,24 +9,22 @@ public class SchalterFeld extends Objekt
   
   float                    x;
   float                    y;
-  public static Schalter[] schaldr = new Schalter[1];
+  protected Schalter[] schaldr = new Schalter[1];
   
-  public SchalterFeld(float x, float y, float x2, float y2)
+  public SchalterFeld(String befehl, float x, float y, float x2, float y2)
   {
-    this.x = x2 - x;
-    this.y = y2 - y;
-    schaldr[0] = new Schalter((x2 - x) / 2, (y2 - y) / 2, 0, 0, 0, 0);
+	
+    this.x = x2 + x;
+    this.y = -y2 - y;
+    schaldr[0] = new Schalter(befehl,(x2 + x) / 2, (-y2 - y) / 2, 0, 0, 0, 0);
   }
   
-  public SchalterFeld(Level lev)
+  public SchalterFeld(String befehl, Level lev)
   {
-    this(lev.x1, Math.abs(lev.y1), lev.x2, lev.y2);
+    this(befehl,lev.x1,lev.y1, lev.x2, lev.y2);
   }
   
-  public void sfschalten()
-  {
-    SchalterFeld.schaldr[0].schalten();
-  }
+
   
   public void step()
   {

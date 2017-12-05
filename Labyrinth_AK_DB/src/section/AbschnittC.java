@@ -31,7 +31,7 @@ public class AbschnittC extends Objekt
     waende[13] = new LabEck_ru(new Level(11,-2));
     waende[14] = new LabWeg_r_l(new Level(9,-1));
     waende[15] = new LabWeg_U(new Level(8,-1));
-    waende[16] = new LabEck_ru(new Level(7,-1),true);
+    waende[16] = new LabEck_ru(new Level(7,-1),false);
     waende[17] = new LabEck_ro(new Level(7,0),true);
     waende[18] = new LabWeg_U(new Level(8,0));
     waende[19] = new LabWeg_U(new Level(9,0));
@@ -115,6 +115,7 @@ public class AbschnittC extends Objekt
     waende[100] = new LabWeg_r_l(new Level(-2,-8));
     waende[101] = new LabWeg_r_l(new Level(-1,-8));
     waende[102] = new Sackgasse(new Level(0,-8),"l");
+    
     //Untergrund Uebergang
     
     waende[93] = new LabEck_ru(new Level(10,-4),true);
@@ -140,44 +141,42 @@ public class AbschnittC extends Objekt
   @Override
   public void step()
   {
-    // TODO Auto-generated method stub
-    
+	  for (Objekt wand : waende)
+	      wand.step();
+	    for (Objekt stein : steine)
+	      stein.step();
   }
 
 
   @Override
   public void collision()
   {
-    // TODO Auto-generated method stub
-    
+	  for (Objekt wand : waende)
+	      wand.collision();
+	    for (Objekt stein : steine)
+	      stein.collision();    
   }
 
 
   @Override
   public void draw()
   {
-   
-      
     for (Objekt wand : waende)
-    {
        wand.draw();
-    }
     
     for (Objekt stein : steine)
-    {
        stein.draw();
-    }
-      
-    
-    
+        
   }
 
 
   @Override
   public void drawGUI()
   {
-    // TODO Auto-generated method stub
-    
+	  for (Objekt wand : waende)
+	      wand.drawGUI();
+	    for (Objekt stein : steine)
+	      stein.drawGUI();
   }
 }
   
