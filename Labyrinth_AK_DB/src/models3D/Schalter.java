@@ -51,7 +51,7 @@ public class Schalter extends Funktionen
     
     block.translate(new Point(x, y, z));
     hebel.translate(new Point(x, y, z));
-    block.addParam(new Kugel(4f));
+
   }
   
   public void schalten()
