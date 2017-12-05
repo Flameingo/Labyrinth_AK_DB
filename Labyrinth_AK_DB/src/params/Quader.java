@@ -5,14 +5,16 @@ import basics.Point;
 public class Quader extends Param
 {
   
-  Param[] seiten = { null, null, null, null, null, null };
+  Param[] seiten    = { null, null, null, null, null, null };
+  Point[] oberseite = {};
   
   /**
    * Konstruktor eines Quaders ohne Materialspezifikation
    * 
    * @param kind
-   *          String "Mitte" erstellt das Objekt so, dass der Ursprung Mittelpunkt des Objektes ist. String "Ecke"
-   *          erstellt das Objekt so, dass der Ursprung in der ersten Ecke liegt.
+   *          String "Mitte" erstellt das Objekt so, dass der Ursprung
+   *          Mittelpunkt des Objektes ist. String "Ecke" erstellt das Objekt
+   *          so, dass der Ursprung in der ersten Ecke liegt.
    * 
    * @param length
    *          Laenge des Quaders
@@ -53,14 +55,16 @@ public class Quader extends Param
     seiten[4] = new Viereck(p3, p7, p4, p8);
     seiten[5] = new Viereck(p5, p6, p7, p8);
     
+    oberseite = new Point[] { p5, p6, p7, p8 };
   }
   
   /**
    * Konstruktor eines Quaders mit Materialspezifikation
    * 
    * @param kind
-   *          String "Mitte" erstellt das Objekt so, dass der Ursprung Mittelpunkt des Objektes ist. String "Ecke"
-   *          erstellt das Objekt so, dass der Ursprung in der ersten Ecke liegt.
+   *          String "Mitte" erstellt das Objekt so, dass der Ursprung
+   *          Mittelpunkt des Objektes ist. String "Ecke" erstellt das Objekt
+   *          so, dass der Ursprung in der ersten Ecke liegt.
    * 
    * @param length
    *          Laenge des Quaders
@@ -85,6 +89,11 @@ public class Quader extends Param
     {
       seiten[i].draw();
     }
+  }
+  
+  public Point[] oberseite()
+  {
+    return oberseite;
   }
   
   // @formatter:off
