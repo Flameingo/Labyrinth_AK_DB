@@ -12,12 +12,19 @@ public class Funktionen extends Objekt{
 	{
 		switch(call)
 		{
-			case "B_BC": Spawner.abschnittB.hidden = false;
+		    case "B_BB": Spawner.abschnittB.hidden = true;
+		    			 Spawner.abschnittBB.hidden = false;
+		    	break;
+		
+		
+			case "BB_BC": Spawner.abschnittBB.hidden = false;
 						 Spawner.abschnittBC.hidden = true;
 			    break;
 			
 			case "BC_C": Spawner.abschnittBC.hidden = false;
 						 Spawner.abschnittC.hidden = true;
+				break;
+				
 			default:
 				break;
 		}
@@ -28,12 +35,18 @@ public class Funktionen extends Objekt{
 	{
 		switch(call)
 		{
-			case "B_BC":  Spawner.abschnittB.hidden = true;
+			case "B_BB": Spawner.abschnittB.hidden = true;
+						 Spawner.abschnittBB.hidden = false;
+				break;
+		
+			case "BB_BC":  Spawner.abschnittBB.hidden = true;
 						  Spawner.abschnittBC.hidden = false;
 			    break;
+			    
 			case "BC_C": Spawner.abschnittBC.hidden = true;
 						 Spawner.abschnittC.hidden = false;
-		
+			    break;
+			    
 			default:
 				break;
 		}
