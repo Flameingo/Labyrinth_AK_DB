@@ -8,7 +8,7 @@ import path.*;
 
 public class AbschnittB extends Objekt
 {
-  protected Objekt[] waende = new Objekt[76];
+  protected Objekt[] waende = new Objekt[50];
   protected Objekt[] steine = new Objekt[22];
   
   public AbschnittB()
@@ -49,51 +49,24 @@ public class AbschnittB extends Objekt
     waende[32] = new LabWeg_L(new Level(1, 6));
     waende[33] = new LabWeg_U(new Level(2, 6));
     waende[34] = new LabWeg_U(new Level(3, 6));
-    waende[35] = new LabWeg_o_u(new Level(1, 7));
-    waende[36] = new LabWeg_o_u(new Level(4, 7));
-    waende[37] = new LabEck_ro(new Level(1, 8), true);
-    waende[38] = new Sackgasse(new Level(2, 8), "l");
-    waende[39] = new LabWeg_U(new Level(3, 8));
-    waende[40] = new LabWeg_R(new Level(4, 8));
-    waende[41] = new LabTuer_R(new Level(3, 6));
-    waende[42] = new LabEck_lu(new Level(9, 1), true);
-    waende[43] = new LabEck_lo(new Level(10, 5), true);
-    waende[44] = new RundeTreppe(13.5f, -6, -2.1f, 180, 0, 0, 360, 10);
-    waende[45] = new LabWeg_L(new Level(9, 4));
+    waende[35] = new LabTuer_L(new Level (3,6));
+    waende[36] = new LabTuer_R(new Level(3, 6));
+    waende[37] = new LabEck_lu(new Level(9, 1), true);
+    waende[38] = new LabEck_lo(new Level(10, 5), true);
+    waende[39] = new RundeTreppe(13.5f, -6, -2.1f, 180, 0, 0, 360, 10);
+    waende[40] = new LabWeg_L(new Level(9, 4));
     
-    waende[52] = new LabWeg_o_u(new Level(4,9));
-    waende[53] = new LabWeg_U(new Level(4,10));
-    waende[54] = new LabWeg_r_l(new Level(3,10));
-    waende[55] = new LabWeg_U(new Level(2,10));
-    waende[56] = new LabEck_lu(new Level(1,9));
-    waende[57] = new LabEck_ru(new Level(0,9));
-    waende[58] = new LabWeg_o_u(new Level(0,10));
-    waende[59] = new Sackgasse(new Level(0,11),"o");
-    waende[60] = new LabWeg_L(new Level(1,11));
-    waende[61] = new LabEck_ru(new Level(2,9));
-    waende[62] = new LabWeg_O(new Level(3,9));
-    waende[63] = new LabWeg_U(new Level(1,12));
-    waende[64] = new LabWeg_U(new Level(0,12));
-    waende[65] = new LabEck_ro(new Level(-1,12),true);
-    waende[66] = new LabWeg_L(new Level(-1,11));
-    waende[67] = new LabWeg_L(new Level(-1,10));
-    waende[68] = new LabWeg_O(new Level(-1,9));
-    waende[69] = new LabEck_ru(new Level(-2,9));
-    waende[70] = new LabWeg_L(new Level(-2,10));
-    waende[71] = new LabWeg_L(new Level(-2,11));
-    waende[72] = new LabWeg_L(new Level(-2,12));
-    waende[73] = new LabEck_ro(new Level(-2,13));
-    waende[74] = new LabWeg_r_l(new Level(-1,13));
-    waende[75] = new Sackgasse(new Level(0,13),"l");
-    
+    waende[47] = new LabWeg_o_u(new Level(1, 7));
+    waende[48] = new LabEck_ro(new Level(1, 8), true);
+    waende[49] = new Sackgasse(new Level(2, 8), "l");
     // Underground
     
-    waende[46] = new LabEck_lo(new Level(10, 5), Etage.KELLER, true, 2.1f);
-    waende[47] = new LabEck_ro(new Level(9, 5), Etage.KELLER, true, 2.1f);
-    waende[48] = new LabEck_lu(new Level(10, 4), Etage.KELLER, true, 2f);
-    waende[49] = new LabWeg_L(Etage.KELLER, new Level(9, 4));
-    waende[50] = new LabWeg_o_u(Etage.KELLER, new Level(9, 3));
-    waende[51] = new LabTuer_O(Etage.KELLER, new Level(9, 4));
+    waende[41] = new LabEck_lo(new Level(10, 5), Etage.KELLER, true, 2.1f);
+    waende[42] = new LabEck_ro(new Level(9, 5), Etage.KELLER, true, 2.1f);
+    waende[43] = new LabEck_lu(new Level(10, 4), Etage.KELLER, true, 2f);
+    waende[44] = new LabWeg_L(Etage.KELLER, new Level(9, 4));
+    waende[45] = new LabWeg_o_u(Etage.KELLER, new Level(9, 3));
+    waende[46] = new LabTuer_O(Etage.KELLER, new Level(9, 4));
     
     // Ecksteine werden in der linken oberen Ecke des Feldes platziert
     

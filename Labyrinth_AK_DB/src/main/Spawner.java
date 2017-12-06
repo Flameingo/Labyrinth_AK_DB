@@ -25,20 +25,27 @@ public class Spawner extends Objekt
   {
     // Hier werden die Objekte ins Spiel gesetzt:
 
-//    makeStatic = true;
-//    DisplayList boden = new DisplayList(); //Vollstaendiger Boden mit 40 x 40 und Ursprung als Mittelpunkt.
-//    boden.addObjekt(new Boden());
-//    Labyrinth.addObject(boden);
+    makeStatic = true;
+    DisplayList boden = new DisplayList(); //Vollstaendiger Boden mit 40 x 40 und Ursprung als Mittelpunkt.
+    boden.addObjekt(new Boden());
+    Labyrinth.addObject(boden);
+    boden.hidden = true;
     
     DisplayList bodenBC = new DisplayList(); //Boden fuer Abschnitt B, Abschnitt C und Abschnitt BC.
     bodenBC.addObjekt(new BodenBC());
-    Labyrinth.addObject(bodenBC);    
+    Labyrinth.addObject(bodenBC);   
+//    bodenBC.hidden = true;
     
     DisplayList abschnittB = new DisplayList(); //Aufruf von AbschnittB, AbschnittB benoetigt "BodenBC"
     abschnittB.addObjekt(new AbschnittB());
     Labyrinth.addObject(abschnittB);
     abschnittB.hidden = true;
 
+    DisplayList abschnittBB = new DisplayList(); //Aufruf von AbschnittB, AbschnittB benoetigt "BodenBC"
+    abschnittBB.addObjekt(new AbschnittBB());
+    Labyrinth.addObject(abschnittBB);
+//    abschnittBB.hidden = true;
+    
     DisplayList abschnittBC = new DisplayList(); //Aufruf von Abschnitt BC, AbschnittBC benoetigt "Boden" oder "BodenBC"
     abschnittBC.addObjekt(new AbschnittBC());
     Labyrinth.addObject(abschnittBC);
