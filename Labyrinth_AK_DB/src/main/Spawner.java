@@ -18,6 +18,7 @@ public class Spawner extends Objekt
   public static DisplayList abschnittBB;
   public static DisplayList abschnittBC;
   public static DisplayList abschnittC;
+  public static DisplayList boden;
   /**
    * created once at the start of the game and places all objects that should be
    * in the game at the start.
@@ -27,7 +28,7 @@ public class Spawner extends Objekt
     // Hier werden die Objekte ins Spiel gesetzt:
 
     makeStatic = true;
-    DisplayList boden = new DisplayList(); //Vollstaendiger Boden mit 40 x 40 und Ursprung als Mittelpunkt.
+    boden = new DisplayList(); //Vollstaendiger Boden mit 40 x 40 und Ursprung als Mittelpunkt.
     boden.addObjekt(new Boden());
     Labyrinth.addObject(boden);
     boden.hidden = true;
@@ -37,22 +38,22 @@ public class Spawner extends Objekt
     Labyrinth.addObject(bodenBC);   
 //    bodenBC.hidden = true;
     
-    DisplayList abschnittB = new DisplayList(); //Aufruf von AbschnittB, AbschnittB benoetigt "BodenBC"
+    abschnittB = new DisplayList(); //Aufruf von AbschnittB, AbschnittB benoetigt "BodenBC"
     abschnittB.addObjekt(new AbschnittB());
     Labyrinth.addObject(abschnittB);
-    abschnittB.hidden = true;
+//    abschnittB.hidden = true;
 
-    DisplayList abschnittBB = new DisplayList(); //Aufruf von AbschnittBB
+    abschnittBB = new DisplayList(); //Aufruf von AbschnittBB
     abschnittBB.addObjekt(new AbschnittBB());
     Labyrinth.addObject(abschnittBB);
-//    abschnittBB.hidden = true;
+    abschnittBB.hidden = true;
     
-    DisplayList abschnittBC = new DisplayList(); //Aufruf von Abschnitt BC
+    abschnittBC = new DisplayList(); //Aufruf von Abschnitt BC
     abschnittBC.addObjekt(new AbschnittBC());
     Labyrinth.addObject(abschnittBC);
     abschnittBC.hidden = true;
 
-    DisplayList abschnittC = new DisplayList(); //Aufruf von AbschnittC, AbschnittB benoetigt "BodenBC"
+    abschnittC = new DisplayList(); //Aufruf von AbschnittC, AbschnittB benoetigt "BodenBC"
     abschnittC.addObjekt(new AbschnittC());
     Labyrinth.addObject(abschnittC);
     abschnittC.hidden = true;
