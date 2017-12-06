@@ -36,7 +36,7 @@ public class Spawner extends Objekt
     DisplayList bodenBC = new DisplayList(); //Boden fuer Abschnitt B, Abschnitt C und Abschnitt BC.
     bodenBC.addObjekt(new BodenBC());
     Labyrinth.addObject(bodenBC);   
-//    bodenBC.hidden = true;
+////    bodenBC.hidden = true;
     
     abschnittB = new DisplayList(); //Aufruf von AbschnittB, AbschnittB benoetigt "BodenBC"
     abschnittB.addObjekt(new AbschnittB());
@@ -59,12 +59,19 @@ public class Spawner extends Objekt
     abschnittC.hidden = true;
     
     //Schalter
+    Labyrinth.addObject(new SchalterFeld("BB", new Level(8,3)));
     Labyrinth.addObject (new SchalterFeld("B_BB", new Level(3,6))); //Existiert in ABschnitt B und Abschnitt BB
     Labyrinth.addObject (new SchalterFeld("BB_BC", new Level(0,13))); //Existiert in Abschnitt BB und Abschnitt BC.
     Labyrinth.addObject (new SchalterFeld("BC_C", new Level(0,-8))); //Existiert in Abschnitt BC und Abschnitt C.
     
+    //Tueren
+    
+    Labyrinth.addObject (new Tuer_L("01", new Level(3,6)));
+    Labyrinth.addObject (new Tuer_R("02", new Level(3,6)));
+    Labyrinth.addObject(new Tuer_R("03", new Level(6,6)));
+    
 
-
+    Labyrinth.addObject(new AbschnittA());
 
   }
   

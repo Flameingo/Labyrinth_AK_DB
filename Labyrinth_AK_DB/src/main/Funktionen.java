@@ -8,13 +8,32 @@ public class Funktionen extends Objekt{
 	 * BC_C:: minus - Abschnitt BC verschwindet, Abschnitt C erscheint.
 	 */
 	protected String befehl;
+	protected static boolean stand01 = false;
+	protected static boolean stand02 = false;
+	protected static boolean stand03 = false;
 
+	public static boolean ueberpruefung(String name)
+	{
+		switch(name)
+		{
+		case "01": return stand01;
+		case "02": return stand02;
+		case "03": return stand03;
+		default:
+			return false;
+		}
+	}
 	public static void plusschalten(String call)
 	{
 		switch(call)
 		{
+		    case "BB": stand01 = true;
+		        break;
+		    	
 		    case "B_BB": Spawner.abschnittB.hidden = true;
 		    			 Spawner.abschnittBB.hidden = false;
+		    			 stand01 = false;
+		    			 stand02 = true;
 		    	break;
 		
 		
@@ -38,6 +57,8 @@ public class Funktionen extends Objekt{
 		{
 			case "B_BB": Spawner.abschnittB.hidden = false;
 						 Spawner.abschnittBB.hidden = true;
+						 stand01 = true;
+						 stand02 = false;
 				break;
 		
 			case "BB_BC": Spawner.abschnittBB.hidden = false;

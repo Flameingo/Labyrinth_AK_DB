@@ -68,6 +68,7 @@ public class AbschnittB extends Objekt
     waende[44] = new LabWeg_L(Etage.KELLER, new Level(9, 4));
     waende[45] = new LabWeg_o_u(Etage.KELLER, new Level(9, 3));
     waende[46] = new LabTuer_O(Etage.KELLER, new Level(9, 4));
+   
     
     // Ecksteine werden in der linken oberen Ecke des Feldes platziert
     
