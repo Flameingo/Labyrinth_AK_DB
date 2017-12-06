@@ -108,9 +108,10 @@ public class Point
   }
   
   /** Normiert sich selbst, indem durch die Länge geteilt wird */
-  public void normalize()
+  public Point normalize()
   {
     mult(1 / length());
+    return this;
   }
   
   /** addiert die Punkte "a" und "b" */
@@ -126,11 +127,12 @@ public class Point
   }
   
   /** addiert den Punkt "a" zu sich selbst */
-  public void add(Point a)
+  public Point add(Point a)
   {
     this.x += a.x;
     this.y += a.y;
     this.z += a.z;
+    return this;
   }
   
   /** multipliziert Punkt "a" mit dem wert "mult" */
@@ -140,11 +142,12 @@ public class Point
   }
   
   /** multipliziert sich selbst mit dem wert "mult" */
-  public void mult(float mult)
+  public Point mult(float mult)
   {
     x *= mult;
     y *= mult;
     z *= mult;
+    return this;
   }
   
   /** negiert den Punkt "a" koordinatenweise */
@@ -154,11 +157,47 @@ public class Point
   }
   
   /** addiert das gegebene Koordinatentripel zu sich selbst */
-  public void add(float x, float y, float z)
+  public Point add(float x, float y, float z)
   {
     this.x += x;
     this.y += y;
     this.z += z;
+    return this;
+  }
+  
+  /**
+   * rotates the Point araound the Z-Axis at the given Origin
+   * 
+   * @param angle
+   *          Winkel in Grad
+   * @param origin
+   *          Rotationszentrum
+   * @return selbst
+   */
+  public Point rotateZ(float angle, Point origin)
+  {
+    add(Point.mult(origin, -1));
+    rotateZ(angle);
+    add(origin);
+    return this;
+  }
+  
+  /**
+   * rotates the Point around the z-Axis
+   * 
+   * @param angle
+   *          Winkel in Grad
+   * @return selbst
+   */
+  public Point rotateZ(float angle)
+  {
+    float len = length("xy");
+    int xsign = (int) Math.signum(x);
+    float arc = (float) Math.atan(y / Math.abs(x));
+    arc += angle * (float) Math.PI / 180;
+    x = (float) Math.cos(arc) * len * xsign;
+    y = (float) Math.sin(arc) * len;
+    return this;
   }
   
   /** Berechnet den Normalenvektor einer Ebene durch 3 Punkte */
@@ -179,7 +218,7 @@ public class Point
     return erg;
   }
   
-  private static Point kreuz(Point p1, Point p2)
+  public static Point kreuz(Point p1, Point p2)
   {
     Point erg = new Point(0, 0, 0);
     erg.x = p1.y * p2.z - p1.z * p2.y;

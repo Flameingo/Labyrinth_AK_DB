@@ -4,17 +4,17 @@ import basics.Point;
 import main.Labyrinth;
 import params.*;
 
+import static org.lwjgl.opengl.GL11.*;
+
 public class RundeTreppe extends Treppe
 {
   /**
-   * speichert die oberen Punkte der Treppenstufen, um Kollisionsabfragen zu
-   * ermoeglichen.
+   * speichert die oberen Punkte der Treppenstufen, um Kollisionsabfragen zu ermoeglichen.
    */
   Point[][] hitbox = {};
   
   /**
-   * String "S" als ersten Parameter, um eine Saeule (Objekt: Zylinder) in Mitte
-   * der Treppe einzubauen
+   * String "S" als ersten Parameter, um eine Saeule (Objekt: Zylinder) in Mitte der Treppe einzubauen
    * 
    * @param x
    * @param y
@@ -27,9 +27,8 @@ public class RundeTreppe extends Treppe
    *          Drehung um die z-Achse
    * 
    * @param bogen
-   *          Drehung in Gradma� je 20 Treppenstufen (treppenlaenge)
-   *          beispielsweise entspricht bogen 360 und treppenlaenge 40 hier 2
-   *          vollst�ndigen Umdrehungen um die Treppenmitte
+   *          Drehung in Gradma� je 20 Treppenstufen (treppenlaenge) beispielsweise entspricht bogen 360 und
+   *          treppenlaenge 40 hier 2 vollst�ndigen Umdrehungen um die Treppenmitte
    * 
    * @param treppenlaenge
    *          Eine Stufe ist um 0.2f hoeher als die Vorherige
@@ -75,9 +74,12 @@ public class RundeTreppe extends Treppe
       }
       
       float h = stufe * 0.2f + 0.04f * 5.5f;
-      hitbox[stufe][0] = new Point(xcalc(stufe, -.5f, -.5f, bogen) + x, ycalc(stufe, -.5f, -.5f, bogen) + y, h + z);
-      hitbox[stufe][1] = new Point(xcalc(stufe, -.5f, 10.5f, bogen) + x, ycalc(stufe, -.5f, 10.5f, bogen) + y, h + z);
-      hitbox[stufe][2] = new Point(xcalc(stufe, 4.5f, -.5f, bogen) + x, ycalc(stufe, 4.5f, -.5f, bogen) + y, h + z);
+      hitbox[stufe][0] = new Point(xcalc(stufe, -.5f, -.5f, bogen) + x, ycalc(stufe, -.5f, -.5f, bogen) + y, h + z)
+          .rotateZ(alpha, new Point(x, y));
+      hitbox[stufe][1] = new Point(xcalc(stufe, -.5f, 10.5f, bogen) + x, ycalc(stufe, -.5f, 10.5f, bogen) + y, h + z)
+          .rotateZ(alpha, new Point(x, y));
+      hitbox[stufe][2] = new Point(xcalc(stufe, 4.5f, -.5f, bogen) + x, ycalc(stufe, 4.5f, -.5f, bogen) + y, h + z)
+          .rotateZ(alpha, new Point(x, y));
     }
   }
   
@@ -108,9 +110,8 @@ public class RundeTreppe extends Treppe
    *          Drehung um die z-Achse
    * 
    * @param bogen
-   *          Drehung in Gradma� je 20 Treppenstufen (treppenlaenge)
-   *          beispielsweise entspricht bogen 360 und treppenlaenge 40 hier 2
-   *          vollst�ndigen Umdrehungen um die Treppenmitte
+   *          Drehung in Gradma� je 20 Treppenstufen (treppenlaenge) beispielsweise entspricht bogen 360 und
+   *          treppenlaenge 40 hier 2 vollst�ndigen Umdrehungen um die Treppenmitte
    * 
    * @param treppenlaenge
    *          Eine Stufe ist um 0.2f hoeher als die Vorherige
@@ -137,6 +138,9 @@ public class RundeTreppe extends Treppe
   {
     for (Point[] stufe : hitbox)
     {
+      glPointSize(5);
+      glBegin(GL_POINTS);
+      
       int res = 10;
       for (int i = 0; i < res; i++)
         for (int j = 0; j < res; j++)
@@ -144,8 +148,10 @@ public class RundeTreppe extends Treppe
           Point p = lip(stufe, (float) i / res, (float) j / res);
           while (Labyrinth.player.hitbox(p))
             Labyrinth.player.pos.z += .1f;
-          
+          glColor3f(1, 0, 0);
+          glVertex3f(p.x, p.y, p.z);
         }
+      glEnd();
     }
   }
   
