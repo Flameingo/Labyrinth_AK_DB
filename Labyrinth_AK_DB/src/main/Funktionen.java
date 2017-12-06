@@ -3,7 +3,8 @@ package main;
 public class Funktionen extends Objekt{
 	/**
 	 * In diesen String koennen bestimmte Begriffe eingetragen werden, die bei Ausfuehren einer Interaktion eine bestimmte Handlung durchfuehren.
-	 * B_BC: plus - Abschnitt B verschwindet, Abschnitt BC erscheint, - minus umgekehrt.
+	 * B_BB: plus - Abschnitt B verschwindet, Abschnitt BB erscheint - minus umgekehrt
+	 * BB_BC: plus - Abschnitt BB verschwindet, Abschnitt BC erscheint, - minus umgekehrt. 
 	 * BC_C:: minus - Abschnitt BC verschwindet, Abschnitt C erscheint.
 	 */
 	protected String befehl;
@@ -21,8 +22,8 @@ public class Funktionen extends Objekt{
 						  Spawner.abschnittBC.hidden = false;
 			    break;
 			
-			case "BC_C": Spawner.abschnittBC.hidden = false;
-						 Spawner.abschnittC.hidden = true;
+			case "BC_C": Spawner.abschnittBC.hidden = true;
+						 Spawner.abschnittC.hidden = false;
 				break;
 				
 			default:
@@ -43,8 +44,8 @@ public class Funktionen extends Objekt{
 						  Spawner.abschnittBC.hidden = true;
 			    break;
 			    
-			case "BC_C": Spawner.abschnittBC.hidden = true;
-						 Spawner.abschnittC.hidden = false;
+			case "BC_C": Spawner.abschnittBC.hidden = false;
+						 Spawner.abschnittC.hidden = true;
 			    break;
 			    
 			default:

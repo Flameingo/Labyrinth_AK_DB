@@ -10,12 +10,12 @@ import path.*;
 public class AbschnittC extends Objekt
 {
   protected Objekt [] waende = new Objekt[103];
-  protected Objekt [] steine = new Objekt[7];
+  protected Objekt [] steine = new Objekt[8];
  
   
   public AbschnittC()
   {
-    waende[0] = new LabWeg_o_u(Etage.KELLER, new Level (10,3));
+    waende[0] = new LabWeg_o_u(Etage.KELLER, new Level(10,3));
     waende[1] = new LabWeg_o_u(Etage.KELLER, new Level(10,2));
     waende[2] = new LabWeg_o_u(Etage.KELLER, new Level(10,1));
     waende[3] = new LabWeg_o_u(Etage.KELLER, new Level(10,0));
@@ -31,7 +31,7 @@ public class AbschnittC extends Objekt
     waende[13] = new LabEck_ru(new Level(11,-2));
     waende[14] = new LabWeg_r_l(new Level(9,-1));
     waende[15] = new LabWeg_U(new Level(8,-1));
-    waende[16] = new LabEck_ru(new Level(7,-1),false);
+    waende[16] = new LabEck_ru(new Level(7,-1));
     waende[17] = new LabEck_ro(new Level(7,0),true);
     waende[18] = new LabWeg_U(new Level(8,0));
     waende[19] = new LabWeg_U(new Level(9,0));
@@ -135,6 +135,7 @@ public class AbschnittC extends Objekt
     steine[4] = new Eckstein(new Level(1,-1));
     steine[5] = new Eckstein(new Level(5,-6));
     steine[6] = new Eckstein(new Level(-2,-6));
+    steine[7] = new Eckstein(new Level(-2,-7));
   }
 
 

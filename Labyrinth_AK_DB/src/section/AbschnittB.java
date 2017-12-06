@@ -59,6 +59,7 @@ public class AbschnittB extends Objekt
     waende[47] = new LabWeg_o_u(new Level(1, 7));
     waende[48] = new LabEck_ro(new Level(1, 8), true);
     waende[49] = new Sackgasse(new Level(2, 8), "l");
+    
     // Underground
     
     waende[41] = new LabEck_lo(new Level(10, 5), Etage.KELLER, true, 2.1f);
