@@ -45,6 +45,8 @@ public class Steinflaeche extends Objekt
   public Steinflaeche(Level lev)
   {
     this(lev.x1,lev.y1,0,0,0,0);
+    this.a = lev.x2;
+	this.b = lev.y1;
   }
   public Steinflaeche(Level lev, Etage e)
   {
@@ -70,7 +72,8 @@ public class Steinflaeche extends Objekt
     myShape.translate(new Point(x, y, z)); // Verantwortlich fuer die Verschiebung des restlichen Objektes.
     myShape.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung des restlichen   
    
-    
+    this.a = lev.x2;
+	this.b = lev.y1;
   }
   @Override
   public void step()

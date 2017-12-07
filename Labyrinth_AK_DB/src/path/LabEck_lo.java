@@ -48,14 +48,20 @@ public class LabEck_lo extends Objekt
   public LabEck_lo(Level lev, float hoehe, boolean bogen)
   {
 	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe, bogen);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   public LabEck_lo(Level lev, boolean bogen)
   {
 	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2, bogen);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   public LabEck_lo(Level lev)
   {
 	  this(lev.x1,lev.y1,lev.x2,lev.y2,2);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   
   public LabEck_lo(float x, float y, float x2, float y2, float hoehe)
@@ -79,6 +85,8 @@ public class LabEck_lo extends Objekt
   public LabEck_lo(Level lev, Etage e,boolean bogen,float hoehe)
   {
 	  this(e,lev.x1,lev.y1,lev.x2,lev.y2,bogen,hoehe);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   
   public LabEck_lo(Etage e, float x, float y, float x2, float y2, boolean bogen,float hoehe)

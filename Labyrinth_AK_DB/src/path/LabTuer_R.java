@@ -35,10 +35,14 @@ public class LabTuer_R extends Objekt
   public LabTuer_R(Level lev, float hoehe)
   {
 	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   public LabTuer_R(Level lev)
   {
 	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   
   

@@ -22,6 +22,8 @@ public class SchalterFeld extends Objekt
   public SchalterFeld(String befehl, Level lev)
   {
     this(befehl,lev.x1,lev.y1, lev.x2, lev.y2);
+    this.a = lev.x2;
+	this.b = lev.y1;
   }
   
 

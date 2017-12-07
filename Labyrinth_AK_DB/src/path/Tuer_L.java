@@ -16,6 +16,8 @@ public class Tuer_L extends Objekt
   public Tuer_L(String name, Level lev)
   {
 	  this(name, lev.x1+0.05f,lev.y2-0.37f,0);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   
   

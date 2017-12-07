@@ -77,7 +77,10 @@ public class Funktionen extends Objekt{
 	
 	public static void allHide()
 	{
-		
+		Spawner.abschnittB.hidden = true;
+		Spawner.abschnittBB.hidden = true;
+	    Spawner.abschnittBC.hidden = true;
+	    Spawner.abschnittC.hidden = true;
 	}
 
 	@Override

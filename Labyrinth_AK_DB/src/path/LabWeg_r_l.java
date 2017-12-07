@@ -34,15 +34,21 @@ public class LabWeg_r_l extends Objekt
   public LabWeg_r_l(Level lev, float hoehe)
   {
 	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   public LabWeg_r_l(Level lev)
   {
 	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   
   public LabWeg_r_l(Etage e, Level lev)
   {
     this(e, lev.x1, lev.y1, lev.x2, lev.y2);
+    this.a = lev.x2;
+	this.b = lev.y1;
     
   }
   

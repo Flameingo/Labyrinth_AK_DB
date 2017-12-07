@@ -60,10 +60,14 @@ public class Sackgasse extends Objekt
   public Sackgasse(Level lev, float hoehe,String stase)
   {
 	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe,stase);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   public Sackgasse(Level lev,String stase)
   {
 	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2,stase);
+	  this.a = lev.x2;
+	  this.b = lev.y1;
   }
   
   @Override
