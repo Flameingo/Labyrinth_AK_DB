@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
+import main.Funktionen;
 import main.Settings;
 
 public class Text
@@ -65,7 +66,9 @@ public class Text
   {
     // draw_text("A/ABCDEFGHIJKLMN/nO/OPQRSTU/UVWXYZ/na/abcdefghijklmn/no/opqrstu/uvwxyz",
     // new Point(10, 200), 50);
-    draw_text("FPS angucken", new Point(10, 30), 30);
+//	  int i = 5;
+	  String Ausgabe = "Level:" + Funktionen.getLvlX()+ "I"+ Funktionen.getLvlY();
+    draw_text(Ausgabe, new Point(10, 30), 30);
   }
   
   public static void draw_text(String string, Point pos, int size)

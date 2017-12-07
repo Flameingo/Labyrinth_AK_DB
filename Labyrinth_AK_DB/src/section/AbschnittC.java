@@ -10,13 +10,13 @@ import path.*;
 public class AbschnittC extends Objekt
 {
   protected Objekt [] waende = new Objekt[103];
-  protected Objekt [] steine = new Objekt[8];
+  protected Objekt [] steine = new Objekt[24];
  
   
   public AbschnittC()
   {
-    waende[0] = new LabWeg_o_u(Etage.KELLER, new Level(10,3));
-    waende[1] = new LabWeg_o_u(Etage.KELLER, new Level(10,2));
+    waende[0] = new LabEck_ru(new Level(9,2),Etage.KELLER, true, 2);
+    waende[1] = new LabEck_lo(new Level(10,2),Etage.KELLER, true, 2 );
     waende[2] = new LabWeg_o_u(Etage.KELLER, new Level(10,1));
     waende[3] = new LabWeg_o_u(Etage.KELLER, new Level(10,0));
     waende[4] = new LabWeg_o_u(Etage.KELLER, new Level(10,-1));
@@ -127,7 +127,7 @@ public class AbschnittC extends Objekt
         
         
         
-    //Ecksteine 
+    //Ecksteine und Steinboden
     steine[0] = new Eckstein(new Level(10,-1));
     steine[1] = new Eckstein(new Level(11,-1));
     steine[2] = new Eckstein(new Level(9,-1));
@@ -136,6 +136,24 @@ public class AbschnittC extends Objekt
     steine[5] = new Eckstein(new Level(5,-6));
     steine[6] = new Eckstein(new Level(-2,-6));
     steine[7] = new Eckstein(new Level(-2,-7));
+    
+    steine[8] = new Steinflaeche(new Level(9,2),Etage.KELLER);
+    steine[9] = new Steinflaeche(new Level(10,2),Etage.KELLER);
+    steine[10] = new Steinflaeche(new Level(10,1),Etage.KELLER);
+    steine[11] = new Steinflaeche(new Level (10,0),Etage.KELLER);
+    steine[12] = new Steinflaeche(new Level (10,-1),Etage.KELLER);
+    steine[13] = new Steinflaeche(new Level (10, -2),Etage.KELLER);
+    steine[14] = new Steinflaeche(new Level (10, -3),Etage.KELLER);
+    steine[15] = new Steinflaeche(new Level (10, -4), Etage.KELLER);
+    steine[16] = new Steinflaeche(new Level (11, -4),Etage.KELLER);
+    steine[17] = new Steinflaeche(new Level (11, -3), Etage.KELLER);
+    
+    steine[18] = new Steinflaeche(new Level (9,2),Etage.KELLERD);
+    steine[19] = new Steinflaeche(new Level (10,2),Etage.KELLERD);
+    steine[20] = new Steinflaeche(new Level (10,1),Etage.KELLERD);
+    steine[21] = new Steinflaeche(new Level (10,0),Etage.KELLERD);
+    steine[22] = new Steinflaeche(new Level (10,-1),Etage.KELLERD);
+    steine[23] = new Steinflaeche(new Level (10,-2),Etage.KELLERD);
   }
 
 
