@@ -67,7 +67,7 @@ public class Text
     // draw_text("A/ABCDEFGHIJKLMN/nO/OPQRSTU/UVWXYZ/na/abcdefghijklmn/no/opqrstu/uvwxyz",
     // new Point(10, 200), 50);
 //	  int i = 5;
-	  String Ausgabe = "Level:" + Kompass.getLvlX()+ "I"+ Kompass.getLvlY();
+	  String Ausgabe = "Level: " + Kompass.getLvlX()+ "I"+ Kompass.getLvlY();
     draw_text(Ausgabe, new Point(10, 30), 30);
   }
   

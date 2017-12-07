@@ -30,8 +30,8 @@ public class Kompass
 		return (int)(h + 1);	
 	}
 	
-	h = (x + (x % 1.5f))/1.5f;
-	return (int)(h+1);
+	h = (x + (-x % 1.5f))/1.5f;
+	return (int)(h);
 			 
 	}
 	/** Hilfsfunktion fuer getLvlY
@@ -50,8 +50,8 @@ public class Kompass
 		return (int)(g + 1);
 	}
 	
-	g = (y + (y % 1.5f))/-1.5f;
-	return (int)(g+1);
+	g = (y + (-y % 1.5f))/-1.5f;
+	return (int)(g);
 	}
 	/** 
 	 * @return a - Wert des Feldes, auf dem sich der Spieler aktuell befindet.
