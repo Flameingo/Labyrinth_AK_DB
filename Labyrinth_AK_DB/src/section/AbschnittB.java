@@ -9,7 +9,7 @@ import path.*;
 
 public class AbschnittB extends Objekt
 {
-  protected Objekt[] waende = new Objekt[50];
+  public static Objekt[] waende = new Objekt[50];
   protected Objekt[] steine = new Objekt[22];
   
   public AbschnittB()

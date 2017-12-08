@@ -42,7 +42,17 @@ public class Spawner extends Objekt
     abschnittB.addObjekt(new AbschnittB());
     Labyrinth.addObject(abschnittB);
 //    abschnittB.hidden = true;
-
+    
+    
+//    for(int i = 0; i < 50;i++)  //So soll das ungefaehr aussehen
+//    {
+//    	if(AbschnittB.waende[i].getA() < Kompass.getLvlX()) //Komplexere Abfrage in finaler Ausfuehrung, mit der
+//    		AbschnittB.waende[i].hidden = true;				//alle Objekte der Felder plusfoermig um den Spieler 
+//    	else 												//dargestellt werden, andere nicht.
+//    		AbschnittB.waende[i].hidden = false;
+//    }
+    
+    
     abschnittBB = new DisplayList(); //Aufruf von AbschnittBB
     abschnittBB.addObjekt(new AbschnittBB());
     Labyrinth.addObject(abschnittBB);
