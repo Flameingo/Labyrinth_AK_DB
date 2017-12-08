@@ -6,11 +6,15 @@ import params.Material;
 public class Lab extends Objekt
 {
   protected Objekt[] waende = new Objekt[3];
+
+  
+  
   
   public void step()
   {
     for (Objekt wand : waende)
-      if (wand != null) wand.step();
+      if (wand != null)
+    	  wand.step();
   }
   
   public void collision()
@@ -23,7 +27,10 @@ public class Lab extends Objekt
   {
     Material.BACKSTEIN.use();
     for (Objekt wand : waende)
-      if (wand != null) wand.draw();
+    	
+      if (wand != null)
+//    	  if (wand.getA() == Kompass.getLvlX())
+    	  wand.draw();
   }
   
   public void drawGUI()

@@ -8,10 +8,11 @@ import basics.*;
 public abstract class Objekt
 {
   // Variablen
+	/**
+	 * Auf "true" geschaltet verhindert dieser boolean in Relation zu einer DisplayList, das Objekte dieser DisplayList gerade sichtbar sind.
+	 */
   public boolean     hidden   = false;
   
-  	public float a;
-	public float b;
 	
   // pos for position, angles for rotation
   /**
@@ -24,7 +25,10 @@ public abstract class Objekt
    * Achse
    */
   protected float    alpha    = 0, beta = 0, gamma = 0;
-  
+  /**
+   * Hilfsvariablen zur Ermittlung aller auf einem bestimmten Feld liegenden Objekten.
+   */
+  public float a , b;
   /**
    * x und y bilden die waagrechte Ebene. z bestimmt die Hoehe.
    */
@@ -33,19 +37,23 @@ public abstract class Objekt
   public Point       pos      = new Point(0, 0, 0);
   
   // Funktionen
-	
+ 
+  
+  /**
+   * @return Liefert den A-Wert der Feldkoordinate eines Lab-Objektes.
+   */
   public int getA()
   {
 	return (int)(this.a/1.5f);
   }
-	
+  /**
+   * @return Liefert den B-Wert der Feldkoordinate eines Lab-Objektes.
+   */
   public int getB()
   {
 	return (int)(this.b/-1.5f);
   }
   
-  
- 
   public abstract void step(); // handles movement, behaviour and interaction
   
   public abstract void collision(); // check with other objects for collision
