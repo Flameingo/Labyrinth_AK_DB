@@ -138,9 +138,6 @@ public class RundeTreppe extends Treppe
   {
     for (Point[] stufe : hitbox)
     {
-      glPointSize(5);
-      glBegin(GL_POINTS);
-      
       int res = 10;
       for (int i = 0; i < res; i++)
         for (int j = 0; j < res; j++)
@@ -148,10 +145,7 @@ public class RundeTreppe extends Treppe
           Point p = lip(stufe, (float) i / res, (float) j / res);
           while (Labyrinth.player.hitbox(p))
             Labyrinth.player.pos.z += .1f;
-          glColor3f(1, 0, 0);
-          glVertex3f(p.x, p.y, p.z);
         }
-      glEnd();
     }
   }
   

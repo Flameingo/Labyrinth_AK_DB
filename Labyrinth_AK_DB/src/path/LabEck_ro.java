@@ -7,137 +7,97 @@ import models3D.Wand;
 import models3D.WandBlock;
 import params.Material;
 
-public class LabEck_ro extends Objekt
+public class LabEck_ro extends Lab
 {
-  protected Objekt [] waende = new Objekt[2];
   
-/**
- * Zwei Punkte (x,y) und (x2,y2) spannen ein Quadrat auf. Von 
- * (x,y) bis (x,y2) und von (x2, y) bis (x2,y2) verlaufen die Wandstuecke.
- * @param x
- * @param y
- * @param x2
- * @param y2
- * @param hoehe
- * @param alpha bestimmt die Drehung um die z-Achse (Hoehe)
- */
+  /**
+   * Zwei Punkte (x,y) und (x2,y2) spannen ein Quadrat auf. Von (x,y) bis (x,y2) und von (x2, y) bis (x2,y2) verlaufen
+   * die Wandstuecke.
+   * 
+   * @param x
+   * @param y
+   * @param x2
+   * @param y2
+   * @param hoehe
+   * @param alpha
+   *          bestimmt die Drehung um die z-Achse (Hoehe)
+   */
   public LabEck_ro(float x, float y, float x2, float y2, float hoehe, boolean bogen)
   {
-	  waende = new Objekt[3];
-	  
-	  if(bogen == true)			
-			waende [2] = new Wand ("E",x+1.75f,y+1.75f,boden,180,0,0,90,2);
-	  if(bogen == false)
-		  waende[2] = new Wand("E",x,y,boden,0,0,0,90,2);
     
-    float yy = y + WandBlock.wdbreite/2; //Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
-    float yy2 = y2 - WandBlock.wdbreite/2; //Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
+    if (bogen == true) waende[2] = new Wand("E", x + 1.75f, y + 1.75f, boden, 180, 0, 0, 90, 2);
+    if (bogen == false) waende[2] = new Wand("E", x, y, boden, 0, 0, 0, 90, 2);
     
-    waende [0] = new Wand((x+x2)/2+0.13f, yy, boden, 0,0,0, Math.abs(x2-x), hoehe);
-  
+    float yy = y + WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
+    float yy2 = y2 - WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
     
-  
-     float xx = x + WandBlock.wdbreite/2;
-     float xx2 = x2 - WandBlock.wdbreite/2;
-     
-     waende[1] = new Wand(xx, (y+y2)/2+0.13f, boden, 90,0,0,Math.abs(y2-y), hoehe);
-   
+    waende[0] = new Wand((x + x2) / 2 + 0.13f, yy, boden, 0, 0, 0, Math.abs(x2 - x), hoehe);
+    
+    float xx = x + WandBlock.wdbreite / 2;
+    float xx2 = x2 - WandBlock.wdbreite / 2;
+    
+    waende[1] = new Wand(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe);
+    
   }
   
   public LabEck_ro(Level lev, float hoehe, boolean bogen)
   {
-	  this(lev.x1,lev.y1,lev.x2,lev.y2, hoehe, bogen);
-	  this.a = lev.x2;
-	  this.b = lev.y1;
+    this(lev.x1, lev.y1, lev.x2, lev.y2, hoehe, bogen);
+    this.a = lev.x2;
+    this.b = lev.y1;
   }
+  
   public LabEck_ro(Level lev, boolean bogen)
   {
-	  this(lev.x1,lev.y1,lev.x2,lev.y2, 2, bogen);
-	  this.a = lev.x2;
-	  this.b = lev.y1;
+    this(lev.x1, lev.y1, lev.x2, lev.y2, 2, bogen);
+    this.a = lev.x2;
+    this.b = lev.y1;
   }
+  
   public LabEck_ro(Level lev)
   {
-	  this(lev.x1,lev.y1,lev.x2,lev.y2,2);
-	  this.a = lev.x2;
-	  this.b = lev.y1;
+    this(lev.x1, lev.y1, lev.x2, lev.y2, 2);
+    this.a = lev.x2;
+    this.b = lev.y1;
   }
+  
   public LabEck_ro(float x, float y, float x2, float y2, float hoehe)
   {
-	  
     
-    float yy = y + WandBlock.wdbreite/2; //Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
-    float yy2 = y2 - WandBlock.wdbreite/2; //Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
+    float yy = y + WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
+    float yy2 = y2 - WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
     
-    waende [0] = new Wand((x+x2)/2+0.13f, yy, boden, 0,0,0, Math.abs(x2-x), hoehe);
-  
+    waende[0] = new Wand((x + x2) / 2 + 0.13f, yy, boden, 0, 0, 0, Math.abs(x2 - x), hoehe);
     
-  
-     float xx = x + WandBlock.wdbreite/2;
-     float xx2 = x2 - WandBlock.wdbreite/2;
-     
-     waende[1] = new Wand(xx, (y+y2)/2+0.13f, boden, 90,0,0,Math.abs(y2-y), hoehe);
-   
-  }
-  
-  public LabEck_ro(Level lev, Etage e,boolean bogen,float hoehe)
-  {
-	  this(e,lev.x1,lev.y1,lev.x2,lev.y2,bogen,hoehe);
-	  this.a = lev.x2;
-	  this.b = lev.y1;
-  }
-  
-  public LabEck_ro(Etage e, float x, float y, float x2, float y2, boolean bogen,float hoehe)
-  {
-	  waende = new Objekt[3];
-	  
-	  if(bogen == true)			
-			waende [2] = new Wand ("E",x+1.75f,y+1.75f,boden+2.1f*e.wert(),180,0,0,90,hoehe);
-	  if(bogen == false)
-		  waende[2] = new Wand("E",x,y,boden+2.1f*e.wert(),0,0,0,90,hoehe);
+    float xx = x + WandBlock.wdbreite / 2;
+    float xx2 = x2 - WandBlock.wdbreite / 2;
     
-	  float yy = y + WandBlock.wdbreite/2; //Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
-	  float yy2 = y2 - WandBlock.wdbreite/2; //Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
-    
-	  waende [0] = new Wand((x+x2)/2+0.13f, yy, boden+2.1f*e.wert(), 0,0,0, Math.abs(x2-x), hoehe);
-  
-    
-  
-	  float xx = x + WandBlock.wdbreite/2;
-	  float xx2 = x2 - WandBlock.wdbreite/2;
-     
-	  waende[1] = new Wand(xx, (y+y2)/2+0.13f, boden+2.1f*e.wert(), 90,0,0,Math.abs(y2-y), hoehe);
-   
-  }
-  
-  @Override
-  public void step()
-  {
-    // TODO Auto-generated method stub
+    waende[1] = new Wand(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe);
     
   }
-
-  @Override
-  public void collision()
+  
+  public LabEck_ro(Level lev, Etage e, boolean bogen, float hoehe)
   {
-    // TODO Auto-generated method stub
+    this(e, lev.x1, lev.y1, lev.x2, lev.y2, bogen, hoehe);
+    this.a = lev.x2;
+    this.b = lev.y1;
+  }
+  
+  public LabEck_ro(Etage e, float x, float y, float x2, float y2, boolean bogen, float hoehe)
+  {
     
-  }
-
-  @Override
-  public void draw()
-  {
-    // TODO Auto-generated method stub
-    Material.BACKSTEIN.use();
-    for (Objekt wand : waende){
-      wand.draw();
-    }
-  }
-
-  @Override
-  public void drawGUI()
-  {
-    // TODO Auto-generated method stub
+    if (bogen == true) waende[2] = new Wand("E", x + 1.75f, y + 1.75f, boden + 2.1f * e.wert(), 180, 0, 0, 90, hoehe);
+    if (bogen == false) waende[2] = new Wand("E", x, y, boden + 2.1f * e.wert(), 0, 0, 0, 90, hoehe);
+    
+    float yy = y + WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
+    float yy2 = y2 - WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
+    
+    waende[0] = new Wand((x + x2) / 2 + 0.13f, yy, boden + 2.1f * e.wert(), 0, 0, 0, Math.abs(x2 - x), hoehe);
+    
+    float xx = x + WandBlock.wdbreite / 2;
+    float xx2 = x2 - WandBlock.wdbreite / 2;
+    
+    waende[1] = new Wand(xx, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), hoehe);
     
   }
   
