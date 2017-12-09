@@ -8,7 +8,7 @@ import path.*;
 
 public class AbschnittD extends Objekt
 {
-	protected Objekt[] waende = new Objekt[189];
+	protected Objekt[] waende = new Objekt[290];
 	protected Objekt[] steine = new Objekt[0];
 	  
 	
@@ -210,10 +210,112 @@ public class AbschnittD extends Objekt
 		waende[183] = new Sackgasse(new Level(19,10),"u");
 		waende[184] = new LabWeg_o_u(new Level(19,11));
 		waende[185] = new LabWeg_o_u(new Level(19,12));
-		waende[186] = new LabWeg_o_u(new Level(18,13));
+		waende[186] = new Sackgasse(new Level(18,13),"o");
 		waende[187] = new LabWeg_R(new Level(18,14));
+		waende[188] = new LabWeg_O(new Level(14,10));
+		waende[189] = new LabWeg_O(new Level(15,10));
+		waende[190] = new LabWeg_U(new Level(14,11));
+		waende[191] = new Sackgasse(new Level(15,11),"l");
+		waende[192] = new LabEck_ro(new Level(17,9));
+		waende[193] = new LabWeg_R(new Level(18,10));
+		waende[194] = new LabEck_ro(new Level(17,11));
+		waende[195] = new LabWeg_o_u(new Level(17,12));
+		waende[196] = new LabWeg_o_u(new Level(17,13));
+		waende[197] = new LabWeg_o_u(new Level(17,14));
+		waende[198] = new LabEck_lo(new Level(17,15));
+		waende[199] = new LabWeg_O(new Level(15,13));
+		waende[200] = new LabWeg_O(new Level(16,13));
+		waende[201] = new LabEck_ro(new Level(13,18));
+		waende[202] = new LabWeg_U(new Level(14,18));
+		waende[203] = new LabWeg_L(new Level(15,18));
+		waende[204] = new LabWeg_o_u(new Level(15,17));
+		waende[205] = new LabWeg_o_u(new Level(15,16));
+		waende[206] = new LabWeg_o_u(new Level(15,15));
+		waende[207] = new LabWeg_R(new Level(15,14));
+		waende[208] = new LabWeg_O(new Level(14,14));
+		waende[209] = new LabWeg_U(new Level(15,18));
+		waende[210] = new LabWeg_U(new Level(16,18));
+		waende[211] = new LabWeg_U(new Level(17,18));
+		waende[212] = new LabWeg_o_u(new Level(17,17));
+		waende[213] = new LabWeg_R(new Level(17,16));
+		waende[214] = new LabWeg_O(new Level(16,16));
+		waende[215] = new LabWeg_o_u(new Level(19,15));
+		waende[216] = new LabWeg_o_u(new Level(19,16));
+		waende[217] = new LabWeg_o_u(new Level(19,17));
+		waende[218] = new Sackgasse(new Level(19,18),"u");
+		waende[219] = new LabWeg_o_u(new Level(19,19));
+		waende[220] = new Sackgasse(new Level(18,20),"r");
+		waende[221] = new Sackgasse(new Level(16,20),"u");
+		waende[222] = new LabWeg_O(new Level(15,20));
+		waende[223] = new LabTuer_L(new Level(15,20));
+		waende[224] = new LabWeg_r_l(new Level(14,20));
+		waende[225] = new LabWeg_r_l(new Level(13,20));
+		waende[226] = new LabWeg_O(new Level(12,20));
+		waende[227] = new LabWeg_o_u(new Level(11,19));
+		waende[228] = new LabWeg_o_u(new Level(11,20));
+		waende[229] = new LabWeg_o_u(new Level(11,21));
+		waende[230] = new LabWeg_o_u(new Level(11,22));
+		waende[231] = new LabWeg_o_u(new Level(11,23));
+		waende[232] = new LabEck_lo(new Level(11,24));
+		waende[233] = new LabWeg_r_l(new Level(10,24));
+		waende[234] = new LabWeg_r_l(new Level(9,24));
+		waende[235] = new LabEck_ru(new Level(8,24));
+		waende[236] = new LabWeg_L(new Level(8,25));
+		waende[237] = new LabWeg_r_l(new Level(8,26));
+		waende[238] = new LabWeg_r_l(new Level(9,26));
+		waende[239] = new LabWeg_r_l(new Level(10,26));
+		waende[240] = new LabWeg_r_l(new Level(11,26));
+		waende[241] = new LabWeg_r_l(new Level(12,26));
+		waende[242] = new LabWeg_r_l(new Level(13,26));
+		waende[243] = new LabEck_lo(new Level(14,26));
+		waende[244] = new LabWeg_o_u(new Level(14,25));
+		waende[245] = new LabWeg_o_u(new Level(14,24));
+		waende[246] = new LabWeg_o_u(new Level(14,23));
+		waende[247] = new Sackgasse(new Level(14,22),"u");
+		waende[248] = new LabWeg_o_u(new Level(15,21));
+		waende[249] = new LabWeg_o_u(new Level(15,22));
+		waende[250] = new LabEck_ro(new Level(15,23));
+		waende[251] = new LabWeg_R(new Level(16,21));
+		waende[252] = new LabWeg_R(new Level(16,22));
+		waende[253] = new LabWeg_L(new Level(13,21));
+		waende[254] = new LabWeg_L(new Level(13,22));
+		waende[255] = new LabWeg_L(new Level(13,23));
+		waende[256] = new LabWeg_L(new Level(13,24));
+		waende[257] = new LabWeg_U(new Level(7,27));
+		waende[258] = new LabWeg_U(new Level(8,27));
+		waende[259] = new LabWeg_U(new Level(9,27));
+		waende[260] = new LabWeg_U(new Level(10,27));
+		waende[261] = new LabWeg_U(new Level(11,27));
+		waende[262] = new LabWeg_U(new Level(12,27));
+		waende[263] = new LabWeg_U(new Level(13,27));
+		waende[264] = new LabEck_ro(new Level(14,28));
+		waende[265] = new LabEck_ro(new Level(15,28));
+		waende[266] = new LabEck_lo(new Level(16,28));
+		waende[267] = new LabWeg_o_u(new Level(15,27));
+		waende[268] = new LabWeg_R(new Level(15,26));
+		waende[269] = new Sackgasse(new Level(6,24),"l");
+		waende[270] = new LabWeg_r_l(new Level(5,24));
+		waende[271] = new LabWeg_r_l(new Level(4,24));
+		waende[272] = new LabWeg_r_l(new Level(3,24));
+		waende[273] = new LabEck_ru(new Level(2,24));
+		waende[274] = new LabWeg_L(new Level(2,25));
+		waende[275] = new Sackgasse(new Level(6,26),"l");
+		waende[276] = new LabWeg_r_l(new Level(5,26));
+		waende[277] = new LabEck_ru(new Level(4,26));
+		waende[278] = new LabEck_ro(new Level(4,27));
+		waende[279] = new LabWeg_U(new Level(5,27));
+		waende[280] = new LabWeg_R(new Level(6,27));
+		waende[281] = new LabEck_lo(new Level(6,28));
+		waende[282] = new LabWeg_U(new Level(5,28));
+		waende[283] = new LabWeg_U(new Level(4,28));
+		waende[284] = new LabWeg_U(new Level(3,28));
+		waende[285] = new LabWeg_R(new Level(16,27));
+		waende[286] = new LabEck_lu(new Level(11,8));
+		waende[287] = new LabWeg_R(new Level(11,9));
+		waende[288] = new LabWeg_U(new Level(10,8));
+		waende[289] = new LabWeg_L(new Level(10,7));
 		
-	
+		
 	}
 	@Override
 	public void step()
