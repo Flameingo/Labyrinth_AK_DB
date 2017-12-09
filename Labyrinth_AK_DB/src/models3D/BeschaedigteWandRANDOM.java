@@ -47,7 +47,7 @@ public class BeschaedigteWandRANDOM extends WandBlock
   super(x,y,z,alpha, beta, gamma);
   
   float vX = - laenge/2;
-  int matrix [][] = new int[25][40];
+  int matrix [][] = new int[25][80];
   
   for (int hoch = 0; hoch < hoehe*100/6; hoch++)
   {
@@ -61,15 +61,15 @@ public class BeschaedigteWandRANDOM extends WandBlock
           if (Math.random()>0.2f)
           {
         	  myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden));
-        	  matrix[rechts+1][hoch+1] = 1;
+        	  matrix[rechts+1][2*hoch+1] = 1;
         	  
-        	  if (matrix[rechts+1][hoch] == 1)
+        	  if (matrix[rechts+1][2*hoch] == 1)
         	  {
         		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2, 0.04f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden-0.03f));
         	  }
-        	  if (matrix[rechts][hoch+1] == 1)
+        	  if (matrix[rechts][2*hoch+1] == 1)
         	  {
-        		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2,0.04f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden-0.02f));
+        		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2,0.04f), new Point(rechts*0.26f+vX-0.08f,0,hoch*0.06f+boden));
         	  }
           }
        }
@@ -84,13 +84,14 @@ public class BeschaedigteWandRANDOM extends WandBlock
            if (Math.random()>0.2f)
            {
         	   myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (rechts2*0.26f+0.13f+vX,0,hoch*0.06f+boden));
-        	   if (matrix[rechts2+1][hoch] == 1)
+        	   matrix[rechts2+1][2*hoch+1] = 1;
+        	   if (matrix[rechts2+1][2*hoch] == 1)
          	   {
          		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2, 0.04f), new Point(rechts2*0.26f+0.13f+vX,0,hoch*0.06f+boden-0.03f));
          	   }
-         	   if (matrix[rechts2][hoch+1] == 1)
+         	   if (matrix[rechts2][2*hoch+1] == 1)
          	   {
-         		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2,0.04f), new Point(rechts2*0.26f+0.13f+vX,0,hoch*0.06f+boden-0.02f));
+         		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2,0.04f), new Point(rechts2*0.26f+0.05f+vX,0,hoch*0.06f+boden));
          	   }
            }
          }
