@@ -18,6 +18,7 @@ public class Spawner extends Objekt
   public static DisplayList abschnittBB;
   public static DisplayList abschnittBC;
   public static DisplayList abschnittC;
+  public static DisplayList abschnittD;
   public static DisplayList boden;
   /**
    * created once at the start of the game and places all objects that should be
@@ -28,30 +29,20 @@ public class Spawner extends Objekt
     // Hier werden die Objekte ins Spiel gesetzt:
 
     makeStatic = true;
-    boden = new DisplayList(); //Vollstaendiger Boden mit 40 x 40 und Ursprung als Mittelpunkt.
+    boden = new DisplayList(); //Vollstaendiger Boden mit 60 x60 und Ursprung als Mittelpunkt.
     boden.addObjekt(new Boden());
     Labyrinth.addObject(boden);
-    boden.hidden = true;
+//    boden.hidden = true;
     
-    DisplayList bodenBC = new DisplayList(); //Boden fuer Abschnitt B, Abschnitt C und Abschnitt BC.
+    DisplayList bodenBC = new DisplayList(); //40x40 mit Ursprung als Mittelpunkt. Boden fuer Abschnitt B, Abschnitt C und Abschnitt BC.
     bodenBC.addObjekt(new BodenBC());
     Labyrinth.addObject(bodenBC);   
-////    bodenBC.hidden = true;
+    bodenBC.hidden = true;
     
     abschnittB = new DisplayList(); //Aufruf von AbschnittB, AbschnittB benoetigt "BodenBC"
     abschnittB.addObjekt(new AbschnittB());
     Labyrinth.addObject(abschnittB);
-//    abschnittB.hidden = true;
-    
-    
-//    for(int i = 0; i < 50;i++)  //So soll das ungefaehr aussehen
-//    {
-//    	if(AbschnittB.waende[i].getA() < Kompass.getLvlX()) //Komplexere Abfrage in finaler Ausfuehrung, mit der
-//    		AbschnittB.waende[i].hidden = true;				//alle Objekte der Felder plusfoermig um den Spieler 
-//    	else 												//dargestellt werden, andere nicht.
-//    		AbschnittB.waende[i].hidden = false;
-//    }
-    
+    abschnittB.hidden = true;
     
     abschnittBB = new DisplayList(); //Aufruf von AbschnittBB
     abschnittBB.addObjekt(new AbschnittBB());
@@ -67,6 +58,10 @@ public class Spawner extends Objekt
     abschnittC.addObjekt(new AbschnittC());
     Labyrinth.addObject(abschnittC);
     abschnittC.hidden = true;
+    
+    abschnittD = new DisplayList();
+    abschnittD.addObjekt(new AbschnittD());
+    Labyrinth.addObject(abschnittD);
     
     //Schalter
     Labyrinth.addObject(new SchalterFeld("BB", new Level(8,3)));
