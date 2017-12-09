@@ -7,6 +7,7 @@ import params.Quader;
 public class BeschaedigteWandRANDOM extends WandBlock
 {
   
+	
   public BeschaedigteWandRANDOM(float x, float y, float z, float w1, float w2, float w3)
   {
   super(x,y,z,w1,w2,w3);
@@ -46,7 +47,7 @@ public class BeschaedigteWandRANDOM extends WandBlock
   super(x,y,z,alpha, beta, gamma);
   
   float vX = - laenge/2;
-  float qX = wandFeld/2;
+  int matrix [][] = new int[25][40];
   
   for (int hoch = 0; hoch < hoehe*100/6; hoch++)
   {
@@ -58,8 +59,19 @@ public class BeschaedigteWandRANDOM extends WandBlock
         for (int rechts = 0; rechts < (laenge)*10/2.6; rechts++)
         {
           if (Math.random()>0.2f)
-          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden));
-          
+          {
+        	  myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden));
+        	  matrix[rechts+1][hoch+1] = 1;
+        	  
+        	  if (matrix[rechts+1][hoch] == 1)
+        	  {
+        		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2, 0.04f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden-0.03f));
+        	  }
+        	  if (matrix[rechts][hoch+1] == 1)
+        	  {
+        		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2,0.04f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden-0.02f));
+        	  }
+          }
        }
     }
        else
@@ -70,7 +82,17 @@ public class BeschaedigteWandRANDOM extends WandBlock
          for (int rechts2 = 0; rechts2 < (laenge)*10/2.6 - 1;rechts2++)
          {           
            if (Math.random()>0.2f)
-           myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (rechts2*0.26f+0.13f+vX,0,hoch*0.06f+boden));
+           {
+        	   myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (rechts2*0.26f+0.13f+vX,0,hoch*0.06f+boden));
+        	   if (matrix[rechts2+1][hoch] == 1)
+         	   {
+         		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2, 0.04f), new Point(rechts2*0.26f+0.13f+vX,0,hoch*0.06f+boden-0.03f));
+         	   }
+         	   if (matrix[rechts2][hoch+1] == 1)
+         	   {
+         		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2,0.04f), new Point(rechts2*0.26f+0.13f+vX,0,hoch*0.06f+boden-0.02f));
+         	   }
+           }
          }
        }
     }
