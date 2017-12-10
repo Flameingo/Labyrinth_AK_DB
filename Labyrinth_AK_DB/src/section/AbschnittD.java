@@ -8,7 +8,7 @@ import path.*;
 
 public class AbschnittD extends Objekt
 {
-	protected Objekt[] waende = new Objekt[355];
+	protected Objekt[] waende = new Objekt[356];
 	protected Objekt[] steine = new Objekt[9];
 	  
 	
@@ -49,7 +49,10 @@ public class AbschnittD extends Objekt
 		waende[32] = new LabWeg_r_l(new Level(-2,25));
 		waende[33] = new LabWeg_r_l(new Level(-1,25));
 		waende[34] = new LabWeg_U(new Level(0,25));
-		waende[35] = new LabWeg_o_u(new Level(7,12)); //nach betaetigung von Schalter 11 wird dieses Stueck zu LabWeg_r_l geaendert.
+		
+		waende[35] = new LabDmgWeg_L(new Level(7,12)); //nach betaetigung von Schalter 11 wird dieses Stueck um 90 grad gedreht.
+		waende[355] = new LabDmgWeg_R(new Level(7,12)); //nach betaetigung von Schalter 11 wird dieses Stueck um 90 grad gedreht.
+		
 		waende[36] = new LabWeg_r_l(new Level(1,28));
 		waende[37] = new LabEck_lo(new Level(2,28));
 		waende[38] = new LabEck_lu(new Level(2,27));
