@@ -8,8 +8,8 @@ import path.*;
 
 public class AbschnittD extends Objekt
 {
-	protected Objekt[] waende = new Objekt[290];
-	protected Objekt[] steine = new Objekt[0];
+	protected Objekt[] waende = new Objekt[355];
+	protected Objekt[] steine = new Objekt[9];
 	  
 	
 	public AbschnittD()
@@ -314,7 +314,83 @@ public class AbschnittD extends Objekt
 		waende[287] = new LabWeg_R(new Level(11,9));
 		waende[288] = new LabWeg_U(new Level(10,8));
 		waende[289] = new LabWeg_L(new Level(10,7));
+		waende[290] = new LabWeg_r_l(new Level(16,25));
+		waende[291] = new LabWeg_r_l(new Level(17,25));
+		waende[292] = new LabWeg_U(new Level(17,28));
+		waende[293] = new LabWeg_L(new Level(18,24));
+		waende[294] = new LabWeg_L(new Level(18,26));
+		waende[295] = new LabWeg_L(new Level(18,27));
+		waende[296] = new LabEck_ro(new Level(18,28),true);
+		waende[297] = new LabWeg_U(new Level(16,23));
+		waende[298] = new LabWeg_U(new Level(19,27));
+		waende[299] = new LabEck_lo(new Level(20,27),true);
+		waende[300] = new LabWeg_R(new Level(20,26));
+		waende[301] = new LabWeg_r_l(new Level(21,25));
+		waende[302] = new LabEck_lu(new Level(22,25),true);
+		waende[303] = new LabWeg_o_u(new Level(22,26));
+		waende[304] = new LabWeg_o_u(new Level(22,27));
+		waende[305] = new LabEck_ro(new Level(22,28),true);
+		waende[306] = new LabWeg_U(new Level(21,28));
+		waende[307] = new LabWeg_U(new Level(20,28));
+		waende[308] = new LabWeg_U(new Level(19,28));
+		waende[309] = new LabWeg_U(new Level(23,28));
+		waende[310] = new LabEck_lo(new Level(24,28),true);
+		waende[311] = new LabWeg_o_u(new Level(24,27));
+		waende[312] = new LabWeg_o_u(new Level(24,26));
+		waende[313] = new LabEck_ru(new Level(24,25),true);
+		waende[314] = new Sackgasse(new Level(25,25),"l");
+		waende[315] = new LabWeg_L(new Level(18,21));
+		waende[316] = new LabEck_ru(new Level(18,23),true);
+		waende[317] = new LabWeg_O(new Level(17,23));
+		waende[318] = new LabWeg_O(new Level(19,23));
+		waende[319] = new LabWeg_R(new Level(20,23));
+		waende[320] = new LabWeg_R(new Level(20,24));
+		waende[321] = new LabWeg_o_u(new Level(20,22));
+		waende[322] = new LabEck_ru(new Level(20,21));
+		waende[323] = new LabWeg_O(new Level(21,21));
+		waende[324] = new LabWeg_o_u(new Level(22,21));
+		waende[325] = new LabWeg_o_u(new Level(22,22));
+		waende[326] = new LabWeg_o_u(new Level(22,23));
+		waende[327] = new LabWeg_R(new Level(22,24));
+		waende[328] = new LabEck_lo(new Level(23,24));
+		waende[329] = new LabWeg_R(new Level(23,23));
+		waende[330] = new LabWeg_R(new Level(23,22));
+		waende[331] = new LabWeg_R(new Level(23,21));
+		waende[332] = new LabWeg_R(new Level(23,20));
+		waende[333] = new Sackgasse(new Level(23,19),"o");
+		waende[334] = new LabWeg_o_u(new Level(23,18));
+		waende[335] = new LabWeg_o_u(new Level(23,17));
+		waende[336] = new LabEck_lu(new Level(23,16));
+		waende[337] = new LabWeg_r_l(new Level(22,16));
+		waende[338] = new LabWeg_r_l(new Level(21,16));
+		waende[339] = new LabWeg_r_l(new Level(21,14));
+		waende[340] = new LabWeg_r_l(new Level(22,14));
+		waende[341] = new LabWeg_O(new Level(20,14));
+		waende[342] = new LabEck_lo(new Level(23,14));
+		waende[343] = new LabEck_lu(new Level(23,13));
+		waende[344] = new LabWeg_O(new Level(22,13));
+		waende[345] = new LabWeg_O(new Level(21,13));
+		waende[346] = new LabWeg_O(new Level(20,13));
+		waende[347] = new LabWeg_L(new Level(21,17));
+		waende[348] = new LabWeg_o_u(new Level(21,18));
+		waende[349] = new Sackgasse(new Level(21,19),"o");
+		waende[350] = new LabWeg_O(new Level(19,21));
+		waende[351] = new LabEck_lu(new Level(24,15));
+		waende[352] = new LabWeg_U(new Level(24,16));
+		waende[353] = new LabWeg_r_l(new Level(25,16));
+		waende[354] = new LabWeg_r_l(new Level(26,16));
 		
+		
+		//Ecksteine
+		steine[0] = new Eckstein(new Level(2,18));
+		steine[1] = new Eckstein(new Level(2,16));
+		steine[2] = new Eckstein(new Level(3,13));
+		steine[3] = new Eckstein(new Level(4,13));
+		steine[4] = new Eckstein(new Level(-3,21));
+		steine[5] = new Eckstein(new Level(2,23));
+		steine[6] = new Eckstein(new Level(2,27));
+		steine[7] = new Eckstein(new Level(-3,27));
+		steine[8] = new Eckstein(new Level(-4,24));
 		
 	}
 	@Override
