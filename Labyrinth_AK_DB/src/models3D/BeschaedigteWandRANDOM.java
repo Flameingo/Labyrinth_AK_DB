@@ -4,8 +4,8 @@ import basics.Point;
 import main.Spawner;
 import params.Quader;
 
-public class BeschaedigteWandRANDOM extends WandBlock
-{
+public class BeschaedigteWandRANDOM extends WandBlock                      //Erstellt eine Wand mit Loechern, die zufaellig erzeugt werden.
+{																		   //Davon abgesehen entsprechen die Konstruktoren dieser Klasse denen der "Wand"-Klasse.
   
 	
   public BeschaedigteWandRANDOM(float x, float y, float z, float w1, float w2, float w3)
@@ -41,7 +41,17 @@ public class BeschaedigteWandRANDOM extends WandBlock
        }
     }
   }
-  
+  /** Erstellt eine Wand mit Loechern, die zufaellig erzeugt werden.
+   * 
+   * @param x
+   * @param y
+   * @param z
+   * @param alpha
+   * @param beta
+   * @param gamma
+   * @param laenge
+   * @param hoehe
+   */
   public BeschaedigteWandRANDOM(float x, float y, float z, float alpha, float beta, float gamma, float laenge, float hoehe)
   {
   super(x,y,z,alpha, beta, gamma);
@@ -54,18 +64,18 @@ public class BeschaedigteWandRANDOM extends WandBlock
     for (int rechts = 0; rechts < (laenge)*10/2.6; rechts++)
         {
     
-    	if (hoch%2 == 0)
+    	if (hoch%2 == 0) //Betrifft jede Reihe mit ungerader Zahl von unten gezaehlt.
     	{
      
         
           if (Math.random()>0.2f)
           {
         	  myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden));
-        	  matrix[rechts+1][2*hoch+1] = 1;
-        	  
-        	  if (matrix[rechts+1][2*hoch] == 1 && matrix[rechts][2*hoch] == 1)
-        	  {
-        		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2, 0.04f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden-0.04f));
+        	  matrix[rechts+1][2*hoch+1] = 1;                                                                               	    //Algorithmus, der die Platzierung
+        	                                                                                                                  		//des Putz beeinflusst.
+        	  if (matrix[rechts+1][2*hoch] == 1 && matrix[rechts][2*hoch] == 1)                                               		//Putz zwischen Steinen wird nur erzeugt,
+        	  {                                                                                                           		    //wenn festgestellt werden konnte, dass dort
+        		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2, 0.04f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden-0.04f));  //ebenfalls Steine platziert wurden.
         	  }
         	  if (matrix[rechts][2*hoch+1] == 1)
         	  {
@@ -74,7 +84,7 @@ public class BeschaedigteWandRANDOM extends WandBlock
           }
        }
     
-       else
+       else  //Betrifft jede Reihe mit gerader Zahl von unten gezaehlt.
        {
          myShape.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f+vX,0,hoch*0.06f+boden));
          myShape.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((int)(laenge*10/2.6f)*0.26f+0.0625f+vX, 0, hoch * 0.06f+boden));
@@ -82,11 +92,11 @@ public class BeschaedigteWandRANDOM extends WandBlock
               
            if (Math.random()>0.2f)
            {
-        	   myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (rechts*0.26f+0.13f+vX,0,hoch*0.06f+boden));
-        	   matrix[rechts+1][2*hoch+2] = 1;
-        	   if (matrix[rechts+1][2*hoch+1] == 1 && matrix[rechts][2*hoch+1] == 1)
-         	   {
-         		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2, 0.04f), new Point(rechts*0.13f+0.29f+vX,0,hoch*0.06f+boden-0.04f));
+        	   myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (rechts*0.26f+0.13f+vX,0,hoch*0.06f+boden)); 
+        	   matrix[rechts+1][2*hoch+2] = 1;																								//Ausfuehrung des gleichen
+        	   if (matrix[rechts+1][2*hoch+1] == 1 && matrix[rechts][2*hoch+1] == 1)														//Algorithmus fuer
+         	   {																															//die ensprechend anderen 
+         		  putz.addParam(new Quader("Mitte", 0.2f,wdbreite/2, 0.04f), new Point(rechts*0.13f+0.29f+vX,0,hoch*0.06f+boden-0.04f));    //Steinreihen.
          	   }
          	   if (matrix[rechts][2*hoch+2] == 1)
          	   {

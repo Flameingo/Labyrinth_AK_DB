@@ -5,7 +5,15 @@ import params.Quader;
 
 public class Wand extends WandBlock
 {
-  
+  /** Zeichnet ein Wandstueck mit der Laenge 5.2f und der Hoehe 1.5f
+   * 
+   * @param x
+   * @param y
+   * @param z
+   * @param alpha Drehung um die z - Achse.
+   * @param beta Drehung um die y - Achse.
+   * @param gamma Drehung um die x - Achse.
+   */
   public Wand(float x, float y, float z, float alpha, float beta, float gamma)
   {
     super(x, y, z, alpha, beta, gamma);
@@ -45,7 +53,7 @@ public class Wand extends WandBlock
   {
     super(x, y, z, alpha, beta, gamma);
     /** 
-     Verschiebung um die x - Achse mit der Absicht, dass der Ursprung Mittelpunkt des Wandstuecks (abgesehen vom z-Wert) ist*/
+     Verschiebung um die x - Achse mit der Absicht, dass der Ursprung Mittelpunkt des Wandstuecks (abgesehen vom z-Wert(Hoehe)) ist*/
     float vX = - laenge/2; 
     
     putz.addParam(new Quader("Mitte", laenge ,wdbreite*1/2, hoehe - 0.1f), new Point(-0.1f,0,hoehe/2)); //Zeichnet den Zement in einer anderen Farbe 

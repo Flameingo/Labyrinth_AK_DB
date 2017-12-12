@@ -9,17 +9,25 @@ import static org.lwjgl.opengl.GL11.*;
 
 import basics.Point;
 
-public class WandBlock extends Objekt
+public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
 {
+                                                          //Uebergebene Werte werden abgespeichert.
+	                                                      //Hier wird die Verschiebung und Drehung aller WandObjekte ("myShape" und "putz") umgesetzt.
+														  //Davon abgesehen ist die Stein-Breite fuer alle Wand-Typen hier festgesetzt.
+	                                                      //
+	
+	
+	
+	//______________________________________________________________________________________________________________
+	// Dieser Abschnitt betrifft nur Unterklassen-Objekte ohne uebergebene Werte fuer Laenge und Hoehe:
+	
   /** Anzahl der nebeneinanderliegenden Steine minus 1*
    aktuell 11 * */
   protected static int wdlaenge = 11;
   /** Anzahl der übereinanderliegenden Steine minus 1
    * aktuell 25*/
   protected static int wdhoehe = 25;
-  /** Definiert die Breite jedes Backsteins der Wand 
-   * aktuell 0.1f*/
-  public static float wdbreite = 0.1f;
+  
   
   /**
    * Diese Verschiebung jedes Objekts um die x - Achse sorgt dafuer, dass der Ursprung in der Mitte der Wand liegt.
@@ -30,14 +38,18 @@ public class WandBlock extends Objekt
    * Hierbei beeinflusst die z-Achse die Hoehe.
    * */
  
+  // ___________________________________________________________________________________________________________________
   
+  /** Definiert die Breite jedes Backsteins der Wand 
+   * aktuell 0.1f*/
+  public static float wdbreite = 0.1f;
   
   /** biege beschreibt die eventuelle Biegung des Objekts,
    * ein positiver Wert enspricht einer Biegung nach links
    */
   protected float biege;
   /**
-   * Diese Objekte werden in entsprechenden Klassen von der Methode myShape.draw(); im Spiel platziert.
+   * In diesem Fall sind dies die Backsteine. Diese werden mit "myShape.draw()" gezeichnet.
    */
   protected Shape myShape = new Shape();
   
@@ -116,8 +128,7 @@ public class WandBlock extends Objekt
   
   public void draw()
   {
-    Material.BACKSTEIN.use();
-    myShape.draw();
+    myShape.backsteindraw();
     Material.COPPER.use();
     putz.draw();
   }

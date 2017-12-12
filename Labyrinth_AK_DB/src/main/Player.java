@@ -18,7 +18,7 @@ public class Player extends Objekt
   private final float        spdSIDE = Settings.PlayerSideStepSpeed;
   
   // Position im Spiel
-  public Point               pos     = new Point(0, -20, 1); //Ursp 0,-1,3
+  public Point               pos     = new Point(0, -1,1); //Ursp 0,-1,3 /fuer AbschnittD (0, -20, 1)
   // Kameraausrichtung
   Point                      cam     = new Point(1, 0, 0);
   

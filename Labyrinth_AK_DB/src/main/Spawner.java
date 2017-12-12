@@ -34,6 +34,9 @@ public class Spawner extends Objekt
     Labyrinth.addObject(boden);
 //    boden.hidden = true;
     
+    Labyrinth.addObject(new DekoKreuz(new Level(0,0),"ro"));
+    Labyrinth.addObject(new Sackgasse(new Level(0,0),"l"));
+    
 //    DisplayList bodenBC = new DisplayList(); //40x40 mit Ursprung als Mittelpunkt. Boden fuer Abschnitt B, Abschnitt C und Abschnitt BC.
 //    bodenBC.addObjekt(new BodenBC());
 //    Labyrinth.addObject(bodenBC);   
@@ -49,9 +52,9 @@ public class Spawner extends Objekt
 //    Labyrinth.addObject(abschnittBB);
 //    abschnittBB.hidden = true;
 //    
-//    abschnittBC = new DisplayList(); //Aufruf von Abschnitt BC
-//    abschnittBC.addObjekt(new AbschnittBC());
-//    Labyrinth.addObject(abschnittBC);
+    abschnittBC = new DisplayList(); //Aufruf von Abschnitt BC
+    abschnittBC.addObjekt(new AbschnittBC());
+    Labyrinth.addObject(abschnittBC);
 //    abschnittBC.hidden = true;
 //
 //    abschnittC = new DisplayList(); //Aufruf von AbschnittC, AbschnittB benoetigt "BodenBC"
@@ -59,9 +62,9 @@ public class Spawner extends Objekt
 //    Labyrinth.addObject(abschnittC);
 //    abschnittC.hidden = true;
     
-    abschnittD = new DisplayList();
-    abschnittD.addObjekt(new AbschnittD());
-    Labyrinth.addObject(abschnittD);
+//    abschnittD = new DisplayList();
+//    abschnittD.addObjekt(new AbschnittD());
+//    Labyrinth.addObject(abschnittD);
     
     //Schalter
 //    Labyrinth.addObject(new SchalterFeld("BB", new Level(8,3)));

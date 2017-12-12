@@ -38,7 +38,9 @@ public enum Material
   RED_RUBBER(.05f, 0, 0, 1, .5f, .4f, .4f, 1, .7f, .04f, .04f, 1, .078125f),
   WHITE_RUBBER(.05f, .05f, .05f, 1, .5f, .5f, .5f, 1, .7f, .7f, .7f, 1, .078125f),
   YELLOW_RUBBER(.05f, .05f, 0, 1, .5f, .5f, .4f, 1, .7f, .7f, .04f, 1, .078125f),
-  BACKSTEIN(.1f, 0, 0, 1, .5f, 0, 0, 1, .1f, 0, 0, 1, 1);
+  BACKSTEIN(.1f, 0, 0, 1, .5f, 0, 0, 1, .1f, 0, 0, 1, 1),
+  BACKSTEIN2(0.2f,0,0.02f,0.9f,0.6f,0,0, 1, 0.2f,0,0,1,1),
+  BACKSTEIN3(0.05f,0.05f,0,0.95f,0.3f,0,0,0.9f,0,0,0.1f,1,1);
   
   private float[] ambient   = { 0, 0, 0, 1 }, diffuse = { 0, 0, 0, 1 }, specular = { 0, 0, 0, 1 };
   private float   shininess = 128;

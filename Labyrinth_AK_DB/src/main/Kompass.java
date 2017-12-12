@@ -24,10 +24,10 @@ public class Kompass
 	{
 	 float h;
 			
-	if(x >= 0)
+	if(x >= 0) 								//Negative Werte muessen anders behandelt werden, da sonst die Berechnung des Rests hierbei fehlerhaft ist.
 	{
-		h = (x - (x % 1.5f))/1.5f;
-		return (int)(h + 1);	
+		h = (x - (x % 1.5f))/1.5f;     //Zieht den Rest modulo 1.5f ab und teilt dann duch 1.5f. 
+		return (int)(h + 1);	       // Addiert man 1 hinzu hat man die a -Koordinate des Feldes, auf dem sich der Spieler "x" befindet. 
 	}
 	
 	h = (x + (-x % 1.5f))/1.5f;
@@ -40,14 +40,14 @@ public class Kompass
 	 * @return die Feldkoordinate des eingesetzten 
 	 * 			y - Wertes.
 	 */
-	public static int koordinateY(float y) //Rechnet fuer getLvlY
+	public static int koordinateY(float y)
 	{
 	float g;
 		
-	if( - y >= 0)
+	if( - y >= 0)                             //Negative Werte muessen anders behandelt werden, da sonst die Berechnung des Rests hierbei fehlerhaft ist.
 	{
-		g = (y - (y % 1.5f))/-1.5f;
-		return (int)(g + 1);
+		g = (y - (y % 1.5f))/-1.5f;			//Zieht den Rest modulo 1.5f ab und teilt dann duch - 1.5f. 
+		return (int)(g + 1);				// Addiert man 1 hinzu hat man die a -Koordinate des Feldes, auf dem sich der Spieler "x" befindet. 
 	}
 	
 	g = (y + (-y % 1.5f))/-1.5f;
