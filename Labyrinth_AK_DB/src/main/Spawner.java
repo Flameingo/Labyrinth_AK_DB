@@ -75,7 +75,21 @@ public class Spawner extends Objekt
 //    Labyrinth.addObject (new Tuer_R("02", new Level(3,6)));
 //    Labyrinth.addObject(new Tuer_R("03", new Level(6,6)));
 //    
-
+    //Schalter (Abschnitt D)
+    Labyrinth.addObject(new SchalterFeld("D1", new Level(6,26)));
+    Labyrinth.addObject(new SchalterFeld("D2", new Level(12,9)));
+    Labyrinth.addObject(new SchalterFeld("D3", new Level(0,22)));
+    Labyrinth.addObject(new SchalterFeld("D4", new Level(0,23)));
+    Labyrinth.addObject(new SchalterFeld("D5", new Level(19,22)));
+    
+    //Tueren (Abschnitt D)
+    Labyrinth.addObject(new Tuer_O("d1",new Level(9,8)));
+    Labyrinth.addObject(new Tuer_L("d2",new Level(1,21)));
+    Labyrinth.addObject(new Tuer_L("d21", new Level(1,28)));
+    Labyrinth.addObject(new Tuer_L("d3", new Level(9,17)));
+    Labyrinth.addObject(new Tuer_O("d31",new Level(16,11)));
+    Labyrinth.addObject(new Tuer_U("d4", new Level(-5,21)));
+    Labyrinth.addObject(new Tuer_L("d5", new Level(15,20)));
 
 
   }
