@@ -1,9 +1,8 @@
-package section;
+package unused;
 
 import basics.Point;
 import main.Objekt;
 import models3D.RundeTreppe;
-import models3D.TuerWand;
 import models3D.Wand;
 import models3D.WandHalbeH;
 import models3D.Zinne;

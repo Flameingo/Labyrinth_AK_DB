@@ -6,7 +6,7 @@ import path.*;
 
 public class AbschnittD extends Objekt
 {
-	protected Objekt[] waende = new Objekt[367];
+	protected Objekt[] waende = new Objekt[370];
 	protected Objekt[] steine = new Objekt[22];
 	  
 	
@@ -123,7 +123,7 @@ public class AbschnittD extends Objekt
 		waende[105] = new LabWeg_o_u(new Level(9,13));
 		waende[106] = new LabWeg_r_l(new Level(8,12));
 		waende[107] = new LabWeg_r_l(new Level(10,16));
-		waende[108] = new LabWeg_r_l(new Level(10,18));
+		waende[108] = new LabWeg_O(new Level(10,18));
 		waende[109] = new LabEck_lu(new Level(11,18));
 		waende[110] = new LabWeg_r_l(new Level(11,16));
 		waende[111] = new LabWeg_O(new Level(10,15));
@@ -194,7 +194,7 @@ public class AbschnittD extends Objekt
 		waende[176] = new LabWeg_O(new Level(12,5));
 		waende[177] = new LabWeg_O(new Level(13,5));
 		waende[178] = new LabWeg_O(new Level(14,5));
-		waende[179] = new Sackgasse(new Level(15,5),"r");
+		waende[179] = new LabWeg_r_l(new Level(15,5));
 		waende[180] = new LabWeg_r_l(new Level(16,5));
 		waende[181] = new LabWeg_r_l(new Level(17,5));
 		waende[182] = new LabEck_lu(new Level(18,5));
@@ -353,7 +353,7 @@ public class AbschnittD extends Objekt
 		waende[335] = new LabWeg_o_u(new Level(22,22));
 		waende[336] = new LabWeg_o_u(new Level(22,23));
 		waende[337] = new LabWeg_R(new Level(22,24));
-		waende[338] = new LabEck_lo(new Level(23,24));
+		waende[338] = new LabWeg_R(new Level(23,24));
 		waende[339] = new LabWeg_R(new Level(23,23));
 		waende[340] = new LabWeg_R(new Level(23,22));
 		waende[341] = new LabWeg_R(new Level(23,21));
@@ -381,6 +381,11 @@ public class AbschnittD extends Objekt
 		waende[363] = new LabWeg_r_l(new Level(25,16));
 		waende[364] = new LabWeg_r_l(new Level(26,16));
 		waende[365] = new LabTuer_U(new Level(-5,21));
+		waende[367] = new LabGitter("o",new Level(10,19));
+		waende[368] = new LabGitter("u", new Level(23,24));
+		waende[369] = new LabGitter("l", new Level(15,5));
+		
+		
 		
 		//Ecksteine
 		steine[0] = new Eckstein(new Level(2,18));

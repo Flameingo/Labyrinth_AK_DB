@@ -70,7 +70,12 @@ public class BeschaedigteWandRANDOM extends WandBlock                      //Ers
         
           if (Math.random()>0.2f)
           {
-        	  myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden));
+        	  if(rechts != 0 && rechts != (int)(laenge*10/2.6))
+        		  myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden));
+        	  else
+        	  {
+        		  stein.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts*0.26f+vX,0,hoch*0.06f+boden)); 
+        	  }
         	  matrix[rechts+1][2*hoch+1] = 1;                                                                               	    //Algorithmus, der die Platzierung
         	                                                                                                                  		//des Putz beeinflusst.
         	  if (matrix[rechts+1][2*hoch] == 1 && matrix[rechts][2*hoch] == 1)                                               		//Putz zwischen Steinen wird nur erzeugt,
@@ -86,8 +91,8 @@ public class BeschaedigteWandRANDOM extends WandBlock                      //Ers
     
        else  //Betrifft jede Reihe mit gerader Zahl von unten gezaehlt.
        {
-         myShape.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f+vX,0,hoch*0.06f+boden));
-         myShape.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((int)(laenge*10/2.6f)*0.26f+0.0625f+vX, 0, hoch * 0.06f+boden));
+         stein.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f+vX,0,hoch*0.06f+boden));
+         stein.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((int)(laenge*10/2.6f)*0.26f+0.0625f+vX, 0, hoch * 0.06f+boden));
          
               
            if (Math.random()>0.2f)

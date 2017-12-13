@@ -1,7 +1,8 @@
-package models3D;
+package unused;
 
 import basics.Point;
 import main.Spawner;
+import models3D.WandBlock;
 import params.Quader;
 
 public class TuerWand extends WandBlock

@@ -1,6 +1,7 @@
-package models3D;
+package unused;
 
 import basics.Point;
+import models3D.WandBlock;
 import params.Quader;
 
 public class Test extends WandBlock

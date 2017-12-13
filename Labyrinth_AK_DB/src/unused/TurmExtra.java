@@ -1,8 +1,7 @@
-package section;
+package unused;
 
 import main.Labyrinth;
 import main.Objekt;
-import models3D.Flaeche;
 import models3D.Wand;
 import models3D.WandHalbeH;
 import models3D.Zinne;
@@ -39,7 +38,7 @@ public class TurmExtra
     {
       for (int links = 0; links < 3; links++)
       {
-        zinnen[(3 * hinten + links)] = new Zinne(-wandFeld / 2.0F * links, hinten * 3.4F, 3.72F, 0.0F, 0.0F, 0.0F);
+        zinnen[(3 * hinten + links)] = new Zinne(-wandFeld / 2.0F * links, hinten * 3.4F, 3.72F, 0.0F, 0.0F, 0.0F,2);
       }
     }
     

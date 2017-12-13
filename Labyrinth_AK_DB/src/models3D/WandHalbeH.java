@@ -30,15 +30,19 @@ public class WandHalbeH extends WandBlock
 
         for (int rechts = 0; rechts < wdlaenge; rechts++)
         {
-
-          myShape.addParam(new Quader("Mitte", 0.25F, wdbreite, 0.05F), new Point(rechts * 0.26F + qX, 0.0F, hoch * 0.0575F));
+        	if(rechts != 0 && rechts != 10)
+        		myShape.addParam(new Quader("Mitte", 0.25F, wdbreite, 0.05F), new Point(rechts * 0.26F + qX, 0.0F, hoch * 0.0575F));
+        	else
+        	{
+        		stein.addParam(new Quader("Mitte", 0.25F, wdbreite, 0.05F), new Point(rechts * 0.26F + qX, 0.0F, hoch * 0.0575F));
+        	}
         }
       }
       else
       {
-        myShape.addParam(new Quader("Mitte", 0.125F, wdbreite, 0.05F), new Point(-0.065F + qX, 0.0F, hoch * 0.0575F)); //rechter Rand
+        stein.addParam(new Quader("Mitte", 0.125F, wdbreite, 0.05F), new Point(-0.065F + qX, 0.0F, hoch * 0.0575F)); //rechter Rand
                                                                                               //halber Stein fuer jede zweite Reihe
-        myShape.addParam(new Quader("Mitte", 0.125F, wdbreite, 0.05F),                                                 //linker Rand
+        stein.addParam(new Quader("Mitte", 0.125F, wdbreite, 0.05F),                                                 //linker Rand
           new Point((wdlaenge - 1) * 0.26F + 0.065F + qX, 0.0F, hoch * 0.0575F));
         
         for (int i = 0; i < wdlaenge - 1; i++)

@@ -1,4 +1,4 @@
-package models3D;
+package unused;
 
 import basics.Point;
 import main.Objekt;
@@ -8,7 +8,7 @@ import params.Quader;
 import params.Shape;
 import params.ZAKomplement;
 
-public class Flaeche extends Objekt
+public class Flaeche extends Objekt //Fuer den Turm benoetigte Objekte.
 {
   protected Shape myShape = new Shape();
   

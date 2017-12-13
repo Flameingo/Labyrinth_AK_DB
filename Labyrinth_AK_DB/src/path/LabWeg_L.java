@@ -23,7 +23,7 @@ public class LabWeg_L extends Lab
   public LabWeg_L(float x, float y, float x2, float y2, float hoehe)
   {
     
-    float xx = x + WandBlock.wdbreite / 2;
+    float xx = x + WandBlock.wdbreite / 2; //Damit der Rand der Steine nicht die Grenzen des Feldes ueberragt.
     add(new Wand(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
     
   }

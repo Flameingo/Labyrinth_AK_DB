@@ -9,12 +9,13 @@ import path.*;
 
 public class AbschnittA extends Objekt
 {
-	protected Objekt[] waende = new Objekt[0];
+	protected Objekt[] waende = new Objekt[2];
 	protected Objekt[] steine = new Objekt[0];
 	  
 	public AbschnittA()
 	{
-		
+		waende[0] = new LabGitter("l",new Level(1,13));
+		waende[1] = new Sackgasse(new Level(1,13),"l");
 	}
 	
 	@Override

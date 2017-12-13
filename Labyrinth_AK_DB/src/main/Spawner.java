@@ -13,6 +13,7 @@ public class Spawner extends Objekt
   
   public static boolean     makeStatic = false;
   
+  public static AbschnittA abschnittA;
   public static AbschnittB  abschnittB;
   public static AbschnittBB abschnittBB;
   public static AbschnittBC abschnittBC;
@@ -32,15 +33,10 @@ public class Spawner extends Objekt
     Labyrinth.addObject(boden);
     // boden.hidden = true;
     
-
-   
-
     abschnittD = new AbschnittD();
 
     Labyrinth.addObject(abschnittD);
 
-
-   
     // Schalter
     // Labyrinth.addObject(new SchalterFeld("BB", new Level(8,3)));
     // Labyrinth.addObject (new SchalterFeld("B_BB", new Level(3,6))); //Existiert in ABschnitt B und Abschnitt BB
