@@ -18,7 +18,7 @@ public class Player extends Objekt
   private final float        spdSIDE = Settings.PlayerSideStepSpeed;
   
   // Position im Spiel
-  public Point               pos     = new Point(0, -1,1); //Ursp 0,-1,3 /fuer AbschnittD (0, -20, 1)
+  public Point               pos     = new Point(0, -1, 1);             // Ursp 0,-1,3 /fuer AbschnittD (0, -20, 1)
   // Kameraausrichtung
   Point                      cam     = new Point(1, 0, 0);
   
@@ -89,11 +89,9 @@ public class Player extends Objekt
    * rotates the Point "cam" with the given angles
    * 
    * @param leftright
-   *          dreht die Sicht nach Links / Rechts. Positive Werte drehen nach
-   *          links.
+   *          dreht die Sicht nach Links / Rechts. Positive Werte drehen nach links.
    * @param updown
-   *          dreht die Sicht nach Oben / Unten. Positive Werte drehen nach
-   *          oben.
+   *          dreht die Sicht nach Oben / Unten. Positive Werte drehen nach oben.
    */
   private void camRotate(float leftright, float updown)
   {
@@ -129,8 +127,10 @@ public class Player extends Objekt
    */
   public boolean hitbox(Point p)
   {
-    if (p.z < pos.z) return false;
-    if (p.z > pos.z + h_h) return false;
+    if (p.z <= pos.z) return false;
+    if (p.z >= pos.z + h_h) return false;
+    if (Math.abs(p.x - pos.x) > h_r) return false;
+    if (Math.abs(p.y - pos.y) > h_r) return false;
     Point dist = Point.add(pos, Point.neg(p));
     if (dist.length("xy") > h_r) return false;
     return true;

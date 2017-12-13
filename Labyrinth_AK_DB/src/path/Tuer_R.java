@@ -10,7 +10,7 @@ public class Tuer_R extends Lab
   
   public Tuer_R(String name, float x, float y, float z)
   {
-    waende[0] = new Tuer(name, x, y, z, 90, 0, 0);
+    addMoving(new Tuer(name, x, y, z, 90, 0, 0));
   }
   
   public Tuer_R(String name, Level lev)

@@ -128,7 +128,7 @@ public class Wand extends WandBlock
    * @param w3
    *          Drehung um die x-Achse
    * @param biege
-   *          Biegung des Objekts in Bogenmaß, positive Werte biegen nach links
+   *          Biegung des Objekts in Bogenmaï¿½, positive Werte biegen nach links
    */
   public Wand(String Egal, float x, float y, float z, float alpha, float beta, float gamma, float biege)	//Der einzige Sinn des Strings besteht darin
   {																										    //dass es dem Programmierer schwerer faellt, die

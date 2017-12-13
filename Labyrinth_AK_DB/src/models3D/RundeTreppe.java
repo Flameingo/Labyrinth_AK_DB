@@ -142,22 +142,11 @@ public class RundeTreppe extends Treppe
       for (int i = 0; i < res; i++)
         for (int j = 0; j < res; j++)
         {
-          Point p = lip(stufe, (float) i / res, (float) j / res);
+          Point p = Point.lip(stufe, (float) i / res, (float) j / res);
           while (Labyrinth.player.hitbox(p))
             Labyrinth.player.pos.z += .1f;
         }
     }
   }
   
-  Point lip(Point[] p, float ratio1, float ratio2)
-  {
-    Point erg = new Point(p[0].x, p[0].y, p[0].z);
-    float dist1_x = p[1].x - p[0].x;
-    float dist1_y = p[1].y - p[0].y;
-    float dist2_x = p[2].x - p[0].x;
-    float dist2_y = p[2].y - p[0].y;
-    erg.add(dist1_x * ratio1, dist1_y * ratio1, 0);
-    erg.add(dist2_x * ratio2, dist2_y * ratio2, 0);
-    return erg;
-  }
 }

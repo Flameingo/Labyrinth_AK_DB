@@ -8,7 +8,8 @@ import models3D.Wand;
 import models3D.WandBlock;
 import params.Material;
 
-public class LabDmgWeg_L extends Lab //Betrifft alle LabDmgWeg-Klassen: Putz muss noch programmiert werden (aufwaendig).
+public class LabDmgWeg_L extends Lab // Betrifft alle LabDmgWeg-Klassen: Putz muss noch programmiert werden
+                                     // (aufwaendig).
 {
   
   /**
@@ -25,7 +26,7 @@ public class LabDmgWeg_L extends Lab //Betrifft alle LabDmgWeg-Klassen: Putz mus
   {
     
     float xx = x + WandBlock.wdbreite / 2;
-    waende[0] = new BeschaedigteWandRANDOM(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe);
+    add(new BeschaedigteWandRANDOM(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
     
   }
   
@@ -54,6 +55,6 @@ public class LabDmgWeg_L extends Lab //Betrifft alle LabDmgWeg-Klassen: Putz mus
   public LabDmgWeg_L(Etage e, float x, float y, float x2, float y2)
   {
     float xx = x + WandBlock.wdbreite / 2;
-    waende[0] = new BeschaedigteWandRANDOM(xx, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), 2);
+    add(new BeschaedigteWandRANDOM(xx, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), 2));
   }
 }

@@ -8,16 +8,18 @@ import main.Objekt;
 public class DisplayList extends Objekt
 {
   
-  private ArrayList<Objekt> myObjekts = new ArrayList<Objekt>();
-  private int               myList    = -1;
+  private ArrayList<DisplayList_Objekt> myObjekts = new ArrayList<DisplayList_Objekt>();
+  private int                           myList    = -1;
   
   private void init()
   {
+    System.out.println("Generating new List");
+    if (myList != -1) glDeleteLists(myList, 1);
     myList = glGenLists(1);
     
     glNewList(myList, GL_COMPILE_AND_EXECUTE);
     
-    for (Objekt o : myObjekts)
+    for (DisplayList_Objekt o : myObjekts)
       o.draw();
     
     glEndList();
@@ -25,20 +27,20 @@ public class DisplayList extends Objekt
   
   public void addObjekt(Objekt o)
   {
-    myObjekts.add(o);
+    myObjekts.add(new DisplayList_Objekt(o));
   }
   
   @Override
   public void step()
   {
-    for (Objekt o : myObjekts)
+    for (DisplayList_Objekt o : myObjekts)
       o.step();
   }
   
   @Override
   public void collision()
   {
-    for (Objekt o : myObjekts)
+    for (DisplayList_Objekt o : myObjekts)
       o.collision();
   }
   
@@ -46,14 +48,23 @@ public class DisplayList extends Objekt
   public void draw()
   {
     if (myList != -1)
+    {
+      for (DisplayList_Objekt o : myObjekts)
+        if (o.hasChanged())
+        {
+          for (DisplayList_Objekt obj : myObjekts)
+            obj.setWasHiddenRight();
+          init();
+          return;
+        }
       glCallList(myList);
-    else init();
+    } else init();
   }
   
   @Override
   public void drawGUI()
   {
-    for (Objekt o : myObjekts)
+    for (DisplayList_Objekt o : myObjekts)
       o.drawGUI();
   }
   

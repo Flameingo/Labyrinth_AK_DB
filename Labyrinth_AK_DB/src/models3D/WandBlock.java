@@ -24,7 +24,7 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
   /** Anzahl der nebeneinanderliegenden Steine minus 1*
    aktuell 11 * */
   protected static int wdlaenge = 11;
-  /** Anzahl der übereinanderliegenden Steine minus 1
+  /** Anzahl der ï¿½bereinanderliegenden Steine minus 1
    * aktuell 25*/
   protected static int wdhoehe = 25;
   
@@ -59,7 +59,7 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
  /**
    * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
    * Wird eine der Unterklassen mit 6 Float-Werten aufgerufen, wird eine gerade Wand 
-   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstück um diesen Wert gebogen.
+   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstï¿½ck um diesen Wert gebogen.
    * 
    * @param x x-Koordinate
    * 
@@ -67,14 +67,14 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
    * 
    * @param z z-Koordinate, die 3 Koordinaten geben eine untere Ecke der Wand an.
    * 
-   * @param w1 Winkel für die Drehung um die z-Achse
+   * @param w1 Winkel fï¿½r die Drehung um die z-Achse
    * 
-   * @param w2 Winkel für die Drehung um die y-Achse
+   * @param w2 Winkel fï¿½r die Drehung um die y-Achse
    * 
-   * @param w3 Winkel für die Drehung um die x-Achse
+   * @param w3 Winkel fï¿½r die Drehung um die x-Achse
    * 
    * @param biege Biegt die Wand nach links fuer positive Werte in Gradmass, nach rechts fuer negative.
-   *              Nur für den Typ PrototypWand verfügbar.
+   *              Nur fï¿½r den Typ PrototypWand verfï¿½gbar.
    * 
    */
   
@@ -89,13 +89,13 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
     this.gamma = w3;
     this.biege = biege;
     
-    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
-    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
+    myShape.translate(new Point(x, y, z));   //Verantwortlich fï¿½r die Verschiebung des gesamtes Objektes
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fï¿½r die Drehung des gesamtes Objektes
   }
   /**
    * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
    * Wird eine der Unterklassen mit 6 Float-Werten aufgerufen, wird eine gerade Wand 
-   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstück um diesen Wert gebogen.
+   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstï¿½ck um diesen Wert gebogen.
    * 
    * @param x x-Koordinate
    * 
@@ -103,11 +103,11 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
    * 
    * @param z z-Koordinate, die 3 Koordinaten geben eine untere Ecke der Wand an.
    * 
-   * @param w1 Winkel für die Drehung um die z-Achse
+   * @param w1 Winkel fï¿½r die Drehung um die z-Achse
    * 
-   * @param w2 Winkel für die Drehung um die y-Achse
+   * @param w2 Winkel fï¿½r die Drehung um die y-Achse
    * 
-   * @param w3 Winkel für die Drehung um die x-Achse
+   * @param w3 Winkel fï¿½r die Drehung um die x-Achse
    * 
    */
   public WandBlock(float x, float y, float z,float w1, float w2, float w3)
@@ -120,11 +120,11 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
     this.beta = w2;
     this.gamma = w3;
     
-    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
-    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
+    myShape.translate(new Point(x, y, z));   //Verantwortlich fï¿½r die Verschiebung des gesamtes Objektes
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fï¿½r die Drehung des gesamtes Objektes
     
-    putz.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
-    putz.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
+    putz.translate(new Point(x, y, z));   //Verantwortlich fï¿½r die Verschiebung des gesamtes Objektes
+    putz.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fï¿½r die Drehung des gesamtes Objektes
    
     stein.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
     stein.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes

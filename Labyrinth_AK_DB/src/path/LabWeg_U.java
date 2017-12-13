@@ -25,7 +25,7 @@ public class LabWeg_U extends Lab
     
     float yy = y + WandBlock.wdbreite / 2;// Damit die Wandbreite nicht die
                                           // gewaehlten Grenzen ueberragt.
-    waende[0] = new Wand((x + x2) / 2 + 0.13f, yy, boden, 0, 0, 0, Math.abs(x2 - x), hoehe);
+    add(new Wand((x + x2) / 2 + 0.13f, yy, boden, 0, 0, 0, Math.abs(x2 - x), hoehe));
     
   }
   
@@ -57,7 +57,7 @@ public class LabWeg_U extends Lab
     float yy = y + WandBlock.wdbreite / 2;// Damit die Wandbreite nicht die
                                           // gewaehlten Grenzen ueberragt.
     
-    waende[0] = new Wand((x + x2) / 2 + 0.13f, yy, boden + 2.1f * e.wert(), 0, 0, 0, Math.abs(x2 - x), 2);
+    add(new Wand((x + x2) / 2 + 0.13f, yy, boden + 2.1f * e.wert(), 0, 0, 0, Math.abs(x2 - x), 2));
   }
   
 }
