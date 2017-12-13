@@ -14,10 +14,10 @@ public class Spawner extends Objekt
   public static boolean     makeStatic = false;
   
   public static AbschnittB  abschnittB;
-  public static AbschnittBB abschnittBB;
+  public static DisplayList abschnittBB;
   public static AbschnittBC abschnittBC;
-  public static AbschnittC abschnittC;
-  public static AbschnittD abschnittD;
+  public static DisplayList abschnittC;
+  public static DisplayList abschnittD;
   public static DisplayList boden;
   
   /**
