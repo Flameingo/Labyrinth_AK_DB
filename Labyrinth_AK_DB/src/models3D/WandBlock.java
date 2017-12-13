@@ -54,6 +54,8 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
   protected Shape myShape = new Shape();
   
   protected Shape putz = new Shape();
+  
+  protected Shape stein = new Shape();
  /**
    * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
    * Wird eine der Unterklassen mit 6 Float-Werten aufgerufen, wird eine gerade Wand 
@@ -124,11 +126,15 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
     putz.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
     putz.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
    
+    stein.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
+    stein.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
   }
   
   public void draw()
   {
     myShape.backsteindraw();
+    Material.BACKSTEIN.use();
+    stein.draw();
     Material.COPPER.use();
     putz.draw();
   }

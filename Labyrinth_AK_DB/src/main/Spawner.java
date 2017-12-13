@@ -34,9 +34,6 @@ public class Spawner extends Objekt
     Labyrinth.addObject(boden);
 //    boden.hidden = true;
     
-    Labyrinth.addObject(new DekoKreuz(new Level(0,0),"ro"));
-    Labyrinth.addObject(new Sackgasse(new Level(0,0),"l"));
-    
 //    DisplayList bodenBC = new DisplayList(); //40x40 mit Ursprung als Mittelpunkt. Boden fuer Abschnitt B, Abschnitt C und Abschnitt BC.
 //    bodenBC.addObjekt(new BodenBC());
 //    Labyrinth.addObject(bodenBC);   

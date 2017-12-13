@@ -4,6 +4,13 @@ import basics.Point;
 import params.Quader;
 
 public class Wand extends WandBlock
+
+                             //Wichtigste Klasse fuer den Bau des Labyrinths. Drehung und Verschiebung des Objektes findet in der Oberklasse "WandBlock" statt.
+							 //Die Klassen aus Path, die mit dieser Klasse arbeiten, bedienen sich zumeist des Konstruktors, fuer den Laenge und 
+							 //Hoehe vom Programmierer uebergeben werden muessen, der Zweite von oben in dieser Klasse.
+
+
+
 {
   /** Zeichnet ein Wandstueck mit der Laenge 5.2f und der Hoehe 1.5f
    * 
@@ -48,8 +55,18 @@ public class Wand extends WandBlock
       }
     }
   }
-  
-  public Wand(float x, float y, float z, float alpha, float beta, float gamma, float laenge, float hoehe)
+  /** Zeichnet eine Wand mit vorgegebenen Laengenmassen und Hoehenmassen.
+   *  Lage des Mittelpunktes bzgl x - und y - Koordinate und Drehungen koennen bestimmt werden.
+   * @param x
+   * @param y
+   * @param z
+   * @param alpha
+   * @param beta
+   * @param gamma
+   * @param laenge
+   * @param hoehe
+   */
+  public Wand(float x, float y, float z, float alpha, float beta, float gamma, float laenge, float hoehe) 
   {
     super(x, y, z, alpha, beta, gamma);
     /** 
@@ -69,19 +86,23 @@ public class Wand extends WandBlock
         
         for (int rechts = 0; rechts < (laenge)*10/2.6 ; rechts++)          
         {
-          
-          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts * 0.26f + vX, 0, hoch * 0.06f+boden));
+          if(rechts != 0 && rechts != (int)(laenge*10/2.6))
+        	  myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts * 0.26f + vX, 0, hoch * 0.06f+boden));
                                                   //Backsteinreihe, die unterste und jede zweite
                                                   //Jeder Backstein wird so erschaffen, dass seine Koordinaten (Point) seinen Mittelpunkt bilden.
-                    
-        }
+          else
+          {
+        	  stein.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(rechts * 0.26f + vX, 0, hoch * 0.06f+boden)); //Der Aufruf stein sorgt dafuer, dass
+          }																														  //Randsteine nicht nur die Zufallsfunktion
+          																														  //farblich bestimmt werden, die "myShape.draw()"
+        }																														  //betrifft.
         
       } else
       {
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
-            new Point(-0.065f + vX, 0, hoch * 0.06f+boden));                                 //Halbe Steinreihe am Wandrand
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
-            new Point( (int)(laenge*10/2.6f)*0.26f+0.0625f+vX, 0, hoch * 0.06f+boden));  //Halbe Steinreihe am anderen Wandrand
+        stein.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
+            new Point(-0.065f + vX, 0, hoch * 0.06f+boden));                                 //Halbe Steinreihe am Wandrand.
+        stein.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
+            new Point( (int)(laenge*10/2.6f)*0.26f+0.0625f+vX, 0, hoch * 0.06f+boden));  //Halbe Steinreihe am anderen Wandrand.
         
         for (int rechts2 = 0; rechts2 < (laenge)*10/2.6 - 1; rechts2++)
         {
@@ -109,11 +130,11 @@ public class Wand extends WandBlock
    * @param biege
    *          Biegung des Objekts in Bogenmaß, positive Werte biegen nach links
    */
-  public Wand(String Egal, float x, float y, float z, float alpha, float beta, float gamma, float biege)
-  {
-    
-    super(x, y, z, alpha, beta, gamma, biege);
-    
+  public Wand(String Egal, float x, float y, float z, float alpha, float beta, float gamma, float biege)	//Der einzige Sinn des Strings besteht darin
+  {																										    //dass es dem Programmierer schwerer faellt, die
+	  																										//Konstruktoren fuer die gebogene Wand und fuer die 
+	super(x, y, z, alpha, beta, gamma, biege);															   	    //gerade Wand zu verwechseln, da diese aehnliche Eintraege
+	  																										//verlangen.
     
     float abstand = 1.7f; // ursp. 1.7f
     
@@ -163,12 +184,12 @@ public class Wand extends WandBlock
       }
     }   
   }    
-  
-  public Wand(String Egal, float x, float y, float z, float alpha, float beta, float gamma, float biege, float hoehe)
-  {
-    
-    super(x, y, z, alpha, beta, gamma, biege);
-    
+
+  public Wand(String Egal, float x, float y, float z, float alpha, float beta, float gamma, float biege, float hoehe) //Der einzige Sinn des Strings besteht darin
+  {																													  //dass es dem Programmierer schwerer faellt, die
+	  																												  //Konstruktoren fuer die gebogene Wand und fuer die 
+    super(x, y, z, alpha, beta, gamma, biege);																		  //gerade Wand zu verwechseln, da diese aehnliche Eintraege
+    																												  //verlangen.
     
     float abstand = 1.7f; // ursp. 1.7f
     
