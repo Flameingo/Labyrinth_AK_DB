@@ -10,7 +10,7 @@ import path.*;
 public class AbschnittB extends Objekt
 {
   public static Objekt[] waende = new Objekt[50];
-  protected Objekt[] steine = new Objekt[22];
+  protected Objekt[]     steine = new Objekt[22];
   
   public AbschnittB()
   {
@@ -27,7 +27,7 @@ public class AbschnittB extends Objekt
     waende[9] = new LabWeg_o_u(new Level(5, 2));
     waende[10] = new LabEck_lo(new Level(5, 3), true);
     waende[11] = new LabWeg_r_l(new Level(4, 3));
-    waende[12] = new LabWeg_O(new Level(3, 3));
+    waende[12] = new LabDmgWeg_O(new Level(3, 3));
     waende[13] = new LabWeg_U(new Level(3, 4));
     waende[14] = new LabWeg_U(new Level(4, 4));
     waende[15] = new LabWeg_U(new Level(5, 4));
@@ -50,7 +50,7 @@ public class AbschnittB extends Objekt
     waende[32] = new LabWeg_L(new Level(1, 6));
     waende[33] = new LabWeg_U(new Level(2, 6));
     waende[34] = new LabWeg_U(new Level(3, 6));
-    waende[35] = new LabTuer_L(new Level (3,6));
+    waende[35] = new LabTuer_L(new Level(3, 6));
     waende[36] = new LabTuer_R(new Level(3, 6));
     waende[37] = new LabEck_lu(new Level(9, 1), true);
     waende[38] = new LabEck_lo(new Level(10, 5), true);
@@ -69,7 +69,6 @@ public class AbschnittB extends Objekt
     waende[44] = new LabWeg_L(Etage.KELLER, new Level(9, 4));
     waende[45] = new LabWeg_o_u(Etage.KELLER, new Level(9, 3));
     waende[46] = new LabTuer_O(Etage.KELLER, new Level(9, 4));
-   
     
     // Ecksteine werden in der linken oberen Ecke des Feldes platziert
     

@@ -25,7 +25,7 @@ public class LabTuer_L extends Lab
   {
     
     float xx = x + WandBlock.wdbreite / 2;
-    waende[0] = new TWD(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe);
+    add(new TWD(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
     
   }
   

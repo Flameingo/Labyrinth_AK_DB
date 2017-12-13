@@ -136,6 +136,17 @@ public abstract class Param
   }
   
   /**
+   * Entspricht der draw() funktion dieser Klasse. Allerdings ist hier die Farbwahl via "Material" mit einer Zufallsfunktion (Param.randomfarbe()) definiert.
+   */
+  public void backsteindraw()
+  {
+	  material = randomfarbe();
+      material.use();
+    
+    drawParametrisierung();
+  }
+  
+  /**
    * Zeichnet das Objekt
    * 
    */
@@ -172,10 +183,35 @@ public abstract class Param
       }
     }
   }
+
+  public static Material randomfarbe()
+  {
+	double z = Math.random();
+	if (z < 0.3f)
+	{
+		return Material.BACKSTEIN;
+	}
+	if (z >=0.3f && z < 0.5f)
+	{
+		return Material.BACKSTEIN3;
+		
+	}
+	if (z >= 0.5f && z < 0.75f)
+	{
+		return Material.BACKSTEIN2;
+		
+	}
+	if (z >= 0.75f)
+	{
+		return Material.RED_PLASTIC;
+	}
+	return null;
+  }
   
   abstract protected float x(float u, float v);
   
   abstract protected float y(float u, float v);
   
   abstract protected float z(float u, float v);
+
 }

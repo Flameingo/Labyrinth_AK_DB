@@ -9,17 +9,25 @@ import static org.lwjgl.opengl.GL11.*;
 
 import basics.Point;
 
-public class WandBlock extends Objekt
+public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
 {
+                                                          //Uebergebene Werte werden abgespeichert.
+	                                                      //Hier wird die Verschiebung und Drehung aller WandObjekte ("myShape" und "putz") umgesetzt.
+														  //Davon abgesehen ist die Stein-Breite fuer alle Wand-Typen hier festgesetzt.
+	                                                      //
+	
+	
+	
+	//______________________________________________________________________________________________________________
+	// Dieser Abschnitt betrifft nur Unterklassen-Objekte ohne uebergebene Werte fuer Laenge und Hoehe:
+	
   /** Anzahl der nebeneinanderliegenden Steine minus 1*
    aktuell 11 * */
   protected static int wdlaenge = 11;
-  /** Anzahl der übereinanderliegenden Steine minus 1
+  /** Anzahl der ï¿½bereinanderliegenden Steine minus 1
    * aktuell 25*/
   protected static int wdhoehe = 25;
-  /** Definiert die Breite jedes Backsteins der Wand 
-   * aktuell 0.1f*/
-  public static float wdbreite = 0.1f;
+  
   
   /**
    * Diese Verschiebung jedes Objekts um die x - Achse sorgt dafuer, dass der Ursprung in der Mitte der Wand liegt.
@@ -30,14 +38,18 @@ public class WandBlock extends Objekt
    * Hierbei beeinflusst die z-Achse die Hoehe.
    * */
  
+  // ___________________________________________________________________________________________________________________
   
+  /** Definiert die Breite jedes Backsteins der Wand 
+   * aktuell 0.1f*/
+  public static float wdbreite = 0.1f;
   
   /** biege beschreibt die eventuelle Biegung des Objekts,
    * ein positiver Wert enspricht einer Biegung nach links
    */
   protected float biege;
   /**
-   * Diese Objekte werden in entsprechenden Klassen von der Methode myShape.draw(); im Spiel platziert.
+   * In diesem Fall sind dies die Backsteine. Diese werden mit "myShape.draw()" gezeichnet.
    */
   protected Shape myShape = new Shape();
   
@@ -45,7 +57,7 @@ public class WandBlock extends Objekt
  /**
    * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
    * Wird eine der Unterklassen mit 6 Float-Werten aufgerufen, wird eine gerade Wand 
-   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstück um diesen Wert gebogen.
+   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstï¿½ck um diesen Wert gebogen.
    * 
    * @param x x-Koordinate
    * 
@@ -53,14 +65,14 @@ public class WandBlock extends Objekt
    * 
    * @param z z-Koordinate, die 3 Koordinaten geben eine untere Ecke der Wand an.
    * 
-   * @param w1 Winkel für die Drehung um die z-Achse
+   * @param w1 Winkel fï¿½r die Drehung um die z-Achse
    * 
-   * @param w2 Winkel für die Drehung um die y-Achse
+   * @param w2 Winkel fï¿½r die Drehung um die y-Achse
    * 
-   * @param w3 Winkel für die Drehung um die x-Achse
+   * @param w3 Winkel fï¿½r die Drehung um die x-Achse
    * 
    * @param biege Biegt die Wand nach links fuer positive Werte in Gradmass, nach rechts fuer negative.
-   *              Nur für den Typ PrototypWand verfügbar.
+   *              Nur fï¿½r den Typ PrototypWand verfï¿½gbar.
    * 
    */
   
@@ -75,13 +87,13 @@ public class WandBlock extends Objekt
     this.gamma = w3;
     this.biege = biege;
     
-    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
-    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
+    myShape.translate(new Point(x, y, z));   //Verantwortlich fï¿½r die Verschiebung des gesamtes Objektes
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fï¿½r die Drehung des gesamtes Objektes
   }
   /**
    * Der Konstruktor der Klasse WandBlock dient nur als Oberklasse. 
    * Wird eine der Unterklassen mit 6 Float-Werten aufgerufen, wird eine gerade Wand 
-   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstück um diesen Wert gebogen.
+   * erstellt, wird dieser mit 7 Float-Werten aufgerufen, wird das Wandstï¿½ck um diesen Wert gebogen.
    * 
    * @param x x-Koordinate
    * 
@@ -89,11 +101,11 @@ public class WandBlock extends Objekt
    * 
    * @param z z-Koordinate, die 3 Koordinaten geben eine untere Ecke der Wand an.
    * 
-   * @param w1 Winkel für die Drehung um die z-Achse
+   * @param w1 Winkel fï¿½r die Drehung um die z-Achse
    * 
-   * @param w2 Winkel für die Drehung um die y-Achse
+   * @param w2 Winkel fï¿½r die Drehung um die y-Achse
    * 
-   * @param w3 Winkel für die Drehung um die x-Achse
+   * @param w3 Winkel fï¿½r die Drehung um die x-Achse
    * 
    */
   public WandBlock(float x, float y, float z,float w1, float w2, float w3)
@@ -106,18 +118,17 @@ public class WandBlock extends Objekt
     this.beta = w2;
     this.gamma = w3;
     
-    myShape.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
-    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
+    myShape.translate(new Point(x, y, z));   //Verantwortlich fï¿½r die Verschiebung des gesamtes Objektes
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fï¿½r die Drehung des gesamtes Objektes
     
-    putz.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
-    putz.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
+    putz.translate(new Point(x, y, z));   //Verantwortlich fï¿½r die Verschiebung des gesamtes Objektes
+    putz.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fï¿½r die Drehung des gesamtes Objektes
    
   }
   
   public void draw()
   {
-    Material.BACKSTEIN.use();
-    myShape.draw();
+    myShape.backsteindraw();
     Material.COPPER.use();
     putz.draw();
   }
