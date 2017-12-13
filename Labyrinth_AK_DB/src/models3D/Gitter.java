@@ -31,8 +31,8 @@ public class Gitter extends Objekt
       myShape.addParam(new Zylinder (0.03f,0.03f,0.2f*stghoehe*5-0.1f), 
           new Point(0.2f*(rechts)-0.1f*(stgbreite*5.5f),0,0), new float[]{0,0,0});
       
-      
-    }
+    }  
+   
     for (int hoch = 0; hoch < stghoehe*5; hoch++)
     {                                                                   //Erschafft die waagrechten Stangen
       myShape.addParam(new Zylinder (0.03f,0.03f,0.2f*stgbreite*5-0.1f), 

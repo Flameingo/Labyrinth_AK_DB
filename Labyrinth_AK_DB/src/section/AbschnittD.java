@@ -2,12 +2,14 @@ package section;
 
 import basics.Level;
 import main.Objekt;
+import models3D.DekoKreuz;
 import path.*;
 
 public class AbschnittD extends Objekt
 {
-	protected Objekt[] waende = new Objekt[370];
-	protected Objekt[] steine = new Objekt[22];
+	protected Objekt[] waende = new Objekt[371];
+	protected Objekt[] steine = new Objekt[26];
+
 	  
 	
 	public AbschnittD()
@@ -157,8 +159,8 @@ public class AbschnittD extends Objekt
 		waende[139] = new LabWeg_U(new Level(2,10));
 		waende[140] = new LabEck_lu(new Level(2,9));
 		waende[141] = new LabEck_ru(new Level(1,9));
-		waende[142] = new LabWeg_R(new Level(1,10));
-		waende[143] = new LabWeg_R(new Level(1,11));
+		waende[142] = new LabWeg_L(new Level(1,10));
+		waende[143] = new LabWeg_L(new Level(1,11));
 		waende[144] = new LabWeg_r_l(new Level(8,8));
 		waende[145] = new LabWeg_r_l(new Level(7,8));
 		waende[146] = new LabWeg_r_l(new Level(6,8));
@@ -384,6 +386,7 @@ public class AbschnittD extends Objekt
 		waende[367] = new LabGitter("o",new Level(10,19));
 		waende[368] = new LabGitter("u", new Level(23,24));
 		waende[369] = new LabGitter("l", new Level(15,5));
+		waende[370] = new LabTuer_U(new Level(16,11));
 		
 		
 		
@@ -410,6 +413,10 @@ public class AbschnittD extends Objekt
 		steine[19] = new Eckstein(new Level(24,16));
 		steine[20] = new Eckstein(new Level(25,16));
 		steine[21] = new Eckstein(new Level(20,13));
+		steine[22] = new Eckstein(new Level(3,10));
+		steine[23] = new Eckstein(new Level(3,7));
+		steine[24] = new Eckstein(new Level(5,7));
+		steine[25] = new DekoKreuz(new Level(6,13),"ru");
 		
 	}
 	@Override

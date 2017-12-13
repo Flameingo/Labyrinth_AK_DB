@@ -91,11 +91,9 @@ public class BeschaedigteWandRANDOM extends WandBlock                      //Ers
     
        else  //Betrifft jede Reihe mit gerader Zahl von unten gezaehlt.
        {
-         stein.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f+vX,0,hoch*0.06f+boden));
-         stein.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((int)(laenge*10/2.6f)*0.26f+0.0625f+vX, 0, hoch * 0.06f+boden));
          
               
-           if (Math.random()>0.2f)
+           if (Math.random()>0.2f && rechts < (int)(laenge*10/2.6) )
            {
         	   myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (rechts*0.26f+0.13f+vX,0,hoch*0.06f+boden)); 
         	   matrix[rechts+1][2*hoch+2] = 1;																								//Ausfuehrung des gleichen
@@ -110,6 +108,9 @@ public class BeschaedigteWandRANDOM extends WandBlock                      //Ers
            }
          }
        }
+    stein.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f+vX,0,hoch*0.06f+boden));
+    stein.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((int)(laenge*10/2.6f)*0.26f+0.0625f+vX, 0, hoch * 0.06f+boden));
+    
     }
   }
   
