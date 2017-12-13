@@ -127,9 +127,10 @@ public class Player extends Objekt
    */
   public boolean hitbox(Point p)
   {
-    if (p.z < pos.z) return false;
-    if (p.z > pos.z + h_h) return false;
+    if (p.z <= pos.z) return false;
+    if (p.z >= pos.z + h_h) return false;
     if (Math.abs(p.x - pos.x) > h_r) return false;
+    if (Math.abs(p.y - pos.y) > h_r) return false;
     Point dist = Point.add(pos, Point.neg(p));
     if (dist.length("xy") > h_r) return false;
     return true;
