@@ -61,9 +61,10 @@ public class Spawner extends Objekt
     Labyrinth.addObject(new Tuer_L("d2", new Level(1, 21)));
     Labyrinth.addObject(new Tuer_L("d21", new Level(1, 28)));
     Labyrinth.addObject(new Tuer_L("d3", new Level(9, 17)));
-    Labyrinth.addObject(new Tuer_O("d31", new Level(16, 11)));
+    Labyrinth.addObject(new Tuer_U("d31", new Level(16, 11)));
     Labyrinth.addObject(new Tuer_U("d4", new Level(-5, 21)));
     Labyrinth.addObject(new Tuer_L("d5", new Level(15, 20)));
+    
     
   }
   

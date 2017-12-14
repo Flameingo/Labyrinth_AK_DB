@@ -69,6 +69,8 @@ public class Text
 //	  int i = 5;
 	  String Ausgabe = "Level: " + Kompass.getLvlX()+ "I"+ Kompass.getLvlY();
     draw_text(Ausgabe, new Point(10, 30), 30);
+    	String Ausgabe2 = "Finde die Hobbits";
+    	draw_text(Ausgabe2, new Point (20,7),20);
   }
   
   public static void draw_text(String string, Point pos, int size)
