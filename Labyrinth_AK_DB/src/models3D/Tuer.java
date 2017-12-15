@@ -41,7 +41,7 @@ public class Tuer extends Objekt
     
     myShape.addParam(new Quader("Ecke", 0.73f, 0.05f, 1.82f), new Point(0, -0.05f, -0.02f));
     myShape.rotate(new float[] { alpha, beta, gamma });
-    myShape.translate(new Point(pos.x, pos.y, pos.z));
+    myShape.translate(pos);
   }
   
   public boolean getStatus()
@@ -116,7 +116,6 @@ public class Tuer extends Objekt
   {
     Material.CHROME.use();
     glPushMatrix();
-    this.translate_rotate();
     myShape.draw();
     glPopMatrix();
   }
