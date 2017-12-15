@@ -5,19 +5,17 @@ import models3D.*;
 import path.*;
 import section.*;
 
-
 public class Spawner extends Objekt
 {
   
   public static boolean     makeStatic = false;
   
-  public static AbschnittA abschnittA;
+  public static AbschnittA  abschnittA;
   public static AbschnittB  abschnittB;
   public static AbschnittBB abschnittBB;
   public static AbschnittBC abschnittBC;
-  public static AbschnittC abschnittC;
-  public static AbschnittD abschnittD;
-
+  public static AbschnittC  abschnittC;
+  public static AbschnittD  abschnittD;
   
   /**
    * created once at the start of the game and places all objects that should be in the game at the start.
@@ -26,15 +24,15 @@ public class Spawner extends Objekt
   {
     // Hier werden die Objekte ins Spiel gesetzt:
     
-   DisplayList boden = new DisplayList(); // Vollstaendiger Boden mit 60 x60 und Ursprung als Mittelpunkt.
+    DisplayList boden = new DisplayList(); // Vollstaendiger Boden mit 60 x60 und Ursprung als Mittelpunkt.
     boden.addObjekt(new Boden());
     Labyrinth.addObject(boden);
     // boden.hidden = true;
-//    Labyrinth.addObject(new DekoSchild());
+    // Labyrinth.addObject(new DekoSchild());
     abschnittD = new AbschnittD();
-//
+    //
     Labyrinth.addObject(abschnittD);
-
+    
     // Schalter
     // Labyrinth.addObject(new SchalterFeld("BB", new Level(8,3)));
     // Labyrinth.addObject (new SchalterFeld("B_BB", new Level(3,6))); //Existiert in ABschnitt B und Abschnitt BB
@@ -55,6 +53,7 @@ public class Spawner extends Objekt
     Labyrinth.addObject(new SchalterFeld("D5", new Level(19, 22)));
     
     // Tueren (Abschnitt D)
+    Labyrinth.addObject(new Tuer_O("a", new Level(1, 014)));
     Labyrinth.addObject(new Tuer_O("d1", new Level(9, 8)));
     Labyrinth.addObject(new Tuer_L("d2", new Level(1, 21)));
     Labyrinth.addObject(new Tuer_L("d21", new Level(1, 28)));
@@ -62,7 +61,6 @@ public class Spawner extends Objekt
     Labyrinth.addObject(new Tuer_U("d31", new Level(16, 11)));
     Labyrinth.addObject(new Tuer_U("d4", new Level(-5, 21)));
     Labyrinth.addObject(new Tuer_L("d5", new Level(15, 20)));
-
     
   }
   

@@ -28,12 +28,12 @@ public class Schalter extends Funktionen
   
   private float   winkel = 0f;
   
-  public Schalter(String befehl,float x, float y, float z, float alpha, float beta, float gamma)
+  public Schalter(String befehl, float x, float y, float z, float alpha, float beta, float gamma)
   {
     this.befehl = befehl;
-    this.x = x;
-    this.y = y;
-    this.z = z;
+    pos.x = x;
+    pos.y = y;
+    pos.z = z;
     stop = true;
     schalt = false;
     status = false;
@@ -51,7 +51,7 @@ public class Schalter extends Funktionen
     
     block.translate(new Point(x, y, z));
     hebel.translate(new Point(x, y, z));
-
+    
   }
   
   public void schalten()
@@ -67,7 +67,7 @@ public class Schalter extends Funktionen
       }
       status = false;
       Funktionen.minusschalten(this.befehl);
-     
+      
     }
   }
   
@@ -97,14 +97,14 @@ public class Schalter extends Funktionen
       switch (key)
       {
       case GLFW_KEY_G:
-        p = Point.add(Labyrinth.player.pos, -x, -y, -z);
+        p = Point.add(Labyrinth.player.pos, -pos.x, -pos.y, -pos.z);
         if (p.length("xy") < 1) schalten();
       }
     }
     if (stop != true)
     {
       hebel.rotate(new float[] { 0, winkel, 0 });
-      hebel.translate(new Point(winkel * -0.1f / 70 + x, y, z));
+      hebel.translate(new Point(winkel * -0.1f / 70 + pos.x, pos.y, pos.z));
     }
     if (schalt == true)
     {
@@ -130,14 +130,11 @@ public class Schalter extends Funktionen
   @Override
   public void collision()
   {
-    // TODO Auto-generated method stub
-    
   }
   
   @Override
   public void draw()
   {
-    // TODO Auto-generated method stub
     Material.SILVER.use();
     block.draw();
     Material.BLACK_RUBBER.use();
@@ -148,8 +145,6 @@ public class Schalter extends Funktionen
   @Override
   public void drawGUI()
   {
-    // TODO Auto-generated method stub
-    
   }
   
 }

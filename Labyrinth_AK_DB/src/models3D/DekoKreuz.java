@@ -22,36 +22,36 @@ public class DekoKreuz extends Objekt
 		switch(ecke)
 		{
 			case "ro": 
-				this.x = lev.x2 - 0.4f;
-				this.y = lev.y2 - 0.5f;
+				pos.x = lev.x2 - 0.4f;
+				pos.y = lev.y2 - 0.5f;
 				this.alpha = 10;
 				break;
 			case "ru":
-				this.x = lev.x2 - 0.4f;
-				this.y = lev.y1 + 0.5f;
+			  pos.x = lev.x2 - 0.4f;
+			  pos.y = lev.y1 + 0.5f;
 				this.alpha = - 10;
 				break;
 			case "lo":
-				this.x = lev.x1 + 0.4f;
-				this.y = lev.y2 - 0.5f;
+			  pos.x = lev.x1 + 0.4f;
+			  pos.y = lev.y2 - 0.5f;
 				this.alpha = - 10;
 				break;
 			case "lu":
-				this.x = lev.x1 + 0.4f;
-				this.y = lev.y1 + 0.5f;
+			  pos.x = lev.x1 + 0.4f;
+			  pos.y = lev.y1 + 0.5f;
 				this.alpha = 10;
 				break;
 			default:
-				this.x = lev.x1 + 0.75f;
-				this.y = lev.y2 - 0.75f;
+			  pos.x = lev.x1 + 0.75f;
+			  pos.y = lev.y2 - 0.75f;
 				break;
 		}
 		
-		myShape.translate(new Point(this.x,this.y,0));
+		myShape.translate(new Point(pos.x,pos.y,0));
 		myShape.rotate(new float[]{alpha,0,0});
 		Point p;
 		String Ausgabe = "Press F to pay respect";
-		 p = Point.add(Labyrinth.player.pos, -x, -y, -0);
+		 p = Point.add(Labyrinth.player.pos, -pos.x, -pos.y, -0);
 	        if (p.length("xy") < 1) Text.draw_text(Ausgabe, new Point (10,30), 40);
 	}
 	

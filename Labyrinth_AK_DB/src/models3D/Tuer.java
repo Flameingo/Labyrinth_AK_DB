@@ -11,7 +11,6 @@ import params.Shape;
 
 public class Tuer extends Objekt
 {
-  protected float   x, y, z;
   private float     winkel  = 0f;
   protected boolean schalt;
   protected boolean offen;
@@ -29,22 +28,20 @@ public class Tuer extends Objekt
    */
   public Tuer(String name, float x, float y, float z, float w1, float w2, float w3)
   {
-    this.x = x;
-    this.y = y;
-    this.z = z;
+    pos = new Point(x, y, z);
     this.name = name;
     
-    this.alpha = w1;
-    this.beta = w2;
-    this.gamma = w3;
+    alpha = w1;
+    beta = w2;
+    gamma = w3;
     
-    this.offen = false;
-    this.schalt = false;
-    this.stop = false;
+    offen = false;
+    schalt = false;
+    stop = false;
     
     myShape.addParam(new Quader("Ecke", 0.73f, 0.05f, 1.82f), new Point(0, -0.05f, -0.02f));
     myShape.rotate(new float[] { alpha, beta, gamma });
-    myShape.translate(new Point(this.x, this.y, this.z));
+    myShape.translate(new Point(pos.x, pos.y, pos.z));
   }
   
   public boolean getStatus()

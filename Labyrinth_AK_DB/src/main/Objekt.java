@@ -6,20 +6,21 @@ import static org.lwjgl.opengl.GL11.glTranslatef;
 import basics.*;
 import params.Param;
 
-
-public abstract class Objekt            //Oberklasse saemtlicher Klassen aus "models3D", "params", "path" und "section", sowie Spawner, Funktionen und Player.
-{                                       //Hier sind die abstrakten Koerper der Methoden "draw","step","collision" und "drawGui" untergebracht.
-	
-	                                    //Die in allen Models3D enthaltenen Variablen x,y,z (Die Koordinaten zur Platzierung des Objektes) und alpha, beta, gamma
-	                                    //(Drehung des Objektes: alpha : z - Achse, beta : y - Achse, gamma : x - Achse) sind hier definiert.
-	                                    //Die Rotation oder Verschiebung eines Objektes, die innerhalb dessen Klasse aufgerufen wird, wird hier ausgefuehrt.
-	
-	                                    //getA() und getB() finden Relevanz fuer das path-Package, damit kann jedem Objekt das Feld zugeordnet werden, auf dem es sich
-										//befindet.
-
-	// Variablen
-
-
+public abstract class Objekt // Oberklasse saemtlicher Klassen aus "models3D", "params", "path" und "section", sowie
+                             // Spawner, Funktionen und Player.
+{ // Hier sind die abstrakten Koerper der Methoden "draw","step","collision" und "drawGui" untergebracht.
+  
+  // Die in allen Models3D enthaltenen Variablen x,y,z (Die Koordinaten zur Platzierung des Objektes) und alpha, beta,
+  // gamma
+  // (Drehung des Objektes: alpha : z - Achse, beta : y - Achse, gamma : x - Achse) sind hier definiert.
+  // Die Rotation oder Verschiebung eines Objektes, die innerhalb dessen Klasse aufgerufen wird, wird hier ausgefuehrt.
+  
+  // getA() und getB() finden Relevanz fuer das path-Package, damit kann jedem Objekt das Feld zugeordnet werden, auf
+  // dem es sich
+  // befindet.
+  
+  // Variablen
+  
   /**
    * Statusmaschine: Die Minimale Aufloesung eines Params kann hiermit erhoeht werden. Muss vor dem Aufruf des
    * Konstruktors gesetzt werden.
@@ -40,28 +41,23 @@ public abstract class Objekt            //Oberklasse saemtlicher Klassen aus "mo
   /**
    * 1/2 * wandFeld entspricht der Laenge einer Backsteinwand, die OHNE einen floatwert "laenge" uebergeben wird.
    */
-
-  public final float wandFeld = 5.70f;
+  
+  public final float   wandFeld         = 5.70f;
   /**
-   * Fuer jedes WandBlock-Objekt uebernommener Wert der dessen z-Koordinate anaddiert wird. Folge dessen ist das Objekt auf dem "Boden" stehend und schneidet diesen nicht.
+   * Fuer jedes WandBlock-Objekt uebernommener Wert der dessen z-Koordinate anaddiert wird. Folge dessen ist das Objekt
+   * auf dem "Boden" stehend und schneidet diesen nicht.
    */
-  public final float boden    = 0.016f;
-
-
+  public final float   boden            = 0.016f;
+  
   /**
    * alpha ist z - Achse (senkrechte Achse) beta ist y - Achse gamma ist x - Achse
    */
   protected float      alpha            = 0, beta = 0, gamma = 0;
+  
   /**
    * Hilfsvariablen zur Ermittlung aller auf einem bestimmten Feld liegenden Objekten.
    */
-
-  protected float a , b;
-
-  /**
-   * x und y bilden die waagrechte Ebene. z bestimmt die Hoehe.
-   */
-  protected float      x, y, z;
+  protected float      a, b;
   
   public Point         pos              = new Point(0, 0, 0);
   

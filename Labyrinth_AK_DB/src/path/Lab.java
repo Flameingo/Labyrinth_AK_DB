@@ -40,7 +40,10 @@ public class Lab extends Objekt
   protected void addMoving(Objekt o)
   {
     myListMoving.add(o);
+    test = this;
   }
+  
+  private static Lab test = null;
   
   public void collision()
   {
@@ -59,7 +62,11 @@ public class Lab extends Objekt
     {
       myList.draw();
       for (Objekt o : myListMoving)
+      {
+        System.out.println(o);
+        System.out.println(o.pos);
         o.draw();
+      }
     }
   }
   
