@@ -8,12 +8,11 @@ import models3D.Wand;
 import models3D.WandBlock;
 import params.Material;
 
-public class LabDmgWeg_L extends Lab // Betrifft alle LabDmgWeg-Klassen: Putz muss noch programmiert werden
-                                     // (aufwaendig).
+public class LabDmgWeg_L extends Lab
 {
   
   /**
-   * Zwei Punkte spannen ein Quadrat auf
+   * Zwei Punkte spannen ein Quadrat auf. An der linken Kante dieses Quadrates (Richtung der negativen x - Achse).
    * 
    * @param x
    * @param y

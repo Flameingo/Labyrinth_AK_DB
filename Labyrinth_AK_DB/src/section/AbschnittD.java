@@ -3,12 +3,13 @@ package section;
 import basics.Level;
 import main.Objekt;
 import models3D.DekoKreuz;
+import models3D.Tuer;
 import path.*;
 
 public class AbschnittD extends Objekt
 {
 	protected Objekt[] waende = new Objekt[371];
-	protected Objekt[] steine = new Objekt[28];
+	protected Objekt[] steine = new Objekt[29];
 
 	  
 	
@@ -387,7 +388,7 @@ public class AbschnittD extends Objekt
 		waende[368] = new LabGitter("u", new Level(23,24));
 		waende[369] = new LabGitter("l", new Level(15,5));
 		waende[370] = new LabTuer_U(new Level(16,11));
-		
+//		waende[371] = new Tuer("=!",0,-20,0,0,0,0);
 		
 		
 		//Ecksteine
@@ -419,6 +420,7 @@ public class AbschnittD extends Objekt
 		steine[25] = new Eckstein(new Level(19,15));
 		steine[26] = new DekoKreuz(new Level(6,13),"ru");
 		steine[27] = new Eckstein(new Level(2,16));
+		steine[28] = new Eckstein(new Level(17,23));
 		
 	}
 	@Override
