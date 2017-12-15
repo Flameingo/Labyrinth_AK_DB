@@ -118,7 +118,10 @@ public class Tuer extends Objekt
   public void draw()
   {
     Material.CHROME.use();
+    glPushMatrix();
+    this.translate_rotate();
     myShape.draw();
+    glPopMatrix();
   }
   
   public void drawGUI()

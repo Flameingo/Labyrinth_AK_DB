@@ -25,8 +25,7 @@ public class Shape
    * @param pos
    *          Position to place the Param at.
    * @param rotate
-   *          Rotation the Param is Placed in: Rotated in this Plane: { X-Y ,
-   *          X-Z , Y-Z } specified in degree
+   *          Rotation the Param is Placed in: Rotated in this Plane: { X-Y , X-Z , Y-Z } specified in degree
    */
   public void addParam(Param param, Point pos, float[] rotate)
   {
@@ -46,6 +45,7 @@ public class Shape
     newrotate[rotateParams.length] = rotate;
     rotateParams = newrotate;
   }
+  
   /**
    * Adds a Param to the array. Includes a position. Rotation is 0.
    * 
@@ -65,8 +65,7 @@ public class Shape
    * @param param
    *          The Param to be added
    * @param rotation
-   *          Rotation the Param is Placed in: Rotated in this Plane: { X-Y ,
-   *          X-Z , Y-Z } specified in degree
+   *          Rotation the Param is Placed in: Rotated in this Plane: { X-Y , X-Z , Y-Z } specified in degree
    */
   public void addParam(Param param, float[] rotation)
   {
@@ -85,8 +84,7 @@ public class Shape
   }
   
   /**
-   * searches a Param in the Shape and returns the int value for the field
-   * "params".
+   * searches a Param in the Shape and returns the int value for the field "params".
    * 
    * @param param
    *          the Param to be searched for
@@ -121,8 +119,7 @@ public class Shape
    * @param param
    *          the param that will be rotated
    * @param rotate
-   *          Rotation the Param is set to: Rotated in this Plane: { X-Y , X-Z ,
-   *          Y-Z } specified in degree
+   *          Rotation the Param is set to: Rotated in this Plane: { X-Y , X-Z , Y-Z } specified in degree
    */
   public void rotateParam(Param param, float[] rotate)
   {
@@ -146,8 +143,7 @@ public class Shape
    * set rotation of the whole Shape with the given arcs.
    * 
    * @param newRotate
-   *          Rotation the Shape is set to: Rotated in this Plane: { X-Y , X-Z ,
-   *          Y-Z } specified in degree
+   *          Rotation the Shape is set to: Rotated in this Plane: { X-Y , X-Z , Y-Z } specified in degree
    */
   public void rotate(float[] newRotate)
   {
@@ -182,36 +178,37 @@ public class Shape
     }
     glPopMatrix();
   }
+  
   /**
-   * Entspricht der Funktion "draw" dieser Klasse. Mit dem Unterschied, dass hier Param.backsteindraw() anstatt Param.draw() aufgerufen wird.
+   * Entspricht der Funktion "draw" dieser Klasse. Mit dem Unterschied, dass hier Param.backsteindraw() anstatt
+   * Param.draw() aufgerufen wird.
    */
   public void backsteindraw()
   {
-     // Set Material to be used if specified
-     if (materialAll != null) 
-    	 	materialAll.use();
-
-     // Place the whole Shape according to "origin" and "RotateAll"
-		    glPushMatrix();
-		    {
-		      glTranslatef(origin.x, origin.y, origin.z);
-		      glRotatef(rotateAll[2], 1, 0, 0);
-		      glRotatef(rotateAll[1], 0, 1, 0);
-		      glRotatef(rotateAll[0], 0, 0, 1);
-		      for (int i = 0; i < params.length; i++)
-		      {
-		        // Place each individual Param at their pos and rotate values.
-		        glPushMatrix();
-		        {
-		          glTranslatef(pos[i].x, pos[i].y, pos[i].z);
-		          glRotatef(rotateParams[i][2], 1, 0, 0);
-		          glRotatef(rotateParams[i][1], 0, 1, 0);
-		          glRotatef(rotateParams[i][0], 0, 0, 1);
-		          params[i].backsteindraw();
-		        }
-		        glPopMatrix();
-		      }
-		    }
-  glPopMatrix();
-  }	
+    // Set Material to be used if specified
+    if (materialAll != null) materialAll.use();
+    
+    // Place the whole Shape according to "origin" and "RotateAll"
+    glPushMatrix();
+    {
+      glTranslatef(origin.x, origin.y, origin.z);
+      glRotatef(rotateAll[2], 1, 0, 0);
+      glRotatef(rotateAll[1], 0, 1, 0);
+      glRotatef(rotateAll[0], 0, 0, 1);
+      for (int i = 0; i < params.length; i++)
+      {
+        // Place each individual Param at their pos and rotate values.
+        glPushMatrix();
+        {
+          glTranslatef(pos[i].x, pos[i].y, pos[i].z);
+          glRotatef(rotateParams[i][2], 1, 0, 0);
+          glRotatef(rotateParams[i][1], 0, 1, 0);
+          glRotatef(rotateParams[i][0], 0, 0, 1);
+          params[i].backsteindraw();
+        }
+        glPopMatrix();
+      }
+    }
+    glPopMatrix();
+  }
 }

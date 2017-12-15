@@ -72,7 +72,7 @@ public class Main
     glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE); // the window will be resizable
     
     // Create the window
-    window = glfwCreateWindow(WIDTH, HEIGHT, "Beispiel 1", NULL, NULL);
+    window = glfwCreateWindow(WIDTH, HEIGHT, "Labyrinth", NULL, NULL);
     if (window == NULL) throw new RuntimeException("Failed to create the GLFW window");
     
     // Setup a key callback. It will be called every time a key is pressed,
