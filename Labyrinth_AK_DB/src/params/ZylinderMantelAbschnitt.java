@@ -1,7 +1,7 @@
 package params;
 
-public class ZylinderMantelAbschnitt extends Param
-{
+public class ZylinderMantelAbschnitt extends Param //Erfuellt die Funktionen von "Zylindermantel", zusaetzlich wird allerdings ein Winkel uebergeben (Gradmass), es wird nur dieser Winkelgrad
+{													//des Kreises (Bodenflaeche des Zylinders) genutzt.
   
   public ZylinderMantelAbschnitt(float xscl, float yscl, float zscl, float winkel)
   {

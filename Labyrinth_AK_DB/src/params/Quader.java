@@ -2,7 +2,7 @@ package params;
 
 import basics.Point;
 
-public class Quader extends Param
+public class Quader extends Param 
 {
   
   Param[] seiten    = { null, null, null, null, null, null };
@@ -48,7 +48,7 @@ public class Quader extends Param
     p7 = Point.add(p3, 0, 0, height);
     p8 = Point.add(p4, 0, 0, height);
     
-    seiten[0] = new Viereck(p1, p3, p2, p4);
+    seiten[0] = new Viereck(p1, p3, p2, p4); //Setzt das Objekt aus 6 Vierecken zusammen, dabei muss darauf geachtet werden, dass die Vorderseite stets aussen liegt.
     seiten[1] = new Viereck(p1, p2, p5, p6);
     seiten[2] = new Viereck(p1, p5, p3, p7);
     seiten[3] = new Viereck(p2, p4, p6, p8);
@@ -77,15 +77,15 @@ public class Quader extends Param
    * @param mat
    *          Material des Quaders
    */
-  public Quader(String kind, float length, float width, float height, Material mat)
+  public Quader(String kind, float length, float width, float height, Material mat) //Konstruktor mit Material fuer Farbwahl.
   {
     this(kind, length, width, height);
     setMaterial(mat);
   }
   
-  protected void drawParametrisierung()
+  protected void drawParametrisierung() //Draw-Funktion, zeichnet alle 6 Seiten.
   {
-    for (int i = 0; i < seiten.length; i++)
+    for (int i = 0; i < seiten.length; i++) //Laeuft von 0 bis 5.
     {
       seiten[i].draw();
     }
