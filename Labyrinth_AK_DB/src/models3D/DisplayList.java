@@ -13,7 +13,6 @@ public class DisplayList extends Objekt
   
   private void init()
   {
-    System.out.println("Generating new List");
     if (myList != -1) glDeleteLists(myList, 1);
     myList = glGenLists(1);
     

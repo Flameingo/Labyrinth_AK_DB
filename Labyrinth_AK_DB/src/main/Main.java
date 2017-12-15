@@ -15,11 +15,11 @@ import java.nio.IntBuffer;
 public class Main
 {
   // time is kept track for calculating the framerate
-  double               currenttime = System.nanoTime();
+  double               lastFrameTime = System.nanoTime();
   // The window handle
   private long         window;
   // setting the window size
-  private int          WIDTH       = (int) (600f * 16f / 9f), HEIGHT = 600;
+  private int          WIDTH         = (int) (600f * 16f / 9f), HEIGHT = 600;
   public static double fps;
   
   public void run()
@@ -148,7 +148,7 @@ public class Main
       // Refresh pressed keys for the scene
       Labyrinth.keys = keyCheck();
       
-      if (Settings.FPS_ON) framerate();
+      framerate();
       
       Labyrinth.renderLoop();
       
@@ -172,12 +172,23 @@ public class Main
     }
   }
   
+  private static final int TARGET = 30;
+  private static int       fails  = 0;
+  
   /** Calculates the framerate */
   private void framerate()
   {
-    double elapsed = System.nanoTime() - currenttime;
-    currenttime = System.nanoTime();
-    fps = 1000000000 / elapsed;
+    while (System.nanoTime() - lastFrameTime < 1000000000f / (TARGET + 1))
+    {
+      double elapsed = System.nanoTime() - lastFrameTime;
+      fps = 1000000000f / elapsed;
+    }
+    lastFrameTime = System.nanoTime();
+    if (fps < TARGET)
+    {
+      fails++;
+      if (Settings.FPS_ON) System.out.println("Frame stutters: " + fails);
+    }
   }
   
   private boolean windowSizeChanged(IntBuffer w, IntBuffer h)
