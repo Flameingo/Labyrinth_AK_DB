@@ -28,9 +28,13 @@ public class Spawner extends Objekt
     boden.addObjekt(new Boden());
     Labyrinth.addObject(boden);
     // boden.hidden = true;
+
+//    Labyrinth.addObject(new DekoSchild());
+
+
     // Labyrinth.addObject(new DekoSchild());
+
     abschnittD = new AbschnittD();
-    //
     Labyrinth.addObject(abschnittD);
     
     // Schalter

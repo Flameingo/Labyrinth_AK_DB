@@ -48,44 +48,14 @@ public class Tuer extends Objekt
   {
     return this.offen;
   }
-  // public void aufschliessen(String name)
-  // {
-  // if(!this.offen)
-  // {
-  // this.stop = false;
-  // this.offen = true;
-  // }
-  // }
-  // public void zuschliessen(String name)
-  // {
-  // if(this.offen)
-  // {
-  // this.stop = false;
-  // this.offen = false;
-  // }
-  // }
-  // public void benutzen(String name) // Wie benutzt man denn so eine Tuer ?
-  // {
-  // this.stop = false;
-  //
-  // if(this.offen)
-  // this.offen = false;
-  // if(!this.offen)
-  // this.offen = true;
-  // }
-  
+
   public void step()
   {
     if (offen == schalt) this.offen = Funktionen.ueberpruefung(this.name);
-    // float unwichtig = 0;
-    // if (stop != true)
-    // {
-    // unwichtig = winkel;
-    //
-    // }
+
     myShape.rotate(new float[] { winkel + alpha, beta, gamma });
-    if (offen != schalt) // Eine Bewegung der Tuer wird durch eine
-    { // der obenstehenden Funktionen ausgeloest.
+    if (offen != schalt) // Eine Bewegung der Tuer wird durch die
+    { // obenstehenden Funktion ausgeloest.
       if (!schalt) // Dabei wird lediglich "stop" auf false gestellt.
       { // Dann oeffnet, bzw schliesst sich die Tuer.
         winkel = winkel - 1.5f;

@@ -28,12 +28,16 @@ public Level (int a, int b)
 //	         x1,y2          ...       1.5         ...              x2,y2
 //	         
 //	          ...			  Feldmittelpunkt: 		               ...
-//	          1.5 			x =  1.5 * a - 0.75                    1.5
+//	          1.5 			x =  1.5 * a - 0.75                    1.5                                          ....   pos. x - Achse
 //	          ...			y = -1.5 * b + 0.75                    ...
 //	          
 //	         x1,y1          ...       1.5         ...              x2,y1
-//	    
+//	   
 	
+	
+	
+//                             .....
+//                           neg. y - Achse
 	
 }
 

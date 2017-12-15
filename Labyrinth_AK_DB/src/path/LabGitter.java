@@ -22,7 +22,7 @@ public class LabGitter extends Lab
    * @param y2
    * @param z2
    */
-  public LabGitter(String angabe, float x, float y, float x2, float y2, float hoehe)
+  public LabGitter(String angabe, float x, float y, float x2, float y2, float hoehe) // steht fuer "oben", "unten", "links", "rechts" und positioniert an just dieser Kante.
   {
     switch(angabe)
     {

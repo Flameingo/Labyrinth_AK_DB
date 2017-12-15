@@ -6,6 +6,7 @@ import basics.Level;
 import main.Labyrinth;
 import main.Objekt;
 import models3D.DekoKreuz;
+import models3D.Tuer;
 import path.*;
 
 public class AbschnittD extends Objekt
@@ -481,5 +482,4 @@ public class AbschnittD extends Objekt
       tuer.drawGUI();
     
   }
-  
 }

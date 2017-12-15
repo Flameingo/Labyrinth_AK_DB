@@ -3,8 +3,8 @@ package params;
 public class KegelMantel extends Param
 {
   
-  public KegelMantel(float xscl, float yscl, float zscl)
-  {
+  public KegelMantel(float xscl, float yscl, float zscl) //Zeichnet einen Kegel mit xscl und yscl als Grundflaeche und zscl als Hoehe, allerdings ist die Grundflaeche selbst nicht enthalten.
+  {															// Sprich, das Objekt ist nach unten geoeffnet.
     super(xscl, yscl, zscl, 0, (float) (2 * Math.PI), 0, 1);
   }
   

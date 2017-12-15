@@ -7,7 +7,12 @@ public class Kegel extends Param
   
   private Param boden;
   private Param mantel;
-  
+  /** Zeichnet einen Kegel, xscl und yscl definieren den Boden, xscl = yscl fuer eine Kreisfoermige Grundflaeche, andernfalls Ellipse.
+   *  zscl entspricht der Hoehe.
+   * @param xscl
+   * @param yscl
+   * @param zscl
+   */
   public Kegel(float xscl, float yscl, float zscl)
   {
     super();
@@ -15,7 +20,7 @@ public class Kegel extends Param
     mantel = new KegelMantel(xscl, yscl, zscl);
   }
   
-  public Kegel(float xscl, float yscl, float zscl, Material mat)
+  public Kegel(float xscl, float yscl, float zscl, Material mat) //Gleiche Methode, nur kann hier noch die Farbe des Objektes bestimmt werden.
   {
     super();
     boden = new Kreis(xscl, yscl);

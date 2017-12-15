@@ -3,9 +3,7 @@ package models3D;
 import basics.Point;
 import main.Funktionen;
 import main.Labyrinth;
-import main.Objekt;
-import main.Player;
-import main.Spawner;
+
 import params.Kugel;
 import params.Material;
 import params.Quader;
@@ -17,18 +15,31 @@ import static org.lwjgl.glfw.GLFW.*;
 import javax.sound.sampled.*;
 import java.io.*;
 
-public class Schalter extends Funktionen
-{
+public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedient werden, sollte sich der Spieler in deren unmittelbarer Naehe befinden.
+{										 // Der String "befehl", in der Oberklasse definiert, speichert eine eindeutige Zahlen/Buchstabenkombination ein, in der
+	                                     // innerhalb von "Funktionen" mit "plusschalten" und "minusschalten" Aktionen zugeordnet werden koennen, die bei Interaktion ausgefuehrt werden.
   
   boolean         schalt;
-  protected Shape block  = new Shape();
-  protected Shape hebel  = new Shape();
-  boolean         stop;
-  public boolean  status;
+  protected Shape block  = new Shape();	//block. - Aufrufe beziehen sich auf alle Params, die zum Schalter gehoeren ausser dem Hebel.
+  protected Shape hebel  = new Shape(); //Bezieht sich auf den Hebel, der als einziges Objekt der Klasse beweglich ist.
+  boolean         stop; 				//Immer wenn "stop" auf false gestellt wird, folgt eine Bewegung des Schalters. Ist diese getan aendert sich der "status" und stop wird auf false geaendert.
+  public boolean  status; 				//Bestimmt die Richtung der Bewegung, sollte "stop" auf false gestellt werden. Nach Beendung einer Hebelbewegung wird status umgestellt und die Richtung
+                                        //fuer die naechse Bewegung geaendert.
   
-  private float   winkel = 0f;
-  
-  public Schalter(String befehl, float x, float y, float z, float alpha, float beta, float gamma)
+
+  private float   winkel = 0f; 			//Bewegt den Hebel mit einem Rotationsbefehl zwischen 0 und - 70 Grad. Dies geschieht durch die Aenderung dieses Wertes durch die Bewegungsfunktionen in "step".
+  /**
+   * 
+   * @param befehl Eine eindeutige Zahlen-/Buchstabenfolge, die innerhalb der Methoden "plusschalten"/"minusschalten" in "Funktionen" einer Aktion zu geordent werden kann,
+   * die ausgefuehrt wird, wenn der Spieler ingame mit dem Schalter, der von diesem Konstruktor erzeugt wird interagiert. 
+   * @param x Mittelpunkt
+   * @param y Mittelpunkt
+   * @param z Unterseite, steht fuer z = 0 also auf dem Boden.
+   * @param alpha Drehung z - Achse.
+   * @param beta Drehung y - Achse.
+   * @param gamma x - Achse
+   */
+  public Schalter(String befehl,float x, float y, float z, float alpha, float beta, float gamma)
   {
     this.befehl = befehl;
     pos.x = x;
@@ -53,7 +64,9 @@ public class Schalter extends Funktionen
     hebel.translate(new Point(x, y, z));
     
   }
-  
+  /** Ueberpruft ob der Schalter umgelegt wird oder zurueck in Ursprungslage versetzt wird (bei Interaktion mit dem Schalter wechselt sich dies ab).
+   * 
+   */
   public void schalten()
   {
     if (stop == true)
