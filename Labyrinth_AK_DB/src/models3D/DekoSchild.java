@@ -1,0 +1,68 @@
+package models3D;
+
+import basics.Level;
+import basics.Point;
+import main.Objekt;
+import params.Material;
+import params.Quader;
+import params.Shape;
+import params.Zylinder;
+
+public class DekoSchild extends Objekt
+{
+	
+	protected Shape brett = new Shape();
+	protected Shape stock = new Shape();
+	
+	public DekoSchild (float x, float y, float z, float alpha, float beta, float gamma) //warum muss es auch so verdammt schwer sein einen Ring zu konstruieren...
+	{
+		brett.addParam(new Quader("Mitte",0.01f,0.5f,0.5f), new Point(0,0,1)); // Das Brett des Schildes an das Botschaften geheftet werden koennen
+		stock.addParam(new Zylinder(0.01f,0.01f,0.75f));
+		
+		brett.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung des Bretts
+	    brett.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung des Bretts
+	    
+	    stock.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung des Holzpfals, auf dem das Brett platziert ist.
+	    stock.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung ...
+	}
+	public DekoSchild (String eck, Level lev) // r ist rechts, o ist oben, u ist unten, l ist links 
+	{                                         //Das Feld wird nach den Kriterien von Level 
+		switch(eck)
+		{
+		case "ro":
+		case "ru":
+		case "lo":
+		case "lu":
+		}
+	}
+	
+	@Override
+	public void step() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void collision() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		Material.CHROME.use();
+		stock.draw();
+		Material.WHITE_RUBBER.use();
+		brett.draw();
+	}
+
+	@Override
+	public void drawGUI() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+}

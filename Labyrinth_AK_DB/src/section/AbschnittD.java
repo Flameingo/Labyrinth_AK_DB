@@ -8,7 +8,7 @@ import path.*;
 public class AbschnittD extends Objekt
 {
 	protected Objekt[] waende = new Objekt[371];
-	protected Objekt[] steine = new Objekt[26];
+	protected Objekt[] steine = new Objekt[28];
 
 	  
 	
@@ -416,7 +416,9 @@ public class AbschnittD extends Objekt
 		steine[22] = new Eckstein(new Level(3,10));
 		steine[23] = new Eckstein(new Level(3,7));
 		steine[24] = new Eckstein(new Level(5,7));
-		steine[25] = new DekoKreuz(new Level(6,13),"ru");
+		steine[25] = new Eckstein(new Level(19,15));
+		steine[26] = new DekoKreuz(new Level(6,13),"ru");
+		steine[27] = new Eckstein(new Level(2,16));
 		
 	}
 	@Override

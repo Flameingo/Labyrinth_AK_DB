@@ -4,59 +4,16 @@ import basics.Point;
 import params.Quader;
 
 public class Wand extends WandBlock
-
-                             //Wichtigste Klasse fuer den Bau des Labyrinths. Drehung und Verschiebung des Objektes findet in der Oberklasse "WandBlock" statt.
+{
+                             //Wichtigste Klasse fuer den Bau des Labyrinths, da sie das Standartwandstueck produziert.
+						     //Drehung und Verschiebung des Objektes findet in der Oberklasse "WandBlock" statt.
 							 //Die Klassen aus Path, die mit dieser Klasse arbeiten, bedienen sich zumeist des Konstruktors, fuer den Laenge und 
 							 //Hoehe vom Programmierer uebergeben werden muessen, der Zweite von oben in dieser Klasse.
 
-
-
-{
-  /** Zeichnet ein Wandstueck mit der Laenge 5.2f und der Hoehe 1.5f
-   * 
-   * @param x
-   * @param y
-   * @param z
-   * @param alpha Drehung um die z - Achse.
-   * @param beta Drehung um die y - Achse.
-   * @param gamma Drehung um die x - Achse.
-   */
-  public Wand(float x, float y, float z, float alpha, float beta, float gamma)
-  {
-    super(x, y, z, alpha, beta, gamma);
-   
-    putz.addParam(new Quader("Mitte", 2.8f ,wdbreite*1/2,1.4f), new Point(-1.55f,0,0.75f)); //Zeichnet den Zement in einer anderen Farbe 
-                                                                                            // als die Backsteine
-    
-    for (int k = 0; k < wdhoehe; k++)
-    {
-      
-      if (k % 2 == 0)
-      {
-        
-        for (int i = 0; i < wdlaenge; i++)
-        {
-          
-          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(i * 0.26f + qX, 0, k * 0.06f+boden));
-          
-        }
-      } else
-      {
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(-0.065f + qX, 0, k * 0.06f+boden));
-        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
-            new Point((wdlaenge - 1) * 0.26f + 0.065f + qX, 0, k * 0.06f+boden));
-        
-        for (int i = 0; i < wdlaenge - 1; i++)
-        {
-          
-          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),
-              new Point(i * 0.26f + 0.13f + qX, 0, k * 0.06f + boden));
-        }
-      }
-    }
-  }
+  
   /** Zeichnet eine Wand mit vorgegebenen Laengenmassen und Hoehenmassen.
    *  Lage des Mittelpunktes bzgl x - und y - Koordinate und Drehungen koennen bestimmt werden.
+   *  Die meisten Klassen aus "path" greifen auf diesen Konstruktor zu.
    * @param x
    * @param y
    * @param z
@@ -116,7 +73,7 @@ public class Wand extends WandBlock
     }
   }
   
-  /** Aktuell nur fuer die Werte 45 (45 Grad Biegung) und 90 (90 Grad Biegung) fuer 'biege' geeignet.
+  /** Aktuell nur fuer die Werte 45 (45 Grad Biegung) und 90 (90 Grad Biegung) fuer 'biege' geeignet. Benutzt in den "LabEck"-Klassen aus "path".
    * 
    * @param x
    * @param y
@@ -248,9 +205,55 @@ public class Wand extends WandBlock
     }   
   }    
 
-  public Wand(float x, float y, float z, float alpha, float beta, float gamma, float biege)
+  public Wand(float x, float y, float z, float alpha, float beta, float gamma, float biege) //Erstellt eine gebogene Wand mit obenstehendem Konstruktur.
+  {                                                                                         //Macht auch exakt das Selbe wie ein Aufruf von dem just drueber stehenden
+	  this("Egal",x,y,z,alpha, beta, gamma, biege);											//Konstruktor.
+  }
+  
+
+
+  /** Zeichnet ein Wandstueck mit der Laenge 5.2f und der Hoehe 1.5f
+   * 
+   * @param x
+   * @param y
+   * @param z
+   * @param alpha Drehung um die z - Achse.
+   * @param beta Drehung um die y - Achse.
+   * @param gamma Drehung um die x - Achse.
+   */
+  public Wand(float x, float y, float z, float alpha, float beta, float gamma)
   {
-	  this("Egal",x,y,z,alpha, beta, gamma, biege);
+    super(x, y, z, alpha, beta, gamma);
+   
+    putz.addParam(new Quader("Mitte", 2.8f ,wdbreite*1/2,1.4f), new Point(-1.55f,0,0.75f)); //Zeichnet den Zement in einer anderen Farbe 
+                                                                                            // als die Backsteine
+    
+    for (int k = 0; k < wdhoehe; k++)
+    {
+      
+      if (k % 2 == 0)
+      {
+        
+        for (int i = 0; i < wdlaenge; i++)
+        {
+          
+          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(i * 0.26f + qX, 0, k * 0.06f+boden));
+          
+        }
+      } else
+      {
+        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(-0.065f + qX, 0, k * 0.06f+boden));
+        myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f),
+            new Point((wdlaenge - 1) * 0.26f + 0.065f + qX, 0, k * 0.06f+boden));
+        
+        for (int i = 0; i < wdlaenge - 1; i++)
+        {
+          
+          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),
+              new Point(i * 0.26f + 0.13f + qX, 0, k * 0.06f + boden));
+        }
+      }
+    }
   }
   
 }

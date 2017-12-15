@@ -32,13 +32,14 @@ public class Funktionen extends Objekt{
  */
 	public static boolean ueberpruefung(String name) //Bei jeder Ausfuehrung von Render-Loop fuehrt jedes Objekt "Tuer" eine Ueberpruefung durch.
 	{                                                //Dabei wird der Status ("befehl") eines Objektes an den entsprechenden Boolean innerhalb dieser Klasse angepasst.
+													 //Der Status ist entweder true fuer Tuer sei offen oder false fuer Tuer sei geschlossen.
 													 //Wird der Status dadurch geaendert, schliesst bzw oeffnet sich die Tuer.
 		switch(name)								 //Die Booleans werden durch plusschalten/minusschalten geaendert.
 		{
-		case "01": return stand01;
+		case "01": return stand01;   //Tueren von AbschnittB, BB, BC und C. 
 		case "02": return stand02;
 		case "03": return stand03;
-		case "d1": return standd1;
+		case "d1": return standd1;   //standd1 - d5 sind die Tueren innerhalb von AbschnittD.
 		case "d2": return standd2;
 		case "d21": return standd2;
 		case "d3": return standd3;
@@ -51,6 +52,8 @@ public class Funktionen extends Objekt{
 	}
 	/**
 	 * Erstmalige Bedienung eines Hebels ist "plusschalten", beide Befehle wechseln sich bei Ingame-Interaktion mit einem Schalter in ihrer Ausfuehrung ab.
+	 * Zumeist macht Minusschalten die Aktion von Plusschalten wieder rueckgaengig.
+	 * Alle Ausfuerungen von "Befehlen", die ein "D" enthalten sind Einwegschalter, da Minusschalten die Konsequenzen von Plusschalten nicht rueckgaengig macht.
 	 * @param call "Befehl" des Schalters. Damit kann jedem Schalter eine individuelle Aktion zugeordnet werden.
 	 */
 	public static void plusschalten(String call)
@@ -60,10 +63,10 @@ public class Funktionen extends Objekt{
 		    case "BB": stand01 = true;
 		        break;
 		    	
-		    case "B_BB": Spawner.abschnittB.hidden = true;
-		    			 Spawner.abschnittBB.hidden = false;
-		    			 stand01 = false;
-		    			 stand02 = true;
+		    case "B_BB": Spawner.abschnittB.hidden = true; //Abschnitt wird nicht mehr angezeigt
+		    			 Spawner.abschnittBB.hidden = false; //Abschnitt wird nun angezeigt
+		    			 stand01 = false;  	// schliesst Tuere
+		    			 stand02 = true;    //oeffnet Tuere
 		    		break;
 		  
 			case "BB_BC": Spawner.abschnittBB.hidden = true;
@@ -74,8 +77,8 @@ public class Funktionen extends Objekt{
 						 Spawner.abschnittC.hidden = false;
 				break;
 				
-			case "D1": standd1 = true;
-			 	break;
+			case "D1": standd1 = true;   // D1 - D5 ... Einwegschalter zum Tueren oeffnen innerhalb von AbschnittD. Chronolisch geordnet. D1 entspricht ebenso
+			 	break;                         // standd1, D2 standd2 usw ...
 			 case "D2": standd2 = true;
 			 break;
 			 case "D3": standd3 = true;
@@ -93,23 +96,24 @@ public class Funktionen extends Objekt{
 	
 	/**
 	 * Erstmalige Bedienung eines Hebels ist "plusschalten", beide Befehle wechseln sich bei Ingame-Interaktion mit einem Schalter in ihrer Ausfuehrung ab.
+	 * Zumeist macht Minusschalten die Konsequenzen von Plusschalten wieder rueckgaengig.
 	 * @param call "Befehl" des Schalters. Damit kann jedem Schalter eine individuelle Aktion zugeordnet werden.
 	 */
 	public static void minusschalten(String call)
 	{
 		switch(call)
 		{
-			case "B_BB": Spawner.abschnittB.hidden = false;
+			case "B_BB": Spawner.abschnittB.hidden = false; //saemtliche Aktionen rueckgaengig
 						 Spawner.abschnittBB.hidden = true;
 						 stand01 = true;
 						 stand02 = false;
 				break;
 		
-			case "BB_BC": Spawner.abschnittBB.hidden = false;
+			case "BB_BC": Spawner.abschnittBB.hidden = false; //rueckgaengig
 						  Spawner.abschnittBC.hidden = true;
 			    break;
 			    
-			case "BC_C": Spawner.abschnittBC.hidden = false;
+			case "BC_C": Spawner.abschnittBC.hidden = false; //rueckgaengig
 						 Spawner.abschnittC.hidden = true;
 			    break;
 			    
@@ -121,7 +125,7 @@ public class Funktionen extends Objekt{
 	/**
 	 * Stellt alle statischen DisplayLists, die Labyrinthabschnitte auf unsichtbar (werden nicht mehr gezeichnet) mithilfe des Booleans hidden aus "Spawner".
 	 */
-	public static void allHide()
+	public static void allHide() //Funktion aktuell ungenutzt, scheint aber nicht falsch zu sein sie schon mal innerhalb des Spiels zu wissen.
 	{
 		Spawner.abschnittB.hidden = true;
 		Spawner.abschnittBB.hidden = true;
@@ -132,8 +136,8 @@ public class Funktionen extends Objekt{
 
 	@Override
 	public void step() {                            		//Abstrakte Methoden aus "Objekt" finden hier keine Anwendung.
-															//Nur bei den entsprechenden Unterklassen "Tuer" und "Schalter".
-		
+															//Nur bei den entsprechenden Unterklassen "Tuer" und "Schalter", diese machen von der
+															//"Ur"-Oberklasse Objekt Gebrauch.
 	}
 
 	@Override

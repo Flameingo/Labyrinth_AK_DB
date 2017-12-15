@@ -2,6 +2,8 @@ package models3D;
 
 import basics.Level;
 import basics.Point;
+import basics.Text;
+import main.Labyrinth;
 import main.Objekt;
 import params.Material;
 import params.Quader;
@@ -44,8 +46,13 @@ public class DekoKreuz extends Objekt
 				this.y = lev.y2 - 0.75f;
 				break;
 		}
+		
 		myShape.translate(new Point(this.x,this.y,0));
 		myShape.rotate(new float[]{alpha,0,0});
+		Point p;
+		String Ausgabe = "Press F to pay respect";
+		 p = Point.add(Labyrinth.player.pos, -x, -y, -0);
+	        if (p.length("xy") < 1) Text.draw_text(Ausgabe, new Point (10,30), 40);
 	}
 	
 	@Override

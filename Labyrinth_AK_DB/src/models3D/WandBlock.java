@@ -120,14 +120,14 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
     this.beta = w2;
     this.gamma = w3;
     
-    myShape.translate(new Point(x, y, z));   //Verantwortlich fï¿½r die Verschiebung des gesamtes Objektes
-    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fï¿½r die Drehung des gesamtes Objektes
+    myShape.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung der Backsteinmehrheit (Die mit zufaelliger Farbe).
+    myShape.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung der Backsteinmehrheit.
     
-    putz.translate(new Point(x, y, z));   //Verantwortlich fï¿½r die Verschiebung des gesamtes Objektes
-    putz.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fï¿½r die Drehung des gesamtes Objektes
+    putz.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung des Putzes (Verputz zwischen den Steinen (Quader)).
+    putz.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung des Putzes
    
-    stein.translate(new Point(x, y, z));   //Verantwortlich für die Verschiebung des gesamtes Objektes
-    stein.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich für die Drehung des gesamtes Objektes
+    stein.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung der (farblich einheitlichen) Randsteine.
+    stein.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung der Randsteine.
   }
   
   public void draw()
@@ -147,7 +147,7 @@ public class WandBlock extends Objekt					  //Oberklasse aller Wand - Klassen.
   @Override
   public void collision()
   {
-    // TODO Auto-generated method stub
+    
     
   }
   @Override

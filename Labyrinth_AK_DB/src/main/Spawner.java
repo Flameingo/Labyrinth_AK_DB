@@ -1,12 +1,10 @@
 package main;
 
-import static org.lwjgl.opengl.GL11.*;
-
 import basics.Level;
 import models3D.*;
-import params.*;
 import path.*;
 import section.*;
+
 
 public class Spawner extends Objekt
 {
@@ -32,9 +30,9 @@ public class Spawner extends Objekt
     boden.addObjekt(new Boden());
     Labyrinth.addObject(boden);
     // boden.hidden = true;
-    
+//    Labyrinth.addObject(new DekoSchild());
     abschnittD = new AbschnittD();
-
+//
     Labyrinth.addObject(abschnittD);
 
     // Schalter
@@ -64,7 +62,7 @@ public class Spawner extends Objekt
     Labyrinth.addObject(new Tuer_U("d31", new Level(16, 11)));
     Labyrinth.addObject(new Tuer_U("d4", new Level(-5, 21)));
     Labyrinth.addObject(new Tuer_L("d5", new Level(15, 20)));
-    
+
     
   }
   
