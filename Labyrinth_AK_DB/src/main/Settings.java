@@ -12,6 +12,7 @@ public final class Settings
   public static final boolean FLAT_SHADING            = true;
   public static final boolean DRAW_BACK_POINTS        = false;
   public static final int     DRAW_FONT_POINTS        = 0;
+  public static final boolean NEBEL_ON                = false;
   
   /** controls the resolution of all drawn Objects */
   

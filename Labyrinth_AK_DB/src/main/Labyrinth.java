@@ -109,7 +109,9 @@ public class Labyrinth
     Lights.init();
     
     glMatrixMode(GL_PROJECTION);
-    m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.1f, 4);
+    int far = 4;
+    if (!Settings.NEBEL_ON) far = 10;
+    m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.1f, far);
     glLoadIdentity();
     m.get(fb);
     glLoadMatrixf(fb);
@@ -200,13 +202,15 @@ public class Labyrinth
         o.draw();
         glPopMatrix();
       }
-    
-    // glDepthMask(false);
-    m.setLookAt(1, 0, 0, 0, 0, 0, up.x, up.y, up.z);
-    m.get(fb);
-    glLoadMatrixf(fb);
-    fog.draw();
-    // glDepthMask(true);
+    if (Settings.NEBEL_ON)
+    {
+      // glDepthMask(false);
+      m.setLookAt(1, 0, 0, 0, 0, 0, up.x, up.y, up.z);
+      m.get(fb);
+      glLoadMatrixf(fb);
+      fog.draw();
+      // glDepthMask(true);
+    }
     glDisable(GL_BLEND);
     
     glDisable(GL_LIGHTING);
