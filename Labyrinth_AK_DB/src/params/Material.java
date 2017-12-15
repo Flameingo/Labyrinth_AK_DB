@@ -39,8 +39,9 @@ public enum Material
   WHITE_RUBBER(.05f, .05f, .05f, 1, .5f, .5f, .5f, 1, .7f, .7f, .7f, 1, .078125f),
   YELLOW_RUBBER(.05f, .05f, 0, 1, .5f, .5f, .4f, 1, .7f, .7f, .04f, 1, .078125f),
   BACKSTEIN(.1f, 0, 0, 1, .5f, 0, 0, 1, .1f, 0, 0, 1, 1),
-  BACKSTEIN2(0.2f,0,0.02f,0.9f,0.6f,0,0, 1, 0.2f,0,0,1,1),
-  BACKSTEIN3(0.05f,0.05f,0,0.95f,0.3f,0,0,0.9f,0,0,0.1f,1,1);
+  BACKSTEIN2(0.2f, 0, 0.02f, 1, 0.6f, 0, 0, 1, 0.2f, 0, 0, 1, 1),
+  BACKSTEIN3(0.05f, 0.05f, 0, 1, 0.3f, 0, 0, 1, 0, 0, 0.1f, 1, 1),
+  FOG(.1f, .15f, .2f, .1f, 0, 0, 0, .1f, 0, 0, 0, .1f, 0), FOGFINAL(.1f, .15f, .2f, 1f, 0, 0, 0, 1f, 0, 0, 0, 1f, 0),;
   
   private float[] ambient   = { 0, 0, 0, 1 }, diffuse = { 0, 0, 0, 1 }, specular = { 0, 0, 0, 1 };
   private float   shininess = 128;
@@ -68,10 +69,10 @@ public enum Material
   /** stellt die GL Statusmaschine fuer dieses Material ein */
   public void use()
   {
-    glMaterialf(GL_FRONT, GL_SHININESS, shininess);
-    glMaterialfv(GL_FRONT, GL_AMBIENT, ambient);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, specular);
-    glMaterialfv(GL_FRONT, GL_EMISSION, emission);
+    glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambient);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, emission);
   }
 }

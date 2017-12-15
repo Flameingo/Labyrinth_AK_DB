@@ -8,6 +8,10 @@ import org.joml.Vector3f;
 import org.lwjgl.BufferUtils;
 
 import basics.Text;
+import models3D.DisplayList;
+import models3D.Fog;
+import params.Kugel;
+import params.Shape;
 import basics.Point;
 
 import static org.lwjgl.opengl.GL11.*;
@@ -32,16 +36,18 @@ public class Labyrinth
   public static Player       player  = new Player();
   
   /**
-   * every frame, this array is refreshed with all pressed keys at that moment
-   * in time
+   * every frame, this array is refreshed with all pressed keys at that moment in time
    */
   public static int[]        keys    = {};
+  
+  private static DisplayList fog     = new DisplayList();
   
   public static void beginGame()
   {
     Text.init();
     addObject(new Spawner());
     addObject(player);
+    fog.addObjekt(new Fog());
   }
   
   /**
@@ -85,8 +91,7 @@ public class Labyrinth
    * ueberprueft, ob eine gegebene Taste gedrueckt ist
    * 
    * @param key
-   *          Die Taste, die geprueft wird. Anzugeben als Integer mithilfe der
-   *          GLFW-Tasten-enums.
+   *          Die Taste, die geprueft wird. Anzugeben als Integer mithilfe der GLFW-Tasten-enums.
    * @return Ein boolscher Wert, der angibt, ob die Taste gedrueckt ist.
    */
   private static boolean keyCheck(int key)
@@ -104,7 +109,7 @@ public class Labyrinth
     Lights.init();
     
     glMatrixMode(GL_PROJECTION);
-    m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.1f, 15f);
+    m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.1f, 4);
     glLoadIdentity();
     m.get(fb);
     glLoadMatrixf(fb);
@@ -112,7 +117,8 @@ public class Labyrinth
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     
-    glClearColor(0, 0, 0, 0); // Set the clear color
+    glClearColor(.1f, .15f, .15f, 0); // Set the clear color
+    
   }
   
   /**
@@ -184,6 +190,8 @@ public class Labyrinth
     
     Lights.setLights();
     
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
     for (Objekt o : objekte)
       if (!o.hidden)
       {
@@ -192,6 +200,14 @@ public class Labyrinth
         o.draw();
         glPopMatrix();
       }
+    
+    // glDepthMask(false);
+    m.setLookAt(1, 0, 0, 0, 0, 0, up.x, up.y, up.z);
+    m.get(fb);
+    glLoadMatrixf(fb);
+    fog.draw();
+    // glDepthMask(true);
+    glDisable(GL_BLEND);
     
     glDisable(GL_LIGHTING);
     glMatrixMode(GL_PROJECTION);
@@ -209,8 +225,8 @@ public class Labyrinth
   /**
    * Behandelt Tastenanschlaege.
    * <p>
-   * Wird nur fuer Tastenanschlaege verwendet, nicht fuer das Halten einer
-   * Taste. Das Halten wird in der Funktion keyCheck() behandelt.
+   * Wird nur fuer Tastenanschlaege verwendet, nicht fuer das Halten einer Taste. Das Halten wird in der Funktion
+   * keyCheck() behandelt.
    * 
    * @param key
    *          Taste, die gedrueckt wurde.
@@ -226,14 +242,12 @@ public class Labyrinth
   /**
    * Sucht ein Objekt einer bestimmten Klasse im Array "objekte"
    * <p>
-   * Damit kann ein Objekt, fuer das man keine Referenz hat, trotzdem
-   * referenziert werden. Allerdings sollte nur eine Instanz des Objekt
-   * vorhanden sein, da nur das zuerst gefundene zurueckgegeben wird.
+   * Damit kann ein Objekt, fuer das man keine Referenz hat, trotzdem referenziert werden. Allerdings sollte nur eine
+   * Instanz des Objekt vorhanden sein, da nur das zuerst gefundene zurueckgegeben wird.
    * 
    * @param identifier
-   *          Platzhalter fuer die Klasse, die gesucht wird. Einfach eine leere
-   *          Instanz der gesuchten Klasse uebergeben, zB: findInstance(new
-   *          GesuchteKlasse());
+   *          Platzhalter fuer die Klasse, die gesucht wird. Einfach eine leere Instanz der gesuchten Klasse uebergeben,
+   *          zB: findInstance(new GesuchteKlasse());
    * @return Die Referenz des gesuchten Objekts
    */
   public static Objekt findInstance(Objekt identifier)

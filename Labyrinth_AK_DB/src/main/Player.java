@@ -4,8 +4,10 @@ import basics.Text;
 import basics.Point;
 import models3D.Schalter;
 import path.SchalterFeld;
+import params.*;
 
 import static org.lwjgl.glfw.GLFW.*;
+import static params.Material.*;
 
 public class Player extends Objekt
 {
@@ -18,7 +20,7 @@ public class Player extends Objekt
   private final float        spdSIDE = Settings.PlayerSideStepSpeed;
   
   // Position im Spiel
-  public Point               pos     = new Point(0, -20, 1);             // Ursp 0,-1,3 /fuer AbschnittD (0, -20, 1)
+  public Point               pos     = new Point(0, -20, 1);            // Ursp 0,-1,3 /fuer AbschnittD (0, -20, 1)
   // Kameraausrichtung
   Point                      cam     = new Point(1, 0, 0);
   
@@ -154,6 +156,7 @@ public class Player extends Objekt
   @Override
   public void draw()
   {
+    
   }
   
   @Override

@@ -3,15 +3,16 @@ package params;
 //Imports
 import static org.lwjgl.opengl.GL11.*;
 
+import main.Objekt;
 import main.Settings;
 import basics.*;
 
 /**
- * Die verschiedenen Parametrisierungen im Paket "params" erhalten hier ihre
- * draw()-Funktion.
+ * Die verschiedenen Parametrisierungen im Paket "params" erhalten hier ihre draw()-Funktion.
  */
 public abstract class Param
 {
+  
   // private Variablen
   
   protected float  xscl     = 1, yscl = 1, zscl = 1;
@@ -24,11 +25,8 @@ public abstract class Param
   
   private Material material = null;
   
-  private int      f;
-  
   /**
-   * placeholder Param for connecting multiple Params into one or if the
-   * standard constructor can't be used
+   * placeholder Param for connecting multiple Params into one or if the standard constructor can't be used
    */
   public Param()
   {
@@ -59,8 +57,8 @@ public abstract class Param
   }
   
   /**
-   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem
-   * Fall muss mit dieser Funktion nach-initialisiert werden.
+   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem Fall muss mit dieser Funktion
+   * nach-initialisiert werden.
    */
   protected void init(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2)
   {
@@ -75,6 +73,8 @@ public abstract class Param
     setResolution();
     m = (int) Math.ceil(mfact * Settings.RenderSolution);
     n = (int) Math.ceil(nfact * Settings.RenderSolution);
+    minM *= Objekt.getZusatzAufloesung();
+    minN *= Objekt.getZusatzAufloesung();
     m = Math.max(minM, m);
     n = Math.max(minN, n);
     delta_u = (u_r - u_l) / m;
@@ -82,8 +82,7 @@ public abstract class Param
   }
   
   /**
-   * sets mfact and nfact as factors that control the resolution of the params
-   * polygon-net
+   * sets mfact and nfact as factors that control the resolution of the params polygon-net
    */
   abstract void setResolution();
   
@@ -114,8 +113,8 @@ public abstract class Param
   }
   
   /**
-   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem
-   * Fall muss mit dieser Funktion nach-initialisiert werden.
+   * Manchmal kann der Konstruktor nicht direkt ausgefuehrt werden, in diesem Fall muss mit dieser Funktion
+   * nach-initialisiert werden.
    */
   protected void init(float xscl, float yscl, float zscl, float u1, float u2, float v1, float v2, Material mat)
   {
@@ -136,12 +135,13 @@ public abstract class Param
   }
   
   /**
-   * Entspricht der draw() funktion dieser Klasse. Allerdings ist hier die Farbwahl via "Material" mit einer Zufallsfunktion (Param.randomfarbe()) definiert.
+   * Entspricht der draw() funktion dieser Klasse. Allerdings ist hier die Farbwahl via "Material" mit einer
+   * Zufallsfunktion (Param.randomfarbe()) definiert.
    */
   public void backsteindraw()
   {
-	  material = randomfarbe();
-      material.use();
+    material = randomfarbe();
+    material.use();
     
     drawParametrisierung();
   }
@@ -152,7 +152,7 @@ public abstract class Param
    */
   protected void drawParametrisierung()
   {
-    f = 1;
+    int f = 1;
     if (glGetInteger(GL_FRONT_FACE) == GL_CW) f = -1;
     for (int i = 0; i < m; i++)
     {
@@ -183,29 +183,19 @@ public abstract class Param
       }
     }
   }
-
+  
   public static Material randomfarbe()
   {
-	double z = Math.random();
-	if (z < 0.3f)
-	{
-		return Material.BACKSTEIN;
-	}
-	if (z >=0.3f && z < 0.5f)
-	{
-		return Material.BACKSTEIN3;
-		
-	}
-	if (z >= 0.5f && z < 0.75f)
-	{
-		return Material.BACKSTEIN2;
-		
-	}
-	if (z >= 0.75f)
-	{
-		return Material.RED_PLASTIC;
-	}
-	return null;
+    double z = Math.random();
+    if (z < 0.3f) { return Material.BACKSTEIN; }
+    if (z >= 0.3f && z < 0.5f) { return Material.BACKSTEIN3;
+    
+    }
+    if (z >= 0.5f && z < 0.75f) { return Material.BACKSTEIN2;
+    
+    }
+    if (z >= 0.75f) { return Material.RED_PLASTIC; }
+    return null;
   }
   
   abstract protected float x(float u, float v);
@@ -213,5 +203,5 @@ public abstract class Param
   abstract protected float y(float u, float v);
   
   abstract protected float z(float u, float v);
-
+  
 }

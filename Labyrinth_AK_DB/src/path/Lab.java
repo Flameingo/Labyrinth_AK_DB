@@ -11,7 +11,7 @@ public class Lab extends Objekt
   private DisplayList        myList       = new DisplayList();
   private LinkedList<Objekt> myListMoving = new LinkedList<Objekt>();
   
-  private final static int   sichtweite   = 9;
+  private final static int   sichtweite   = 4;
   
   public void step()
   {
@@ -24,7 +24,12 @@ public class Lab extends Objekt
     int nowy = getB();
     int highy = lowy + 2 * sichtweite;
     if (lowy >= nowy || nowy >= highy) hidden = true;
-    if (!hidden) myList.step();
+    if (!hidden)
+    {
+      myList.step();
+      for (Objekt o : myListMoving)
+        o.step();
+    }
   }
   
   protected void add(Objekt o)
@@ -39,20 +44,33 @@ public class Lab extends Objekt
   
   public void collision()
   {
-    if (!hidden) myList.collision();
+    if (!hidden)
+    {
+      myList.collision();
+      for (Objekt o : myListMoving)
+        o.collision();
+    }
   }
   
   public void draw()
   {
     Material.BACKSTEIN.use();
-    if (!hidden) myList.draw();
-    if (!hidden) for (Objekt o : myListMoving)
-      o.draw();
+    if (!hidden)
+    {
+      myList.draw();
+      for (Objekt o : myListMoving)
+        o.draw();
+    }
   }
   
   public void drawGUI()
   {
-    if (!hidden) myList.drawGUI();
+    if (!hidden)
+    {
+      myList.drawGUI();
+      for (Objekt o : myListMoving)
+        o.drawGUI();
+    }
   }
   
 }
