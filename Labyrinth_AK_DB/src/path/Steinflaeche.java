@@ -17,9 +17,9 @@ public class Steinflaeche extends Objekt
   
   public Steinflaeche(float x, float y, float z, float alpha, float beta, float gamma)
   {
-    this.x = x;
-    this.y = y;
-    this.z = z;
+    pos.x = x;
+    pos.y = y;
+    pos.z = z;
     this.alpha = alpha;
     this.beta = beta;
     this.gamma = gamma;
@@ -58,9 +58,9 @@ public class Steinflaeche extends Objekt
   
   public Steinflaeche(Level lev, Etage e)
   {
-    this.x = lev.x1;
-    this.y = lev.y1;
-    this.z = e.wert() * 2.1f;
+    pos.x = lev.x1;
+    pos.y = lev.y1;
+    pos.z = e.wert() * 2.1f;
     
     putz.addParam(new Quader("Mitte", 1.4f, 1.4f, 0.05f), new Point(0.75f, 0.75f, 0));
     
@@ -73,10 +73,10 @@ public class Steinflaeche extends Objekt
       }
     }
     
-    putz.translate(new Point(x, y, z)); // Verantwortlich fuer die Verschiebung des gesamtes Putz.
+    putz.translate(new Point(pos.x, pos.y, pos.z)); // Verantwortlich fuer die Verschiebung des gesamtes Putz.
     putz.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung des gesamtes Putz.
     
-    myShape.translate(new Point(x, y, z)); // Verantwortlich fuer die Verschiebung des restlichen Objektes.
+    myShape.translate(new Point(pos.x, pos.y, pos.z)); // Verantwortlich fuer die Verschiebung des restlichen Objektes.
     myShape.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung des restlichen
     
     this.a = lev.x2;
@@ -91,8 +91,6 @@ public class Steinflaeche extends Objekt
   @Override
   public void step()
   {
-    // TODO Auto-generated method stub
-    
   }
   
   @Override
@@ -120,8 +118,6 @@ public class Steinflaeche extends Objekt
   @Override
   public void drawGUI()
   {
-    // TODO Auto-generated method stub
-    
   }
   
 }

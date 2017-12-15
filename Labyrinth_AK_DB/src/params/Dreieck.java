@@ -2,8 +2,8 @@ package params;
 
 import basics.*;
 
-public class Dreieck extends Param
-{
+public class Dreieck extends Param                         //Es werden 3 Eckpunkte uebergeben (Objekte der Klasse Point), dann wird ein Dreieck gezeichnet. 
+{														   //Optional kann ein Material uebergeben werden, das die Farbe bestimmt.
   
   private Point p1;
   private Point p2;

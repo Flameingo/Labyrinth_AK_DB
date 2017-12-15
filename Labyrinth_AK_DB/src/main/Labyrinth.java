@@ -157,7 +157,8 @@ public class Labyrinth
   public static void renderLoop()
   {
     for (Objekt o : objekte)
-      if (!o.hidden) o.step();
+      // if (!o.hidden) o.step();
+      o.step();
     for (Objekt o : objekte)
       if (!o.hidden) o.collision();
     player.updatecam();

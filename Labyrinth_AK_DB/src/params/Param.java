@@ -197,8 +197,8 @@ public abstract class Param
     if (z >= 0.75f) { return Material.RED_PLASTIC; }
     return null;
   }
-  
-  abstract protected float x(float u, float v);
+
+  abstract protected float x(float u, float v); //Diese drei Funktionen sind in den Unterklassen definiert, also bestimmt abhaengig davon, welches Objekt gezeichnet werden soll.
   
   abstract protected float y(float u, float v);
   

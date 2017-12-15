@@ -1,11 +1,11 @@
 package params;
 
-public class KAKomplement extends Param
+public class KAKomplement extends Param //Ist das Komplement aus einem Viereck von einem Kreis(abschnitt).
 {
   
-  float q;
+  float q; //q bestimmt den Gradwert, fuer den der Kreis definiert wird, dessen Komplement wir hier benutzen.
   
-  public KAKomplement(float xscl, float yscl, float q)
+  public KAKomplement(float xscl, float yscl, float q) //xscl = yscl fuer einen Kreis, andere Faelle fuer eine Ellipse, zu dieser Form wird das Komplement genommen.
   {
     super(xscl, yscl, 1, 0, (float) Math.PI * q / 180, 0, 1);
     this.q = q;
@@ -18,7 +18,7 @@ public class KAKomplement extends Param
   }
   
   @Override
-  public float x(float u, float v)
+  public float x(float u, float v)                   //Diese Zwei Funktionen zeichnen in einem quadratischen Bereich alles ausser den bestimmten Kreisabschnitt.
   {
     float alpha = (float) Math.cos(u);
     float beta = 1;

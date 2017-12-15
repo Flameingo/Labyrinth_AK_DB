@@ -3,9 +3,7 @@ package models3D;
 import basics.Point;
 import main.Funktionen;
 import main.Labyrinth;
-import main.Objekt;
-import main.Player;
-import main.Spawner;
+
 import params.Kugel;
 import params.Material;
 import params.Quader;
@@ -28,6 +26,7 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
   public boolean  status; 				//Bestimmt die Richtung der Bewegung, sollte "stop" auf false gestellt werden. Nach Beendung einer Hebelbewegung wird status umgestellt und die Richtung
                                         //fuer die naechse Bewegung geaendert.
   
+
   private float   winkel = 0f; 			//Bewegt den Hebel mit einem Rotationsbefehl zwischen 0 und - 70 Grad. Dies geschieht durch die Aenderung dieses Wertes durch die Bewegungsfunktionen in "step".
   /**
    * 
@@ -43,9 +42,9 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
   public Schalter(String befehl,float x, float y, float z, float alpha, float beta, float gamma)
   {
     this.befehl = befehl;
-    this.x = x;
-    this.y = y;
-    this.z = z;
+    pos.x = x;
+    pos.y = y;
+    pos.z = z;
     stop = true;
     schalt = false;
     status = false;
@@ -63,7 +62,7 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
     
     block.translate(new Point(x, y, z));
     hebel.translate(new Point(x, y, z));
-
+    
   }
   /** Ueberpruft ob der Schalter umgelegt wird oder zurueck in Ursprungslage versetzt wird (bei Interaktion mit dem Schalter wechselt sich dies ab).
    * 
@@ -81,7 +80,7 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
       }
       status = false;
       Funktionen.minusschalten(this.befehl);
-     
+      
     }
   }
   
@@ -111,14 +110,14 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
       switch (key)
       {
       case GLFW_KEY_G:
-        p = Point.add(Labyrinth.player.pos, -x, -y, -z);
+        p = Point.add(Labyrinth.player.pos, -pos.x, -pos.y, -pos.z);
         if (p.length("xy") < 1) schalten();
       }
     }
     if (stop != true)
     {
       hebel.rotate(new float[] { 0, winkel, 0 });
-      hebel.translate(new Point(winkel * -0.1f / 70 + x, y, z));
+      hebel.translate(new Point(winkel * -0.1f / 70 + pos.x, pos.y, pos.z));
     }
     if (schalt == true)
     {
@@ -144,14 +143,11 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
   @Override
   public void collision()
   {
-    // TODO Auto-generated method stub
-    
   }
   
   @Override
   public void draw()
   {
-    // TODO Auto-generated method stub
     Material.SILVER.use();
     block.draw();
     Material.BLACK_RUBBER.use();
@@ -162,8 +158,6 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
   @Override
   public void drawGUI()
   {
-    // TODO Auto-generated method stub
-    
   }
   
 }
