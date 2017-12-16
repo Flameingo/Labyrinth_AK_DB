@@ -16,9 +16,10 @@ public class DekoKreuz extends Objekt
 	
 	public DekoKreuz(Level lev, String ecke)
 	{
-		myShape.addParam(new Quader("Mitte", 0.05f,0.1f,1), new Point(0,0,0.5f));
-		myShape.addParam(new Quader("Mitte", 0.05f,0.6f,0.1f), new Point(0,0,0.7f));
-		
+		pushZusatzAufloesung(3);
+			myShape.addParam(new Quader("Mitte", 0.05f,0.1f,1), new Point(0,0,0.5f));
+			myShape.addParam(new Quader("Mitte", 0.05f,0.6f,0.1f), new Point(0,0,0.7f));
+		popZusatzAufloesung();
 		switch(ecke)
 		{
 			case "ro": 
@@ -49,15 +50,16 @@ public class DekoKreuz extends Objekt
 		
 		myShape.translate(new Point(pos.x,pos.y,0));
 		myShape.rotate(new float[]{alpha,0,0});
-		Point p;
-		String Ausgabe = "Press F to pay respect";
-		 p = Point.add(Labyrinth.player.pos, -pos.x, -pos.y, -0);
-	        if (p.length("xy") < 1) Text.draw_text(Ausgabe, new Point (10,30), 40);
+		
 	}
 	
 	@Override
-	public void step() {
-		
+	public void step()
+	{
+		Point p;
+		String Ausgabe = "Press F to pay respect";
+		 p = Point.add(Labyrinth.player.pos, -pos.x, -pos.y, -0);
+	        if (p.length("xy") < 3) Text.draw_text(Ausgabe, new Point (10,30), 40);
 		
 	}
 
@@ -69,7 +71,7 @@ public class DekoKreuz extends Objekt
 	@Override
 	public void draw() 
 	{
-		Material.BRONZE.use();
+		Material.BRASS.use();
 		myShape.draw();
 		
 	}

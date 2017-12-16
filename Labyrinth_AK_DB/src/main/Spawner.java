@@ -4,6 +4,7 @@ import basics.Level;
 import models3D.*;
 import path.*;
 import section.*;
+import unused.Turm;
 
 public class Spawner extends Objekt
 {
@@ -16,7 +17,9 @@ public class Spawner extends Objekt
   public static AbschnittBC abschnittBC;
   public static AbschnittC  abschnittC;
   public static AbschnittD  abschnittD;
-  
+  public static DD1 dD1;
+  public static DD2 dD2;
+  public static Turm turm;
   /**
    * created once at the start of the game and places all objects that should be in the game at the start.
    */
@@ -29,13 +32,17 @@ public class Spawner extends Objekt
     Labyrinth.addObject(boden);
     // boden.hidden = true;
 
-//    Labyrinth.addObject(new DekoSchild());
-
-
-    // Labyrinth.addObject(new DekoSchild());
-
+//    turm = new Turm("z",0,-20,0,0,0,0);
+//    Labyrinth.addObject(turm);
     abschnittD = new AbschnittD();
     Labyrinth.addObject(abschnittD);
+    
+    dD1 = new DD1();
+    Labyrinth.addObject(dD1);
+    
+    dD2 = new DD2();
+    Labyrinth.addObject(dD2);
+    dD2.hidden = true;
     
     // Schalter
     // Labyrinth.addObject(new SchalterFeld("BB", new Level(8,3)));

@@ -22,24 +22,27 @@ public class Gitter extends Objekt
     this.beta = beta;
     this.gamma = gamma;
     
-    if (B == "+")
-      myShape.addParam(new Zylinder(0.03f, 0.03f, 0.2f * stghoehe * 5 - 0.1f), new Point(0.1f * (stgbreite * 5), 0, 0));
+    pushZusatzAufloesung(3);
     
-    for (int rechts = 0; rechts < stgbreite * 5; rechts++)
-    {
-      // Erschafft die Vertikalen Stangen,
-      // String "+" erschafft ein abschlie�endes Gitterst�ck
-      myShape.addParam(new Zylinder(0.03f, 0.03f, 0.2f * stghoehe * 5 - 0.1f),
-          new Point(0.2f * (rechts) - 0.1f * (stgbreite * 5.5f), 0, 0), new float[] { 0, 0, 0 });
-      
-    }
+    	if (B == "+")
+    		myShape.addParam(new Zylinder(0.03f, 0.03f, 0.2f * stghoehe * 5 - 0.1f), new Point(0.1f * (stgbreite * 5), 0, 0)); 	// String "+" erschafft ein abschliessendes Gitterstueck
     
-    for (int hoch = 0; hoch < stghoehe * 5; hoch++)
-    { // Erschafft die waagrechten Stangen
-      myShape.addParam(new Zylinder(0.03f, 0.03f, 0.2f * stgbreite * 5 - 0.1f),
-          new Point(-(stgbreite * 5.5f) * 0.1f, 0, 0.1f + 0.2f * hoch), new float[] { 0, 90, 0 });
+    	for (int rechts = 0; rechts < stgbreite * 5; rechts++)
+    	{
+    																			// Erschafft die Vertikalen Stangen,								
+    		myShape.addParam(new Zylinder(0.03f, 0.03f, 0.2f * stghoehe * 5 - 0.1f),
+    				new Point(0.2f * (rechts) - 0.1f * (stgbreite * 5.5f), 0, 0), new float[] { 0, 0, 0 });
       
-    }
+    	}
+    
+    	for (int hoch = 0; hoch < stghoehe * 5; hoch++)
+    	{ 																					// Erschafft die waagrechten Stangen
+    		myShape.addParam(new Zylinder(0.03f, 0.03f, 0.2f * stgbreite * 5 - 0.1f),
+    			new Point(-(stgbreite * 5.5f) * 0.1f, 0, 0.1f + 0.2f * hoch), new float[] { 0, 90, 0 });
+      
+    	}
+    popZusatzAufloesung();
+    
     myShape.translate(new Point(x, y, z)); // Verantwortlich f�r die Verschiebung des gesamtes Objektes
     myShape.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich f�r die Drehung des gesamtes Objektes
   }

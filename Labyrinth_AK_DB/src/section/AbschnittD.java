@@ -6,6 +6,7 @@ import basics.Level;
 import main.Labyrinth;
 import main.Objekt;
 import models3D.DekoKreuz;
+import models3D.DekoSchild;
 import models3D.Tuer;
 import path.*;
 
@@ -19,6 +20,7 @@ public class AbschnittD extends Objekt
   
   public AbschnittD()
   {
+	waende.add(new LabWeg_L(new Level(1,14)));
     waende.add(new LabEck_ru(new Level(-5, 21)));
     waende.add(new LabWeg_r_l(new Level(-4, 21)));
     waende.add(new LabEck_lo(new Level(-3, 21)));
@@ -54,12 +56,6 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_r_l(new Level(-2, 25)));
     waende.add(new LabWeg_r_l(new Level(-1, 25)));
     waende.add(new LabWeg_U(new Level(0, 25)));
-    
-    waende.add(new LabDmgWeg_L(new Level(7, 12))); // nach betaetigung von Schalter 11 wird dieses Stueck um 90 grad
-                                                   // gedreht.
-    waende.add(new LabDmgWeg_R(new Level(7, 12))); // nach betaetigung von Schalter 11 wird dieses Stueck um 90 grad
-                                                   // gedreht.
-    
     waende.add(new LabWeg_r_l(new Level(1, 28)));
     waende.add(new LabEck_lo(new Level(2, 28)));
     waende.add(new LabEck_lu(new Level(2, 27)));
@@ -422,8 +418,10 @@ public class AbschnittD extends Objekt
     steine.add(new Eckstein(new Level(3, 7)));
     steine.add(new Eckstein(new Level(5, 7)));
     steine.add(new Eckstein(new Level(19, 15)));
-    steine.add(new DekoKreuz(new Level(6, 13), "ru"));
     steine.add(new Eckstein(new Level(2, 16)));
+    steine.add(new DekoKreuz(new Level(6, 13), "ru"));
+    steine.add(new DekoSchild(0,-20,0,0,0,0));
+    
     
     // Tueren (Abschnitt D)
     tueren.add(new Tuer_O("d1", new Level(9, 8)));

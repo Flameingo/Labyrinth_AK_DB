@@ -1,5 +1,7 @@
 package main;
 
+
+
 public class Funktionen extends Objekt{
 	/**
 	 * In diesen String koennen bestimmte Begriffe eingetragen werden, die bei Ausfuehren einer Interaktion eine bestimmte Handlung durchfuehren.
@@ -78,7 +80,9 @@ public class Funktionen extends Objekt{
 				break;
 				
 			case "D1": standd1 = true;   // D1 - D5 ... Einwegschalter zum Tueren oeffnen innerhalb von AbschnittD. Chronolisch geordnet. D1 entspricht ebenso
-			 	break;                         // standd1, D2 standd2 usw ...
+					 Spawner.dD1.hidden = true;															// standd1, D2 standd2 usw ...
+					 Spawner.dD2.hidden = false; //DD1 unsichtbar, DD2 sichtbar : Waende scheinen sich gedreht zu haben
+			 	break;                         
 			 case "D2": standd2 = true;
 			 break;
 			 case "D3": standd3 = true;
@@ -115,6 +119,10 @@ public class Funktionen extends Objekt{
 			    
 			case "BC_C": Spawner.abschnittBC.hidden = false; //rueckgaengig
 						 Spawner.abschnittC.hidden = true;
+			    break;
+			    
+			case "D1": Spawner.dD1.hidden = false; //rueckgaengig
+					   Spawner.dD2.hidden = true;
 			    break;
 			    
 			default:

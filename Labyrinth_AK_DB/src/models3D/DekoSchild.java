@@ -16,24 +16,59 @@ public class DekoSchild extends Objekt
 	
 	public DekoSchild (float x, float y, float z, float alpha, float beta, float gamma) //warum muss es auch so verdammt schwer sein einen Ring zu konstruieren...
 	{
-		brett.addParam(new Quader("Mitte",0.01f,0.5f,0.5f), new Point(0,0,1)); // Das Brett des Schildes an das Botschaften geheftet werden koennen
-		stock.addParam(new Zylinder(0.01f,0.01f,0.75f));
+		pushZusatzAufloesung(3);
+			brett.addParam(new Quader("Mitte",0.01f,0.5f,0.5f), new Point(0,0,1)); // Das Brett des Schildes an das Botschaften geheftet werden koennen
+			stock.addParam(new Zylinder(0.01f,0.01f,0.75f));
 		
-		brett.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung des Bretts
-	    brett.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung des Bretts
+			brett.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung des Bretts
+			brett.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung des Bretts
 	    
-	    stock.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung des Holzpfals, auf dem das Brett platziert ist.
-	    stock.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung ...
+			stock.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung des Holzpfals, auf dem das Brett platziert ist.
+			stock.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung ...
+	    popZusatzAufloesung();
 	}
 	public DekoSchild (String eck, Level lev) // r ist rechts, o ist oben, u ist unten, l ist links 
-	{                                         //Das Feld wird nach den Kriterien von Level 
+	{   
+		pushZusatzAufloesung(3);
+			brett.addParam(new Quader("Mitte",0.01f,0.5f,0.5f), new Point(0,0,1)); // Das Brett des Schildes an das Botschaften geheftet werden koennen
+			stock.addParam(new Zylinder(0.01f,0.01f,0.75f));
+		popZusatzAufloesung();                                      //Das Feld wird nach den Kriterien von Level 
+		
 		switch(eck)
 		{
-		case "ro":
+		case "ro": 
+			pos.x = lev.x2 - 0.4f;
+			pos.y = lev.y2 - 0.5f;
+			this.alpha = 10;
+			break;
 		case "ru":
+		  pos.x = lev.x2 - 0.4f;
+		  pos.y = lev.y1 + 0.5f;
+			this.alpha = - 10;
+			break;
 		case "lo":
+		  pos.x = lev.x1 + 0.4f;
+		  pos.y = lev.y2 - 0.5f;
+			this.alpha = - 10;
+			break;
 		case "lu":
+		  pos.x = lev.x1 + 0.4f;
+		  pos.y = lev.y1 + 0.5f;
+			this.alpha = 10;
+			break;
+		default:
+		  pos.x = lev.x1 + 0.75f;
+		  pos.y = lev.y2 - 0.75f;
+			break;
 		}
+		
+	
+		brett.translate(new Point(pos.x, pos.y, 0));   //Verantwortlich fuer die Verschiebung des Bretts
+		brett.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung des Bretts
+    
+		stock.translate(new Point(pos.x, pos.y, 0));   //Verantwortlich fuer die Verschiebung des Holzpfals, auf dem das Brett platziert ist.
+		stock.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung ...
+    
 	}
 	
 	@Override

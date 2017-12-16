@@ -49,19 +49,23 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
     schalt = false;
     status = false;
     float slHoehe = 0.1f;
-    block.addParam(new Quader("Mitte", 0.2f, 0.2f, slHoehe), new Point(0, 0, slHoehe / 2)); // Der
-                                                                                            // Block
-                                                                                            // auf
-                                                                                            // dem
-                                                                                            // der
-                                                                                            // Schalter
-                                                                                            // angebracht
-                                                                                            // ist.
-    hebel.addParam(new Zylinder(0.03f, 0.03f, 0.4f), new Point(0, 0, slHoehe), new float[] { 0, 35, 0 });
-    block.addParam(new Kugel(0.1f), new Point(0, 0, slHoehe - 0.05f));
     
-    block.translate(new Point(x, y, z));
-    hebel.translate(new Point(x, y, z));
+    pushZusatzAufloesung(5);
+    	block.addParam(new Quader("Mitte", 0.2f, 0.2f, slHoehe), new Point(0, 0, slHoehe / 2)); // Der
+                                                                                            	// Block
+    																							// auf
+    																							// dem
+                                                                                            	// der
+                                                                                            	// Schalter
+                                                                                            	// angebracht
+                                                                                            	// ist.
+    	hebel.addParam(new Zylinder(0.03f, 0.03f, 0.4f), new Point(0, 0, slHoehe), new float[] { 0, 35, 0 });   //Der Hebel in Ausgangsposition.
+    	block.addParam(new Kugel(0.1f), new Point(0, 0, slHoehe - 0.05f)); 										//Kugel an der Schnittstelle zwischen Block und Hebbel
+    
+    popZusatzAufloesung();
+    
+    block.translate(new Point(x, y, z)); //Verschiebt den statischen Teil des Objektes an den gewuenschten Koordinatenpunkt x,y,z
+    hebel.translate(new Point(x, y, z)); //Selbiges fuer den Hebel.
     
   }
   /** Ueberpruft ob der Schalter umgelegt wird oder zurueck in Ursprungslage versetzt wird (bei Interaktion mit dem Schalter wechselt sich dies ab).

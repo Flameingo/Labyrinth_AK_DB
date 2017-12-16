@@ -28,17 +28,20 @@ public class Eckstein extends Objekt
                                                //Die Kuppel, die die Spitze des Ecksteins ziert
      
     float radius = 0.1f;
-    pushZusatzAufloesung(1.99f);											 //Bei 2 oder hoeher steht die FPS - Anzeige ingame konstant auf 0. UEBERPRUEFEN
-    kuppel.addParam(new Kugel(radius), new Point(0,0,(hoehe)*0.2f + radius - 0.05f));
-    kuppel.addParam(new Kegel(radius/2,radius/2, 0.2f), new Point(0,0,hoehe*0.2f + 3*radius/2 - 0.05f));
-    pushZusatzAufloesung(1);
-    kuppel.addParam(new Kugel(0.02f), new Point(0,0,hoehe*0.2f + 3*radius/2 - 0.05f + 0.19f));
+    pushZusatzAufloesung(3);											 //Bei 2 oder hoeher steht die FPS - Anzeige ingame konstant auf 0. UEBERPRUEFEN
+    	kuppel.addParam(new Kugel(radius), new Point(0,0,(hoehe)*0.2f + radius - 0.05f));
+    	kuppel.addParam(new Kegel(radius/2,radius/2, 0.2f), new Point(0,0,hoehe*0.2f + 3*radius/2 - 0.05f));
+    	pushZusatzAufloesung(1);
+    		kuppel.addParam(new Kugel(0.02f), new Point(0,0,hoehe*0.2f + 3*radius/2 - 0.05f + 0.19f));
+    	popZusatzAufloesung();
+    	for(int q = 0; q < 4; q++)
+    	{
+    		kuppel.addParam(new Zylinder(0.03f,0.03f,0.01f), 
+    				new Point(0.09f*(float)Math.cos(q*Math.PI/2),0.09f*(float)Math.sin(q*Math.PI/2),hoehe*0.2f + radius*3/4), 
+    				new float[]{0,90*(float)Math.cos(q*Math.PI/2),90*(float)Math.sin(q*Math.PI/2)}); 	
+    	}
     popZusatzAufloesung();
-    for(int q = 0; q < 4; q++)
-    {
-    	kuppel.addParam(new Zylinder(0.03f,0.03f,0.01f), new Point(0.09f*(float)Math.cos(q*Math.PI/2),0.09f*(float)Math.sin(q*Math.PI/2),hoehe*0.2f + radius*3/4), new float[]{0,90*(float)Math.cos(q*Math.PI/2),90*(float)Math.sin(q*Math.PI/2)}); 	
-    }
-    popZusatzAufloesung();
+    
     
     for (int hoch = 0; hoch < hoehe; hoch++) //Schleife fuer jede Ebene nebeneinanderliegender Steine. Laeuft von unten nach oben.
     {

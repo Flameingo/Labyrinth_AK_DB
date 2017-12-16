@@ -18,6 +18,7 @@ public class Text
   private static String[] strings = {};
   
   private static int      size;
+  public static boolean anleitung = true;
   
   public static void init()
   {
@@ -71,6 +72,17 @@ public class Text
     draw_text(Ausgabe, new Point(10, 30), 30);
     	String Ausgabe2 = "Finde die Hobbits";
     	draw_text(Ausgabe2, new Point (20,7),20);
+    if(anleitung)
+    {
+    	String Anleitung1 = "Steuerung:";
+    	String Anleitung2 = "Laufen - AWSD";
+    	String Anleitung3 = "Kamera - Pfeiltasten";
+    	String Anleitung4 = "Interaktion - G";
+    	draw_text(Anleitung1, new Point (80,240),30);
+    	draw_text(Anleitung2, new Point (60,200), 30);
+    	draw_text(Anleitung3, new Point (60, 160), 30);
+    	draw_text(Anleitung4, new Point (60,120), 30);
+    }
   }
   
   public static void draw_text(String string, Point pos, int size)
