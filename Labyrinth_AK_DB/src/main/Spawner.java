@@ -4,6 +4,11 @@ import basics.Level;
 import models3D.*;
 import path.*;
 import section.*;
+import unused.AbschnittA;
+import unused.AbschnittB;
+import unused.AbschnittBB;
+import unused.AbschnittBC;
+import unused.AbschnittC;
 import unused.Turm;
 
 public class Spawner extends Objekt
@@ -44,24 +49,7 @@ public class Spawner extends Objekt
     Labyrinth.addObject(dD2);
     dD2.hidden = true;
     
-    // Schalter
-    // Labyrinth.addObject(new SchalterFeld("BB", new Level(8,3)));
-    // Labyrinth.addObject (new SchalterFeld("B_BB", new Level(3,6))); //Existiert in ABschnitt B und Abschnitt BB
-    // Labyrinth.addObject (new SchalterFeld("BB_BC", new Level(0,13))); //Existiert in Abschnitt BB und Abschnitt BC.
-    // Labyrinth.addObject (new SchalterFeld("BC_C", new Level(0,-8))); //Existiert in Abschnitt BC und Abschnitt C.
-    
-    // Tueren
-    
-    // Labyrinth.addObject (new Tuer_L("01", new Level(3,6)));
-    // Labyrinth.addObject (new Tuer_R("02", new Level(3,6)));
-    // Labyrinth.addObject(new Tuer_R("03", new Level(6,6)));
-    //
-    // Schalter (Abschnitt D)
-    Labyrinth.addObject(new SchalterFeld("D1", new Level(6, 26)));
-    Labyrinth.addObject(new SchalterFeld("D2", new Level(12, 9)));
-    Labyrinth.addObject(new SchalterFeld("D3", new Level(0, 22)));
-    Labyrinth.addObject(new SchalterFeld("D4", new Level(0, 23)));
-    Labyrinth.addObject(new SchalterFeld("D5", new Level(19, 22)));
+
     
   }
   

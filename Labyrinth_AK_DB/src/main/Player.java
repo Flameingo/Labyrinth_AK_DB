@@ -37,9 +37,11 @@ public class Player extends Objekt
   @Override
   public void step()
   {
-	if(Kompass.getLvlX() == 3 && Kompass.getLvlY() == 14) // Auf dem dritten Feld wird die anfangs sichtbare Anleitung verschwinden. Dieses Feld muss immer ueberlaufen werden.
-		Text.anleitung = false;								//Abfrage kann eventuell in andere Klasse verlegt werden.
-	
+	if(Text.anleitung)
+	{
+		if(Kompass.getLvlX() == 3 && Kompass.getLvlY() == 14)   // Auf dem dritten Feld wird die anfangs sichtbare Anleitung verschwinden. Dieses Feld muss immer ueberlaufen werden.
+			Text.anleitung = false;								//Abfrage kann eventuell in andere Klasse verlegt werden.
+	}
     for (int key : Labyrinth.keys)
     {
       // bewegungen anhand WASD und arrow-keys einleiten.

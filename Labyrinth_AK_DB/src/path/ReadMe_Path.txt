@@ -1,4 +1,9 @@
+
+Naehere Informationen zum Labyrinth-Bau mit Klassen des path - Packages:
+
 Dieses Package wurde dafuer geschaffen, den Umgang mit den Wandklassen beim Erschaffen eines Labyrinthes zu erleichtern.
+
+
 Dabei wird die x,y - Ebene betrachtet.
 Die Koordinaten zweier Eckpunkte, die ein Quadrat aufspannen wird einer Klasse uebergeben (optional noch die Hoehe) - (1,1 und 2,2 spannen das Quadrat
 (1,1) (1,2) (2,2) (2,1) auf).
@@ -25,8 +30,9 @@ Sprich LabWeg_O zB erschafft nur ein Wandstueck, naemlich an der oberen Kante de
 Sackgasse wird ueber einen String bedient, der mit "oben","links","rechts","unten" oder den jeweiligen Kuerzeln eine Sackgasse erschafft, die in Richtung der
 im String benannten Seite geoeffnet.
 
-LabEck-Klassen besitzen einen Boolean
-Bei false werden nur zwei Waende erschaffen, die Eck an Eck liegen.
+LabEck-Klassen besitzen einen Boolean.
+Bei Nutzung des Konstruktors ohne Boolean werden nur zwei Waende erschaffen, die Eck an Eck liegen.
 Bei true wird zusaetzlich eine gebogene Wand erschaffen, die an der jeweils anderen Ecke beider Wandstuecke anliegt.
+Fuer das Gameplay hat dies weniger Auswirkungen, da sich der Labyrinthverlauf dadurch nicht aendert.
 
 Ecksteine werden auch einem diskreten Feld zugeordnet. Dabei wird dieser im linken oberen Eck des Quadrats platziert.

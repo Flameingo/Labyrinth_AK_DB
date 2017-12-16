@@ -140,12 +140,16 @@ public class Funktionen extends Objekt{
 	    Spawner.abschnittBC.hidden = true;
 	    Spawner.abschnittC.hidden = true;
 	    Spawner.abschnittD.hidden = true;
+	    Spawner.dD1.hidden = true;
+	    Spawner.dD2.hidden = true;
 	}
 
-	@Override
-	public void step() {                            		//Abstrakte Methoden aus "Objekt" finden hier keine Anwendung.
+															//Abstrakte Methoden aus "Objekt" finden hier keine Anwendung.
 															//Nur bei den entsprechenden Unterklassen "Tuer" und "Schalter", diese machen von der
-															//"Ur"-Oberklasse Objekt Gebrauch.
+	@Override												//"Ur"-Oberklasse Objekt Gebrauch.
+	public void step()
+	{   
+		
 	}
 
 	@Override

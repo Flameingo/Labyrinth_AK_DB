@@ -3,6 +3,9 @@ package section;
 import java.util.LinkedList;
 
 import basics.Level;
+import basics.Point;
+import basics.Text;
+import main.Kompass;
 import main.Labyrinth;
 import main.Objekt;
 import models3D.DekoKreuz;
@@ -17,6 +20,8 @@ public class AbschnittD extends Objekt
   protected LinkedList<Objekt> steine = new LinkedList<Objekt>();
   
   protected LinkedList<Objekt> tueren = new LinkedList<Objekt>();
+  
+  protected LinkedList<Objekt> schalter = new LinkedList<Objekt>();
   
   public AbschnittD()
   {
@@ -423,7 +428,7 @@ public class AbschnittD extends Objekt
     steine.add(new DekoSchild(0,-20,0,0,0,0));
     
     
-    // Tueren (Abschnitt D)
+    // Tueren 
     tueren.add(new Tuer_O("d1", new Level(9, 8)));
     tueren.add(new Tuer_L("d2", new Level(1, 21)));
     tueren.add(new Tuer_L("d21", new Level(1, 28)));
@@ -431,6 +436,14 @@ public class AbschnittD extends Objekt
     tueren.add(new Tuer_U("d31", new Level(16, 11)));
     tueren.add(new Tuer_U("d4", new Level(-5, 21)));
     tueren.add(new Tuer_L("d5", new Level(15, 20)));
+    
+    // Schalter
+    schalter.add(new SchalterFeld("D1", new Level(6, 26)));
+    schalter.add(new SchalterFeld("D2", new Level(12, 9)));
+    schalter.add(new SchalterFeld("D3", new Level(0, 22)));
+    schalter.add(new SchalterFeld("D4", new Level(0, 23)));
+    schalter.add(new SchalterFeld("D5", new Level(19, 22)));
+    
   }
   
   @Override
@@ -443,6 +456,14 @@ public class AbschnittD extends Objekt
       stein.step();
     for (Objekt tuer : tueren)
       tuer.step();
+    for (Objekt schalt : schalter)
+    {
+      schalt.step();
+//      if(schalt.getA() == Kompass.getLvlX() && schalt.getB() == Kompass.getLvlY()) //Ich weis nicht woran es scheitert...
+// 		Text.tipp1 = true;
+//      else
+//    	Text.tipp1 = false;
+    }
   }
   
   @Override
@@ -455,6 +476,8 @@ public class AbschnittD extends Objekt
       stein.collision();
     for (Objekt tuer : tueren)
       tuer.collision();
+    for (Objekt schalt : schalter)
+      schalt.collision();
   }
   
   @Override
@@ -467,6 +490,8 @@ public class AbschnittD extends Objekt
       stein.draw();
     for (Objekt tuer : tueren)
       tuer.draw();
+    for (Objekt schalt : schalter)
+      schalt.draw();
   }
   
   @Override
@@ -478,6 +503,8 @@ public class AbschnittD extends Objekt
       stein.drawGUI();
     for (Objekt tuer : tueren)
       tuer.drawGUI();
+    for (Objekt schalt : schalter)
+      schalt.drawGUI();
     
   }
 }

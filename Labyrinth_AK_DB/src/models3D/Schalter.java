@@ -1,6 +1,7 @@
 package models3D;
 
 import basics.Point;
+import basics.Text;
 import main.Funktionen;
 import main.Labyrinth;
 
@@ -108,16 +109,20 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
   @Override
   public void step()
   {
+    
     for (int key : Labyrinth.keys)
     {
-      Point p;
+      Point p; 
       switch (key)
       {
       case GLFW_KEY_G:
-        p = Point.add(Labyrinth.player.pos, -pos.x, -pos.y, -pos.z);
-        if (p.length("xy") < 1) schalten();
-      }
+        
+    	p = Point.add(Labyrinth.player.pos, -pos.x, -pos.y, -pos.z);
+        if (p.length("xy") < 1) schalten();      //Betaetigt der Spieler die Taste "G", fragt jeder Schalter ab, ob er selbst sich in direkter Naehe
+      }											 // des Spielers befindet. Ist dies der Fall fuehrt entsprechender Schalter "Schalter.schalten()" aus.
+      
     }
+    
     if (stop != true)
     {
       hebel.rotate(new float[] { 0, winkel, 0 });

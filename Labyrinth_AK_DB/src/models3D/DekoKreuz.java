@@ -57,9 +57,11 @@ public class DekoKreuz extends Objekt
 	public void step()
 	{
 		Point p;
-		String Ausgabe = "Press F to pay respect";
+		
 		 p = Point.add(Labyrinth.player.pos, -pos.x, -pos.y, -0);
-	        if (p.length("xy") < 3) Text.draw_text(Ausgabe, new Point (10,30), 40);
+	        if (p.length("xy") < 1) Text.payrespect = true;
+	        if (Text.payrespect && (p.length("xy") >= 1))
+	        		Text.payrespect = false;
 		
 	}
 

@@ -16,7 +16,7 @@ public final class Settings
   
   /** controls the resolution of all drawn Objects */
   
-  public final static float   RenderSolution          = 0; //  Vergleichbar mit einer Grafikeinstellung, wobei 0 der niedrigsten Aufloesung entspricht, verbessert sich fuer groes
+  public final static float   RenderSolution          = 5; //  Grafikeinstellung, wobei 0 der niedrigsten Aufloesung entspricht, verbessert sich fuer groes
                                                            // Bestimmt wie fein die Facettierung der Objekte ist. 5 ist Richtwert.
  
   
@@ -27,4 +27,9 @@ public final class Settings
                                                                                 // 0.07f
   public final static float   PlayerSideStepSpeed     = .05f;                   // urspruenglich                          Laufgeschwindigkeit fuer Seitwaertsbewegungen.
                                                                                 // 0.05f
+  
+  
+      //cheats
+  public static final boolean SHOW_LEVEL              = true;   //Gibt im Spiel die Position zur Orientierung in Koordinaten (Feldkoordinate Level) an.
+  
 }

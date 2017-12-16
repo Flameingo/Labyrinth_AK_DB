@@ -19,6 +19,8 @@ public class Text
   
   private static int      size;
   public static boolean anleitung = true;
+  public static boolean payrespect = false;
+  public static boolean tipp1 = false;
   
   public static void init()
   {
@@ -65,24 +67,36 @@ public class Text
   
   public static void draw_test()
   {
-    // draw_text("A/ABCDEFGHIJKLMN/nO/OPQRSTU/UVWXYZ/na/abcdefghijklmn/no/opqrstu/uvwxyz",
-    // new Point(10, 200), 50);
-//	  int i = 5;
-	  String Ausgabe = "Level: " + Kompass.getLvlX()+ "I"+ Kompass.getLvlY();
-    draw_text(Ausgabe, new Point(10, 30), 30);
-    	String Ausgabe2 = "Finde die Hobbits";
-    	draw_text(Ausgabe2, new Point (20,7),20);
-    if(anleitung)
-    {
-    	String Anleitung1 = "Steuerung:";
-    	String Anleitung2 = "Laufen - AWSD";
-    	String Anleitung3 = "Kamera - Pfeiltasten";
-    	String Anleitung4 = "Interaktion - G";
-    	draw_text(Anleitung1, new Point (80,240),30);
-    	draw_text(Anleitung2, new Point (60,200), 30);
-    	draw_text(Anleitung3, new Point (60, 160), 30);
-    	draw_text(Anleitung4, new Point (60,120), 30);
-    }
+	  if(Settings.SHOW_LEVEL)
+	  {
+		  String Ausgabe = "Level: " + Kompass.getLvlX()+ "I"+ Kompass.getLvlY();
+		  draw_text(Ausgabe, new Point(10, 30), 30);
+		  String Ausgabe2 = "Finde die Hobbits";                        //Aktuell Feldkoordinaten werden am Bildschirm unten links ausgegeben, wenn in Settings unter Cheats
+		  draw_text(Ausgabe2, new Point (20,7),20);                     // "SHOW_LEVEL" auf true ist.
+	  }
+	  if (payrespect)
+	  {
+		  String Respekt = "Press F to pay Respect";   //In der Naehe des Objekts "DekoKreuz" wird dieser Text am Bildschirm ausgegeben.
+		  draw_text(Respekt, new Point(80,240),30);
+	  }
+	  
+	  if(anleitung)
+	  {
+		  String Anleitung1 = "Steuerung:";              //Gibt die Instruktions zu Beginn des Spiels am Bildschirm aus, wird das dritte Feld betreten,
+		  String Anleitung2 = "Laufen - AWSD";			 // wird "anleitung" auf false gestellt (in "Player").
+		  String Anleitung3 = "Kamera - Pfeiltasten";
+		  String Anleitung4 = "Interaktion - G";
+		  
+		  draw_text(Anleitung1, new Point (80,240),30);
+		  draw_text(Anleitung2, new Point (60,200), 30);
+		  draw_text(Anleitung3, new Point (60, 160), 30);
+		  draw_text(Anleitung4, new Point (60,120), 30);
+	  }
+	  if(tipp1)
+	  {
+		 String Tipp1 = "Interagieren - G";
+		 draw_text(Tipp1, new Point (80,240),30);
+	  }
   }
   
   public static void draw_text(String string, Point pos, int size)
