@@ -1,5 +1,7 @@
 package path;
 
+import static path.Etage.NORMAL;
+
 import basics.Level;
 import basics.Point;
 import main.Objekt;
@@ -12,12 +14,13 @@ import params.Zylinder;
 
 public class Eckstein extends Objekt
 {
+	  protected Etage              e            = NORMAL; //Objekte ohne Etagenangabe werden auf dem Erdboden gezeichnet
+	  
+	  protected Shape 				myShape 	= new Shape(); //Backsteine
+	  protected Shape 				putz    	= new Shape();
+	  protected Shape 				kuppel 		= new Shape();
   
-  protected Shape myShape = new Shape();
-  protected Shape putz    = new Shape();
-  protected Shape kuppel = new Shape();
-  
-  public Eckstein(float x, float y, float alpha, float beta, float gamma, int hoehe) //Stehen immer auf der Ebene z = 0
+  public Eckstein(float x, float y, float z, float alpha, float beta, float gamma, int hoehe) //Stehen immer auf der Ebene z = 0
   {
     
     putz.addParam(new Quader("Mitte", 0.2f, 0.2f, hoehe * 0.19f), new Point(0, 0, 0.1f * hoehe)); //Zeichnet einen Quader in die Mitte des Objektes, um den Zwischenraum 
@@ -71,15 +74,15 @@ public class Eckstein extends Objekt
     // Positioniert das Objekt an der gewuenschten Stelle mit x und y als Mittelpunkt und z = 0; Alle Params werden um diesen Ursprung mit den uebergebenen Winkeln 
     // alpha, beta, gamma gedreht.
     
-    myShape.translate(new Point(x, y, pos.z)); // Verantwortlich  fuer die Verschiebung
+    myShape.translate(new Point(x, y, z)); // Verantwortlich  fuer die Verschiebung
                                                // der Backsteine an den gewuenschten Uebergabeort    x,y,z.
     myShape.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung der Backsteine.
                                                         
     
-    putz.translate(new Point(x, y, pos.z)); // Verantwortlich fuer die Verschiebung des Putz.
+    putz.translate(new Point(x, y, z)); // Verantwortlich fuer die Verschiebung des Putz.
     putz.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung des Putz.
     
-    kuppel.translate(new Point(x, y, pos.z)); // Verantwortlich fuer die Verschiebung der Kuppel oben drauf.
+    kuppel.translate(new Point(x, y, z)); // Verantwortlich fuer die Verschiebung der Kuppel oben drauf.
     kuppel.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung der Kuppel.
   }
   /** Positioniert mit linker, oberer Ecke des gewaehlten Feldes als Mittelpunkt den Eckstein auf Hoehe z = 0.
@@ -106,12 +109,17 @@ public class Eckstein extends Objekt
   
   public Eckstein(float x, float y)
   {
-    this(x, y, 0, 0, 0, 11);
+    this(x, y, 0, 0, 0, 0, 11);
   }
   
   public Eckstein(float x, float y, int hoehe)
   {
-    this(x, y, 0, 0, 0, hoehe);
+    this(x, y, 0, 0, 0, 0, hoehe);
+  }
+  public Eckstein(Etage e, Level lev)
+  {
+	  this(lev.x1,lev.y2,2.1f*e.wert(),0,0,0,11);
+	  this.e = e;
   }
   
   @Override

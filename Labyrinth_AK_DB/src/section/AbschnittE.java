@@ -38,7 +38,35 @@ public class AbschnittE extends Objekt
 	    waende.add(new LabWeg_L(KELLER, new Level(9, 4)));
 	    waende.add(new LabWeg_o_u(KELLER, new Level(9, 3)));
 	    waende.add(new LabTuer_O(KELLER, new Level(9, 4)));
-	  
+	    waende.add(new LabWeg_o_u(KELLER, new Level(9,2)));
+	    waende.add(new LabWeg_r_l(KELLER, new Level(10,1)));
+	    waende.add(new LabWeg_r_l(KELLER,new Level(11,1)));
+	    waende.add(new LabWeg_r_l(KELLER, new Level(12,1)));
+	    waende.add(new LabEck_lo(new Level(13,1),KELLER,true,2));
+	    waende.add(new LabWeg_o_u(KELLER,new Level(13,0)));
+	    waende.add(new LabWeg_o_u(KELLER,new Level(13,-1)));
+	    waende.add(new LabWeg_O(KELLER,new Level(13,-1)));
+	    
+	    waende.add(new LabWeg_O(KELLER,new Level(9,1)));
+	    waende.add(new LabWeg_r_l(KELLER, new Level(8,1)));
+	    waende.add(new LabEck_ro(new Level(7,1),KELLER,true,2));
+	    waende.add(new LabWeg_o_u(KELLER, new Level(7,2)));
+	    waende.add(new LabEck_lo(new Level(7,3),KELLER,false,2));
+	    waende.add(new LabEck_ro(new Level(6,3),KELLER,false,2));
+	    waende.add(new LabWeg_r_l(KELLER,new Level(6,2)));
+	    waende.add(new LabWeg_r_l(KELLER, new Level(6,1)));
+	    waende.add(new LabEck_ru(new Level(6,0),KELLER,true,2));
+	    waende.add(new LabWeg_r_l(KELLER,new Level(7,0)));
+	    waende.add(new LabWeg_r_l(KELLER,new Level(8,0)));
+	    waende.add(new LabEck_lo(new Level(9,0),KELLER,false,2));
+	    waende.add(new LabWeg_O(KELLER,new Level(9,-1)));
+	    waende.add(new LabWeg_r_l(KELLER, new Level(8,-1)));
+	    waende.add(new LabWeg_r_l(KELLER, new Level(7,-1)));
+	    waende.add(new LabWeg_r_l(KELLER, new Level(6,-1)));
+	    waende.add(new LabEck_ro(new Level(5,-1),KELLER,false,2));
+	    waende.add(new LabWeg_o_u(KELLER,new Level(5,-2)));
+	    waende.add(new LabWeg_o_u(KELLER,new Level(5,-3)));
+	    waende.add(new LabWeg_O(KELLER,new Level(5,-3)));
 	    
 	    // Overground
 	    
@@ -59,6 +87,31 @@ public class AbschnittE extends Objekt
 	   steine.add(new Steinflaeche(new Level(10, 4), KELLER));
 	   steine.add(new Steinflaeche(new Level(10, 5), KELLER));
 	   steine.add(new Steinflaeche(new Level(10, 4), KELLERD));
+	   steine.add(new Steinflaeche(new Level(9,2), KELLER));
+	   steine.add(new Steinflaeche(new Level(9,2), KELLERD));
+	   steine.add(new Steinflaeche(new Level(9,1), KELLER));
+	   steine.add(new Steinflaeche(new Level(9,1),KELLERD));
+	   steine.add(new Steinflaeche(new Level(10,1),KELLER));
+	   steine.add(new Steinflaeche(new Level(10,1),KELLERD));
+	   steine.add(new Steinflaeche(new Level(11,1),KELLER));
+	   steine.add(new Steinflaeche(new Level(11,1),KELLERD));
+	   steine.add(new Steinflaeche(new Level(12,1),KELLER));
+	   steine.add(new Steinflaeche(new Level(12,1),KELLERD));
+	   steine.add(new Steinflaeche(new Level(13,1),KELLER));
+	   steine.add(new Steinflaeche(new Level(13,1),KELLERD));
+	   steine.add(new Steinflaeche(new Level(13,0),KELLER));
+	   steine.add(new Steinflaeche(new Level(13,0),KELLERD));
+	   steine.add(new Steinflaeche(new Level(13,-1),KELLER));
+	   steine.add(new Steinflaeche(new Level(13,-1),KELLERD));
+	   steine.add(new Steinflaeche(new Level(8,1),KELLER));
+	   steine.add(new Steinflaeche(new Level(8,1),KELLERD));
+	   
+	   //Ecksteine
+	   
+	   steine.add(new Eckstein(KELLER,new Level(10,2)));
+	   steine.add(new Eckstein(KELLER,new Level(9,2)));
+	   steine.add(new Eckstein(KELLER,new Level(13,1)));
+	   
 	   
   }
   
