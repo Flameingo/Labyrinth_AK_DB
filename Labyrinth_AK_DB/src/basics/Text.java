@@ -77,8 +77,8 @@ public class Text
     }
     if (payrespect)
     {
-      String Respekt = "Press F to pay Respect to /mu/SInn"; // In der Naehe des Objekts "DekoKreuz" wird dieser Text am
-                                                             // Bildschirm
+      String Respekt = "Press F to pay Respect"; // In der Naehe des Objekts "DekoKreuz" wird dieser Text am
+                                                 // Bildschirm
       // ausgegeben.
       draw_text(Respekt, new Point(80, 240), 30);
     }
