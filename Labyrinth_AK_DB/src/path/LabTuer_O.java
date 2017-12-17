@@ -54,13 +54,9 @@ public class LabTuer_O extends Lab
   
   public LabTuer_O(Etage e, float x, float y, float x2, float y2)
   {
-<<<<<<< HEAD
-	  this.e = e;
-    float yy2 = y2 - WandBlock.wdbreite / 2;												 // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
-=======
+
     this.e = e;
     float yy2 = y2 - WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
->>>>>>> branch 'master' of https://github.com/Flameingo/Labyrinth_AK_DB
     add(new TWD((x + x2) / 2 + 0.13f, yy2, boden + 2.1f * e.wert(), 0, 0, 0, Math.abs(x2 - x), 2));
     hitbox.add("Rahmen_O");
   }
