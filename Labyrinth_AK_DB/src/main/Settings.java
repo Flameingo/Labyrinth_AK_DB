@@ -16,7 +16,7 @@ public final class Settings
   
   /** controls the resolution of all drawn Objects */
   
-  public final static float   RenderSolution          = 5; //  Grafikeinstellung, wobei 0 der niedrigsten Aufloesung entspricht, verbessert sich fuer groes
+  public final static float   RenderSolution          = 0; //  Grafikeinstellung, wobei 0 der niedrigsten Aufloesung entspricht, verbessert sich fuer groes
                                                            // Bestimmt wie fein die Facettierung der Objekte ist. 5 ist Richtwert.
  
   

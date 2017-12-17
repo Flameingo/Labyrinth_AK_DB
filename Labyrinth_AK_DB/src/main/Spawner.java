@@ -16,15 +16,16 @@ public class Spawner extends Objekt
   
   public static boolean     makeStatic = false;
   
-  public static AbschnittA  abschnittA;
-  public static AbschnittB  abschnittB;
+  public static AbschnittA  abschnittA; // Statische Aufrufe, die fuer den Wahrheitswert hidden noetig sind.
+  public static AbschnittB  abschnittB;	// Dieser macht eine bestimmte Displaylist unsichtbar, falls wahr gesetzt.
   public static AbschnittBB abschnittBB;
   public static AbschnittBC abschnittBC;
   public static AbschnittC  abschnittC;
   public static AbschnittD  abschnittD;
   public static DD1 dD1;
   public static DD2 dD2;
-  public static Turm turm;
+  public static Boden boden;
+  public static BodenBC bodenBC;
   /**
    * created once at the start of the game and places all objects that should be in the game at the start.
    */
@@ -32,16 +33,35 @@ public class Spawner extends Objekt
   {
     // Hier werden die Objekte ins Spiel gesetzt:
     
-    DisplayList boden = new DisplayList(); // Vollstaendiger Boden mit 60 x60 und Ursprung als Mittelpunkt.
-    boden.addObjekt(new Boden());
+    // Vollstaendiger Boden mit 60 x60 und Ursprung als Mittelpunkt.
+    boden = new Boden();
     Labyrinth.addObject(boden);
-    // boden.hidden = true;
-
-//    turm = new Turm("z",0,-20,0,0,0,0);
-//    Labyrinth.addObject(turm);
+    
+    
     abschnittD = new AbschnittD();
     Labyrinth.addObject(abschnittD);
+
+    bodenBC = new BodenBC(); //Boden mit Loechern fuer den Untergrundbereich
+    Labyrinth.addObject(bodenBC);
+    bodenBC.hidden = true;
     
+    abschnittB = new AbschnittB();
+    Labyrinth.addObject(abschnittB);
+    abschnittB.hidden = true;
+    
+    abschnittBB = new AbschnittBB();
+    Labyrinth.addObject(abschnittBB);
+    abschnittBB.hidden = true;
+    
+    abschnittBC = new AbschnittBC();
+    Labyrinth.addObject(abschnittBC);
+    abschnittBC.hidden = true;
+    
+    abschnittC = new AbschnittC();
+    Labyrinth.addObject(abschnittC);
+    abschnittC.hidden = true;
+    
+   
     dD1 = new DD1();
     Labyrinth.addObject(dD1);
     

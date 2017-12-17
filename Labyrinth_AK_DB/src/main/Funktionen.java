@@ -1,6 +1,7 @@
 package main;
 
-
+import basics.Point;
+import basics.Text;
 
 public class Funktionen extends Objekt{
 	/**
@@ -62,21 +63,22 @@ public class Funktionen extends Objekt{
 	{
 		switch(call)
 		{
-		    case "BB": stand01 = true;
+		    case "B1": stand01 = true;
 		        break;
 		    	
-		    case "B_BB": Spawner.abschnittB.hidden = true; //Abschnitt wird nicht mehr angezeigt
-		    			 Spawner.abschnittBB.hidden = false; //Abschnitt wird nun angezeigt
-		    			 stand01 = false;  	// schliesst Tuere
-		    			 stand02 = true;    //oeffnet Tuere
-		    		break;
+		    case "B2": 
+		    			    			
+		    		  stand02 = true;    //oeffnet Tuere
+		    	break;
 		  
-			case "BB_BC": Spawner.abschnittBB.hidden = true;
+			case "BB_BC": Spawner.abschnittBB.hidden = true; //Erschafft den Abschnitt BC und stellt alle kollidierenden Abschnitte auf unsichtbar.
 						  Spawner.abschnittBC.hidden = false;
+						  Spawner.abschnittC.hidden = true;
 			    break;
 			
 			case "BC_C": Spawner.abschnittBC.hidden = true;
 						 Spawner.abschnittC.hidden = false;
+						 Spawner.abschnittBB.hidden = false;
 				break;
 				
 			case "D1": standd1 = true;   // D1 - D5 ... Einwegschalter zum Tueren oeffnen innerhalb von AbschnittD. Chronolisch geordnet. D1 entspricht ebenso
@@ -103,22 +105,19 @@ public class Funktionen extends Objekt{
 	 * Zumeist macht Minusschalten die Konsequenzen von Plusschalten wieder rueckgaengig.
 	 * @param call "Befehl" des Schalters. Damit kann jedem Schalter eine individuelle Aktion zugeordnet werden.
 	 */
-	public static void minusschalten(String call)
+	public static void minusschalten(String call) //macht entsprechende Aktionen von Plusschalten rueckgaenig
 	{
 		switch(call)
 		{
-			case "B_BB": Spawner.abschnittB.hidden = false; //saemtliche Aktionen rueckgaengig
-						 Spawner.abschnittBB.hidden = true;
-						 stand01 = true;
-						 stand02 = false;
-				break;
 		
 			case "BB_BC": Spawner.abschnittBB.hidden = false; //rueckgaengig
 						  Spawner.abschnittBC.hidden = true;
+						  Spawner.abschnittC.hidden = false;
 			    break;
 			    
 			case "BC_C": Spawner.abschnittBC.hidden = false; //rueckgaengig
 						 Spawner.abschnittC.hidden = true;
+						 Spawner.abschnittBB.hidden = true;
 			    break;
 			    
 			case "D1": Spawner.dD1.hidden = false; //rueckgaengig
@@ -133,7 +132,7 @@ public class Funktionen extends Objekt{
 	/**
 	 * Stellt alle statischen DisplayLists, die Labyrinthabschnitte auf unsichtbar (werden nicht mehr gezeichnet) mithilfe des Booleans hidden aus "Spawner".
 	 */
-	public static void allHide() //Funktion aktuell ungenutzt, scheint aber nicht falsch zu sein sie schon mal innerhalb des Spiels zu wissen.
+	public static void allHide()
 	{
 		Spawner.abschnittB.hidden = true;
 		Spawner.abschnittBB.hidden = true;
@@ -142,11 +141,46 @@ public class Funktionen extends Objekt{
 	    Spawner.abschnittD.hidden = true;
 	    Spawner.dD1.hidden = true;
 	    Spawner.dD2.hidden = true;
+	    
 	}
 
-															//Abstrakte Methoden aus "Objekt" finden hier keine Anwendung.
-															//Nur bei den entsprechenden Unterklassen "Tuer" und "Schalter", diese machen von der
-	@Override												//"Ur"-Oberklasse Objekt Gebrauch.
+	
+	public static void koordinatenabfrage() 
+	{
+		if(!Spawner.abschnittD.hidden)
+		{
+			if (Text.anleitung)	
+				if(Kompass.getLvlX() == 3 && Kompass.getLvlY() == 14)   // Auf dem dritten Feld wird die anfangs sichtbare Anleitung verschwinden. Dieses Feld muss immer ueberlaufen werden.
+					Text.anleitung = false;								//Abfrage kann eventuell in andere Klasse verlegt werden.
+			
+			if(Kompass.getLvlX() == 26 && Kompass.getLvlY() == 16)
+				levelup("2");
+		}
+		
+		
+	}
+	public static void levelup(String neueslvl)
+	{
+		allHide();
+		
+		switch(neueslvl)
+		{
+			case "2": Spawner.abschnittB.hidden = false;
+					  Spawner.abschnittBB.hidden = false;
+					  Spawner.abschnittC.hidden = false;
+					  Labyrinth.player.pos = new Point (0,-1,1);
+				break;
+		}
+	}
+	
+
+	//Abstrakte Methoden aus Oberklasse "Objekt" finden hier keine Anwendung.
+	//Nur bei den entsprechenden Unterklassen "Tuer" und "Schalter", diese machen von der
+	//"Ur"-Oberklasse Objekt Gebrauch.
+
+	
+	
+	@Override
 	public void step()
 	{   
 		
@@ -169,5 +203,6 @@ public class Funktionen extends Objekt{
 		
 		
 	}
+	
 
 }

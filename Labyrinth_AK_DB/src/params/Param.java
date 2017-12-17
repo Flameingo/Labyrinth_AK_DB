@@ -15,8 +15,8 @@ public abstract class Param
   
   // private Variablen
   
-  protected float  xscl     = 1, yscl = 1, zscl = 1;
-  private float    u_l, u_r, v_l, v_r;
+  protected float  xscl     = 1, yscl = 1, zscl = 1; //Zumeist Breite, Laenge und Hoehe
+  private float    u_l, u_r, v_l, v_r;				 //Private Variablen nur relevant fuer die Parametrisierung.
   private float    u_i, v_j, u_i_1, v_j_1;
   private int      m        = 0, n = 0;
   protected int    minN     = 1, minM = 1;
@@ -126,7 +126,8 @@ public abstract class Param
   {
     material = mat;
   }
-  
+  /**
+   * Zugriff auf die Methode "drawParametrisierung()" und Speicherung der Materialeigenschaft.   */
   public void draw()
   {
     if (material != null) material.use();
@@ -183,8 +184,11 @@ public abstract class Param
       }
     }
   }
-  
-  public static Material randomfarbe()
+  /** Findet seine Anwendung ueber die Funktion "Param.backsteindraw()". Wird zur Konstruktion von mehrfarbigen Waenden (Unterklassen von WandBlock) genutzt.
+   * 
+   * @return zufaelliger Rotton, vier Kandidaten.
+   */
+  private static Material randomfarbe()
   {
     double z = Math.random();
     if (z < 0.3f) { return Material.BACKSTEIN; }

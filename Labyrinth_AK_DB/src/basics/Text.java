@@ -71,7 +71,7 @@ public class Text
 	  {
 		  String Ausgabe = "Level: " + Kompass.getLvlX()+ "I"+ Kompass.getLvlY();
 		  draw_text(Ausgabe, new Point(10, 30), 30);
-		  String Ausgabe2 = "Finde die Hobbits";                        //Aktuell Feldkoordinaten werden am Bildschirm unten links ausgegeben, wenn in Settings unter Cheats
+		  String Ausgabe2 = "Finde den Ausgang";                        //Aktuell Feldkoordinaten werden am Bildschirm unten links ausgegeben, wenn in Settings unter Cheats
 		  draw_text(Ausgabe2, new Point (20,7),20);                     // "SHOW_LEVEL" auf true ist.
 	  }
 	  if (payrespect)

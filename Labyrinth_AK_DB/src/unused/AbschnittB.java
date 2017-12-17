@@ -8,10 +8,16 @@ import params.Material;
 import path.*;
 import static path.Etage.*;
 
+import java.util.LinkedList;
+
 public class AbschnittB extends Objekt
 {
   public static Objekt[] waende = new Objekt[50];
   protected Objekt[]     steine = new Objekt[22];
+  
+  protected LinkedList<Objekt> tueren = new LinkedList<Objekt>(); //Ausschliesslich Tueren, Tuerrahmen sind in der List der Waende.
+  
+  protected LinkedList<Objekt> schalter = new LinkedList<Objekt>(); //Ausschliesslich Schalter
   
   public AbschnittB()
   {
@@ -98,17 +104,17 @@ public class AbschnittB extends Objekt
     
     
     // Schalter
-    // Labyrinth.addObject(new SchalterFeld("BB", new Level(8,3)));
-    // Labyrinth.addObject (new SchalterFeld("B_BB", new Level(3,6))); //Existiert in ABschnitt B und Abschnitt BB
-    // Labyrinth.addObject (new SchalterFeld("BB_BC", new Level(0,13))); //Existiert in Abschnitt BB und Abschnitt BC.
-    // Labyrinth.addObject (new SchalterFeld("BC_C", new Level(0,-8))); //Existiert in Abschnitt BC und Abschnitt C.
+     schalter.add(new SchalterFeld("BB", new Level(8,3)));
+     schalter.add(new SchalterFeld("B_BB", new Level(3,6))); //Existiert in ABschnitt B und Abschnitt BB
+     schalter.add(new SchalterFeld("BB_BC", new Level(0,13))); //Existiert in Abschnitt BB und Abschnitt BC.
+     schalter.add(new SchalterFeld("BC_C", new Level(0,-8))); //Existiert in Abschnitt BC und Abschnitt C.
     
     // Tueren
     
-    // Labyrinth.addObject (new Tuer_L("01", new Level(3,6)));
-    // Labyrinth.addObject (new Tuer_R("02", new Level(3,6)));
-    // Labyrinth.addObject(new Tuer_R("03", new Level(6,6)));
-    //
+     tueren.add(new Tuer_L("01", new Level(3,6)));
+     tueren.add(new Tuer_R("02", new Level(3,6)));
+     tueren.add(new Tuer_R("03", new Level(6,6)));
+    
   }
   
   @Override
@@ -118,6 +124,10 @@ public class AbschnittB extends Objekt
       wand.step();
     for (Objekt stein : steine)
       stein.step();
+    for (Objekt tuer : tueren)
+        tuer.step();
+      for (Objekt schalt : schalter)
+        schalt.step();
   }
   
   @Override
@@ -127,6 +137,10 @@ public class AbschnittB extends Objekt
       wand.collision();
     for (Objekt stein : steine)
       stein.collision();
+    for (Objekt tuer : tueren)
+        tuer.collision();
+      for (Objekt schalt : schalter)
+        schalt.collision();
   }
   
   @Override
@@ -136,6 +150,10 @@ public class AbschnittB extends Objekt
       wand.draw();
     for (Objekt stein : steine)
       stein.draw();
+    for (Objekt tuer : tueren)
+        tuer.draw();
+      for (Objekt schalt : schalter)
+        schalt.draw();
   }
   
   @Override
@@ -145,5 +163,9 @@ public class AbschnittB extends Objekt
       wand.drawGUI();
     for (Objekt stein : steine)
       stein.drawGUI();
+    for (Objekt tuer : tueren)
+        tuer.drawGUI();
+      for (Objekt schalt : schalter)
+        schalt.drawGUI();
   }
 }

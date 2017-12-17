@@ -15,15 +15,15 @@ import path.*;
 
 public class AbschnittD extends Objekt
 {
-  protected LinkedList<Objekt> waende = new LinkedList<Objekt>();
+  protected LinkedList<Objekt> waende = new LinkedList<Objekt>(); //Objekte die eine oder mehrere Waende des Spiels beinhalten
   
-  protected LinkedList<Objekt> steine = new LinkedList<Objekt>();
+  protected LinkedList<Objekt> steine = new LinkedList<Objekt>(); //Objekte wie Ecksteine, Bodenplatten oder Dekoartikel, die keinen direkten Einfluss haben
   
-  protected LinkedList<Objekt> tueren = new LinkedList<Objekt>();
+  protected LinkedList<Objekt> tueren = new LinkedList<Objekt>(); //Ausschliesslich Tueren, Tuerrahmen sind in der List der Waende.
   
-  protected LinkedList<Objekt> schalter = new LinkedList<Objekt>();
+  protected LinkedList<Objekt> schalter = new LinkedList<Objekt>(); //Ausschliesslich Schalter
   
-  public AbschnittD()
+  public AbschnittD() //Gesamte Aufstellung des ersten Levels, ausgenommen des Mechanismusses DD1/DD2 sind alle im ersten Level enthaltenen Objekte hier zu finden.
   {
 	waende.add(new LabWeg_L(new Level(1,14)));
     waende.add(new LabEck_ru(new Level(-5, 21)));
@@ -97,10 +97,11 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_U(new Level(3, 16)));
     waende.add(new LabWeg_U(new Level(4, 16)));
     waende.add(new LabEck_lo(new Level(3, 15), true));
-    waende.add(new LabWeg_R(new Level(3, 14)));
-    waende.add(new LabWeg_R(new Level(3, 13)));
+    waende.add(new LabDmgWeg_R(new Level(3, 14)));
+    waende.add(new LabDmgWeg_R(new Level(3, 13)));
     waende.add(new LabWeg_r_l(new Level(2, 13)));
-    waende.add(new LabEck_ro(new Level(1, 13)));
+    waende.add(new LabWeg_L(new Level(1, 13)));
+    waende.add(new LabDmgWeg_U(new Level(1,13)));
     waende.add(new LabEck_ru(new Level(1, 12)));
     waende.add(new LabEck_ru(new Level(3, 12)));
     waende.add(new LabWeg_r_l(new Level(4, 12)));
@@ -137,7 +138,7 @@ public class AbschnittD extends Objekt
     waende.add(new LabEck_lu(new Level(11, 18)));
     waende.add(new LabWeg_r_l(new Level(11, 16)));
     waende.add(new LabWeg_O(new Level(10, 15)));
-    waende.add(new LabWeg_O(new Level(11, 15)));
+    waende.add(new LabDmgWeg_O(new Level(11, 15)));
     waende.add(new LabWeg_O(new Level(12, 15)));
     waende.add(new LabWeg_O(new Level(12, 16)));
     waende.add(new LabWeg_o_u(new Level(13, 16)));
@@ -152,7 +153,7 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_U(new Level(12, 13)));
     waende.add(new LabWeg_r_l(new Level(11, 13)));
     waende.add(new LabWeg_U(new Level(10, 13)));
-    waende.add(new LabWeg_R(new Level(9, 12)));
+    waende.add(new LabDmgWeg_R(new Level(9, 12)));
     waende.add(new LabWeg_o_u(new Level(9, 11)));
     waende.add(new LabWeg_o_u(new Level(9, 10)));
     waende.add(new LabWeg_o_u(new Level(9, 9)));
@@ -164,7 +165,7 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_r_l(new Level(5, 10)));
     waende.add(new LabWeg_r_l(new Level(4, 10)));
     waende.add(new LabWeg_r_l(new Level(3, 10)));
-    waende.add(new LabWeg_U(new Level(2, 10)));
+    waende.add(new LabDmgWeg_U(new Level(2, 10)));
     waende.add(new LabEck_lu(new Level(2, 9)));
     waende.add(new LabEck_ru(new Level(1, 9)));
     waende.add(new LabWeg_L(new Level(1, 10)));
@@ -246,7 +247,7 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_O(new Level(14, 14)));
     waende.add(new LabWeg_U(new Level(15, 18)));
     waende.add(new LabWeg_U(new Level(16, 18)));
-    waende.add(new LabWeg_U(new Level(17, 18)));
+    waende.add(new LabEck_lo(new Level(17, 18)));
     waende.add(new LabWeg_o_u(new Level(17, 17)));
     waende.add(new LabWeg_R(new Level(17, 16)));
     waende.add(new LabWeg_O(new Level(16, 16)));
@@ -424,8 +425,13 @@ public class AbschnittD extends Objekt
     steine.add(new Eckstein(new Level(5, 7)));
     steine.add(new Eckstein(new Level(19, 15)));
     steine.add(new Eckstein(new Level(2, 16)));
+    steine.add(new Eckstein(new Level(17,23)));
+    steine.add(new Eckstein(new Level(18,25)));
+    steine.add(new Eckstein(new Level(21,25)));
+    steine.add(new Eckstein(new Level(1,21)));
+    steine.add(new Eckstein(new Level(11,24)));
     steine.add(new DekoKreuz(new Level(6, 13), "ru"));
-    steine.add(new DekoSchild(0,-20,0,0,0,0));
+    steine.add(new DekoSchild(0.55f,-20,0,-30,0,0));
     
     
     // Tueren 

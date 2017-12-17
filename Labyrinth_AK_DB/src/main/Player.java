@@ -21,7 +21,7 @@ public class Player extends Objekt
   
   // Position im Spiel
 
-  public Point               pos     = new Point(0.5f, -20, 1);            // Ursp 0,-1,3 /fuer AbschnittD (0, -20, 1)
+  public Point               pos     = new Point(0.5f,-20,1);            // fuer AbschnittB&C (0,-1,1) /fuer AbschnittD (0.5f, -20, 1)
 
   // Kameraausrichtung
   Point                      cam     = new Point(1, 0, 0);
@@ -37,11 +37,8 @@ public class Player extends Objekt
   @Override
   public void step()
   {
-	if(Text.anleitung)
-	{
-		if(Kompass.getLvlX() == 3 && Kompass.getLvlY() == 14)   // Auf dem dritten Feld wird die anfangs sichtbare Anleitung verschwinden. Dieses Feld muss immer ueberlaufen werden.
-			Text.anleitung = false;								//Abfrage kann eventuell in andere Klasse verlegt werden.
-	}
+	Funktionen.koordinatenabfrage();
+	
     for (int key : Labyrinth.keys)
     {
       // bewegungen anhand WASD und arrow-keys einleiten.

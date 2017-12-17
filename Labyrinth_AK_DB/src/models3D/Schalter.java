@@ -123,14 +123,14 @@ public class Schalter extends Funktionen // Schalter koennen ingame mit "G" bedi
       
     }
     
-    if (stop != true)
-    {
-      hebel.rotate(new float[] { 0, winkel, 0 });
-      hebel.translate(new Point(winkel * -0.1f / 70 + pos.x, pos.y, pos.z));
-    }
-    if (schalt == true)
-    {
-      if (stop != true) winkel = winkel - 1.5f;
+    if (stop != true)    													    //Bewegung des Objektes wird ausgefuehrt,
+    {																			// wenn "stop" auf false gesetzt wird. 
+      hebel.rotate(new float[] { 0, winkel, 0 });								//Nach Abschluss der Bewegung setzt die 
+      hebel.translate(new Point(winkel * -0.1f / 70 + pos.x, pos.y, pos.z)); 	//Befehlsserie den Boolean "stop" wieder auf true
+    }																			//und aendert den boolean "schalt" in seinem Wahrheitswert,
+    if (schalt == true)															//was fuer die naechste Aktivierung der Befehlsserie ("stop"
+    {																			//auf false gesetzt durch Spielerinteraktion) die Bewegungsrichtung
+      if (stop != true) winkel = winkel - 1.5f;									//aendert.
       if (winkel <= -70)
       {
         stop = true;
