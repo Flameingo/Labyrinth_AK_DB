@@ -3,6 +3,7 @@ package models3D;
 import basics.Level;
 import basics.Point;
 import basics.Text;
+import main.Kompass;
 import main.Labyrinth;
 import main.Objekt;
 import params.Material;
@@ -51,16 +52,17 @@ public class DekoKreuz extends Objekt
 		myShape.translate(new Point(pos.x,pos.y,0));
 		myShape.rotate(new float[]{alpha,0,0});
 		
+		a = lev.x2;
+		b = lev.y1;
+		
 	}
 	
 	@Override
 	public void step()
 	{
-		Point p;
 		
-		 p = Point.add(Labyrinth.player.pos, -pos.x, -pos.y, -0);
-	        if (p.length("xy") < 1) Text.payrespect = true;
-	        if (Text.payrespect && (p.length("xy") >= 1))
+	        if (this.getA() == Kompass.getLvlX() && this.getB() == Kompass.getLvlY()) Text.payrespect = true;
+	        if (this.getA() != Kompass.getLvlX() || this.getB() != Kompass.getLvlY())
 	        		Text.payrespect = false;
 		
 	}
@@ -73,7 +75,7 @@ public class DekoKreuz extends Objekt
 	@Override
 	public void draw() 
 	{
-		Material.BRASS.use();
+		Material.BROWN_DARK.use();
 		myShape.draw();
 		
 	}

@@ -25,7 +25,7 @@ public class AbschnittD extends Objekt
   
   public AbschnittD() //Gesamte Aufstellung des ersten Levels, ausgenommen des Mechanismusses DD1/DD2 sind alle im ersten Level enthaltenen Objekte hier zu finden.
   {
-	waende.add(new LabWeg_L(new Level(1,14)));
+	waende.add(new LabTuer_L(new Level(1,14)));
     waende.add(new LabEck_ru(new Level(-5, 21)));
     waende.add(new LabWeg_r_l(new Level(-4, 21)));
     waende.add(new LabEck_lo(new Level(-3, 21)));
@@ -390,12 +390,16 @@ public class AbschnittD extends Objekt
     waende.add(new LabEck_lu(new Level(24, 15)));
     waende.add(new LabWeg_U(new Level(24, 16)));
     waende.add(new LabWeg_r_l(new Level(25, 16)));
-    waende.add(new LabWeg_r_l(new Level(26, 16)));
+    waende.add(new Sackgasse(new Level(26, 16),"l"));
     waende.add(new LabTuer_U(new Level(-5, 21)));
     waende.add(new LabGitter("o", new Level(10, 19)));
     waende.add(new LabGitter("u", new Level(23, 24)));
     waende.add(new LabGitter("l", new Level(15, 5)));
     waende.add(new LabTuer_U(new Level(16, 11)));
+    for(int i = 0; i < 10; i++)
+    {
+    	waende.add(new LabWeg_r_l(new Level(-i,14)));
+    }
     
     // Ecksteine
     steine.add(new Eckstein(new Level(2, 18)));
@@ -430,8 +434,9 @@ public class AbschnittD extends Objekt
     steine.add(new Eckstein(new Level(21,25)));
     steine.add(new Eckstein(new Level(1,21)));
     steine.add(new Eckstein(new Level(11,24)));
+    steine.add(new Eckstein(new Level(12,13)));
     steine.add(new DekoKreuz(new Level(6, 13), "ru"));
-    steine.add(new DekoSchild(0.55f,-20,0,-30,0,0));
+    steine.add(new DekoSchild(0.35f,-19.7f,0,-60,0,0));
     
     
     // Tueren 
@@ -442,13 +447,15 @@ public class AbschnittD extends Objekt
     tueren.add(new Tuer_U("d31", new Level(16, 11)));
     tueren.add(new Tuer_U("d4", new Level(-5, 21)));
     tueren.add(new Tuer_L("d5", new Level(15, 20)));
+    tueren.add(new Tuer_L("d6", new Level(1,14)));
     
     // Schalter
-    schalter.add(new SchalterFeld("D1", new Level(6, 26)));
-    schalter.add(new SchalterFeld("D2", new Level(12, 9)));
+    schalter.add(new SchalterFeld("D1", new Level(6, 26))); //chronologisch geordnet
+    schalter.add(new SchalterFeld("D2", new Level(12, 9)));	//die sich oeffnenden Tueren haben klein-d plus die gleiche Folgeziffer wie dieser Befehl
     schalter.add(new SchalterFeld("D3", new Level(0, 22)));
     schalter.add(new SchalterFeld("D4", new Level(0, 23)));
     schalter.add(new SchalterFeld("D5", new Level(19, 22)));
+    schalter.add(new SchalterFeld("D6", new Level(36,16)));
     
   }
   

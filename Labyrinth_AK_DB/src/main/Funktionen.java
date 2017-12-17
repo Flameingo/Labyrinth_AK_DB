@@ -25,7 +25,8 @@ public class Funktionen extends Objekt{
 							 standd2, 
 							 standd3, 
 							 standd4, 
-							 standd5 = false;
+							 standd5,
+							 standd6= false;
 
 /**
  * 
@@ -49,6 +50,7 @@ public class Funktionen extends Objekt{
 		case "d31": return standd3;
 		case "d4": return standd4;
 		case "d5": return standd5;
+		case "d6": return standd6;
 		default:
 			return false;
 		}
@@ -93,6 +95,7 @@ public class Funktionen extends Objekt{
 			 break;
 			 case "D5": standd5 = true;
 			 break;
+			 case "D6": standd6 = true;
 				
 			default:
 				break;
@@ -153,7 +156,7 @@ public class Funktionen extends Objekt{
 				if(Kompass.getLvlX() == 3 && Kompass.getLvlY() == 14)   // Auf dem dritten Feld wird die anfangs sichtbare Anleitung verschwinden. Dieses Feld muss immer ueberlaufen werden.
 					Text.anleitung = false;								//Abfrage kann eventuell in andere Klasse verlegt werden.
 			
-			if(Kompass.getLvlX() == 26 && Kompass.getLvlY() == 16)
+			if(Kompass.getLvlX() == -2 && Kompass.getLvlY() == 14)
 				levelup("2");
 		}
 		
@@ -168,7 +171,7 @@ public class Funktionen extends Objekt{
 			case "2": Spawner.abschnittB.hidden = false;
 					  Spawner.abschnittBB.hidden = false;
 					  Spawner.abschnittC.hidden = false;
-					  Labyrinth.player.pos = new Point (0,-1,1);
+					  Labyrinth.player.pos = new Point (3,-1,1);
 				break;
 		}
 	}

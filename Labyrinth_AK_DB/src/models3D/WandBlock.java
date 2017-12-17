@@ -52,9 +52,13 @@ public class WandBlock extends Objekt // Oberklasse aller Wand - Klassen.
    * In diesem Fall sind dies die Backsteine. Diese werden mit "myShape.draw()" gezeichnet.
    */
   protected Shape      myShape  = new Shape();
-  
+  /**
+   * Der orangene Putz zwischen den Steinen wird hier definiert.
+   */
   protected Shape      putz     = new Shape();
-  
+  /**
+   * Betrifft Randsteine, diese werden nicht mit myShape gezeichnet, da sie einen bestimmten Farbton haben sollen.
+   */
   protected Shape      stein    = new Shape();
   
   /**
@@ -99,6 +103,13 @@ public class WandBlock extends Objekt // Oberklasse aller Wand - Klassen.
     
     myShape.translate(new Point(x, y, z)); // Verantwortlich f�r die Verschiebung des gesamtes Objektes
     myShape.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich f�r die Drehung des gesamtes Objektes
+    putz.translate(pos); // Verantwortlich fuer die Verschiebung des Putzes (Verputz zwischen den Steinen
+    																						// (Quader)).
+    putz.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung des Putzes
+
+    stein.translate(pos); // Verantwortlich fuer die Verschiebung der (farblich einheitlichen)
+    																					// Randsteine.
+    stein.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung der Randsteine.
   }
   
   /**

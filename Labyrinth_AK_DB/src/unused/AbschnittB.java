@@ -22,7 +22,7 @@ public class AbschnittB extends Objekt
   public AbschnittB()
   {
     
-    waende[0] = new LabWeg_r_l(new Level(1, 1));
+    waende[0] = new Sackgasse(new Level(1, 1),"r");
     waende[1] = new LabWeg_L(new Level(1, 2));
     waende[2] = new LabWeg_o_u(new Level(2, 3));
     waende[3] = new LabWeg_o_u(new Level(2, 4));

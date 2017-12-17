@@ -24,14 +24,18 @@ public class TWD extends WandBlock{
 	    
 	    float vX = - laenge/2;
 	    
+	    putz.addParam(new Quader("Mitte", 0.3f,0.02f,1.4f), new Point(-0.7f,0,0.75f));
+	    
+	    putz.addParam(new Quader("Mitte", 0.3f,0.02f,1.4f), new Point(0.47f,0,0.75f));
+	    
 	    for (int k = 0; k<hoehe*100/6; k++) //Das k ist in die z - Richtung laufende Variable und ordnet die Steinreihen uebereinander.
 	    {           
 	      
-	      if ( k % 2 == 0 )
+	      if ( k % 2 == 0 )																											//zeichnet die erste Reihe und jede zweite die darauf folgt
 	      {
 	        if ( k < 30 )
 	        {
-	          myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(0.194f+vX,0,k*0.06f + boden));      
+	          myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(0.194f+vX,0,k*0.06f + boden));   //kurze Randsteine an der Tueroeffnung   
 	        
 		      myShape.addParam(new Quader("Mitte", 0.125f, wdbreite, 0.05f), new Point(1.105f+vX,0,k*0.06f + boden));
 	        }   
@@ -40,7 +44,7 @@ public class TWD extends WandBlock{
 	          {
 	            if (!(( i > 0 && i < 5 ) && ( k < 30 )))
 	            {
-	              myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(i*0.26f+vX,0,k*0.06f + boden));
+	              myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), new Point(i*0.26f+vX,0,k*0.06f + boden)); //Zeichnet die Backsteine.
 	            }
 	         }
 	      }
@@ -48,14 +52,14 @@ public class TWD extends WandBlock{
 	      {
 	        
 	        
-	        stein.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f+vX,0,k*0.06f + boden));
+	        stein.addParam(new Quader("Mitte", 0.125f,wdbreite, 0.05f), new Point(-0.065f+vX,0,k*0.06f + boden));							//Zeichnet die kurzen Wandsteine
 	        stein.addParam(new Quader("Mitte", 0.125f,wdbreite,0.05f), new Point((int)(laenge*10/2.6f)*0.26f+0.0625f+vX,0,k*0.06f + boden));
 	           
 	          for (int i = 0; i < (laenge)*10/2.6 - 1;i++)
 	            {           
 	              if (!(( i > 0 && i < 4 ) && ( k < 30 ))) 
 	               {
-	                myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (i*0.26f+0.13f+vX,0,k*0.06f + boden));
+	                myShape.addParam(new Quader("Mitte", 0.25f,wdbreite,0.05f), new Point (i*0.26f+0.13f+vX,0,k*0.06f + boden));  		//zeichnet jede zweite Reihe von unten
 	               }
 	            }
 	         }

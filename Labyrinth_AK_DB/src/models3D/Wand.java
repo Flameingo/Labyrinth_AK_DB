@@ -14,14 +14,14 @@ public class Wand extends WandBlock
   /** Zeichnet eine Wand mit vorgegebenen Laengenmassen und Hoehenmassen.
    *  Lage des Mittelpunktes bzgl x - und y - Koordinate und Drehungen koennen bestimmt werden.
    *  Die meisten Klassen aus "path" greifen auf diesen Konstruktor zu.
-   * @param x
-   * @param y
-   * @param z
-   * @param alpha
-   * @param beta
-   * @param gamma
-   * @param laenge
-   * @param hoehe
+   * @param x Mittelpunkt
+   * @param y Mittelpunkt
+   * @param z Tiefster Punkt
+   * @param alpha Drehung z - Achse
+   * @param beta ... y - Achse
+   * @param gamma ... x - Achse
+   * @param laenge Laengenwert genau anzugeben, nicht die Steinanzahl. Wird abgerundet, wenn der naechste volle Stein nicht erreicht ist.
+   * @param hoehe Hoehenwert ebenfalls in f anzugeben.
    */
   public Wand(float x, float y, float z, float alpha, float beta, float gamma, float laenge, float hoehe) 
   {
@@ -63,21 +63,21 @@ public class Wand extends WandBlock
         
         for (int rechts2 = 0; rechts2 < (laenge)*10/2.6 - 1; rechts2++)
         {
-          
-          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),
-              new Point(rechts2 * 0.26f + 0.13f + vX, 0, hoch * 0.06f+boden));
+        	  myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f),
+        			  new Point(rechts2 * 0.26f + 0.13f + vX, 0, hoch * 0.06f+boden));
                                         //Backsteinreihe, die unterste und jede zweite
-                                        //Jeder Backstein wird so erschaffen, dass seine Koordinaten (Point) seinen Mittelpunkt bilden.
+                                        //Jeder Backstein wird so erschaffen, dass seine Koordinaten (Point) seinen Mittelpunkt bilden.     
         }
+        
       }
     }
   }
   
   /** Aktuell nur fuer die Werte 45 (45 Grad Biegung) und 90 (90 Grad Biegung) fuer 'biege' geeignet. Benutzt in den "LabEck"-Klassen aus "path".
    * 
-   * @param x
-   * @param y
-   * @param z
+   * @param x Mittelpunkt
+   * @param y Mittelpunkt
+   * @param z Tiefster Punkt
    * @param w1
    *          Drehung um die z-Achse
    * @param w2
@@ -148,7 +148,7 @@ public class Wand extends WandBlock
     super(x, y, z, alpha, beta, gamma, biege);																		  //gerade Wand zu verwechseln, da diese aehnliche Eintraege
     																												  //verlangen.
     
-    float abstand = 1.7f; // ursp. 1.7f
+    float abstand = 1.7f; // ursp. 1.7f - Abstand jedes Steins zum Kreismittelpunkt.
     
     
     for (int hoch = 0; hoch < hoehe*100/6; hoch++) //Die Schlaufe erschafft mit jeder Iteration eine Reihe der Wand, dabei gibt es
@@ -195,11 +195,19 @@ public class Wand extends WandBlock
           double biegend22 = ((rechts+0.5f) * biege) / 10;
           if(biege != 45 || rechts %2 != 1) //Einfache Fallunterscheidung, da nur zwischen 45 und 90 unterschieden werden muss.  
                                            //Tatsaechlich braucht die 45grad Wand nur halb so viele Steine wie die 90grad Wand
-            
-          myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), //Die zweite Steinreihe von unten und jede zweite.
-              new Point((float) Math.cos(biegend2) * abstand , (float) Math.sin(biegend2) * abstand ,
-                  hoch * 0.06f+boden),
-              new float[] { (float) biegend22+90, 0, 0 });
+          if (rechts != 0 && rechts != wdlaenge - 2)  
+        	  myShape.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), //Die zweite Steinreihe von unten und jede zweite.
+        			  new Point((float) Math.cos(biegend2) * abstand , (float) Math.sin(biegend2) * abstand ,
+        					  hoch * 0.06f+boden),
+        			  new float[] { (float) biegend22+90, 0, 0 });
+          
+          else
+          {
+        	   stein.addParam(new Quader("Mitte", 0.25f, wdbreite, 0.05f), //Die zweite Steinreihe von unten und jede zweite.
+        	              new Point((float) Math.cos(biegend2) * abstand , (float) Math.sin(biegend2) * abstand ,
+        	                  hoch * 0.06f+boden),
+        	              new float[] { (float) biegend22+90, 0, 0 });
+          }
         }
       }
     }   
