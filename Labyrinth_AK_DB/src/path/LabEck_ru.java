@@ -24,7 +24,7 @@ public class LabEck_ru extends Lab
    */
   public LabEck_ru(float x, float y, float x2, float y2, float hoehe, boolean bogen)
   {
-    if (bogen == true) add(new Wand("E", x + 1.75f, y2 - 1.75f, boden, 90, 0, 0, 90, hoehe));
+    if (bogen == true) add(new Wand("E", x + 1.76f, y2 - 1.76f, boden, 90, 0, 0, 90, hoehe));
     
     if (bogen == false) add(new Wand("E", x, y2, boden, 270, 0, 0, 90, hoehe));
     

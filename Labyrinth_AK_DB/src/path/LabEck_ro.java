@@ -25,7 +25,7 @@ public class LabEck_ro extends Lab
   public LabEck_ro(float x, float y, float x2, float y2, float hoehe, boolean bogen)
   {
     
-    if (bogen == true) add(new Wand("E", x + 1.75f, y + 1.75f, boden, 180, 0, 0, 90, 2));
+    if (bogen == true) add(new Wand("E", x + 1.76f, y + 1.76f, boden, 180, 0, 0, 90, 2));
     if (bogen == false) add(new Wand("E", x, y, boden, 0, 0, 0, 90, 2));
     
     float yy = y + WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
