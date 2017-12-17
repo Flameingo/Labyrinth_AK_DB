@@ -103,22 +103,18 @@ public class Text
     }
   }
   
-  public static void draw_text_3D(String string, Point pos, float angle, float f)
+  public static void draw_text(String string, Point pos, int size)
   {
-    glPushMatrix();
-    glTranslatef(pos.x, pos.y, pos.z);
-    glRotatef(angle, 0, 0, 1);
-    glRotatef(90, 1, 0, 0);
-    draw_text(string, new Point(0, 0, 0), f);
-    glPopMatrix();
+    draw_text(string, pos, 0, size);
   }
   
-  public static void draw_text(String string, Point pos, float f)
+  public static void draw_text(String string, Point pos, float angle, int size)
   {
-    Text.size = f;
+    Text.size = size;
     int line = 0;
     glPushMatrix();
     glTranslatef(pos.x, pos.y, pos.z);
+    glRotatef(0, 0, 1, angle);
     for (int i = 0; i < string.length(); i++)
     {
       float charwidth = -.1f; // to cancel the offset when drawing the newline

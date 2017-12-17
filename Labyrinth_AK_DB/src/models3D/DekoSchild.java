@@ -2,6 +2,7 @@ package models3D;
 
 import basics.Level;
 import basics.Point;
+import basics.Text;
 import main.Objekt;
 import params.Material;
 import params.Quader;
@@ -26,6 +27,8 @@ public class DekoSchild extends Objekt
 			stock.translate(new Point(x, y, z));   //Verantwortlich fuer die Verschiebung des Holzpfals, auf dem das Brett platziert ist.
 			stock.rotate(new float[] { alpha, beta, gamma }); //Verantwortlich fuer die Drehung ...
 	    popZusatzAufloesung();
+	    
+	    Text.draw_text("Mitte", new Point(x+0.2f,y+0.2f,0.5f), 10);
 	}
 	public DekoSchild (String eck, Level lev) // r ist rechts, o ist oben, u ist unten, l ist links 
 	{   

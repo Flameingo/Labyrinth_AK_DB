@@ -19,7 +19,8 @@ public final class Settings
   public static final boolean NEBEL_ON                = true;                    // Ein Nebel, der die Sichtweite
                                                                                  // einschraenkt. Fuer den optimalen
                                                                                  // Spielverlauf auf "true" zu stellen!
-  public static final boolean TELEPORT_ENABLED        = true;
+  
+  public static final boolean SHOW_CURRENT_LEVEL       = true;                   //Zeigt welches Level der Spieler gerade spielt.
   
   /** controls the resolution of all drawn Objects */
   
@@ -45,5 +46,15 @@ public final class Settings
   public static final boolean SHOW_LEVEL              = true;                    // Gibt im Spiel die Position zur
                                                                                  // Orientierung in Koordinaten
                                                                                  // (Feldkoordinate Level) an.
+  
+  public static final boolean SKIP_LEVEL_ENABLED      = true;					 //Erlaubt das Ueberspringen des Levels mit "P".
+  
+  
+  
+  public static final boolean TELEPORT_ENABLED        = true;                    //Druecke "t" ingame und gib anschlieﬂend A-Koordinate - Enter - B-Koordinate - Enter ein um dich auf
+  																				 //das Feld mit den entsprechenden Indizes zu teleportieren.
+  // modis
+  public static final boolean DARKNESS_MODE           = false;
+  
   
 }

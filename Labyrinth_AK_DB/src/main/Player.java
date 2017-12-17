@@ -39,6 +39,11 @@ public class Player extends Objekt
   private final static float k_h     = 1.2f;
   // private final static float k_off = 0;
   
+  /**
+   * Spieler beginnt im ersten Level und dieser Wert erhoeht sich mit jeder geschafften Ebene.
+   */
+  public static int myLevel = 1; //Das aktuelle Spielerlevel
+  
   @Override
   public void step()
   {
@@ -80,8 +85,14 @@ public class Player extends Objekt
         break;
       case GLFW_KEY_T:
         if (Settings.TELEPORT_ENABLED) wantsTeleport = true;
+        break;
+      case GLFW_KEY_P:
+    	if (Settings.SKIP_LEVEL_ENABLED) 
+    		Funktionen.levelup();
+    	break;
       default:
         break;
+    
       }
     }
     pos.add(0, 0, -.1f);

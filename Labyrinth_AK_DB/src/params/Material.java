@@ -44,7 +44,8 @@ public enum Material
   FOG(.1f, .15f, .2f, .1f, 0, 0, 0, .1f, 0, 0, 0, .1f, 0), FOGFINAL(.1f, .15f, .2f, 1f, 0, 0, 0, 1f, 0, 0, 0, 1f, 0),
   BROWN_HELL(139f/255f,69f/255f,19f/255f, 1 , 1,1,1,1,1,1,1,1,1),
   BROWN_WOOD(139f/800,90f/800,43f/800, 1 , 1,0.5f,0.5f,1,1,1,1,1,1),
-  BROWN_DARK(139f/1000f,69f/1000f,19f/1000f, 1 , 0.3f,0.3f,0.3f,1f,1,1,1,1,1),;
+  BROWN_DARK(139f/1000f,69f/1000f,19f/1000f, 1 , 0.3f,0.3f,0.3f,1f,1,1,1,1,1),
+  BROWN_BLACK(0.05f,0.02f,0.005f,1,0.1f,0.1f,0.1f,1,1,1,1,1,1);
   
   private float[] ambient   = { 0, 0, 0, 1 }, diffuse = { 0, 0, 0, 1 }, specular = { 0, 0, 0, 1 };
   private float   shininess = 128;
