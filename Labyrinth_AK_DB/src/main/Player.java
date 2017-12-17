@@ -96,37 +96,52 @@ public class Player extends Objekt
     if (!wantsTeleport) return;
     switch (key)
     {
+    case GLFW_KEY_KP_SUBTRACT:
+    case GLFW_KEY_MINUS:
+      additionalKoord += "-";
+      break;
     case GLFW_KEY_0:
+    case GLFW_KEY_KP_0:
       additionalKoord += "0";
       break;
     case GLFW_KEY_1:
+    case GLFW_KEY_KP_1:
       additionalKoord += "1";
       break;
     case GLFW_KEY_2:
+    case GLFW_KEY_KP_2:
       additionalKoord += "2";
       break;
     case GLFW_KEY_3:
+    case GLFW_KEY_KP_3:
       additionalKoord += "3";
       break;
     case GLFW_KEY_4:
+    case GLFW_KEY_KP_4:
       additionalKoord += "4";
       break;
     case GLFW_KEY_5:
+    case GLFW_KEY_KP_5:
       additionalKoord += "5";
       break;
     case GLFW_KEY_6:
+    case GLFW_KEY_KP_6:
       additionalKoord += "6";
       break;
     case GLFW_KEY_7:
+    case GLFW_KEY_KP_7:
       additionalKoord += "7";
       break;
     case GLFW_KEY_8:
+    case GLFW_KEY_KP_8:
       additionalKoord += "8";
       break;
     case GLFW_KEY_9:
+    case GLFW_KEY_KP_9:
       additionalKoord += "9";
       break;
     case GLFW_KEY_ENTER:
+    case GLFW_KEY_KP_ENTER:
       if (additionalKoord != "")
       {
         System.out.println(additionalKoord);
