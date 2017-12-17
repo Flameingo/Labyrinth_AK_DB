@@ -58,6 +58,7 @@ public class LabWeg_r_l extends Lab
   
   public LabWeg_r_l(Etage e, float x, float y, float x2, float y2)
   {
+    this.e = e;
     
     float yy = y + WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
     float yy2 = y2 - WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.

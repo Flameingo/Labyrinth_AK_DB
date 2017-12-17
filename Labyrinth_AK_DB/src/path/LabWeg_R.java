@@ -53,6 +53,7 @@ public class LabWeg_R extends Lab
   
   public LabWeg_R(Etage e, float x, float y, float x2, float y2)
   {
+    this.e = e;
     float xx2 = x2 - WandBlock.wdbreite / 2;
     
     add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), 2));

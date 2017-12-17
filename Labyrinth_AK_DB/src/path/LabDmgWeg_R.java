@@ -53,6 +53,7 @@ public class LabDmgWeg_R extends Lab
   
   public LabDmgWeg_R(Etage e, float x, float y, float x2, float y2)
   {
+    this.e = e;
     float xx2 = x2 - WandBlock.wdbreite / 2;
     
     add(new BeschaedigteWandRANDOM(xx2, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), 2));

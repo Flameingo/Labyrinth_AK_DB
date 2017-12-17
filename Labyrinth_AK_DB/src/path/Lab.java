@@ -12,12 +12,15 @@ import params.Material;
 import params.Shape;
 import unused.Testfigur;
 
+import static path.Etage.*;
+
 public class Lab extends Objekt
 {
   private DisplayList          myList       = new DisplayList();
   private LinkedList<Objekt>   myListMoving = new LinkedList<Objekt>();
   
   protected LinkedList<String> hitbox       = new LinkedList<String>();
+  protected Etage              e            = NORMAL;
   
   private final static int     sichtweite   = 4;
   
@@ -64,7 +67,7 @@ public class Lab extends Objekt
           start = 18;
           end = 32;
         }
-        Point ecke = new Point(getA() * 1.5f, -getB() * 1.5f);
+        Point ecke = new Point(getA() * 1.5f, -getB() * 1.5f, 1 + e.wert());
         Point p1 = new Point(ecke);
         Point p2 = new Point(ecke);
         switch (s)
@@ -72,26 +75,26 @@ public class Lab extends Objekt
         case "U":
         case "Rahmen_U":
         case "T_U":
-          p1.add(0, 0, 1);
-          p2.add(-1.5f, 0, 1);
+          p1.add(0, 0, 0);
+          p2.add(-1.5f, 0, 0);
           break;
         case "O":
         case "Rahmen_O":
         case "T_O":
-          p1.add(-1.5f, 1.5f, 1);
-          p2.add(0f, 1.5f, 1);
+          p1.add(-1.5f, 1.5f, 0);
+          p2.add(0f, 1.5f, 0);
           break;
         case "L":
         case "Rahmen_L":
         case "T_L":
-          p1.add(-1.5f, 1.5f, 1);
-          p2.add(-1.5f, 0f, 1);
+          p1.add(-1.5f, 1.5f, 0);
+          p2.add(-1.5f, 0f, 0);
           break;
         case "R":
         case "Rahmen_R":
         case "T_R":
-          p1.add(0, 0, 1);
-          p2.add(0, 1.5f, 1);
+          p1.add(0, 0, 0);
+          p2.add(0, 1.5f, 0);
           break;
         }
         for (int i = start; i <= end; i++)

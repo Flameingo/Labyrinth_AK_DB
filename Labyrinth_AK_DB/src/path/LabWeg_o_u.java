@@ -58,6 +58,7 @@ public class LabWeg_o_u extends Lab
   
   public LabWeg_o_u(Etage e, float x, float y, float x2, float y2)
   {
+    this.e = e;
     
     float xx = x + WandBlock.wdbreite / 2;
     float xx2 = x2 - WandBlock.wdbreite / 2;

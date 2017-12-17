@@ -87,6 +87,7 @@ public class LabEck_ru extends Lab
   
   public LabEck_ru(Etage e, float x, float y, float x2, float y2, boolean bogen, float hoehe)
   {
+    this.e = e;
     
     if (bogen == true) add(new Wand("E", x + 1.75f, y2 - 1.75f, boden + 2.1f * e.wert(), 90, 0, 0, 90, hoehe));
     
