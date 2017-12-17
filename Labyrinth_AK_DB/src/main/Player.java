@@ -1,6 +1,7 @@
 package main;
 
 import basics.Text;
+import basics.Level;
 import basics.Point;
 import models3D.Schalter;
 import path.SchalterFeld;
@@ -8,6 +9,9 @@ import params.*;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static params.Material.*;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Player extends Objekt
 {
@@ -74,11 +78,69 @@ public class Player extends Objekt
       case GLFW_KEY_DOWN:
         if (cam.z > -.8) camRotate(0, -spdUD);
         break;
+      case GLFW_KEY_T:
+        if (Settings.TELEPORT_ENABLED) wantsTeleport = true;
       default:
         break;
       }
     }
     pos.add(0, 0, -.1f);
+  }
+  
+  private boolean            wantsTeleport   = false;
+  private ArrayList<Integer> teleportKoords  = new ArrayList<Integer>();
+  private String             additionalKoord = "";
+  
+  protected void teleport(int key)
+  {
+    if (!wantsTeleport) return;
+    switch (key)
+    {
+    case GLFW_KEY_0:
+      additionalKoord += "0";
+      break;
+    case GLFW_KEY_1:
+      additionalKoord += "1";
+      break;
+    case GLFW_KEY_2:
+      additionalKoord += "2";
+      break;
+    case GLFW_KEY_3:
+      additionalKoord += "3";
+      break;
+    case GLFW_KEY_4:
+      additionalKoord += "4";
+      break;
+    case GLFW_KEY_5:
+      additionalKoord += "5";
+      break;
+    case GLFW_KEY_6:
+      additionalKoord += "6";
+      break;
+    case GLFW_KEY_7:
+      additionalKoord += "7";
+      break;
+    case GLFW_KEY_8:
+      additionalKoord += "8";
+      break;
+    case GLFW_KEY_9:
+      additionalKoord += "9";
+      break;
+    case GLFW_KEY_ENTER:
+      if (additionalKoord != "")
+      {
+        System.out.println(additionalKoord);
+        teleportKoords.add(Integer.parseInt(additionalKoord));
+        additionalKoord = "";
+        if (teleportKoords.size() > 1)
+        {
+          Level level = new Level(teleportKoords.get(0), teleportKoords.get(1));
+          teleportKoords.clear();
+          pos = level.getMitte();
+          wantsTeleport = false;
+        }
+      }
+    }
   }
   
   /** moves the Player to the side */
