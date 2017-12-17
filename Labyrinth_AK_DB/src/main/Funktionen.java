@@ -26,7 +26,8 @@ public class Funktionen extends Objekt{
 							 standd3, 
 							 standd4, 
 							 standd5,
-							 standd6= false;
+							 standd6, 
+							 standdplus = false;
 
 /**
  * 
@@ -51,6 +52,7 @@ public class Funktionen extends Objekt{
 		case "d4": return standd4;
 		case "d5": return standd5;
 		case "d6": return standd6;
+		case "dplus": return standdplus; //Alle Tueren, die sich oeffnen, wenn der letzte Schalter bedient wurde ausser die finale Tuer am Ausgangspunkt.
 		default:
 			return false;
 		}
@@ -83,22 +85,29 @@ public class Funktionen extends Objekt{
 						 Spawner.abschnittBB.hidden = false;
 				break;
 				
-			case "D1": standd1 = true;   // D1 - D5 ... Einwegschalter zum Tueren oeffnen innerhalb von AbschnittD. Chronolisch geordnet. D1 entspricht ebenso
-					 Spawner.dD1.hidden = true;															// standd1, D2 standd2 usw ...
-					 Spawner.dD2.hidden = false; //DD1 unsichtbar, DD2 sichtbar : Waende scheinen sich gedreht zu haben
+			case "D1":   standd1 = true;   			 
+					 	 Spawner.dD1.hidden = true;															
+					 	 Spawner.dD2.hidden = false; //DD1 unsichtbar, DD2 sichtbar : Waende scheinen sich gedreht zu haben
 			 	break;                         
-			 case "D2": standd2 = true;
-			 break;
-			 case "D3": standd3 = true;
-			 break;
-			 case "D4": standd4 = true;
-			 break;
-			 case "D5": standd5 = true;
-			 break;
-			 case "D6": standd6 = true;
-				
-			default:
+			case "D2": standd2 = true;		// D2 - D5 ... Einwegschalter zum Tueren oeffnen innerhalb von AbschnittD. Chronolisch geordnet. 2 entspricht ebenso
+				break;						// standd2, D3 standd3 usw ...
+			case "D3": standd3 = true;
 				break;
+			case "D4": standd4 = true;
+				break;
+			case "D5": standd5 = true;
+				break;
+			case "D6":  standd6 = true; //Stellt die finale Tuer auf "offen"
+			 	    	standd1 = false; //Stellt alle bisher geoeffneten Tueren auf "geschlossen"
+			 			standd2 = false; 
+			 			standd3 = false;
+			 			standd4 = false;
+			 			standd5 = false;
+			 			standdplus = true;  //Oeffnet neue Tueren, die einen alternativen Weg bieten.
+				break;
+			 			
+			 default:
+				 break;
 		}
 			return;
 	}
@@ -118,7 +127,7 @@ public class Funktionen extends Objekt{
 						  Spawner.abschnittC.hidden = false;
 			    break;
 			    
-			case "BC_C": Spawner.abschnittBC.hidden = false; //rueckgaengig
+			 case "BC_C": Spawner.abschnittBC.hidden = false; //rueckgaengig
 						 Spawner.abschnittC.hidden = true;
 						 Spawner.abschnittBB.hidden = true;
 			    break;
@@ -126,6 +135,14 @@ public class Funktionen extends Objekt{
 			case "D1": Spawner.dD1.hidden = false; //rueckgaengig
 					   Spawner.dD2.hidden = true;
 			    break;
+			case "D6":  standd6 = false; //rueckgaengig
+ 	    				standd1 = true;
+ 	    				standd2 = true;
+ 	    				standd3 = true;
+ 	    				standd4 = true;
+ 	    				standd5 = true;
+ 	    				standdplus = false;
+ 	    		break;
 			    
 			default:
 				break;
@@ -142,12 +159,20 @@ public class Funktionen extends Objekt{
 	    Spawner.abschnittBC.hidden = true;
 	    Spawner.abschnittC.hidden = true;
 	    Spawner.abschnittD.hidden = true;
+	    Spawner.abschnittE.hidden = true;
 	    Spawner.dD1.hidden = true;
 	    Spawner.dD2.hidden = true;
 	    
+	    Spawner.boden.hidden = true; //Alle Böden werden unsichtbar.
+	    Spawner.bodenBC.hidden = true;
+	    
 	}
-
 	
+
+	/**
+	 * Positionsabfrage die von Player.step() in jeder Iteration durchgefuehrt wird. Ist der Spieler auf einem "bestimmten" Feld, aktiviert diese Methode
+	 * dann einen bestimmten Effekt im Spiel. 
+	 */
 	public static void koordinatenabfrage() 
 	{
 		if(!Spawner.abschnittD.hidden)
@@ -157,28 +182,30 @@ public class Funktionen extends Objekt{
 					Text.anleitung = false;								//Abfrage kann eventuell in andere Klasse verlegt werden.
 			
 			if(Kompass.getLvlX() == -2 && Kompass.getLvlY() == 14)
-				levelup("2");
+				levelup();
 		}
 		
 		
 	}
-	public static void levelup(String neueslvl)
+	/**
+	 * Exekutive fuer den Stufenaufstieg, befoerdert bei jeder Ausfuehrung den Spieler in die vollstaendige Ausgangssituation des naechsten (Spiel-)Levels.
+	 */
+	public static void levelup()
 	{
-		allHide();
 		
-		switch(neueslvl)
+		allHide();
+		if (Player.myLevel == 1) //Erstes abgeschlossen, zweites erreicht.
 		{
-			case "2": Spawner.abschnittB.hidden = false;
-					  Spawner.abschnittBB.hidden = false;
-					  Spawner.abschnittC.hidden = false;
-					  Labyrinth.player.pos = new Point (3,-1,1);
-				break;
+			Labyrinth.player.pos = new Point (10,5,3);
+			Spawner.abschnittE.hidden = false;
+			Spawner.bodenBC.hidden = false;
 		}
+		Player.myLevel++;
 	}
 	
 
 	//Abstrakte Methoden aus Oberklasse "Objekt" finden hier keine Anwendung.
-	//Nur bei den entsprechenden Unterklassen "Tuer" und "Schalter", diese machen von der
+	//Nur bei den Unterklassen "Tuer" und "Schalter" dieser Klasse "Funktionen", diese machen von der
 	//"Ur"-Oberklasse Objekt Gebrauch.
 
 	

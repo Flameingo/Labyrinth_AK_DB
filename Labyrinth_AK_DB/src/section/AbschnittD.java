@@ -128,7 +128,7 @@ public class AbschnittD extends Objekt
     waende.add(new LabEck_ru(new Level(9, 18)));
     waende.add(new LabTuer_L(new Level(9, 17)));
     waende.add(new LabEck_ro(new Level(9, 16)));
-    waende.add(new LabWeg_U(new Level(8, 16)));
+    waende.add(new LabTuer_U(new Level(8, 16)));
     waende.add(new LabEck_ru(new Level(9, 15)));
     waende.add(new LabWeg_R(new Level(7, 14)));
     waende.add(new LabWeg_o_u(new Level(9, 13)));
@@ -194,7 +194,8 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_O(new Level(12, 10)));
     waende.add(new LabWeg_R(new Level(13, 10)));
     waende.add(new LabWeg_o_u(new Level(13, 9)));
-    waende.add(new LabWeg_o_u(new Level(13, 8)));
+    waende.add(new LabWeg_L(new Level(13, 8)));
+    waende.add(new LabTuer_R(new Level(13,8)));
     waende.add(new LabWeg_o_u(new Level(13, 7)));
     waende.add(new LabEck_lu(new Level(13, 6), true));
     waende.add(new LabWeg_r_l(new Level(12, 6)));
@@ -219,7 +220,8 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_O(new Level(15, 7)));
     waende.add(new LabWeg_O(new Level(16, 7)));
     waende.add(new LabWeg_L(new Level(19, 9)));
-    waende.add(new Sackgasse(new Level(19, 10), "u"));
+    waende.add(new LabEck_lu(new Level(19, 10)));
+    waende.add(new LabTuer_L(new Level(19,10)));
     waende.add(new LabWeg_o_u(new Level(19, 11)));
     waende.add(new LabWeg_o_u(new Level(19, 12)));
     waende.add(new Sackgasse(new Level(18, 13), "o"));
@@ -256,7 +258,8 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_o_u(new Level(19, 17)));
     waende.add(new Sackgasse(new Level(19, 18), "u"));
     waende.add(new LabWeg_o_u(new Level(19, 19)));
-    waende.add(new Sackgasse(new Level(18, 20), "r"));
+    waende.add(new LabEck_ru(new Level(18, 20)));
+    waende.add(new LabTuer_U(new Level(18,20)));
     waende.add(new Sackgasse(new Level(16, 20), "u"));
     waende.add(new LabWeg_O(new Level(15, 20)));
     waende.add(new LabTuer_L(new Level(15, 20)));
@@ -448,6 +451,10 @@ public class AbschnittD extends Objekt
     tueren.add(new Tuer_U("d4", new Level(-5, 21)));
     tueren.add(new Tuer_L("d5", new Level(15, 20)));
     tueren.add(new Tuer_L("d6", new Level(1,14)));
+    tueren.add(new Tuer_U("dplus", new Level(8,16)));
+    tueren.add(new Tuer_R("dplus", new Level(13,8)));
+    tueren.add(new Tuer_L("dplus",new Level(19,10)));
+    tueren.add(new Tuer_U("dplus", new Level(18,20)));
     
     // Schalter
     schalter.add(new SchalterFeld("D1", new Level(6, 26))); //chronologisch geordnet
@@ -455,12 +462,12 @@ public class AbschnittD extends Objekt
     schalter.add(new SchalterFeld("D3", new Level(0, 22)));
     schalter.add(new SchalterFeld("D4", new Level(0, 23)));
     schalter.add(new SchalterFeld("D5", new Level(19, 22)));
-    schalter.add(new SchalterFeld("D6", new Level(36,16)));
+    schalter.add(new SchalterFeld("D6", new Level(36,16))); //Der finale Schalter schliesst alle bisher offenen Tueren, oeffnet die Tuer zum Ziel und alle anderen bisher verschlossenen Tueren.
     
   }
   
   @Override
-  public void step()
+  public void step() //Fuehrt die Grund-Funktionen fuer Objekte aus, indem sie die entsprechende Funktion fuer alle enthaltenen Objekte ausfuehrt.
   {
     
     for (Objekt wand : waende)
@@ -470,13 +477,7 @@ public class AbschnittD extends Objekt
     for (Objekt tuer : tueren)
       tuer.step();
     for (Objekt schalt : schalter)
-    {
       schalt.step();
-//      if(schalt.getA() == Kompass.getLvlX() && schalt.getB() == Kompass.getLvlY()) //Ich weis nicht woran es scheitert...
-// 		Text.tipp1 = true;
-//      else
-//    	Text.tipp1 = false;
-    }
   }
   
   @Override

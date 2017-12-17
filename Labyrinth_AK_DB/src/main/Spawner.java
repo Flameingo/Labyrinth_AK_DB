@@ -17,11 +17,12 @@ public class Spawner extends Objekt
   public static boolean     makeStatic = false;
   
   public static AbschnittA  abschnittA; // Statische Aufrufe, die fuer den Wahrheitswert hidden noetig sind.
-  public static AbschnittB  abschnittB;	// Dieser macht eine bestimmte Displaylist unsichtbar, falls wahr gesetzt.
-  public static AbschnittBB abschnittBB;
+  public static AbschnittB  abschnittB;	// Dieser macht eine bestimmte Displaylist vollstaendig ingame unsichtbar, falls wahr gesetzt.
+  public static AbschnittBB abschnittBB; // Kann aber ebenso jede ingame erscheinen lassen (noetig fuer Funktionen.levelup()). 
   public static AbschnittBC abschnittBC;
   public static AbschnittC  abschnittC;
   public static AbschnittD  abschnittD;
+  public static AbschnittE abschnittE;
   public static DD1 dD1;
   public static DD2 dD2;
   public static Boden boden;
@@ -36,10 +37,15 @@ public class Spawner extends Objekt
     // Vollstaendiger Boden mit 60 x60 und Ursprung als Mittelpunkt.
     boden = new Boden();
     Labyrinth.addObject(boden);
+    boden.hidden = false;
     
     
     abschnittD = new AbschnittD();
     Labyrinth.addObject(abschnittD);
+    
+    abschnittE = new AbschnittE();
+    Labyrinth.addObject(abschnittE);
+    abschnittE.hidden = true;
 
     bodenBC = new BodenBC(); //Boden mit Loechern fuer den Untergrundbereich
     Labyrinth.addObject(bodenBC);
