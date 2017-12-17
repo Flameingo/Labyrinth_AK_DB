@@ -105,10 +105,16 @@ public class Text
   
   public static void draw_text(String string, Point pos, int size)
   {
+    draw_text(string, pos, 0, size);
+  }
+  
+  public static void draw_text(String string, Point pos, float angle, int size)
+  {
     Text.size = size;
     int line = 0;
     glPushMatrix();
     glTranslatef(pos.x, pos.y, pos.z);
+    glRotatef(0, 0, 1, angle);
     for (int i = 0; i < string.length(); i++)
     {
       float charwidth = -.1f; // to cancel the offset when drawing the newline
