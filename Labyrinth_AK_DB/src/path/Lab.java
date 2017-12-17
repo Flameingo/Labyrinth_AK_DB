@@ -60,6 +60,18 @@ public class Lab extends Objekt
       for (String s : hitbox)
       {
         int start = 0, end = 50;
+        if (s.length() == 2)
+        {
+          Point ecke;
+          switch (s)
+          {
+          case "UL":
+          case "UR":
+          case "OL":
+          case "OR":
+          }
+          continue;
+        }
         if (s.startsWith("T_"))
         {
           Tuer tuer = (Tuer) myListMoving.getFirst();
