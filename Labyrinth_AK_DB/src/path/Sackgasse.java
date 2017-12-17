@@ -85,4 +85,8 @@ public class Sackgasse extends Lab
     this.a = lev.x2;
     this.b = lev.y1;
   }
+//  public Sackgasse(Etage e,Level lev, String stase)
+//  {
+//	  if e.wert() == 
+//  }
 }

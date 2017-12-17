@@ -194,9 +194,9 @@ public class Funktionen extends Objekt{
 	{
 		
 		allHide();
-		if (Player.myLevel == 1) //Erstes abgeschlossen, zweites erreicht.
+		if (Player.myLevel == 1) //Erste Stufe abgeschlossen, zweite erreicht.
 		{
-			Labyrinth.player.pos = new Point (10,5,3);
+			Labyrinth.player.pos = new Point (10,-5,3);
 			Spawner.abschnittE.hidden = false;
 			Spawner.bodenBC.hidden = false;
 		}

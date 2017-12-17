@@ -1,6 +1,7 @@
 package section;
 
 import static path.Etage.KELLER;
+import static path.Etage.KELLERD;
 
 import java.util.LinkedList;
 
@@ -12,6 +13,7 @@ import main.Labyrinth;
 import main.Objekt;
 import models3D.DekoKreuz;
 import models3D.DekoSchild;
+import models3D.RundeTreppe;
 import models3D.Tuer;
 import path.*;
 
@@ -28,14 +30,36 @@ public class AbschnittE extends Objekt
   public AbschnittE() //Underground - Abschnitt aus dem zweiten Level | Braucht "BodenBC" anstatt "Boden". 
   {
 	    // Underground
-	    
+	  
+	    waende.add(new RundeTreppe(13.5f, -6, -2.1f, 180, 0, 0, 360, 10));
 	    waende.add(new LabEck_lo(new Level(10, 5), KELLER, true, 2.1f));
 	    waende.add(new LabEck_ro(new Level(9, 5), KELLER, true, 2.1f));
 	    waende.add(new LabEck_lu(new Level(10, 4), KELLER, true, 2f));
 	    waende.add(new LabWeg_L(KELLER, new Level(9, 4)));
 	    waende.add(new LabWeg_o_u(KELLER, new Level(9, 3)));
 	    waende.add(new LabTuer_O(KELLER, new Level(9, 4)));
+	  
 	    
+	    // Overground
+	    
+	    waende.add(new LabEck_lo(new Level(10,5),true));
+	    waende.add(new LabEck_ro(new Level(9,5),true));
+	    waende.add(new LabEck_lu(new Level(10,4)));
+	    waende.add(new LabWeg_L(new Level(9,4)));
+	    waende.add(new LabEck_lu(new Level(9,3)));
+	    waende.add(new LabWeg_r_l(new Level(8,3)));
+	    
+	    //Boden und Deckenplatten + die Treppen
+	    
+	   steine.add(new Steinflaeche(new Level(9, 4), KELLER));
+	   steine.add(new Steinflaeche(new Level(9, 3), KELLER));
+	   steine.add(new Steinflaeche(new Level(9, 4), KELLERD));
+	   steine.add(new Steinflaeche(new Level(9, 3), KELLERD));
+	   steine.add(new Steinflaeche(new Level(9, 5), KELLER));
+	   steine.add(new Steinflaeche(new Level(10, 4), KELLER));
+	   steine.add(new Steinflaeche(new Level(10, 5), KELLER));
+	   steine.add(new Steinflaeche(new Level(10, 4), KELLERD));
+	   
   }
   
   @Override

@@ -241,7 +241,12 @@ public class Labyrinth
    */
   public static void keyboard(int key, int action)
   {
-    if (action == GLFW_PRESS) player.teleport(key);
+    if (action == GLFW_PRESS) 
+    {
+    	player.teleport(key);
+    	if (key == GLFW_KEY_P)
+    		Funktionen.levelup();
+    }
   }
   
   /**

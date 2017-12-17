@@ -38,12 +38,12 @@ public abstract class Objekt // Oberklasse saemtlicher Klassen aus "models3D", "
   public boolean       hidden           = false;
   
   // pos for position, angles for rotation
-  /**
+  /** 5.7f :
    * 1/2 * wandFeld entspricht der Laenge einer Backsteinwand, die OHNE einen floatwert "laenge" uebergeben wird.
    */
   
   public final float   wandFeld         = 5.70f;
-  /**
+  /** 0.016f :
    * Fuer jedes WandBlock-Objekt uebernommener Wert der dessen z-Koordinate anaddiert wird. Folge dessen ist das Objekt
    * auf dem "Boden" stehend und schneidet diesen nicht.
    */

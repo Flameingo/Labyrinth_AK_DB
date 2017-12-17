@@ -86,10 +86,7 @@ public class Player extends Objekt
       case GLFW_KEY_T:
         if (Settings.TELEPORT_ENABLED) wantsTeleport = true;
         break;
-      case GLFW_KEY_P:
-    	if (Settings.SKIP_LEVEL_ENABLED) 
-    		Funktionen.levelup();
-    	break;
+
       default:
         break;
     
