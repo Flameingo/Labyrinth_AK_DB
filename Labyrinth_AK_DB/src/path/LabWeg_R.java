@@ -26,7 +26,7 @@ public class LabWeg_R extends Lab
     
     float xx2 = x2 - WandBlock.wdbreite / 2; //Damit der Wandrand nicht die Grenzen des Feldes ueberragt.
     add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
-    
+    hitbox.add("R");
   }
   
   public LabWeg_R(Level lev, float hoehe)
@@ -56,6 +56,7 @@ public class LabWeg_R extends Lab
     float xx2 = x2 - WandBlock.wdbreite / 2;
     
     add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), 2));
+    hitbox.add("R");
   }
 
 }

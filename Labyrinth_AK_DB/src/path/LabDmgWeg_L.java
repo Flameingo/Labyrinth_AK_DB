@@ -26,7 +26,7 @@ public class LabDmgWeg_L extends Lab
     
     float xx = x + WandBlock.wdbreite / 2;
     add(new BeschaedigteWandRANDOM(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
-    
+    hitbox.add("L");
   }
   
   public LabDmgWeg_L(Level lev, float hoehe)
@@ -55,5 +55,6 @@ public class LabDmgWeg_L extends Lab
   {
     float xx = x + WandBlock.wdbreite / 2;
     add(new BeschaedigteWandRANDOM(xx, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), 2));
+    hitbox.add("L");
   }
 }

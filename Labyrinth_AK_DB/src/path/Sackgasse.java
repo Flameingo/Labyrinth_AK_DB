@@ -38,6 +38,9 @@ public class Sackgasse extends Lab
       add(new Wand((x + x2) / 2 + 0.13f, yy, boden, 0, 0, 0, Math.abs(x2 - x), hoehe));
       add(new Wand((x + x2) / 2 + 0.13f, yy2, boden, 0, 0, 0, Math.abs(x2 - x), hoehe));
       add(new Wand(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
+      hitbox.add("O");
+      hitbox.add("U");
+      hitbox.add("L");
     }
     if (stase == "oben" || stase == "o")
     {
@@ -45,18 +48,27 @@ public class Sackgasse extends Lab
       add(new Wand(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
       add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
       add(new Wand((x + x2) / 2 + 0.13f, yy, boden, 0, 0, 0, Math.abs(x2 - x), hoehe));
+      hitbox.add("L");
+      hitbox.add("R");
+      hitbox.add("U");
     }
     if (stase == "links" || stase == "l")
     {
       add(new Wand((x + x2) / 2 + 0.13f, yy, boden, 0, 0, 0, Math.abs(x2 - x), hoehe));
       add(new Wand((x + x2) / 2 + 0.13f, yy2, boden, 0, 0, 0, Math.abs(x2 - x), hoehe));
       add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
+      hitbox.add("O");
+      hitbox.add("U");
+      hitbox.add("R");
     }
     if (stase == "unten" || stase == "u")
     {
       add(new Wand(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
       add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
       add(new Wand((x + x2) / 2 + 0.13f, yy2, boden, 0, 0, 0, Math.abs(x2 - x), hoehe));
+      hitbox.add("O");
+      hitbox.add("R");
+      hitbox.add("L");
     }
   }
   

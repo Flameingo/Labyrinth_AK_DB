@@ -45,7 +45,8 @@ public class Steinflaeche extends Objekt
     hitbox[2] = new Point(-.7f, .7f, .05f);
     for (Point p : hitbox)
     {
-      
+      p.rotateZ(alpha);
+      p.add(pos);
     }
   }
   
@@ -100,7 +101,7 @@ public class Steinflaeche extends Objekt
     for (int i = 0; i < res; i++)
       for (int j = 0; j < res; j++)
       {
-        Point p = Point.lip(hitbox, (float) i / res, (float) j / res);
+        Point p = Point.lip2(hitbox, (float) i / res, (float) j / res);
         while (Labyrinth.player.hitbox(p))
           Labyrinth.player.pos.z += .1f;
       }

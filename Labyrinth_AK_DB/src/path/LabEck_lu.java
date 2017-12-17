@@ -36,7 +36,8 @@ public class LabEck_lu extends Lab
     float xx2 = x2 - WandBlock.wdbreite / 2;
     
     add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
-    
+    hitbox.add("O");
+    hitbox.add("R");
   }
   
   public LabEck_lu(Level lev, float hoehe, boolean bogen)
@@ -72,7 +73,8 @@ public class LabEck_lu extends Lab
     float xx2 = x2 - WandBlock.wdbreite / 2;
     
     add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
-    
+    hitbox.add("O");
+    hitbox.add("R");
   }
   
   public LabEck_lu(Level lev, Etage e, boolean bogen, float hoehe)
@@ -97,7 +99,8 @@ public class LabEck_lu extends Lab
     float xx2 = x2 - WandBlock.wdbreite / 2;
     
     add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), hoehe));
-    
+    hitbox.add("O");
+    hitbox.add("R");
   }
   
 }

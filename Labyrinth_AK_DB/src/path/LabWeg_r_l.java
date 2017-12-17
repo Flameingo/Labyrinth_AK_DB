@@ -30,7 +30,8 @@ public class LabWeg_r_l extends Lab
     
     add(new Wand((x + x2) / 2 + 0.13f, yy, boden, 0, 0, 0, Math.abs(x2 - x), hoehe));
     add(new Wand((x + x2) / 2 + 0.13f, yy2, boden, 0, 0, 0, Math.abs(x2 - x), hoehe));
-    
+    hitbox.add("U");
+    hitbox.add("O");
   }
   
   public LabWeg_r_l(Level lev, float hoehe)
@@ -63,6 +64,7 @@ public class LabWeg_r_l extends Lab
     
     add(new Wand((x + x2) / 2 + 0.13f, yy, boden + 2.1f * e.wert(), 0, 0, 0, Math.abs(x2 - x), 2));
     add(new Wand((x + x2) / 2 + 0.13f, yy2, boden + 2.1f * e.wert(), 0, 0, 0, Math.abs(x2 - x), 2));
-    
+    hitbox.add("O");
+    hitbox.add("U");
   }
 }

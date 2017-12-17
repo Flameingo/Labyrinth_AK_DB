@@ -135,16 +135,16 @@ public class WandBlock extends Objekt // Oberklasse aller Wand - Klassen.
     this.beta = w2;
     this.gamma = w3;
     
-    myShape.translate(new Point(x, y, z)); // Verantwortlich fuer die Verschiebung der Backsteinmehrheit (Die mit
-                                           // zufaelliger Farbe).
+    myShape.translate(pos); // Verantwortlich fuer die Verschiebung der Backsteinmehrheit (Die mit
+                            // zufaelliger Farbe).
     myShape.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung der Backsteinmehrheit.
     
-    putz.translate(new Point(x, y, z)); // Verantwortlich fuer die Verschiebung des Putzes (Verputz zwischen den Steinen
-                                        // (Quader)).
+    putz.translate(pos); // Verantwortlich fuer die Verschiebung des Putzes (Verputz zwischen den Steinen
+                         // (Quader)).
     putz.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung des Putzes
     
-    stein.translate(new Point(x, y, z)); // Verantwortlich fuer die Verschiebung der (farblich einheitlichen)
-                                         // Randsteine.
+    stein.translate(pos); // Verantwortlich fuer die Verschiebung der (farblich einheitlichen)
+                          // Randsteine.
     stein.rotate(new float[] { alpha, beta, gamma }); // Verantwortlich fuer die Drehung der Randsteine.
   }
   

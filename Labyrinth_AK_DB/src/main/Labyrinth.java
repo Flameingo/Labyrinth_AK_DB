@@ -111,7 +111,7 @@ public class Labyrinth
     glMatrixMode(GL_PROJECTION);
     int far = 4;
     if (!Settings.NEBEL_ON) far = 100;
-    m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.1f, far);
+    m.setPerspective((float) Math.PI / 2f, 16f / 9f, 0.01f, far);
     glLoadIdentity();
     m.get(fb);
     glLoadMatrixf(fb);

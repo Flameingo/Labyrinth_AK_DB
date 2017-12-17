@@ -1,5 +1,7 @@
 package basics;
 
+import static org.lwjgl.opengl.GL11.*;
+
 /** Speichert Koordinatentripel in den Werten "x","y","z" und berechnet daraus verschiedene Hilfsmittel */
 public class Point
 {
@@ -200,6 +202,11 @@ public class Point
     return this;
   }
   
+  public static Point rotateZ(Point p, float angle)
+  {
+    return new Point(p).rotateZ(angle);
+  }
+  
   /** Berechnet den Normalenvektor einer Ebene durch 3 Punkte */
   public static Point normalVector(Point p1, Point p2, Point p3)
   {
@@ -227,7 +234,16 @@ public class Point
     return erg;
   }
   
-  public static Point lip(Point[] p, float ratio1, float ratio2)
+  public static Point lip(Point p1, Point p2, float ratio)
+  {
+    Point erg = new Point(p1.x, p1.y, p1.z);
+    float dist_x = p2.x - p1.x;
+    float dist_y = p2.y - p1.y;
+    erg.add(dist_x * ratio, dist_y * ratio, 0);
+    return erg;
+  }
+  
+  public static Point lip2(Point[] p, float ratio1, float ratio2)
   {
     Point erg = new Point(p[0].x, p[0].y, p[0].z);
     float dist1_x = p[1].x - p[0].x;
@@ -243,6 +259,14 @@ public class Point
   public String toString()
   {
     return String.format("[x= %+.2f , y= %+.2f , z= %+.2f ]", x, y, z);
+  }
+  
+  public void draw()
+  {
+    glPointSize(50);
+    glBegin(GL_POINTS);
+    glVertex3f(x, y, z);
+    glEnd();
   }
   
 }
