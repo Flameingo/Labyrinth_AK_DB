@@ -89,6 +89,7 @@ public class Steinflaeche extends Objekt
     for (Point p : hitbox)
     {
       p.rotateZ(alpha);
+      p.add(.7f, .7f, 0);
       p.add(pos);
     }
   }

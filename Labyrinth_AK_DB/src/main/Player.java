@@ -34,7 +34,7 @@ public class Player extends Objekt
   // hitbox:
   // Zylinder mit Hoehe h_h, Radius h_r
   // Kamera sitzt auf Hoehe k_h und um k_off nach vorne versetzt
-  private final static float h_h     = 1.7f;
+  private final static float h_h     = 1.3f;
   private final static float h_r     = .15f;
   private final static float k_h     = 1.2f;
   // private final static float k_off = 0;
@@ -42,7 +42,7 @@ public class Player extends Objekt
   /**
    * Spieler beginnt im ersten Level und dieser Wert erhoeht sich mit jeder geschafften Ebene.
    */
-  public static int myLevel = 1; //Das aktuelle Spielerlevel
+  public static int          myLevel = 1;                               // Das aktuelle Spielerlevel
   
   @Override
   public void step()
@@ -86,10 +86,10 @@ public class Player extends Objekt
       case GLFW_KEY_T:
         if (Settings.TELEPORT_ENABLED) wantsTeleport = true;
         break;
-
+      
       default:
         break;
-    
+      
       }
     }
     pos.add(0, 0, -.1f);
