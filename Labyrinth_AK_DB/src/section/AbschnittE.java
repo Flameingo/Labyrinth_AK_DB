@@ -103,12 +103,15 @@ public class AbschnittE extends Objekt
 	   steine.add(new Steinflaeche(new Level(13,0),KELLERD));
 	   steine.add(new Steinflaeche(new Level(13,-1),KELLER));
 	   steine.add(new Steinflaeche(new Level(13,-1),KELLERD));
+	   steine.add(new Steinflaeche(new Level(8,1),KELLER));
+	   steine.add(new Steinflaeche(new Level(8,1),KELLERD));
 	   
 	   //Ecksteine
 	   
 	   steine.add(new Eckstein(KELLER,new Level(10,2)));
 	   steine.add(new Eckstein(KELLER,new Level(9,2)));
 	   steine.add(new Eckstein(KELLER,new Level(13,1)));
+	   
 	   
   }
   
