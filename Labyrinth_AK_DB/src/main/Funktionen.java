@@ -200,6 +200,10 @@ public class Funktionen extends Objekt{
 			Spawner.abschnittE.hidden = false;
 			Spawner.bodenBC.hidden = false;
 		}
+		else 
+		{
+			Spawner.boden.hidden = false;
+		}
 		Player.myLevel++;
 	}
 	
