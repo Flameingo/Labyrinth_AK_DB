@@ -6,6 +6,7 @@ import basics.Point;
 import main.*;
 import models3D.DekoKreuz;
 import models3D.DisplayList;
+import models3D.Tuer;
 import params.Kugel;
 import params.Material;
 import params.Shape;
@@ -55,30 +56,48 @@ public class Lab extends Objekt
     {
       for (String s : hitbox)
       {
+        int start = 0, end = 50;
+        if (s.startsWith("T_"))
+        {
+          Tuer tuer = (Tuer) myListMoving.getFirst();
+          if (tuer.getStatus()) continue;
+          start = 18;
+          end = 32;
+        }
         Point ecke = new Point(getA() * 1.5f, -getB() * 1.5f);
         Point p1 = new Point(ecke);
         Point p2 = new Point(ecke);
         switch (s)
         {
         case "U":
+        case "Rahmen_U":
+        case "T_U":
           p1.add(0, 0, 1);
           p2.add(-1.5f, 0, 1);
           break;
         case "O":
+        case "Rahmen_O":
+        case "T_O":
           p1.add(-1.5f, 1.5f, 1);
           p2.add(0f, 1.5f, 1);
           break;
         case "L":
+        case "Rahmen_L":
+        case "T_L":
           p1.add(-1.5f, 1.5f, 1);
           p2.add(-1.5f, 0f, 1);
           break;
         case "R":
+        case "Rahmen_R":
+        case "T_R":
           p1.add(0, 0, 1);
           p2.add(0, 1.5f, 1);
           break;
         }
-        for (int i = 0; i <= 50; i++)
+        for (int i = start; i <= end; i++)
         {
+          if (s.startsWith("Rahmen_") && i > 17 && i < 33) continue;
+          
           Point p = Point.lip(p1, p2, i / 50f);
           if (Labyrinth.player.hitbox(p))
           {
@@ -87,6 +106,10 @@ public class Lab extends Objekt
             {
             case "U":
             case "O":
+            case "Rahmen_O":
+            case "Rahmen_U":
+            case "T_O":
+            case "T_U":
               if (Labyrinth.player.pos.y > p.y)
                 dir = 1;
               else dir = -1;
@@ -97,6 +120,10 @@ public class Lab extends Objekt
               break;
             case "L":
             case "R":
+            case "Rahmen_R":
+            case "Rahmen_L":
+            case "T_R":
+            case "T_L":
               if (Labyrinth.player.pos.x > p.x)
                 dir = 1;
               else dir = -1;

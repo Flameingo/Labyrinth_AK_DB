@@ -11,6 +11,7 @@ public class Tuer_L extends Lab
   public Tuer_L(String name, float x, float y, float z)
   {
     addMoving(new Tuer(name, x, y, z, 270, 0, 0));
+    hitbox.add("T_L");
   }
   
   public Tuer_L(String name, Level lev)
