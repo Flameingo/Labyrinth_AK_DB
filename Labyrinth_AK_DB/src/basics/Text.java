@@ -17,7 +17,7 @@ public class Text
   private static char[]   chars      = {};
   private static String[] strings    = {};
   
-  private static int      size;
+  private static float    size;
   public static boolean   anleitung  = true;
   public static boolean   payrespect = false;
   public static boolean   tipp1      = false;
@@ -103,18 +103,22 @@ public class Text
     }
   }
   
-  public static void draw_text(String string, Point pos, int size)
+  public static void draw_text_3D(String string, Point pos, float angle, float f)
   {
-    draw_text(string, pos, 0, size);
+    glPushMatrix();
+    glTranslatef(pos.x, pos.y, pos.z);
+    glRotatef(angle, 0, 0, 1);
+    glRotatef(90, 1, 0, 0);
+    draw_text(string, new Point(0, 0, 0), f);
+    glPopMatrix();
   }
   
-  public static void draw_text(String string, Point pos, float angle, int size)
+  public static void draw_text(String string, Point pos, float f)
   {
-    Text.size = size;
+    Text.size = f;
     int line = 0;
     glPushMatrix();
     glTranslatef(pos.x, pos.y, pos.z);
-    glRotatef(0, 0, 1, angle);
     for (int i = 0; i < string.length(); i++)
     {
       float charwidth = -.1f; // to cancel the offset when drawing the newline
@@ -130,7 +134,7 @@ public class Text
         glPopMatrix();
         glPushMatrix();
         line++;
-        glTranslatef(pos.x, pos.y - size * line * 1.2f, pos.z);
+        glTranslatef(pos.x, pos.y - f * line * 1.2f, pos.z);
         i++;
       } else
       {
@@ -139,7 +143,7 @@ public class Text
         charwidth = ret[0];
         i += ret[1];
       }
-      glTranslatef(size * charwidth + .1f * size, 0, 0);
+      glTranslatef(f * charwidth + .1f * f, 0, 0);
     }
     glPopMatrix();
   }
