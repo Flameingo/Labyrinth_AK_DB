@@ -20,11 +20,12 @@ public class Player extends Objekt
   private final float        spdSIDE = Settings.PlayerSideStepSpeed;
   
   // Position im Spiel
-
-  public Point               pos     = new Point(0.5f,-20,1);            // fuer AbschnittB&C (0,-1,1) /fuer AbschnittD (0.5f, -20, 1)
-
+  
+  public Point               pos     = new Point(0.5f, -20.5f, 0);      // fuer AbschnittB&C (0,-1,1) /fuer AbschnittD
+  // (0.5f, -20, 1)
+  
   // Kameraausrichtung
-  Point                      cam     = new Point(1, 0, 0);
+  Point                      cam     = new Point(1, 0, 0).rotateZ(45);
   
   // hitbox:
   // Zylinder mit Hoehe h_h, Radius h_r
@@ -37,8 +38,8 @@ public class Player extends Objekt
   @Override
   public void step()
   {
-	Funktionen.koordinatenabfrage();
-	
+    Funktionen.koordinatenabfrage();
+    
     for (int key : Labyrinth.keys)
     {
       // bewegungen anhand WASD und arrow-keys einleiten.
