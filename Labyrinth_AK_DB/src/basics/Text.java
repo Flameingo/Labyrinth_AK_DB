@@ -17,7 +17,7 @@ public class Text
   private static char[]   chars      = {};
   private static String[] strings    = {};
   
-  private static int      size;
+  private static float    size;
   public static boolean   anleitung  = true;
   public static boolean   payrespect = false;
   public static boolean   tipp1      = false;
@@ -105,10 +105,16 @@ public class Text
   
   public static void draw_text(String string, Point pos, int size)
   {
+    draw_text(string, pos, 0, size);
+  }
+  
+  public static void draw_text(String string, Point pos, float angle, int size)
+  {
     Text.size = size;
     int line = 0;
     glPushMatrix();
     glTranslatef(pos.x, pos.y, pos.z);
+    glRotatef(0, 0, 1, angle);
     for (int i = 0; i < string.length(); i++)
     {
       float charwidth = -.1f; // to cancel the offset when drawing the newline
@@ -124,7 +130,7 @@ public class Text
         glPopMatrix();
         glPushMatrix();
         line++;
-        glTranslatef(pos.x, pos.y - size * line * 1.2f, pos.z);
+        glTranslatef(pos.x, pos.y - f * line * 1.2f, pos.z);
         i++;
       } else
       {
@@ -133,7 +139,7 @@ public class Text
         charwidth = ret[0];
         i += ret[1];
       }
-      glTranslatef(size * charwidth + .1f * size, 0, 0);
+      glTranslatef(f * charwidth + .1f * f, 0, 0);
     }
     glPopMatrix();
   }
