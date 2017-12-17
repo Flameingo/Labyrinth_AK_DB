@@ -67,7 +67,7 @@ public class Lab extends Objekt
           start = 18;
           end = 32;
         }
-        Point ecke = new Point(getA() * 1.5f, -getB() * 1.5f, 1 + e.wert());
+        Point ecke = new Point(getA() * 1.5f, -getB() * 1.5f, 1 + e.wert() * 2.1f);
         Point p1 = new Point(ecke);
         Point p2 = new Point(ecke);
         switch (s)
