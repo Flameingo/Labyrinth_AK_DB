@@ -24,7 +24,7 @@ public class Lab extends Objekt
   
   private final static int     sichtweite   = 4;
   
-  public void step()
+  public void hide_unhide()
   {
     hidden = false;
     int lowx = Kompass.getLvlX() - sichtweite;
@@ -35,6 +35,10 @@ public class Lab extends Objekt
     int nowy = getB();
     int highy = lowy + 2 * sichtweite;
     if (lowy >= nowy || nowy >= highy) hidden = true;
+  }
+  
+  public void step()
+  {
     if (!hidden)
     {
       myList.step();
@@ -59,19 +63,47 @@ public class Lab extends Objekt
     {
       for (String s : hitbox)
       {
-        int start = 0, end = 50;
         if (s.length() == 2)
         {
-          Point ecke;
+          Point ecke = new Point(getA() * 1.5f, -getB() * 1.5f, 1 + e.wert() * 2.1f);
+          Point wand = new Point(ecke);
           switch (s)
           {
           case "UL":
+            ecke.add(0, 1.5f, 0);
+            wand.add(-1.5f, 1.5f, 0);
+            break;
           case "UR":
+            ecke.add(-1.5f, 1.5f, 0);
+            wand.add(-1.5f, 0, 0);
+            break;
           case "OL":
+            ecke.add(0, 0, 0);
+            wand.add(0, 1.5f, 0);
+            break;
           case "OR":
+            ecke.add(-1.5f, 0, 0);
+            wand.add(0, 0, 0);
+            break;
+          }
+          for (int i = 0; i <= 18; i++)
+          {
+            float fact = (i / 9f) - 1;
+            fact *= fact;
+            fact = (fact + 17) / 18;
+            fact = (float) Math.pow(fact, 2.5f);
+            Point dist = Point.add(wand, Point.mult(ecke, -1));
+            dist.mult(fact);
+            Point hit = Point.add(ecke, dist);
+            while (Labyrinth.player.hitbox(hit))
+            {
+              Labyrinth.player.pos.add(Point.add(ecke, Point.mult(hit, -1)).mult(1f / 150));
+            }
+            wand.rotateZ(5, ecke);
           }
           continue;
         }
+        int start = 0, end = 50;
         if (s.startsWith("T_"))
         {
           Tuer tuer = (Tuer) myListMoving.getFirst();

@@ -15,17 +15,21 @@ import path.*;
 
 public class AbschnittD extends Objekt
 {
-  protected LinkedList<Objekt> waende = new LinkedList<Objekt>(); //Objekte die eine oder mehrere Waende des Spiels beinhalten
+  protected LinkedList<Lab>    waende   = new LinkedList<Lab>();    // Objekte die eine oder mehrere Waende des Spiels
+                                                                    // beinhalten
   
-  protected LinkedList<Objekt> steine = new LinkedList<Objekt>(); //Objekte wie Ecksteine, Bodenplatten oder Dekoartikel, die keinen direkten Einfluss haben
+  protected LinkedList<Objekt> steine   = new LinkedList<Objekt>(); // Objekte wie Ecksteine, Bodenplatten oder
+                                                                    // Dekoartikel, die keinen direkten Einfluss haben
   
-  protected LinkedList<Objekt> tueren = new LinkedList<Objekt>(); //Ausschliesslich Tueren, Tuerrahmen sind in der List der Waende.
+  protected LinkedList<Lab>    tueren   = new LinkedList<Lab>();    // Ausschliesslich Tueren, Tuerrahmen sind in der
+                                                                    // List der Waende.
   
-  protected LinkedList<Objekt> schalter = new LinkedList<Objekt>(); //Ausschliesslich Schalter
+  protected LinkedList<Objekt> schalter = new LinkedList<Objekt>(); // Ausschliesslich Schalter
   
-  public AbschnittD() //Gesamte Aufstellung des ersten Levels, ausgenommen des Mechanismusses DD1/DD2 sind alle im ersten Level enthaltenen Objekte hier zu finden.
+  public AbschnittD() // Gesamte Aufstellung des ersten Levels, ausgenommen des Mechanismusses DD1/DD2 sind alle im
+                      // ersten Level enthaltenen Objekte hier zu finden.
   {
-	waende.add(new LabTuer_L(new Level(1,14)));
+    waende.add(new LabTuer_L(new Level(1, 14)));
     waende.add(new LabEck_ru(new Level(-5, 21)));
     waende.add(new LabWeg_r_l(new Level(-4, 21)));
     waende.add(new LabEck_lo(new Level(-3, 21)));
@@ -101,7 +105,7 @@ public class AbschnittD extends Objekt
     waende.add(new LabDmgWeg_R(new Level(3, 13)));
     waende.add(new LabWeg_r_l(new Level(2, 13)));
     waende.add(new LabWeg_L(new Level(1, 13)));
-    waende.add(new LabDmgWeg_U(new Level(1,13)));
+    waende.add(new LabDmgWeg_U(new Level(1, 13)));
     waende.add(new LabEck_ru(new Level(1, 12)));
     waende.add(new LabEck_ru(new Level(3, 12)));
     waende.add(new LabWeg_r_l(new Level(4, 12)));
@@ -195,7 +199,7 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_R(new Level(13, 10)));
     waende.add(new LabWeg_o_u(new Level(13, 9)));
     waende.add(new LabWeg_L(new Level(13, 8)));
-    waende.add(new LabTuer_R(new Level(13,8)));
+    waende.add(new LabTuer_R(new Level(13, 8)));
     waende.add(new LabWeg_o_u(new Level(13, 7)));
     waende.add(new LabEck_lu(new Level(13, 6), true));
     waende.add(new LabWeg_r_l(new Level(12, 6)));
@@ -221,7 +225,7 @@ public class AbschnittD extends Objekt
     waende.add(new LabWeg_O(new Level(16, 7)));
     waende.add(new LabWeg_L(new Level(19, 9)));
     waende.add(new LabEck_lu(new Level(19, 10)));
-    waende.add(new LabTuer_L(new Level(19,10)));
+    waende.add(new LabTuer_L(new Level(19, 10)));
     waende.add(new LabWeg_o_u(new Level(19, 11)));
     waende.add(new LabWeg_o_u(new Level(19, 12)));
     waende.add(new Sackgasse(new Level(18, 13), "o"));
@@ -259,7 +263,7 @@ public class AbschnittD extends Objekt
     waende.add(new Sackgasse(new Level(19, 18), "u"));
     waende.add(new LabWeg_o_u(new Level(19, 19)));
     waende.add(new LabEck_ru(new Level(18, 20)));
-    waende.add(new LabTuer_U(new Level(18,20)));
+    waende.add(new LabTuer_U(new Level(18, 20)));
     waende.add(new Sackgasse(new Level(16, 20), "u"));
     waende.add(new LabWeg_O(new Level(15, 20)));
     waende.add(new LabTuer_L(new Level(15, 20)));
@@ -393,15 +397,15 @@ public class AbschnittD extends Objekt
     waende.add(new LabEck_lu(new Level(24, 15)));
     waende.add(new LabWeg_U(new Level(24, 16)));
     waende.add(new LabWeg_r_l(new Level(25, 16)));
-    waende.add(new Sackgasse(new Level(26, 16),"l"));
+    waende.add(new Sackgasse(new Level(26, 16), "l"));
     waende.add(new LabTuer_U(new Level(-5, 21)));
     waende.add(new LabGitter("o", new Level(10, 19)));
     waende.add(new LabGitter("u", new Level(23, 24)));
     waende.add(new LabGitter("l", new Level(15, 5)));
     waende.add(new LabTuer_U(new Level(16, 11)));
-    for(int i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++)
     {
-    	waende.add(new LabWeg_r_l(new Level(-i,14)));
+      waende.add(new LabWeg_r_l(new Level(-i, 14)));
     }
     
     // Ecksteine
@@ -432,17 +436,16 @@ public class AbschnittD extends Objekt
     steine.add(new Eckstein(new Level(5, 7)));
     steine.add(new Eckstein(new Level(19, 15)));
     steine.add(new Eckstein(new Level(2, 16)));
-    steine.add(new Eckstein(new Level(17,23)));
-    steine.add(new Eckstein(new Level(18,25)));
-    steine.add(new Eckstein(new Level(21,25)));
-    steine.add(new Eckstein(new Level(1,21)));
-    steine.add(new Eckstein(new Level(11,24)));
-    steine.add(new Eckstein(new Level(12,13)));
+    steine.add(new Eckstein(new Level(17, 23)));
+    steine.add(new Eckstein(new Level(18, 25)));
+    steine.add(new Eckstein(new Level(21, 25)));
+    steine.add(new Eckstein(new Level(1, 21)));
+    steine.add(new Eckstein(new Level(11, 24)));
+    steine.add(new Eckstein(new Level(12, 13)));
     steine.add(new DekoKreuz(new Level(6, 13), "ru"));
-    steine.add(new DekoSchild(0.35f,-19.7f,0,-60,0,0));
+    steine.add(new DekoSchild(0.35f, -19.7f, 0, -60, 0, 0));
     
-    
-    // Tueren 
+    // Tueren
     tueren.add(new Tuer_O("d1", new Level(9, 8)));
     tueren.add(new Tuer_L("d2", new Level(1, 21)));
     tueren.add(new Tuer_L("d21", new Level(1, 28)));
@@ -450,34 +453,44 @@ public class AbschnittD extends Objekt
     tueren.add(new Tuer_U("d31", new Level(16, 11)));
     tueren.add(new Tuer_U("d4", new Level(-5, 21)));
     tueren.add(new Tuer_L("d5", new Level(15, 20)));
-    tueren.add(new Tuer_L("d6", new Level(1,14)));
-    tueren.add(new Tuer_U("dplus", new Level(8,16)));
-    tueren.add(new Tuer_R("dplus", new Level(13,8)));
-    tueren.add(new Tuer_L("dplus",new Level(19,10)));
-    tueren.add(new Tuer_U("dplus", new Level(18,20)));
+    tueren.add(new Tuer_L("d6", new Level(1, 14)));
+    tueren.add(new Tuer_U("dplus", new Level(8, 16)));
+    tueren.add(new Tuer_R("dplus", new Level(13, 8)));
+    tueren.add(new Tuer_L("dplus", new Level(19, 10)));
+    tueren.add(new Tuer_U("dplus", new Level(18, 20)));
     
     // Schalter
-    schalter.add(new SchalterFeld("D1", new Level(6, 26))); //chronologisch geordnet
-    schalter.add(new SchalterFeld("D2", new Level(12, 9)));	//die sich oeffnenden Tueren haben klein-d plus die gleiche Folgeziffer wie dieser Befehl
+    schalter.add(new SchalterFeld("D1", new Level(6, 26))); // chronologisch geordnet
+    schalter.add(new SchalterFeld("D2", new Level(12, 9))); // die sich oeffnenden Tueren haben klein-d plus die gleiche
+                                                            // Folgeziffer wie dieser Befehl
     schalter.add(new SchalterFeld("D3", new Level(0, 22)));
     schalter.add(new SchalterFeld("D4", new Level(0, 23)));
     schalter.add(new SchalterFeld("D5", new Level(19, 22)));
-    schalter.add(new SchalterFeld("D6", new Level(36,16))); //Der finale Schalter schliesst alle bisher offenen Tueren, oeffnet die Tuer zum Ziel und alle anderen bisher verschlossenen Tueren.
+    schalter.add(new SchalterFeld("D6", new Level(36, 16))); // Der finale Schalter schliesst alle bisher offenen
+                                                             // Tueren, oeffnet die Tuer zum Ziel und alle anderen
+                                                             // bisher verschlossenen Tueren.
     
   }
   
   @Override
-  public void step() //Fuehrt die Grund-Funktionen fuer Objekte aus, indem sie die entsprechende Funktion fuer alle enthaltenen Objekte ausfuehrt.
+  public void step() // Fuehrt die Grund-Funktionen fuer Objekte aus, indem sie die entsprechende Funktion fuer alle
+                     // enthaltenen Objekte ausfuehrt.
   {
     
-    for (Objekt wand : waende)
+    for (Lab wand : waende)
+    {
+      wand.hide_unhide();
       wand.step();
+    }
     for (Objekt stein : steine)
-      stein.step();
-    for (Objekt tuer : tueren)
+      if (!stein.hidden) stein.step();
+    for (Lab tuer : tueren)
+    {
+      tuer.hide_unhide();
       tuer.step();
+    }
     for (Objekt schalt : schalter)
-      schalt.step();
+      if (!schalt.hidden) schalt.step();
   }
   
   @Override
@@ -487,11 +500,11 @@ public class AbschnittD extends Objekt
     for (Objekt wand : waende)
       wand.collision();
     for (Objekt stein : steine)
-      stein.collision();
+      if (!stein.hidden) stein.collision();
     for (Objekt tuer : tueren)
       tuer.collision();
     for (Objekt schalt : schalter)
-      schalt.collision();
+      if (!schalt.hidden) schalt.collision();
   }
   
   @Override
@@ -501,11 +514,11 @@ public class AbschnittD extends Objekt
     for (Objekt wand : waende)
       wand.draw();
     for (Objekt stein : steine)
-      stein.draw();
+      if (!stein.hidden) stein.draw();
     for (Objekt tuer : tueren)
       tuer.draw();
     for (Objekt schalt : schalter)
-      schalt.draw();
+      if (!schalt.hidden) schalt.draw();
   }
   
   @Override
@@ -514,11 +527,11 @@ public class AbschnittD extends Objekt
     for (Objekt wand : waende)
       wand.drawGUI();
     for (Objekt stein : steine)
-      stein.drawGUI();
+      if (!stein.hidden) stein.drawGUI();
     for (Objekt tuer : tueren)
       tuer.drawGUI();
     for (Objekt schalt : schalter)
-      schalt.drawGUI();
+      if (!schalt.hidden) schalt.drawGUI();
     
   }
 }

@@ -157,8 +157,7 @@ public class Labyrinth
   public static void renderLoop()
   {
     for (Objekt o : objekte)
-      // if (!o.hidden) o.step();
-      o.step();
+      if (!o.hidden) o.step();
     for (Objekt o : objekte)
       if (!o.hidden) o.collision();
     player.updatecam();
@@ -241,11 +240,10 @@ public class Labyrinth
    */
   public static void keyboard(int key, int action)
   {
-    if (action == GLFW_PRESS) 
+    if (action == GLFW_PRESS)
     {
-    	player.teleport(key);
-    	if (key == GLFW_KEY_P)
-    		Funktionen.levelup();
+      player.teleport(key);
+      if (key == GLFW_KEY_P) Funktionen.levelup();
     }
   }
   

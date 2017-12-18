@@ -48,7 +48,6 @@ public class Player extends Objekt
   public void step()
   {
     Funktionen.koordinatenabfrage();
-    
     for (int key : Labyrinth.keys)
     {
       // bewegungen anhand WASD und arrow-keys einleiten.
