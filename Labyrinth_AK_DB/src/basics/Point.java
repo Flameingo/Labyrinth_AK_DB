@@ -193,12 +193,12 @@ public class Point
    */
   public Point rotateZ(float angle)
   {
-    float len = length("xy");
-    int xsign = (int) Math.signum(x);
-    float arc = (float) Math.atan(y / Math.abs(x));
-    arc += angle * (float) Math.PI / 180;
-    x = (float) Math.cos(arc) * len * xsign;
-    y = (float) Math.sin(arc) * len;
+    float sinus = (float) Math.sin(Math.PI * angle / 180);
+    float cosinus = (float) Math.cos(Math.PI * angle / 180);
+    float x_t = x;
+    float y_t = y;
+    x = cosinus * x_t - sinus * y_t;
+    y = sinus * x_t + cosinus * y_t;
     return this;
   }
   
