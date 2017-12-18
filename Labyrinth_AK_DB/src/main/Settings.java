@@ -26,9 +26,8 @@ public final class Settings
   
   public final static float   RenderSolution          = 0;                       // Grafikeinstellung, Spiel ist auf Wert 0 angepasst,
   																				 // Hoehere Werte benoetigen leistungsstarken Rechner.
-                                                                                  
                                                                                  // Bestimmt wie fein die Facettierung
-                                                                                 // der Objekte ist. 5 ist Richtwert.
+                                                                                 // der Objekte ist. .
   
   public final static float   PlayerRotationLeftRight = (float) (Math.PI / 60);  // Bestimmmt wie schnell Drehungen der
                                                                                  // Spielerkamera durch die Pfeiltasten

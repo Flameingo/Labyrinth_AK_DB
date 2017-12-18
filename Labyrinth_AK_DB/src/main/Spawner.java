@@ -42,9 +42,9 @@ public class Spawner extends Objekt
     Labyrinth.addObject(boden);
     boden.hidden = false;
     
-     abschnittD = new AbschnittD();
+     abschnittD = new AbschnittD(); //Alle Objekte aus Abschnitt D mit dD1/dD2.
      Labyrinth.addObject(abschnittD);
-    // abschnittD.hidden = true;
+  
     
     abschnittE = new AbschnittE();
     Labyrinth.addObject(abschnittE);
@@ -54,10 +54,10 @@ public class Spawner extends Objekt
     Labyrinth.addObject(bodenBC);
     bodenBC.hidden = true;
     
-    dD1 = new DD1();
-    Labyrinth.addObject(dD1);
+    dD1 = new DD1();			//Aktiv fuer erster Schalter "D1" in Ausgangsstellung. Produziert auf Level(7,12) zwei parallele Waende
+    Labyrinth.addObject(dD1);	
     
-    dD2 = new DD2();
+    dD2 = new DD2();           //Erster Schalter umgelegt. Szenario aus DD1 um 90 grad gedreht.
     Labyrinth.addObject(dD2);
     dD2.hidden = true;
     
