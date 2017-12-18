@@ -1,6 +1,8 @@
 package path;
 
 import basics.Level;
+import basics.Text;
+import main.Kompass;
 import main.Objekt;
 import models3D.Schalter;
 
@@ -48,6 +50,11 @@ public class SchalterFeld extends Objekt
     {
       sch.step();
     }
+    if(this.getA() == Kompass.getLvlX() && this.getB() == Kompass.getLvlY())
+    	Text.tipp1 = true;
+  
+    if(this.getA() != Kompass.getLvlX() || this.getB() != Kompass.getLvlY())
+    	Text.tipp1 = false;
   }
   
   @Override

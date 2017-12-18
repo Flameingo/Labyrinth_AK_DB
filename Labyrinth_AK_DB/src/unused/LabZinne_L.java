@@ -1,4 +1,4 @@
-package path;
+package unused;
 
 import basics.Level;
 import basics.Point;
@@ -7,6 +7,8 @@ import models3D.Wand;
 import models3D.WandBlock;
 import models3D.Zinne;
 import params.Material;
+import path.Etage;
+import path.Lab;
 
 public class LabZinne_L extends Lab
 {
