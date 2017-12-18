@@ -154,11 +154,11 @@ public class Funktionen extends Objekt{
 	 */
 	public static void allHide()
 	{
-		Spawner.abschnittB.hidden = true;
-		Spawner.abschnittBB.hidden = true;
-	    Spawner.abschnittBC.hidden = true;
-	    Spawner.abschnittC.hidden = true;
-	    Spawner.abschnittD.hidden = true;
+//		Spawner.abschnittB.hidden = true;
+//		Spawner.abschnittBB.hidden = true;
+//	    Spawner.abschnittBC.hidden = true;
+//	    Spawner.abschnittC.hidden = true;
+//	    Spawner.abschnittD.hidden = true;
 	    Spawner.abschnittE.hidden = true;
 	    Spawner.dD1.hidden = true;
 	    Spawner.dD2.hidden = true;
@@ -175,16 +175,22 @@ public class Funktionen extends Objekt{
 	 */
 	public static void koordinatenabfrage() 
 	{
-		if(!Spawner.abschnittD.hidden)
+		try
 		{
-			if (Text.anleitung)	
-				if(Kompass.getLvlX() == 3 && Kompass.getLvlY() == 14)   // Auf dem dritten Feld wird die anfangs sichtbare Anleitung verschwinden. Dieses Feld muss immer ueberlaufen werden.
-					Text.anleitung = false;								//Abfrage kann eventuell in andere Klasse verlegt werden.
+			if(!Spawner.abschnittD.hidden)
+			{
+				if (Text.anleitung)	
+					if(Kompass.getLvlX() == 3 && Kompass.getLvlY() == 14)   // Auf dem dritten Feld wird die anfangs sichtbare Anleitung verschwinden. Dieses Feld muss immer ueberlaufen werden.
+						Text.anleitung = false;								//Abfrage kann eventuell in andere Klasse verlegt werden.
 			
-			if(Kompass.getLvlX() == -2 && Kompass.getLvlY() == 14)
-				levelup();
+				if(Kompass.getLvlX() == -2 && Kompass.getLvlY() == 14)
+					levelup();
+				}
 		}
-		
+		catch(Exception e)
+		{
+			return;
+		}
 		
 	}
 	/**
@@ -196,7 +202,7 @@ public class Funktionen extends Objekt{
 		allHide();
 		if (Player.myLevel == 1) //Erste Stufe abgeschlossen, zweite erreicht.
 		{
-			Labyrinth.player.pos = new Point (10,-5,0);
+			Labyrinth.player.pos = new Point (10,-4,0);
 			Spawner.abschnittE.hidden = false;
 			Spawner.bodenBC.hidden = false;
 		}

@@ -89,8 +89,7 @@ public class LabEck_lu extends Lab
   {
     this.e = e;
     
-    if (bogen == true) add(new Wand("E", x2 - 1.75f, y2 - 1.75f, boden + 2.1f * e.wert(), 0, 0, 0, 90, hoehe));
-    if (bogen == false) add(new Wand("E", x2, y2, boden + 2.1f * e.wert(), 180, 0, 0, 90, hoehe));
+    if (bogen == true) add(new Wand("E", x2 - 1.76f, y2 - 1.76f, boden + 2.1f * e.wert(), 0, 0, 0, 90, hoehe));
     
     float yy = y + WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
     float yy2 = y2 - WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
