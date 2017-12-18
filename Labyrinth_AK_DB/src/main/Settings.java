@@ -6,7 +6,7 @@ public final class Settings
   // changed easily.
   
   // dev settings
-  public static final boolean FPS_ON                  = true;                    // Gibt ingame im Eck oben links
+  public static final boolean FPS_ON                  = false;                    // Gibt ingame im Eck oben links
                                                                                  // konstant die aktuelle Anzahl an
                                                                                  // Frames per Second an.
   public static final boolean DrawPlayerPOS           = false;                   // Gibt den Standort des Spielers in
@@ -20,7 +20,7 @@ public final class Settings
                                                                                  // einschraenkt. Fuer den optimalen
                                                                                  // Spielverlauf auf "true" zu stellen!
   
-  public static final boolean SHOW_CURRENT_LEVEL       = true;                   // Zeigt welches Level der Spieler gerade spielt.
+  public static final boolean SHOW_CURRENT_LEVEL       = false;                   // Zeigt welches Level der Spieler gerade spielt.
   
   /** controls the resolution of all drawn Objects */
   
@@ -42,7 +42,7 @@ public final class Settings
                                                                                  // 0.05f
   
   // cheats
-  public static final boolean SHOW_LEVEL              = true;                    // Gibt im Spiel die Position zur
+  public static final boolean SHOW_LEVEL              = false;                    // Gibt im Spiel die Position zur
                                                                                  // Orientierung in Koordinaten
                                                                                  // (Feldkoordinate Level) an.
   
@@ -50,7 +50,7 @@ public final class Settings
   
   
   
-  public static final boolean TELEPORT_ENABLED        = true;                    //Druecke "t" ingame und gib anschließend A-Koordinate - Enter - B-Koordinate - Enter ein um dich auf
+  public static final boolean TELEPORT_ENABLED        = true;                    //Druecke "t" ingame und gib anschlieï¿½end A-Koordinate - Enter - B-Koordinate - Enter ein um dich auf
   																				 //das Feld mit den entsprechenden Indizes zu teleportieren.
   // modis
   public static final boolean DARKNESS_MODE           = false;
