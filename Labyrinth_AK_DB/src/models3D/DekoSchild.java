@@ -17,16 +17,14 @@ public class DekoSchild extends Objekt
   private String  myString    = "/mu/SInn";
   private Point   placeString = new Point(0, 0, 0);
   
-  public DekoSchild(float x, float y, float z, float alpha, float beta, float gamma) // warum muss es auch so verdammt
-                                                                                     // schwer sein einen Ring zu
-                                                                                     // konstruieren...
+  public DekoSchild(float x, float y, float z, float alpha, float beta, float gamma) //Platziert ein Schild mit Standart-Beschriftung "myString".
   {
     this.pos = new Point(x, y, z);
     this.alpha = alpha;
     this.beta = beta;
     this.gamma = gamma;
     pushZusatzAufloesung(3);
-    brett.addParam(new Quader("Mitte", 0.01f, 0.5f, 0.5f), new Point(0, 0, 1)); // Das Brett des Schildes an das
+    brett.addParam(new Quader("Mitte", 0.01f, 0.6f, 0.5f), new Point(0, 0, 1)); // Das Brett des Schildes an das
                                                                                 // Botschaften geheftet werden koennen
     stock.addParam(new Zylinder(0.01f, 0.01f, 0.75f));
     
@@ -40,8 +38,17 @@ public class DekoSchild extends Objekt
     
     placeString = new Point(.006f,-.24f,1.175f).rotateZ(alpha);
   }
-  
-  public DekoSchild(String myString, float x, float y, float z, float alpha, float beta, float gamma)
+  /**Platziert Schild an vorgegebenem Ort mit vorgegebener Drehung.
+   * 
+   * @param myString Schildaufschrift, "/n" fuer Zeilenumbruch.
+   * @param x
+   * @param y
+   * @param z
+   * @param alpha
+   * @param beta
+   * @param gamma
+   */
+  public DekoSchild(String myString, float x, float y, float z, float alpha, float beta, float gamma) 
   {
     this(x, y, z, alpha, beta, gamma);
     this.myString = myString;
@@ -56,7 +63,7 @@ public class DekoSchild extends Objekt
   public DekoSchild(String eck, Level lev) // r ist rechts, o ist oben, u ist unten, l ist links
   {
     pushZusatzAufloesung(3);
-    brett.addParam(new Quader("Mitte", 0.01f, 0.5f, 0.5f), new Point(0, 0, 1)); // Das Brett des Schildes an das
+    brett.addParam(new Quader("Mitte", 0.01f, 0.6f, 0.5f), new Point(0, 0, 1)); // Das Brett des Schildes an das
                                                                                 // Botschaften geheftet werden koennen
     stock.addParam(new Zylinder(0.01f, 0.01f, 0.75f));
     popZusatzAufloesung(); // Das Feld wird nach den Kriterien von Level

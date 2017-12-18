@@ -20,13 +20,13 @@ public final class Settings
                                                                                  // einschraenkt. Fuer den optimalen
                                                                                  // Spielverlauf auf "true" zu stellen!
   
-  public static final boolean SHOW_CURRENT_LEVEL       = true;                   //Zeigt welches Level der Spieler gerade spielt.
+  public static final boolean SHOW_CURRENT_LEVEL       = true;                   // Zeigt welches Level der Spieler gerade spielt.
   
   /** controls the resolution of all drawn Objects */
   
-  public final static float   RenderSolution          = 0;                       // Grafikeinstellung, wobei 0 der
-                                                                                 // niedrigsten Aufloesung entspricht,
-                                                                                 // verbessert sich fuer groes
+  public final static float   RenderSolution          = 0;                       // Grafikeinstellung, Spiel ist auf Wert 0 angepasst,
+  																				 // Hoehere Werte benoetigen leistungsstarken Rechner.
+                                                                                  
                                                                                  // Bestimmt wie fein die Facettierung
                                                                                  // der Objekte ist. 5 ist Richtwert.
   

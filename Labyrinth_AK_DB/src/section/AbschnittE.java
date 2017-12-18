@@ -240,7 +240,7 @@ public class AbschnittE extends Objekt
 	   
 	   //Deko
 	   
-	   steine.add(new DekoSchild(11*1.5f,6*1.5f,0,30,0,0));
+	   steine.add(new DekoSchild("/n   TRY/n  CATCH/n   RAUM",11*1.5f-1f,5.5f*1.5f,0,210,0,0));
 	   
 	   //Tueren
 	   

@@ -446,7 +446,9 @@ public class AbschnittD extends Objekt
     //Deko
     
     steine.add(new DekoKreuz(new Level(6, 13), "ru"));
-    steine.add(new DekoSchild(0.35f, -19.7f, 0, -60, 0, 0));
+    steine.add(new DekoSchild("/n   Finde/n    den/n Ausgang",0.35f, -19.7f, 0, -60, 0, 0));
+    steine.add(new DekoSchild("/n   \"Der/n   Kopf/n   ist/n   rund", 10.1f,-21.4f,0,210,0,0));
+    steine.add(new DekoSchild(" damit das /nDenken die/n Richtung/n wechseln/n  kann\"",11,-32.5f,0,105,0,0));
     
     // Tueren
     tueren.add(new Tuer_O("d1", new Level(9, 8)));
