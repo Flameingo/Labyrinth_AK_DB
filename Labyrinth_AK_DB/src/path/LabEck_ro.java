@@ -39,6 +39,7 @@ public class LabEck_ro extends Lab
     add(new Wand(xx, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
     hitbox.add("L");
     hitbox.add("U");
+    hitbox.add("UL");
   }
   
   public LabEck_ro(Level lev, float hoehe, boolean bogen)
@@ -102,6 +103,7 @@ public class LabEck_ro extends Lab
     add(new Wand(xx, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), hoehe));
     hitbox.add("L");
     hitbox.add("U");
+    hitbox.add("UL");
   }
   
 }

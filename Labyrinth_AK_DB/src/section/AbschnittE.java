@@ -82,7 +82,7 @@ public class AbschnittE extends Objekt
 	    waende.add(new LabEck_lu(new Level(11,-4),KELLER,true,2.1f));
 	    waende.add(new LabEck_ru(new Level(8,-3),KELLER,false,2));
 	    waende.add(new LabWeg_O(KELLER,new Level(9,-3)));
-//	    waende.add(new L)
+
 	    
 	    // Overground
 	    
@@ -92,9 +92,15 @@ public class AbschnittE extends Objekt
 	    waende.add(new LabWeg_L(new Level(9,4)));
 	    waende.add(new LabEck_lu(new Level(9,3)));
 	    waende.add(new LabWeg_r_l(new Level(8,3)));
+	    waende.add(new LabWeg_r_l(new Level(7,3)));
+	    waende.add(new LabWeg_O(new Level(6,3)));
+	    waende.add(new LabWeg_r_l(new Level(5,3)));
+	    waende.add(new LabEck_ro(new Level(4,3)));
+	    waende.add(new LabWeg_o_u(new Level(4,2)));
+	    waende.add(new Sackgasse(new Level(4,1),"u"));
 	    
 	    
-	    //...
+	    //other Side
 	    
 	    waende.add(new LabEck_ru(new Level(10,-4),true));
 	    waende.add(new LabEck_lu(new Level(11,-4),true));
@@ -104,6 +110,18 @@ public class AbschnittE extends Objekt
 	    waende.add(new LabWeg_U(new Level(10,-2)));
 	    waende.add(new LabWeg_r_l(new Level(9,-2)));
 	    waende.add(new LabWeg_U(new Level(11,-2)));
+	    waende.add(new LabEck_lo(new Level(12,-2)));
+	    waende.add(new LabWeg_R(new Level(12,-3)));
+	    waende.add(new LabWeg_R(new Level(12,-4)));
+	    waende.add(new Sackgasse(new Level(12,-5),"u"));
+	    waende.add(new LabWeg_r_l(new Level(8,-2)));
+	    waende.add(new LabWeg_L(new Level(7,-2)));
+	    waende.add(new LabWeg_o_u(new Level(7,-3)));
+	    waende.add(new LabWeg_o_u(new Level(7,-1)));
+	    waende.add(new LabTuer_O(new Level(7,-1)));
+	    
+	    
+	    tueren.add(new Tuer_O("E1",new Level(7,-1)));
 	    
 	    //Boden und Deckenplatten + die Treppen
 	    
@@ -200,6 +218,7 @@ public class AbschnittE extends Objekt
 	   steine.add(new Eckstein(KELLER, new Level(6,-1)));
 	   steine.add(new Eckstein(KELLER, new Level(10,0)));
 	   steine.add(new Eckstein(KELLER, new Level(10,-3)));
+	   steine.add(new Eckstein(new Level(8,-2)));
   }
   
   @Override

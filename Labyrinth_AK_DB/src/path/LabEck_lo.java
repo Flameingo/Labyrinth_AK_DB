@@ -26,7 +26,6 @@ public class LabEck_lo extends Lab
   {
     
     if (bogen == true) add(new Wand("E", x2 - 1.76f, y + 1.76f, boden, 270, 0, 0, 90, hoehe));
-   
     
     float yy = y + WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
     float yy2 = y2 - WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
@@ -39,6 +38,7 @@ public class LabEck_lo extends Lab
     add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden, 90, 0, 0, Math.abs(y2 - y), hoehe));
     hitbox.add("U");
     hitbox.add("R");
+    hitbox.add("UR");
   }
   
   public LabEck_lo(Level lev, float hoehe, boolean bogen)
@@ -88,8 +88,9 @@ public class LabEck_lo extends Lab
   public LabEck_lo(Etage e, float x, float y, float x2, float y2, boolean bogen, float hoehe)
   {
     this.e = e;
-    
-    if (bogen == true) add(new Wand("E", x2 - 1.76f, y + 1.76f, boden + e.wert() * 2.1f, 270, 0, 0, 90, hoehe));
+
+    if (bogen == true) add(new Wand("E", x2 - 1.75f, y + 1.75f, boden + e.wert() * 2.1f, 270, 0, 0, 90, hoehe));
+
     
     float yy = y + WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
     float yy2 = y2 - WandBlock.wdbreite / 2; // Damit die Wandbreite nicht die gewaehlten Grenzen ueberragt.
@@ -102,6 +103,7 @@ public class LabEck_lo extends Lab
     add(new Wand(xx2, (y + y2) / 2 + 0.13f, boden + 2.1f * e.wert(), 90, 0, 0, Math.abs(y2 - y), hoehe));
     hitbox.add("U");
     hitbox.add("R");
+    hitbox.add("UR");
   }
   
 }
