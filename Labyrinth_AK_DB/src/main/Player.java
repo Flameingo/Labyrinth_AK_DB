@@ -44,6 +44,8 @@ public class Player extends Objekt
    */
   public static int          myLevel = 1;                               // Das aktuelle Spielerlevel
   
+  protected static boolean FINISH; //you have beaten them all
+  
   @Override
   public void step()
   {
@@ -254,6 +256,14 @@ public class Player extends Objekt
   {
     Text.draw_test();
     if (Settings.FPS_ON) Text.draw_text("" + (int) Main.fps, new Point(700, 540), 50);
+    
+    if(FINISH)
+    {
+		Text.draw_text("HFT", new Point(250,450), 90);
+    	Text.draw_text("is proud", new Point(180,300), 90);
+    	Text.draw_text("of you", new Point(220, 150), 90);
+    }
+	
   }
   
   @Override

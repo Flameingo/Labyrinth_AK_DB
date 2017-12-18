@@ -27,7 +27,8 @@ public class Funktionen extends Objekt{
 							 standd4, 
 							 standd5,
 							 standd6, 
-							 standdplus = false;
+							 standdplus,
+							 stande1             =        false;
 
 /**
  * 
@@ -105,7 +106,9 @@ public class Funktionen extends Objekt{
 			 			standd5 = false;
 			 			standdplus = true;  //Oeffnet neue Tueren, die einen alternativen Weg bieten.
 				break;
-			 			
+			case "E1":  stande1 = true; //Oeffnet die erste Tuere von AbschnittE.
+				break;
+				
 			 default:
 				 break;
 		}
@@ -128,8 +131,8 @@ public class Funktionen extends Objekt{
 			    break;
 			    
 			 case "BC_C": Spawner.abschnittBC.hidden = false; //rueckgaengig
-						 Spawner.abschnittC.hidden = true;
-						 Spawner.abschnittBB.hidden = true;
+						  Spawner.abschnittC.hidden = true;
+						  Spawner.abschnittBB.hidden = true;
 			    break;
 			    
 			case "D1": Spawner.dD1.hidden = false; //rueckgaengig
@@ -143,7 +146,7 @@ public class Funktionen extends Objekt{
  	    				standd5 = true;
  	    				standdplus = false;
  	    		break;
-			    
+		    
 			default:
 				break;
 		}
@@ -154,10 +157,7 @@ public class Funktionen extends Objekt{
 	 */
 	public static void allHide()
 	{
-//		Spawner.abschnittB.hidden = true;
-//		Spawner.abschnittBB.hidden = true;
-//	    Spawner.abschnittBC.hidden = true;
-//	    Spawner.abschnittC.hidden = true;
+
 //	    Spawner.abschnittD.hidden = true;
 	    Spawner.abschnittE.hidden = true;
 	    Spawner.dD1.hidden = true;
@@ -199,24 +199,27 @@ public class Funktionen extends Objekt{
 	public static void levelup()
 	{
 		
-		allHide();
+		allHide(); //Nimmt alle bestehenden Objekte aus dem Spiel, um die Welt neu zu erschaffen.
+		
 		if (Player.myLevel == 1) //Erste Stufe abgeschlossen, zweite erreicht.
 		{
-			Labyrinth.player.pos = new Point (10,-4,0);
-			Spawner.abschnittE.hidden = false;
-			Spawner.bodenBC.hidden = false;
+			Text.anleitung = false; 					//Im Falle dass jemand direkt das erste Level skipt.
+			Labyrinth.player.pos = new Point (10,-4,0); //Positionierung im neuen Abschnitt.
+			Spawner.abschnittE.hidden = false; 												//Das zweite Level setzt sich aus AbschnittE 
+			Spawner.bodenBC.hidden = false;													//und Boden zusammen.
 		}
-		else 
+		if (Player.myLevel == 2)
 		{
-			Spawner.boden.hidden = false;
+			Spawner.boden.hidden = false;				//Ausnahmefall, wenn alle Level geschafft wurden.
+			Player.FINISH = true;
 		}
-		Player.myLevel++;
+		Player.myLevel++; //Setzt den Stufencounter eins hoch!
 	}
 	
 
-	//Abstrakte Methoden aus Oberklasse "Objekt" finden hier keine Anwendung.
-	//Nur bei den Unterklassen "Tuer" und "Schalter" dieser Klasse "Funktionen", diese machen von der
-	//"Ur"-Oberklasse Objekt Gebrauch.
+				//Abstrakte Methoden aus Oberklasse "Objekt" finden hier keine Anwendung.
+				//Nur bei den Unterklassen "Tuer" und "Schalter" dieser Klasse "Funktionen", diese machen von der
+				//"Ur"-Oberklasse Objekt Gebrauch.
 
 	
 	
@@ -239,8 +242,8 @@ public class Funktionen extends Objekt{
 	}
 
 	@Override
-	public void drawGUI() {
-		
+	public void drawGUI() 
+	{
 		
 	}
 	

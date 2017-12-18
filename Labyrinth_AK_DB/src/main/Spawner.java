@@ -40,8 +40,8 @@ public class Spawner extends Objekt
     boden.hidden = false;
     
     
-//    abschnittD = new AbschnittD();
-//    Labyrinth.addObject(abschnittD);
+    abschnittD = new AbschnittD();
+    Labyrinth.addObject(abschnittD);
 //    abschnittD.hidden = true;
     
     abschnittE = new AbschnittE();
