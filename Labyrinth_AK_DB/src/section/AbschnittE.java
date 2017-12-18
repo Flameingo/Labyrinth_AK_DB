@@ -124,6 +124,19 @@ public class AbschnittE extends Objekt
 	    waende.add(new LabWeg_o_u(new Level(7,-1)));
 	    waende.add(new LabTuer_O(new Level(7,-1)));
 	    
+	    //Weg zum Try - Catch - Raum:
+	    
+	    waende.add(new LabTuer_U(new Level(7,-3)));
+	    waende.add(new LabWeg_o_u(new Level(7,-4)));
+	    waende.add(new LabWeg_o_u(new Level(7,-5)));
+	    waende.add(new LabEck_ru(new Level(7,-6)));
+	    waende.add(new LabWeg_r_l(new Level(8,-6)));
+	    waende.add(new LabWeg_r_l(new Level(9,-6)));
+	    waende.add(new LabWeg_O(new Level(10,-6)));
+	    waende.add(new LabEck_lu(new Level(11,-6)));
+	    waende.add(new LabWeg_R(new Level(11,-5)));
+	    waende.add(new LabWeg_L(new Level(10,-5)));
+	    
 	    
 	    //Boden und Deckenplatten + die Treppen
 	    
@@ -223,15 +236,21 @@ public class AbschnittE extends Objekt
 	   steine.add(new Eckstein(new Level(8,-2)));
 	   steine.add(new Eckstein(new Level(5,3)));
 	   steine.add(new Eckstein(new Level(7,6)));
+	   steine.add(new Eckstein(new Level(10,4)));
+	   
+	   //Deko
+	   
+	   steine.add(new DekoSchild(11*1.5f,6*1.5f,0,30,0,0));
 	   
 	   //Tueren
 	   
 	    tueren.add(new Tuer_O("e1",new Level(7,-1)));
+	    tueren.add(new Tuer_U("e2", new Level(7,-3)));
 	    
 	    //Schalter
 	    
 	    schalter.add(new SchalterFeld("E1",new Level(8,6)));
-	   
+	    schalter.add(new SchalterFeld("E2", new Level(11,-6)));
   }
   
   @Override

@@ -28,7 +28,8 @@ public class Funktionen extends Objekt{
 							 standd5,
 							 standd6, 
 							 standdplus,
-							 stande1             =        false;
+							 stande1,
+							 stande2                  =        false;
 
 /**
  * 
@@ -54,6 +55,8 @@ public class Funktionen extends Objekt{
 		case "d5": return standd5;
 		case "d6": return standd6;
 		case "dplus": return standdplus; //Alle Tueren, die sich oeffnen, wenn der letzte Schalter bedient wurde ausser die finale Tuer am Ausgangspunkt.
+		case "e1": return stande1;
+		case "e2": return stande2;
 		default:
 			return false;
 		}
@@ -108,6 +111,7 @@ public class Funktionen extends Objekt{
 				break;
 			case "E1":  stande1 = true; //Oeffnet die erste Tuere von AbschnittE.
 				break;
+			case "E2": stande2 = true; //... zweite Tuere ...
 				
 			 default:
 				 break;

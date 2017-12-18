@@ -43,9 +43,9 @@ public class Spawner extends Objekt
     boden.hidden = false;
 
     
-    abschnittD = new AbschnittD();
-    Labyrinth.addObject(abschnittD);
-//    abschnittD.hidden = true;
+//    abschnittD = new AbschnittD();
+//    Labyrinth.addObject(abschnittD);
+////    abschnittD.hidden = true;
     
     abschnittE = new AbschnittE();
     Labyrinth.addObject(abschnittE);
@@ -55,22 +55,7 @@ public class Spawner extends Objekt
     Labyrinth.addObject(bodenBC);
     bodenBC.hidden = true;
     
-    // abschnittB = new AbschnittB();
-    // Labyrinth.addObject(abschnittB);
-    // abschnittB.hidden = true;
-    //
-    // abschnittBB = new AbschnittBB();
-    // Labyrinth.addObject(abschnittBB);
-    // abschnittBB.hidden = true;
-    //
-    // abschnittBC = new AbschnittBC();
-    // Labyrinth.addObject(abschnittBC);
-    // abschnittBC.hidden = true;
-    //
-    // abschnittC = new AbschnittC();
-    // Labyrinth.addObject(abschnittC);
-    // abschnittC.hidden = true;
-    
+
     dD1 = new DD1();
     Labyrinth.addObject(dD1);
     

@@ -442,6 +442,9 @@ public class AbschnittD extends Objekt
     steine.add(new Eckstein(new Level(1, 21)));
     steine.add(new Eckstein(new Level(11, 24)));
     steine.add(new Eckstein(new Level(12, 13)));
+    
+    //Deko
+    
     steine.add(new DekoKreuz(new Level(6, 13), "ru"));
     steine.add(new DekoSchild(0.35f, -19.7f, 0, -60, 0, 0));
     
